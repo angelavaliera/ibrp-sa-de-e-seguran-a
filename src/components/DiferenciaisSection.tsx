@@ -1,24 +1,24 @@
 import { motion } from "framer-motion";
-import { Compass, Flame, GitBranch, Gauge } from "lucide-react";
+import { ShieldCheck, Zap, Users, BarChart3 } from "lucide-react";
 
 const differentials = [
   {
-    icon: Compass,
+    icon: ShieldCheck,
     title: "100% Adequada à Realidade Brasileira",
     description: "Metodologia exclusiva para o contexto cultural e legislativo nacional, superando modelos estrangeiros que ignoram as particularidades do trabalho no Brasil.",
   },
   {
-    icon: Flame,
+    icon: Zap,
     title: "Metodologia Nativa Pós-Pandemia",
     description: "Enquanto as ferramentas tradicionais datam de 1980 a 2017, o IBRP utiliza uma inteligência concebida para os desafios reais do mundo do trabalho contemporâneo.",
   },
   {
-    icon: GitBranch,
+    icon: Users,
     title: "Abrangência de Modelos de Contratação",
     description: "Diagnóstico com métricas específicas para colaboradores presenciais, híbridos e remotos, atendendo plenamente aos regimes CLT e PJ.",
   },
   {
-    icon: Gauge,
+    icon: BarChart3,
     title: "Flexibilidade e Métricas Estratégicas",
     description: "Customização avançada com indicadores exclusivos como Leadership NPS e Employee NPS para resultados sustentáveis.",
   },
@@ -52,8 +52,8 @@ const DiferenciaisSection = () => {
               transition={{ delay: i * 0.1 }}
               className="text-center p-6"
             >
-              <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
-                <diff.icon className="h-7 w-7 text-primary" />
+              <div className="flex items-center justify-center mx-auto mb-5">
+                <diff.icon className="h-8 w-8 text-primary" strokeWidth={1.5} />
               </div>
               <h3 className="text-lg font-heading font-bold mb-2">{diff.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{diff.description}</p>
