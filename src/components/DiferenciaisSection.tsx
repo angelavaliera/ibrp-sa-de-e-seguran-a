@@ -1,24 +1,24 @@
 import { motion } from "framer-motion";
-import { MapPin, Sparkles, Network, SlidersHorizontal } from "lucide-react";
+import { Compass, Flame, GitBranch, Gauge } from "lucide-react";
 
 const differentials = [
   {
-    icon: MapPin,
+    icon: Compass,
     title: "100% Adequada à Realidade Brasileira",
     description: "Metodologia exclusiva para o contexto cultural e legislativo nacional, superando modelos estrangeiros que ignoram as particularidades do trabalho no Brasil.",
   },
   {
-    icon: Sparkles,
+    icon: Flame,
     title: "Metodologia Nativa Pós-Pandemia",
     description: "Enquanto as ferramentas tradicionais datam de 1980 a 2017, o IBRP utiliza uma inteligência concebida para os desafios reais do mundo do trabalho contemporâneo.",
   },
   {
-    icon: Network,
+    icon: GitBranch,
     title: "Abrangência de Modelos de Contratação",
     description: "Diagnóstico com métricas específicas para colaboradores presenciais, híbridos e remotos, atendendo plenamente aos regimes CLT e PJ.",
   },
   {
-    icon: SlidersHorizontal,
+    icon: Gauge,
     title: "Flexibilidade e Métricas Estratégicas",
     description: "Customização avançada com indicadores exclusivos como Leadership NPS e Employee NPS para resultados sustentáveis.",
   },
