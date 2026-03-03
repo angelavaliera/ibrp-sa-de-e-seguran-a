@@ -10,7 +10,7 @@ const differentials = [
   {
     icon: Zap,
     title: "Metodologia Nativa Pós-Pandemia",
-    description: "Enquanto as ferramentas tradicionais datam de 1980 a 2017, o IBRP utiliza uma inteligência concebida para os desafios reais do mundo do trabalho contemporâneo.",
+    description: "Enquanto as ferramentas tradicionais datam de 1980 a 2017, o IBRP utiliza uma inteligência concebida para os desafios reais do mundo do trabalho atual, desenvolvida em 2025.",
   },
   {
     icon: Users,
