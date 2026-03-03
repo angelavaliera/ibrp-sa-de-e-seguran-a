@@ -1,39 +1,41 @@
 import { motion } from "framer-motion";
-import { QrCode, ClipboardList, Activity } from "lucide-react";
+import stepQrcode from "@/assets/step-qrcode.jpg";
+import stepTraining from "@/assets/step-training.jpg";
+import stepMonitoring from "@/assets/step-monitoring.jpg";
 
 const steps = [
   {
     step: "01",
-    icon: QrCode,
+    image: stepQrcode,
+    imageAlt: "Colaborador usando celular para responder pesquisa via QR Code",
     title: "Inventário de Riscos",
     description: "Coleta de dados via QR Code com questionários validados cientificamente. Processo rápido, anônimo e acessível para todos os colaboradores.",
-    color: "from-indigo-brand to-verde-selva",
   },
   {
     step: "02",
-    icon: ClipboardList,
+    image: stepTraining,
+    imageAlt: "Líderes em sessão de treinamento e desenvolvimento",
     title: "Plano de Ação",
     description: "Desenvolvimento de treinamentos personalizados e revisão de processos organizacionais com base nos dados coletados.",
-    color: "from-verde-selva to-caqui",
   },
   {
     step: "03",
-    icon: Activity,
+    image: stepMonitoring,
+    imageAlt: "Profissional analisando dashboard de indicadores de saúde mental",
     title: "Monitoramento Contínuo",
     description: "Acompanhamento permanente dos indicadores de saúde mental e clima organizacional com relatórios periódicos.",
-    color: "from-caqui to-fucsia",
   },
 ];
 
 const ServicesSection = () => {
   return (
-    <section id="servicos" className="py-20 bg-muted/30">
+    <section id="servicos" className="py-24 bg-muted/30">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-14"
+          className="text-center mb-16"
         >
           <span className="text-sm font-medium text-primary uppercase tracking-widest">Soluções NR-1</span>
           <h2 className="text-3xl md:text-4xl font-heading font-bold mt-3 mb-4">
@@ -54,17 +56,26 @@ const ServicesSection = () => {
               transition={{ delay: i * 0.15 }}
               className="relative group"
             >
-              <div className="rounded-2xl border border-border bg-card p-8 h-full hover:border-primary/30 transition-colors"
+              <div className="rounded-2xl border border-border bg-card overflow-hidden h-full hover:border-primary/30 transition-all hover:shadow-lg"
                 style={{ boxShadow: "var(--shadow-card)" }}
               >
-                <div className={`text-6xl font-heading font-bold bg-gradient-to-r ${step.color} bg-clip-text text-transparent opacity-30 mb-4`}>
-                  {step.step}
+                {/* Image */}
+                <div className="relative h-52 overflow-hidden">
+                  <img
+                    src={step.image}
+                    alt={step.imageAlt}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-4 left-4 w-12 h-12 rounded-xl bg-white/90 backdrop-blur-sm flex items-center justify-center">
+                    <span className="text-lg font-heading font-bold text-primary">{step.step}</span>
+                  </div>
                 </div>
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
-                  <step.icon className="h-7 w-7 text-primary" />
+
+                {/* Content */}
+                <div className="p-7">
+                  <h3 className="text-xl font-heading font-bold mb-3">{step.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{step.description}</p>
                 </div>
-                <h3 className="text-xl font-heading font-bold mb-3">{step.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{step.description}</p>
               </div>
             </motion.div>
           ))}
