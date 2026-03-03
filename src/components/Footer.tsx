@@ -1,4 +1,4 @@
-import logoHorizontal from "@/assets/logo-horizontal-white.png";
+import logoHorizontal from "@/assets/logo-horizontal-black.png";
 import { ExternalLink } from "lucide-react";
 
 const Footer = () => {

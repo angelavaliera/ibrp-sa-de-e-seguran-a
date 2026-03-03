@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoHorizontal from "@/assets/logo-horizontal-white.png";
+import logoHorizontal from "@/assets/logo-horizontal-black.png";
 
 const navItems = [
   { label: "Início", href: "#inicio" },
