@@ -14,7 +14,7 @@ const navItems = [
 
 const clientLinks = [
   { label: "Questionário", href: "https://gestaoriscospsicossociais.com.br/questionario" },
-  { label: "AVA - Ambiente Virtual", href: "https://gestaoriscospsicossociais.com.br/ava" },
+  { label: "Ambiente Virtual de Aprendizagem", href: "https://gestaoriscospsicossociais.com.br/ava" },
 ];
 
 const NavLink = ({ item, onClick }: { item: typeof navItems[0]; onClick?: () => void }) => {
