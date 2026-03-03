@@ -9,7 +9,7 @@ const steps = [
     image: stepQrcode,
     imageAlt: "Colaborador usando celular para responder pesquisa via QR Code",
     title: "Inventário de Riscos Psicossociais",
-    description: "Coleta de dados via QR Code com questionários validados cientificamente. Processo rápido, anônimo e acessível para todos os colaboradores.",
+    description: "Coleta de percepção dos colaboradores via QR Code com questionário validado, anônimo e acessível, precedida por palestra de sensibilização para garantir engajamento. As respostas são cruzadas com dados técnicos da organização, obtidos por checklist orientado. O resultado é um inventário detalhado, em total conformidade com a NR-1.",
   },
   {
     step: "02",
