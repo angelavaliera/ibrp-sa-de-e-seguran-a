@@ -25,6 +25,16 @@ function mapArticle(raw: any): BlogArticle {
     coverCredit: raw.coverImage?.credit ?? undefined,
     category: raw.category ?? "NR-1",
     author: raw.author ?? "",
+    guestAuthor: raw.guestAuthor?.name
+      ? {
+          name: raw.guestAuthor.name,
+          photo: raw.guestAuthor.photo ? urlFor(raw.guestAuthor.photo).width(200).height(200).quality(80).url() : undefined,
+          bio: raw.guestAuthor.bio ?? undefined,
+          linkedin: raw.guestAuthor.linkedin ?? undefined,
+          instagram: raw.guestAuthor.instagram ?? undefined,
+          email: raw.guestAuthor.email ?? undefined,
+        }
+      : undefined,
     publishedAt: raw.publishedAt ?? "",
     readTime: raw.readTime ?? 5,
     excerpt: raw.excerpt ?? "",
@@ -51,6 +61,14 @@ const ARTICLE_FIELDS = `
   coverImage { ..., caption, credit },
   category,
   author,
+  guestAuthor {
+    name,
+    photo,
+    bio,
+    linkedin,
+    instagram,
+    email
+  },
   publishedAt,
   readTime,
   excerpt,
