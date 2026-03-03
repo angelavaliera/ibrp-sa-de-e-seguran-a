@@ -61,7 +61,7 @@ const ARTICLE_FIELDS = `
   coverImage { ..., caption, credit },
   category,
   author,
-  guestAuthor {
+  guestAuthor-> {
     name,
     photo,
     bio,
