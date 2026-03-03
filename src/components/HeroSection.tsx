@@ -41,7 +41,7 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button size="lg" className="bg-gradient-brand hover:opacity-90 transition-opacity text-lg px-8 py-6 rounded-xl glow">
+            <Button size="lg" className="bg-gradient-brand hover:opacity-90 transition-opacity text-lg px-8 py-6 rounded-xl glow" onClick={() => document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" })}>
               Solicitar Diagnóstico
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>

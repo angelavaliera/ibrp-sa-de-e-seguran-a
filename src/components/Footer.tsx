@@ -1,22 +1,11 @@
 import logoHorizontal from "@/assets/logo-horizontal-black.png";
 import { ExternalLink, Youtube, Instagram, Linkedin } from "lucide-react";
+import NewsletterSignup from "@/components/NewsletterSignup";
 
 const socialLinks = [
-  {
-    label: "YouTube",
-    href: "https://www.youtube.com/@IBRP.riscos.psicossociais",
-    icon: Youtube,
-  },
-  {
-    label: "Instagram",
-    href: "https://www.instagram.com/ibrp.riscos.psicossociais/",
-    icon: Instagram,
-  },
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/company/ibrp/",
-    icon: Linkedin,
-  },
+  { label: "YouTube", href: "https://www.youtube.com/@IBRP.riscos.psicossociais", icon: Youtube },
+  { label: "Instagram", href: "https://www.instagram.com/ibrp.riscos.psicossociais/", icon: Instagram },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/ibrp/", icon: Linkedin },
 ];
 
 const Footer = () => {
@@ -49,7 +38,7 @@ const Footer = () => {
       {/* Footer nav */}
       <div className="border-t border-border bg-muted/20 py-14">
         <div className="container mx-auto">
-          <div className="grid md:grid-cols-3 gap-10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
             <div>
               <img src={logoHorizontal} alt="IBRP" className="h-10 mb-4" />
               <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
@@ -64,6 +53,7 @@ const Footer = () => {
                 <li><a href="#servicos" className="hover:text-foreground transition-colors">Soluções NR-1</a></li>
                 <li><a href="#palestras" className="hover:text-foreground transition-colors">Palestras</a></li>
                 <li><a href="#cursos" className="hover:text-foreground transition-colors">Cursos</a></li>
+                <li><a href="#contato" className="hover:text-foreground transition-colors">Contato</a></li>
               </ul>
             </div>
 
@@ -91,6 +81,10 @@ const Footer = () => {
                   </a>
                 </li>
               </ul>
+            </div>
+
+            <div>
+              <NewsletterSignup variant="footer" />
             </div>
           </div>
 
