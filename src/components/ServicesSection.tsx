@@ -8,15 +8,15 @@ const steps = [
     step: "01",
     image: stepQrcode,
     imageAlt: "Colaborador usando celular para responder pesquisa via QR Code",
-    title: "Inventário de Riscos",
+    title: "Inventário de Riscos Psicossociais",
     description: "Coleta de dados via QR Code com questionários validados cientificamente. Processo rápido, anônimo e acessível para todos os colaboradores.",
   },
   {
     step: "02",
     image: stepTraining,
     imageAlt: "Líderes em sessão de treinamento e desenvolvimento",
-    title: "Plano de Ação",
-    description: "Desenvolvimento de treinamentos personalizados e revisão de processos organizacionais com base nos dados coletados.",
+    title: "Plano de Ação e Intervenção Direta",
+    description: "Desenvolvemos estratégias sob as diretrizes da NR-1. O IBRP realiza treinamentos e palestras (online ou presenciais) com total rigor documental: registros de presença, avaliações e certificação. Atuamos também na orientação para revisão de processos e criação de canais internos de escuta e denúncia.",
   },
   {
     step: "03",
