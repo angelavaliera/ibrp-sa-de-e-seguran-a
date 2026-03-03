@@ -10,7 +10,7 @@ export interface BlogArticle {
   publishedAt: string;
   readTime: number;
   excerpt: string;
-  body: string; // HTML rich text
+  body: any; // Portable Text blocks or HTML string
   dataHighlight?: DataHighlight;
   sources?: Source[];
   metaTitle?: string;

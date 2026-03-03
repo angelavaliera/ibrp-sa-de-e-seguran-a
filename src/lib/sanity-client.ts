@@ -54,7 +54,7 @@ const ARTICLE_FIELDS = `
   publishedAt,
   readTime,
   excerpt,
-  "body": pt::text(body),
+  body,
   dataHighlight,
   sources,
   metaTitle,
