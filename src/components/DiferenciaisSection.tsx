@@ -20,7 +20,7 @@ const differentials = [
   {
     icon: BarChart3,
     title: "Flexibilidade e Métricas Estratégicas",
-    description: "Customização avançada com indicadores exclusivos como Leadership NPS e Employee NPS para resultados sustentáveis.",
+    description: "Customização avançada com indicadores estratégicos como Leadership NPS e Employee NPS para resultados mais amplos e sustentáveis.",
   },
 ];
 
