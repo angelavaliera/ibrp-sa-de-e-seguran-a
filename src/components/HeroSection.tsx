@@ -5,12 +5,11 @@ import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ background: "hsl(167, 55%, 10%)" }}>
       {/* Background */}
       <div className="absolute inset-0">
-        <img src={heroBg} alt="" className="w-full h-full object-cover opacity-40" />
-        <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
-        <div className="absolute inset-0 bg-background/50" />
+        <img src={heroBg} alt="" className="w-full h-full object-cover opacity-30" />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, hsla(167, 55%, 10%, 0.3) 0%, hsl(167, 55%, 10%) 100%)" }} />
       </div>
 
       <div className="container mx-auto relative z-10 pt-24 pb-20">
@@ -20,18 +19,18 @@ const HeroSection = () => {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto text-center"
         >
-          <div className="inline-block mb-6 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10">
-            <span className="text-sm font-medium text-primary">NR-1 • Norma Regulamentadora</span>
+          <div className="inline-block mb-6 px-4 py-1.5 rounded-full border border-verde-selva/30 bg-verde-selva/10">
+            <span className="text-sm font-medium" style={{ color: "hsl(166, 62%, 50%)" }}>NR-1 • Norma Regulamentadora</span>
           </div>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold leading-tight mb-6">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold leading-tight mb-6" style={{ color: "white" }}>
             Sua empresa está pronta para a{" "}
             <span className="text-gradient">fiscalização da NR-1?</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
+          <p className="text-lg md:text-xl max-w-2xl mx-auto mb-10" style={{ color: "hsla(0, 0%, 100%, 0.7)" }}>
             Evite multas e processos trabalhistas com a única metodologia{" "}
-            <strong className="text-foreground">100% adequada à realidade brasileira</strong>.
+            <strong style={{ color: "white" }}>100% adequada à realidade brasileira</strong>.
           </p>
 
           <motion.div
