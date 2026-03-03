@@ -2,20 +2,31 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Mic, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const PalestrasSection = () => {
   const [form, setForm] = useState({ nome: "", empresa: "", email: "" });
+  const [lgpd, setLgpd] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!lgpd) {
+      toast({
+        title: "Consentimento necessário",
+        description: "Marque a caixa de consentimento LGPD para continuar.",
+        variant: "destructive",
+      });
+      return;
+    }
     toast({
       title: "Solicitação enviada!",
       description: "Entraremos em contato em breve.",
     });
     setForm({ nome: "", empresa: "", email: "" });
+    setLgpd(false);
   };
 
   return (
@@ -88,6 +99,19 @@ const PalestrasSection = () => {
                     className="bg-muted border-border"
                   />
                 </div>
+
+                <div className="flex items-start gap-3 pt-2">
+                  <Checkbox
+                    id="lgpd-palestras"
+                    checked={lgpd}
+                    onCheckedChange={(v) => setLgpd(v === true)}
+                    className="mt-0.5"
+                  />
+                  <label htmlFor="lgpd-palestras" className="text-xs text-muted-foreground leading-relaxed cursor-pointer">
+                    Concordo em receber comunicações e conteúdos estratégicos do IBRP conforme a Política de Privacidade.
+                  </label>
+                </div>
+
                 <Button type="submit" className="w-full bg-gradient-brand hover:opacity-90 transition-opacity">
                   Enviar Solicitação
                   <Send className="ml-2 h-4 w-4" />

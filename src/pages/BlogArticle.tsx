@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { PortableText } from "@portabletext/react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import NewsletterSignup from "@/components/NewsletterSignup";
 import { getArticleBySlug } from "@/lib/sanity-client";
 import type { BlogArticle, BlogCategory } from "@/lib/blog-types";
 
@@ -233,6 +234,9 @@ const BlogArticlePage = () => {
               </ul>
             </motion.div>
           )}
+
+          {/* Newsletter */}
+          <NewsletterSignup variant="article" />
 
           {/* Back to feed */}
           <div className="mt-12 pt-8 border-t border-border">

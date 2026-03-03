@@ -17,6 +17,11 @@ const clientLinks = [
   { label: "Ambiente Virtual de Aprendizagem", href: "https://gestaoriscospsicossociais.com.br/ava" },
 ];
 
+const scrollToContato = () => {
+  const el = document.getElementById("contato");
+  if (el) el.scrollIntoView({ behavior: "smooth" });
+};
+
 const NavLink = ({ item, onClick }: { item: typeof navItems[0]; onClick?: () => void }) => {
   const isInternal = item.href.startsWith("/");
   const className = "text-sm font-medium text-muted-foreground hover:text-foreground transition-colors";
@@ -62,9 +67,16 @@ const Header = () => {
           {navItems.map((item) => (
             <NavLink key={item.href} item={item} />
           ))}
+          <Button
+            className="bg-gradient-brand hover:opacity-90 transition-opacity"
+            onClick={scrollToContato}
+          >
+            Solicitar Diagnóstico
+          </Button>
           <div className="relative" ref={dropdownRef}>
             <Button
-              className="bg-gradient-brand hover:opacity-90 transition-opacity inline-flex items-center gap-1.5"
+              variant="outline"
+              className="inline-flex items-center gap-1.5"
               onClick={() => setDropdownOpen(!dropdownOpen)}
             >
               Área do Cliente <ChevronDown className="h-4 w-4" />
