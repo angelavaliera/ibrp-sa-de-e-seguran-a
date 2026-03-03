@@ -1,46 +1,80 @@
-/**
- * Sanity CMS Client — pronto para integração futura.
- *
- * Passos para conectar:
- * 1. Crie um projeto em https://www.sanity.io/manage
- * 2. Anote o Project ID e Dataset (geralmente "production")
- * 3. Adicione as variáveis de ambiente:
- *    - VITE_SANITY_PROJECT_ID
- *    - VITE_SANITY_DATASET
- * 4. Instale o pacote: npm install @sanity/client @sanity/image-url
- * 5. Descomente o código abaixo e remova o mock fallback.
- *
- * Esquema Sanity (sanity/schemas/article.ts):
- * - title: string (required)
- * - subtitle: string (optional)
- * - slug: slug (required, source: title)
- * - coverImage: image (required, fields: caption string, credit string)
- * - category: string (required, list: NR-1, Liderança, Saúde Mental, Casos Jurídicos)
- * - author: string (required)
- * - publishedAt: datetime (required)
- * - readTime: number (required)
- * - excerpt: text (required)
- * - body: array of block (rich text with links, lists)
- * - dataHighlight: object (optional, fields: value string, label string, description text)
- * - sources: array of object (optional, fields: name string, url url)
- * - metaTitle: string (optional, max 60)
- * - metaDescription: text (optional, max 160)
- */
-
-import { mockArticles } from "./blog-mock-data";
+import { createClient } from "@sanity/client";
+import imageUrlBuilder from "@sanity/image-url";
 import type { BlogArticle, BlogCategory } from "./blog-types";
 
-// Atualmente usando dados mock. Substitua pelas chamadas à API do Sanity.
+export const sanityClient = createClient({
+  projectId: "ueiyjck5",
+  dataset: "production",
+  apiVersion: "2024-01-01",
+  useCdn: true,
+});
+
+const builder = imageUrlBuilder(sanityClient);
+
+function urlFor(source: any) {
+  return builder.image(source);
+}
+
+function mapArticle(raw: any): BlogArticle {
+  return {
+    slug: raw.slug?.current ?? "",
+    title: raw.title ?? "",
+    subtitle: raw.subtitle ?? undefined,
+    coverImage: raw.coverImage ? urlFor(raw.coverImage).width(1200).quality(80).url() : "",
+    coverCaption: raw.coverImage?.caption ?? undefined,
+    coverCredit: raw.coverImage?.credit ?? undefined,
+    category: raw.category ?? "NR-1",
+    author: raw.author ?? "",
+    publishedAt: raw.publishedAt ?? "",
+    readTime: raw.readTime ?? 5,
+    excerpt: raw.excerpt ?? "",
+    body: raw.body ?? "",
+    dataHighlight: raw.dataHighlight?.value
+      ? {
+          value: raw.dataHighlight.value,
+          label: raw.dataHighlight.label ?? "",
+          description: raw.dataHighlight.description ?? undefined,
+        }
+      : undefined,
+    sources: raw.sources?.length
+      ? raw.sources.map((s: any) => ({ name: s.name, url: s.url ?? undefined }))
+      : undefined,
+    metaTitle: raw.metaTitle ?? undefined,
+    metaDescription: raw.metaDescription ?? undefined,
+  };
+}
+
+const ARTICLE_FIELDS = `
+  title,
+  subtitle,
+  "slug": slug,
+  coverImage { ..., caption, credit },
+  category,
+  author,
+  publishedAt,
+  readTime,
+  excerpt,
+  "body": pt::text(body),
+  dataHighlight,
+  sources,
+  metaTitle,
+  metaDescription
+`;
+
 export async function getArticles(category?: BlogCategory): Promise<BlogArticle[]> {
-  // Simula latência de rede
-  await new Promise((r) => setTimeout(r, 300));
-  if (category) {
-    return mockArticles.filter((a) => a.category === category);
-  }
-  return mockArticles;
+  const filter = category
+    ? `*[_type == "article" && category == $category] | order(publishedAt desc)`
+    : `*[_type == "article"] | order(publishedAt desc)`;
+
+  const params = category ? { category } : {};
+  const results = await sanityClient.fetch(`${filter} { ${ARTICLE_FIELDS} }`, params);
+  return results.map(mapArticle);
 }
 
 export async function getArticleBySlug(slug: string): Promise<BlogArticle | undefined> {
-  await new Promise((r) => setTimeout(r, 200));
-  return mockArticles.find((a) => a.slug === slug);
+  const result = await sanityClient.fetch(
+    `*[_type == "article" && slug.current == $slug][0] { ${ARTICLE_FIELDS} }`,
+    { slug }
+  );
+  return result ? mapArticle(result) : undefined;
 }
