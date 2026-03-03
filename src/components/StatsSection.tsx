@@ -79,12 +79,12 @@ const StatsSection = () => {
             <motion.div
               key={i}
               {...cardAnim(i)}
-              className="rounded-2xl border border-caqui/25 bg-white/5 p-7 hover:shadow-lg transition-shadow"
+              className="rounded-2xl border border-fucsia/25 bg-white/5 p-7 hover:shadow-lg transition-shadow"
             >
-              <div className="w-11 h-11 rounded-xl bg-caqui/15 flex items-center justify-center mb-4">
-                <stat.icon className="h-5 w-5 text-caqui" />
+              <div className="w-11 h-11 rounded-xl bg-fucsia/15 flex items-center justify-center mb-4">
+                <stat.icon className="h-5 w-5 text-fucsia" />
               </div>
-              <div className="text-4xl md:text-5xl font-heading font-bold text-caqui mb-1">{stat.value}</div>
+              <div className="text-4xl md:text-5xl font-heading font-bold text-fucsia mb-1">{stat.value}</div>
               <div className="text-base font-semibold text-white mb-1">{stat.title}</div>
               <p className="text-sm text-white/60">{stat.description}</p>
             </motion.div>
