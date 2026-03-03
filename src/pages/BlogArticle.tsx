@@ -7,6 +7,7 @@ import { PortableText } from "@portabletext/react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import NewsletterSignup from "@/components/NewsletterSignup";
+import AuthorBio from "@/components/AuthorBio";
 import { getArticleBySlug } from "@/lib/sanity-client";
 import type { BlogArticle, BlogCategory } from "@/lib/blog-types";
 
@@ -233,6 +234,11 @@ const BlogArticlePage = () => {
                 ))}
               </ul>
             </motion.div>
+          )}
+
+          {/* Guest Author Bio (conditional) */}
+          {article.guestAuthor?.name && (
+            <AuthorBio author={article.guestAuthor} />
           )}
 
           {/* Newsletter */}

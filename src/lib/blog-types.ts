@@ -1,3 +1,12 @@
+export interface GuestAuthor {
+  name: string;
+  photo?: string;
+  bio?: string;
+  linkedin?: string;
+  instagram?: string;
+  email?: string;
+}
+
 export interface BlogArticle {
   slug: string;
   title: string;
@@ -7,6 +16,7 @@ export interface BlogArticle {
   coverCredit?: string;
   category: BlogCategory;
   author: string;
+  guestAuthor?: GuestAuthor;
   publishedAt: string;
   readTime: number;
   excerpt: string;
