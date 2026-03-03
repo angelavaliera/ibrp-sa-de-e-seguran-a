@@ -43,7 +43,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="hover:text-foreground transition-colors inline-flex items-center gap-1.5"
                 >
-                  AVA - Ambiente Virtual <ExternalLink className="h-3 w-3" />
+                  Ambiente Virtual de Aprendizagem <ExternalLink className="h-3 w-3" />
                 </a>
               </li>
             </ul>
