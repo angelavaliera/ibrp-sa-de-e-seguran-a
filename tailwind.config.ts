@@ -56,6 +56,7 @@ export default {
         "fucsia": "hsl(var(--fucsia))",
         "caqui": "hsl(var(--caqui))",
         "brilho-sol": "hsl(var(--brilho-sol))",
+        "verde-petroleo": "hsl(var(--verde-petroleo))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",

@@ -65,73 +65,77 @@ const cardAnim = (i: number) => ({
 
 const StatsSection = () => {
   return (
-    <section className="py-20 space-y-20 bg-foreground text-white">
-      {/* Seção 1 — Alerta */}
-      <div className="container mx-auto">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
-            Panorama da saúde mental <span className="text-fucsia">relacionada ao trabalho</span> no Brasil
-          </h2>
-        </motion.div>
+    <section>
+      {/* Seção 1 — Alerta (fundo petróleo escuro) */}
+      <div className="py-20 bg-verde-petroleo text-white">
+        <div className="container mx-auto">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+              Panorama da saúde mental <span className="text-fucsia">relacionada ao trabalho</span> no Brasil
+            </h2>
+          </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {alertStats.map((stat, i) => (
-            <motion.div
-              key={i}
-              {...cardAnim(i)}
-              className="rounded-2xl border border-fucsia/25 bg-white/5 p-7 hover:shadow-lg transition-shadow"
-            >
-              <div className="w-11 h-11 rounded-xl bg-fucsia/15 flex items-center justify-center mb-4">
-                <stat.icon className="h-5 w-5 text-fucsia" />
-              </div>
-              <div className="text-4xl md:text-5xl font-heading font-bold text-fucsia mb-1">{stat.value}</div>
-              <div className="text-base font-semibold text-white mb-1">{stat.title}</div>
-              <p className="text-sm text-white/60">{stat.description}</p>
-            </motion.div>
-          ))}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {alertStats.map((stat, i) => (
+              <motion.div
+                key={i}
+                {...cardAnim(i)}
+                className="rounded-2xl border border-fucsia/25 bg-white/5 p-7 hover:shadow-lg transition-shadow"
+              >
+                <div className="w-11 h-11 rounded-xl bg-fucsia/15 flex items-center justify-center mb-4">
+                  <stat.icon className="h-5 w-5 text-fucsia" />
+                </div>
+                <div className="text-4xl md:text-5xl font-heading font-bold text-fucsia mb-1">{stat.value}</div>
+                <div className="text-base font-semibold text-white mb-1">{stat.title}</div>
+                <p className="text-sm text-white/60">{stat.description}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Seção 2 — Positiva */}
-      <div className="container mx-auto">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
-            Retorno para empresas que <span className="text-verde-selva">investem em saúde mental</span>
-          </h2>
-        </motion.div>
+      {/* Seção 2 — Positiva (fundo petróleo mais claro) */}
+      <div className="py-20 text-white" style={{ backgroundColor: "hsl(167 55% 16%)" }}>
+        <div className="container mx-auto">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+              Retorno para empresas que <span className="text-verde-selva">investem em saúde mental</span>
+            </h2>
+          </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {positiveStats.map((stat, i) => (
-            <motion.div
-              key={i}
-              {...cardAnim(i)}
-              className={`rounded-2xl border p-7 hover:shadow-lg transition-shadow ${
-                stat.featured
-                  ? "border-verde-selva/40 bg-verde-selva/10 ring-1 ring-verde-selva/30"
-                  : "border-verde-selva/25 bg-white/5"
-              }`}
-            >
-              <div className="w-11 h-11 rounded-xl bg-verde-selva/15 flex items-center justify-center mb-4">
-                <stat.icon className="h-5 w-5 text-verde-selva" />
-              </div>
-              <div className={`text-4xl md:text-5xl font-heading font-bold text-verde-selva mb-1 ${stat.featured ? "md:text-6xl" : ""}`}>
-                {stat.value}
-              </div>
-              <div className="text-base font-semibold text-white mb-1">{stat.title}</div>
-              <p className="text-sm text-white/60">{stat.description}</p>
-            </motion.div>
-          ))}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {positiveStats.map((stat, i) => (
+              <motion.div
+                key={i}
+                {...cardAnim(i)}
+                className={`rounded-2xl border p-7 hover:shadow-lg transition-shadow ${
+                  stat.featured
+                    ? "border-verde-selva/40 bg-verde-selva/10 ring-1 ring-verde-selva/30"
+                    : "border-verde-selva/25 bg-white/5"
+                }`}
+              >
+                <div className="w-11 h-11 rounded-xl bg-verde-selva/15 flex items-center justify-center mb-4">
+                  <stat.icon className="h-5 w-5 text-verde-selva" />
+                </div>
+                <div className={`text-4xl md:text-5xl font-heading font-bold text-verde-selva mb-1 ${stat.featured ? "md:text-6xl" : ""}`}>
+                  {stat.value}
+                </div>
+                <div className="text-base font-semibold text-white mb-1">{stat.title}</div>
+                <p className="text-sm text-white/60">{stat.description}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Fontes */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-xs text-white/40 text-center mt-8"
+          >
+            Fontes: OMS, MPT, INSS e Relatório McKinsey Health Institute 2025.
+          </motion.p>
         </div>
-
-        {/* Fontes */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="text-xs text-white/40 text-center mt-8"
-        >
-          Fontes: OMS, MPT, INSS e Relatório McKinsey Health Institute 2025.
-        </motion.p>
       </div>
     </section>
   );
