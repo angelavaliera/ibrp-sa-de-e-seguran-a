@@ -38,7 +38,7 @@ const DiferenciaisSection = () => {
             Por que o <span className="text-gradient">IBRP?</span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            Diferenciais que fazem da nossa metodologia a mais completa do mercado.
+            Conheça os diferenciais que fazem da nossa metodologia, a mais completa do mercado:
           </p>
         </motion.div>
 
