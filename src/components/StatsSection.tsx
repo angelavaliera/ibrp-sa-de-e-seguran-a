@@ -6,7 +6,7 @@ const alertStats = [
     icon: AlertTriangle,
     value: "1º e 2º",
     title: "Ranking Mundial",
-    description: "Brasil como líder em ansiedade e 2º em burnout no mundo.",
+    description: "Brasil é 1º lugar no mundo em Ansiedade e 2º lugar em Burnout.",
   },
   {
     icon: TrendingUp,
