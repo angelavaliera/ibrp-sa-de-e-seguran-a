@@ -15,7 +15,7 @@ const differentials = [
   {
     icon: Users,
     title: "Abrangência de Modelos de Contratação",
-    description: "Diagnóstico com métricas específicas para colaboradores presenciais, híbridos e remotos, atendendo plenamente aos regimes CLT e PJ.",
+    description: "Análise dos riscos específicos dos trabalhadores remotos e híbridos, além dos presenciais. Única metodologia que atende plenamente aos regimes CLT e PJ, com questionário exclusivo profissionais terceirizados, como a lei prevê.",
   },
   {
     icon: BarChart3,
