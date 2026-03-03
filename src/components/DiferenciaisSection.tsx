@@ -1,26 +1,26 @@
 import { motion } from "framer-motion";
-import { Shield, Leaf, Users, Globe } from "lucide-react";
+import { MapPin, Sparkles, Network, SlidersHorizontal } from "lucide-react";
 
 const differentials = [
   {
-    icon: Shield,
-    title: "Metodologia Própria",
-    description: "Desenvolvida exclusivamente para o contexto corporativo brasileiro, com base em evidências científicas.",
+    icon: MapPin,
+    title: "100% Adequada à Realidade Brasileira",
+    description: "Metodologia exclusiva para o contexto cultural e legislativo nacional, superando modelos estrangeiros que ignoram as particularidades do trabalho no Brasil.",
   },
   {
-    icon: Leaf,
-    title: "Pós-Pandemia",
-    description: "Atualizada para os novos desafios de saúde mental que surgiram após a pandemia de COVID-19.",
+    icon: Sparkles,
+    title: "Metodologia Nativa Pós-Pandemia",
+    description: "Enquanto as ferramentas tradicionais datam de 1980 a 2017, o IBRP utiliza uma inteligência concebida para os desafios reais do mundo do trabalho contemporâneo.",
   },
   {
-    icon: Users,
-    title: "Todos os Modelos de Trabalho",
-    description: "Contempla trabalhadores presenciais, híbridos e remotos com abordagens específicas para cada realidade.",
+    icon: Network,
+    title: "Abrangência de Modelos de Contratação",
+    description: "Diagnóstico com métricas específicas para colaboradores presenciais, híbridos e remotos, atendendo plenamente aos regimes CLT e PJ.",
   },
   {
-    icon: Globe,
-    title: "Resultados Sustentáveis",
-    description: "Foco em transformação de longo prazo, não soluções paliativas. Métricas claras de progresso.",
+    icon: SlidersHorizontal,
+    title: "Flexibilidade e Métricas Estratégicas",
+    description: "Customização avançada com indicadores exclusivos como Leadership NPS e Employee NPS para resultados sustentáveis.",
   },
 ];
 
