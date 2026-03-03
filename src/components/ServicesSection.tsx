@@ -39,10 +39,10 @@ const ServicesSection = () => {
         >
           <span className="text-sm font-medium text-primary uppercase tracking-widest">Soluções NR-1</span>
           <h2 className="text-3xl md:text-4xl font-heading font-bold mt-3 mb-4">
-            Metodologia em <span className="text-gradient">3 etapas</span>
+            Gestão inteligente e <span className="text-gradient">humanizada</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Um processo estruturado, validado e 100% adequado à legislação brasileira para proteger sua empresa e seus colaboradores.
+            Processo estruturado, em total conformidade com as normas e legislação brasileira para proteger profissionais e empresas.
           </p>
         </motion.div>
 
