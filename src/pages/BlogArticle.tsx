@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, Clock, ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { PortableText } from "@portabletext/react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getArticleBySlug } from "@/lib/sanity-client";
@@ -191,8 +192,13 @@ const BlogArticlePage = () => {
               prose-strong:text-foreground prose-strong:font-semibold
               prose-a:text-primary prose-a:no-underline hover:prose-a:underline
               prose-ul:my-4 prose-ol:my-4"
-            dangerouslySetInnerHTML={{ __html: article.body }}
-          />
+          >
+            {Array.isArray(article.body) ? (
+              <PortableText value={article.body} />
+            ) : (
+              <div dangerouslySetInnerHTML={{ __html: article.body }} />
+            )}
+          </motion.div>
 
           {/* Sources (optional - dynamic) */}
           {article.sources && article.sources.length > 0 && (
