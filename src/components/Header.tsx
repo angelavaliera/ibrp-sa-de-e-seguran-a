@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Menu, X, ChevronDown, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logoHorizontal from "@/assets/logo-horizontal-black.png";
 
@@ -10,6 +10,11 @@ const navItems = [
   { label: "Palestras", href: "#palestras" },
   { label: "Cursos", href: "#cursos" },
   { label: "Blog", href: "/blog" },
+];
+
+const clientLinks = [
+  { label: "Questionário", href: "https://gestaoriscospsicossociais.com.br/questionario" },
+  { label: "AVA - Ambiente Virtual", href: "https://gestaoriscospsicossociais.com.br/ava" },
 ];
 
 const NavLink = ({ item, onClick }: { item: typeof navItems[0]; onClick?: () => void }) => {
@@ -32,6 +37,18 @@ const NavLink = ({ item, onClick }: { item: typeof navItems[0]; onClick?: () => 
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
@@ -45,9 +62,30 @@ const Header = () => {
           {navItems.map((item) => (
             <NavLink key={item.href} item={item} />
           ))}
-          <Button asChild className="bg-gradient-brand hover:opacity-90 transition-opacity">
-            <a href="#area-cliente">Área do Cliente</a>
-          </Button>
+          <div className="relative" ref={dropdownRef}>
+            <Button
+              className="bg-gradient-brand hover:opacity-90 transition-opacity inline-flex items-center gap-1.5"
+              onClick={() => setDropdownOpen(!dropdownOpen)}
+            >
+              Área do Cliente <ChevronDown className="h-4 w-4" />
+            </Button>
+            {dropdownOpen && (
+              <div className="absolute right-0 mt-2 w-56 rounded-xl border border-border bg-card shadow-lg py-2 z-50">
+                {clientLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+                    onClick={() => setDropdownOpen(false)}
+                  >
+                    {link.label} <ExternalLink className="h-3 w-3 ml-auto" />
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
         </nav>
 
         {/* Mobile toggle */}
@@ -62,9 +100,21 @@ const Header = () => {
           {navItems.map((item) => (
             <NavLink key={item.href} item={item} onClick={() => setIsOpen(false)} />
           ))}
-          <Button asChild className="bg-gradient-brand w-full">
-            <a href="#area-cliente">Área do Cliente</a>
-          </Button>
+          <div className="flex flex-col gap-2">
+            <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Área do Cliente</span>
+            {clientLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                {link.label} <ExternalLink className="h-3 w-3" />
+              </a>
+            ))}
+          </div>
         </nav>
       )}
     </header>
