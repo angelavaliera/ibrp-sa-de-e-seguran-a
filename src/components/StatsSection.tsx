@@ -95,7 +95,7 @@ const StatsSection = () => {
       </div>
 
       {/* Seção 2 — Positiva (fundo petróleo mais claro) */}
-      <div className="py-20 text-white" style={{ backgroundColor: "hsl(167 55% 16%)" }}>
+      <div className="py-20 text-white" style={{ backgroundColor: "hsl(167 55% 13%)" }}>
         <div className="container mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
