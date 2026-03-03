@@ -23,7 +23,7 @@ const steps = [
     image: stepMonitoring,
     imageAlt: "Profissional analisando dashboard de indicadores de saúde mental",
     title: "Monitoramento Contínuo",
-    description: "Acompanhamento permanente dos indicadores de saúde mental e clima organizacional com relatórios periódicos.",
+    description: "Disponibilização de indicadores estratégicos para a análise da eficácia das intervenções e mensuração do retorno sobre o investimento (ROI). Suporte para a reavaliação periódica do inventário e a atualização sistemática do plano de ação, com foco na mitigação contínua de riscos e a plena conformidade com a legislação.",
   },
 ];
 
