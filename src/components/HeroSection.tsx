@@ -45,7 +45,7 @@ const HeroSection = () => {
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button size="lg" variant="outline" className="text-lg px-8 py-6 rounded-xl border-foreground/20 text-foreground hover:bg-foreground/5 bg-white/50 backdrop-blur-sm" onClick={() => document.getElementById('diferenciais')?.scrollIntoView({ behavior: 'smooth' })}>
-              Conheça o Método
+              Conheça a Metodologia
             </Button>
           </motion.div>
         </motion.div>
