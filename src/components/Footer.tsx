@@ -14,11 +14,11 @@ const Footer = () => {
       {/* Social + Newsletter band */}
       <div className="bg-primary py-14 text-primary-foreground">
         <div className="container mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            {/* Mídias sociais */}
-            <div className="text-center lg:text-left">
-              <p className="text-sm uppercase tracking-widest font-medium mb-3 opacity-80">Siga o IBRP</p>
-              <h3 className="text-2xl md:text-3xl font-heading font-bold mb-8">
+          <div className="grid lg:grid-cols-2 gap-6 items-stretch">
+            {/* Mídias sociais — card */}
+            <div className="bg-background rounded-2xl p-8 border border-border text-foreground flex flex-col justify-center text-center lg:text-left">
+              <p className="text-sm uppercase tracking-widest font-medium mb-3 text-muted-foreground">Siga o IBRP</p>
+              <h3 className="text-2xl md:text-3xl font-heading font-bold mb-8 text-foreground">
                 Acompanhe nossos conteúdos nas mídias sociais
               </h3>
               <div className="flex items-center justify-center lg:justify-start gap-6">
@@ -29,7 +29,7 @@ const Footer = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={s.label}
-                    className="w-14 h-14 rounded-full border-2 border-primary-foreground/30 flex items-center justify-center hover:bg-primary-foreground hover:text-primary transition-all duration-300"
+                    className="w-14 h-14 rounded-full border-2 border-primary/30 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-foreground"
                   >
                     <s.icon size={24} />
                   </a>
@@ -37,8 +37,8 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Newsletter */}
-            <div className="bg-background rounded-2xl p-6 border border-border text-foreground">
+            {/* Newsletter — card */}
+            <div className="bg-background rounded-2xl p-8 border border-border text-foreground">
               <NewsletterSignup variant="footer" />
             </div>
           </div>
