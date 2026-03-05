@@ -92,7 +92,8 @@ const DiferenciaisSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.12 }}
-                className={`rounded-2xl border p-7 transition-colors overflow-hidden relative ${diff.bgClass} ${diff.hoverClass}`}
+                className={`rounded-2xl border p-7 transition-all overflow-hidden relative ${diff.bgClass} ${diff.hoverClass} hover:shadow-lg`}
+                style={{ boxShadow: "var(--shadow-card)" }}
               >
                 {/* Barra de cor no topo */}
                 <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${diff.topBorder}`} />
