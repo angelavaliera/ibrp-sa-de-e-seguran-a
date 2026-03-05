@@ -97,7 +97,7 @@ const ARTICLE_FIELDS = `
 export async function getArticles(): Promise<BlogArticle[]> {
   try {
     const results = await sanityClient.fetch(
-      `*[_type == "article"] | order(publishedAt desc) { ${ARTICLE_FIELDS} }`
+      `*[_type == "article" && publishedAt <= now()] | order(publishedAt desc) { ${ARTICLE_FIELDS} }`
     );
     if (results && results.length > 0) return results.map(mapArticle);
   } catch (e) {
@@ -111,7 +111,7 @@ export async function searchArticles(query: string): Promise<BlogArticle[]> {
   if (!query.trim()) return getArticles();
   try {
     const results = await sanityClient.fetch(
-      `*[_type == "article" && (title match $q || subtitle match $q || excerpt match $q || pt::text(body) match $q)] | order(publishedAt desc) { ${ARTICLE_FIELDS} }`,
+      `*[_type == "article" && publishedAt <= now() && (title match $q || subtitle match $q || excerpt match $q || pt::text(body) match $q)] | order(publishedAt desc) { ${ARTICLE_FIELDS} }`,
       { q: `${query.trim()}*` }
     );
     if (results && results.length > 0) return results.map(mapArticle);
