@@ -107,6 +107,34 @@ export async function getArticles(): Promise<BlogArticle[]> {
   return mockArticles;
 }
 
+export async function getFeaturedArticles(): Promise<BlogArticle[]> {
+  try {
+    const results = await sanityClient.fetch(
+      `*[_type == "article" && publishedAt <= now() && isFeatured == true] | order(publishedAt desc)[0...3] { ${ARTICLE_FIELDS} }`
+    );
+    if (results && results.length > 0) return results.map(mapArticle);
+  } catch (e) {
+    console.warn("Sanity fetch failed for featured articles", e);
+  }
+  return [];
+}
+
+export async function getRecentArticles(excludeSlugs: string[] = []): Promise<BlogArticle[]> {
+  try {
+    const results = await sanityClient.fetch(
+      `*[_type == "article" && publishedAt <= now() && !(slug.current in $excludeSlugs)] | order(publishedAt desc)[0...3] { ${ARTICLE_FIELDS} }`,
+      { excludeSlugs }
+    );
+    if (results && results.length > 0) return results.map(mapArticle);
+  } catch (e) {
+    console.warn("Sanity fetch failed for recent articles", e);
+  }
+  const { mockArticles } = await import("./blog-mock-data");
+  return mockArticles
+    .filter((a) => !excludeSlugs.includes(a.slug))
+    .slice(0, 3);
+}
+
 export async function searchArticles(query: string): Promise<BlogArticle[]> {
   if (!query.trim()) return getArticles();
   try {
