@@ -38,7 +38,7 @@ function mapArticle(raw: any): BlogArticle {
     coverImage: raw.coverImage ? urlFor(raw.coverImage).width(1200).quality(80).url() : "",
     coverCaption: raw.coverImage?.caption ?? undefined,
     coverCredit: raw.coverImage?.credit ?? undefined,
-    category: raw.category ?? "NR-1",
+    category: raw.category ?? undefined,
     author: raw.author ?? "",
     guestAuthor: raw.guestAuthor?.name
       ? {
