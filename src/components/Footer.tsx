@@ -41,7 +41,7 @@ const Footer = () => {
         <div className="container mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_2fr] gap-10">
             <div>
-              <img src={logoHorizontal} alt="IBRP" className="h-14 mb-4" />
+              <img src={logoHorizontal} alt="IBRP" className="w-full max-w-xs mb-4" />
               <p className="text-sm text-muted-foreground leading-relaxed max-w-xs mb-6">
                 Instituto Brasileiro de Riscos Psicossociais. Ciência, acolhimento e transformação para ambientes de trabalho mais saudáveis.
               </p>
