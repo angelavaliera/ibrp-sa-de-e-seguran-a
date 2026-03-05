@@ -80,25 +80,49 @@ const ARTICLE_FIELDS = `
 `;
 
 export async function getArticles(): Promise<BlogArticle[]> {
-  const results = await sanityClient.fetch(
-    `*[_type == "article"] | order(publishedAt desc) { ${ARTICLE_FIELDS} }`
-  );
-  return results.map(mapArticle);
+  try {
+    const results = await sanityClient.fetch(
+      `*[_type == "article"] | order(publishedAt desc) { ${ARTICLE_FIELDS} }`
+    );
+    if (results && results.length > 0) return results.map(mapArticle);
+  } catch (e) {
+    console.warn("Sanity fetch failed, using mock data", e);
+  }
+  const { mockArticles } = await import("./blog-mock-data");
+  return mockArticles;
 }
 
 export async function searchArticles(query: string): Promise<BlogArticle[]> {
   if (!query.trim()) return getArticles();
-  const results = await sanityClient.fetch(
-    `*[_type == "article" && (title match $q || subtitle match $q || excerpt match $q || pt::text(body) match $q)] | order(publishedAt desc) { ${ARTICLE_FIELDS} }`,
-    { q: `${query.trim()}*` }
+  try {
+    const results = await sanityClient.fetch(
+      `*[_type == "article" && (title match $q || subtitle match $q || excerpt match $q || pt::text(body) match $q)] | order(publishedAt desc) { ${ARTICLE_FIELDS} }`,
+      { q: `${query.trim()}*` }
+    );
+    if (results && results.length > 0) return results.map(mapArticle);
+  } catch (e) {
+    console.warn("Sanity search failed, using mock data", e);
+  }
+  const { mockArticles } = await import("./blog-mock-data");
+  const q = query.toLowerCase();
+  return mockArticles.filter(
+    (a) =>
+      a.title.toLowerCase().includes(q) ||
+      a.subtitle?.toLowerCase().includes(q) ||
+      a.excerpt.toLowerCase().includes(q)
   );
-  return results.map(mapArticle);
 }
 
 export async function getArticleBySlug(slug: string): Promise<BlogArticle | undefined> {
-  const result = await sanityClient.fetch(
-    `*[_type == "article" && slug.current == $slug][0] { ${ARTICLE_FIELDS} }`,
-    { slug }
-  );
-  return result ? mapArticle(result) : undefined;
+  try {
+    const result = await sanityClient.fetch(
+      `*[_type == "article" && slug.current == $slug][0] { ${ARTICLE_FIELDS} }`,
+      { slug }
+    );
+    if (result) return mapArticle(result);
+  } catch (e) {
+    console.warn("Sanity fetch failed, using mock data", e);
+  }
+  const { mockArticles } = await import("./blog-mock-data");
+  return mockArticles.find((a) => a.slug === slug);
 }
