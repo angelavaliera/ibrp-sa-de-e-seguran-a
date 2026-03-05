@@ -43,7 +43,7 @@ const Footer = () => {
             <div>
               <img src={logoHorizontal} alt="IBRP" className="w-full max-w-xs mb-4" />
               <p className="text-sm text-muted-foreground leading-relaxed max-w-xs mb-6">
-                Instituto Brasileiro de Riscos Psicossociais. Ciência, acolhimento e transformação para ambientes de trabalho mais saudáveis.
+                Ciência, acolhimento e transformação para ambientes de trabalho mais saudáveis.
               </p>
               <Button
                 className="bg-gradient-brand hover:opacity-90 transition-opacity text-white"
