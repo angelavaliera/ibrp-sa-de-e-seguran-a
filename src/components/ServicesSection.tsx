@@ -37,7 +37,7 @@ const ServicesSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-medium text-primary uppercase tracking-widest">Soluções NR-1</span>
+          <span className="text-sm font-medium text-primary uppercase tracking-widest">Soluções IBRP para NR-1</span>
           <h2 className="text-3xl md:text-4xl font-heading font-bold mt-3 mb-4">
             Gestão inteligente e <span className="text-gradient">humanizada</span>
           </h2>
