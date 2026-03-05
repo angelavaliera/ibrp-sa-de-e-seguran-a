@@ -6,7 +6,7 @@ import logoHorizontal from "@/assets/logo-horizontal-black.png";
 
 const navItems = [
   { label: "Início", href: "#inicio" },
-  { label: "Soluções IBRP para NR-1", href: "#servicos" },
+  { label: "NR-1", href: "#servicos" },
   { label: "Palestras", href: "#palestras" },
   { label: "Cursos", href: "#cursos" },
   { label: "Artigos", href: "/blog" },
