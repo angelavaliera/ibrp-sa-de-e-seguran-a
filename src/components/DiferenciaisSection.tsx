@@ -51,7 +51,7 @@ const differentials = [
 
 const DiferenciaisSection = () => {
   return (
-    <section id="diferenciais" className="py-24 bg-muted/30">
+    <section id="diferenciais" className="pt-8 pb-24 bg-muted/30">
       <div className="container mx-auto">
         {/* Título centralizado */}
         <motion.div
