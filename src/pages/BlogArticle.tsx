@@ -11,12 +11,6 @@ import AuthorBio from "@/components/AuthorBio";
 import { getArticleBySlug } from "@/lib/sanity-client";
 import type { BlogArticle, BlogCategory } from "@/lib/blog-types";
 
-const categoryColors: Record<BlogCategory, string> = {
-  "NR-1": "bg-indigo/10 text-indigo border-indigo/20",
-  "Liderança": "bg-verde-selva/10 text-verde-selva border-verde-selva/20",
-  "Saúde Mental": "bg-fucsia/10 text-fucsia border-fucsia/20",
-  "Casos Jurídicos": "bg-caqui/10 text-caqui border-caqui/20",
-};
 
 const BlogArticlePage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -103,9 +97,11 @@ const BlogArticlePage = () => {
             animate={{ opacity: 1, y: 0 }}
             className="mb-8"
           >
-            <Badge className={`mb-4 ${categoryColors[article.category]}`}>
-              {article.category}
-            </Badge>
+            {article.category && (
+              <Badge className="mb-4 bg-muted text-muted-foreground border-border">
+                {article.category}
+              </Badge>
+            )}
 
             <h1 className="text-3xl md:text-4xl lg:text-[2.75rem] font-heading font-bold text-foreground leading-tight mb-3">
               {article.title}

@@ -14,7 +14,7 @@ export interface BlogArticle {
   coverImage: string;
   coverCaption?: string;
   coverCredit?: string;
-  category: BlogCategory;
+  category?: BlogCategory;
   author: string;
   guestAuthor?: GuestAuthor;
   publishedAt: string;
@@ -38,6 +38,6 @@ export interface Source {
   url?: string;
 }
 
-export type BlogCategory = "NR-1" | "Liderança" | "Saúde Mental" | "Casos Jurídicos";
+export type BlogCategory = string;
 
-export const CATEGORIES: BlogCategory[] = ["NR-1", "Liderança", "Saúde Mental", "Casos Jurídicos"];
+export const CATEGORIES: BlogCategory[] = [];

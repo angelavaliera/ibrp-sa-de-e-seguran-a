@@ -1,32 +1,33 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Clock, ArrowRight, Filter } from "lucide-react";
+import { Clock, ArrowRight, Search, X } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { getArticles } from "@/lib/sanity-client";
-import { CATEGORIES, type BlogArticle, type BlogCategory } from "@/lib/blog-types";
-
-const categoryColors: Record<BlogCategory, string> = {
-  "NR-1": "bg-indigo/10 text-indigo border-indigo/20",
-  "Liderança": "bg-verde-selva/10 text-verde-selva border-verde-selva/20",
-  "Saúde Mental": "bg-fucsia/10 text-fucsia border-fucsia/20",
-  "Casos Jurídicos": "bg-caqui/10 text-caqui border-caqui/20",
-};
+import { getArticles, searchArticles } from "@/lib/sanity-client";
+import type { BlogArticle } from "@/lib/blog-types";
 
 const BlogFeed = () => {
   const [articles, setArticles] = useState<BlogArticle[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState<BlogCategory | null>(null);
   const [loading, setLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [debouncedQuery, setDebouncedQuery] = useState("");
+
+  // Debounce search input
+  useEffect(() => {
+    const timer = setTimeout(() => setDebouncedQuery(searchQuery), 400);
+    return () => clearTimeout(timer);
+  }, [searchQuery]);
 
   useEffect(() => {
     setLoading(true);
-    getArticles(selectedCategory ?? undefined).then((data) => {
+    const fetcher = debouncedQuery ? searchArticles(debouncedQuery) : getArticles();
+    fetcher.then((data) => {
       setArticles(data);
       setLoading(false);
     });
-  }, [selectedCategory]);
+  }, [debouncedQuery]);
 
   const featured = articles[0];
   const rest = articles.slice(1);
@@ -51,32 +52,24 @@ const BlogFeed = () => {
             </p>
           </motion.div>
 
-          {/* Category filter */}
-          <div className="flex items-center gap-2 mb-10 flex-wrap">
-            <Filter className="h-4 w-4 text-muted-foreground" />
-            <button
-              onClick={() => setSelectedCategory(null)}
-              className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
-                !selectedCategory
-                  ? "bg-foreground text-background"
-                  : "bg-muted text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              Todos
-            </button>
-            {CATEGORIES.map((cat) => (
+          {/* Search bar */}
+          <div className="relative mb-10">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <input
+              type="text"
+              placeholder="Buscar artigos..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-11 pr-10 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 transition-shadow"
+            />
+            {searchQuery && (
               <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
-                className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
-                  selectedCategory === cat
-                    ? "bg-foreground text-background"
-                    : "bg-muted text-muted-foreground hover:text-foreground"
-                }`}
+                onClick={() => setSearchQuery("")}
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
               >
-                {cat}
+                <X className="h-4 w-4" />
               </button>
-            ))}
+            )}
           </div>
 
           {loading ? (
@@ -88,6 +81,14 @@ const BlogFeed = () => {
                   <div className="h-4 bg-muted rounded w-1/2" />
                 </div>
               ))}
+            </div>
+          ) : articles.length === 0 ? (
+            <div className="text-center py-16">
+              <p className="text-muted-foreground text-lg">
+                {debouncedQuery
+                  ? `Nenhum artigo encontrado para "${debouncedQuery}".`
+                  : "Nenhum artigo publicado ainda."}
+              </p>
             </div>
           ) : (
             <>
@@ -108,9 +109,11 @@ const BlogFeed = () => {
                         loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                      <Badge className={`absolute top-4 left-4 ${categoryColors[featured.category]}`}>
-                        {featured.category}
-                      </Badge>
+                      {featured.category && (
+                        <Badge className="absolute top-4 left-4 bg-background/80 text-foreground border-border">
+                          {featured.category}
+                        </Badge>
+                      )}
                     </div>
 
                     <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-2 group-hover:text-primary transition-colors leading-tight">
@@ -149,9 +152,11 @@ const BlogFeed = () => {
                   >
                     <Link to={`/blog/${article.slug}`} className="group flex gap-6 items-start">
                       <div className="flex-1 min-w-0">
-                        <Badge className={`mb-2 text-xs ${categoryColors[article.category]}`}>
-                          {article.category}
-                        </Badge>
+                        {article.category && (
+                          <Badge className="mb-2 text-xs bg-muted text-muted-foreground border-border">
+                            {article.category}
+                          </Badge>
+                        )}
                         <h3 className="text-xl font-heading font-bold text-foreground mb-1 group-hover:text-primary transition-colors leading-snug">
                           {article.title}
                         </h3>
