@@ -34,7 +34,7 @@ const differentials = [
 
 const DiferenciaisSection = () => {
   return (
-    <section id="diferenciais" className="py-24 bg-verde-petroleo text-white">
+    <section id="diferenciais" className="py-24">
       <div className="container mx-auto">
         <div className="grid lg:grid-cols-5 gap-12 items-start">
           {/* Coluna esquerda — título editorial */}
@@ -47,11 +47,11 @@ const DiferenciaisSection = () => {
             <span className="text-sm font-semibold uppercase tracking-widest text-verde-selva mb-3 block">
               Diferenciais
             </span>
-            <h2 className="text-4xl md:text-5xl font-heading font-bold leading-tight mb-6">
+            <h2 className="text-4xl md:text-5xl font-heading font-bold leading-tight mb-6 text-foreground">
               Por que o{" "}
               <span className="text-verde-selva">IBRP?</span>
             </h2>
-            <p className="text-white/60 text-lg leading-relaxed">
+            <p className="text-muted-foreground text-lg leading-relaxed">
               Conheça os diferenciais que fazem da nossa metodologia a mais completa do mercado.
             </p>
           </motion.div>
@@ -65,7 +65,7 @@ const DiferenciaisSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.12 }}
-                className="rounded-2xl border border-white/10 bg-white/5 p-7 hover:bg-white/10 transition-colors"
+                className="rounded-2xl border border-verde-petroleo/10 bg-verde-petroleo/5 p-7 hover:bg-verde-petroleo/10 transition-colors"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <span className="text-3xl font-heading font-bold text-verde-selva/40">
@@ -75,10 +75,10 @@ const DiferenciaisSection = () => {
                     <diff.icon className="h-5 w-5 text-verde-selva" strokeWidth={1.5} />
                   </div>
                 </div>
-                <h3 className="text-lg font-heading font-bold mb-2 text-white">
+                <h3 className="text-lg font-heading font-bold mb-2 text-foreground">
                   {diff.title}
                 </h3>
-                <p className="text-sm text-white/55 leading-relaxed">
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   {diff.description}
                 </p>
               </motion.div>
