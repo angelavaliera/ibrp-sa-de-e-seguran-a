@@ -12,7 +12,7 @@ const differentials = [
     hoverClass: "hover:bg-verde-selva/15",
     iconBg: "bg-verde-selva/15",
     iconText: "text-verde-selva",
-    topBorder: "from-verde-selva to-verde-selva/60",
+    accentBorder: "border-l-verde-selva",
   },
   {
     icon: Zap,
@@ -23,7 +23,7 @@ const differentials = [
     hoverClass: "hover:bg-indigo-brand/15",
     iconBg: "bg-indigo-brand/15",
     iconText: "text-indigo-brand",
-    topBorder: "from-indigo-brand to-indigo-brand/60",
+    accentBorder: "border-l-indigo-brand",
   },
   {
     icon: Users,
@@ -34,7 +34,7 @@ const differentials = [
     hoverClass: "hover:bg-fucsia/15",
     iconBg: "bg-fucsia/15",
     iconText: "text-fucsia",
-    topBorder: "from-fucsia to-fucsia/60",
+    accentBorder: "border-l-fucsia",
   },
   {
     icon: BarChart3,
@@ -45,7 +45,7 @@ const differentials = [
     hoverClass: "hover:bg-caqui/15",
     iconBg: "bg-caqui/15",
     iconText: "text-caqui",
-    topBorder: "from-caqui to-caqui/60",
+    accentBorder: "border-l-caqui",
   },
 ];
 
@@ -53,63 +53,64 @@ const DiferenciaisSection = () => {
   return (
     <section id="diferenciais" className="py-24 bg-muted/30">
       <div className="container mx-auto">
-        <div className="grid lg:grid-cols-5 gap-12 items-start">
-          {/* Coluna esquerda — texto em cima, símbolo embaixo */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="lg:col-span-2 lg:sticky lg:top-28 flex flex-col items-center lg:items-center"
-          >
-            <span className="text-sm font-semibold uppercase tracking-widest text-verde-selva mb-3 block">
-              Diferenciais
-            </span>
-            <h2 className="text-4xl md:text-5xl font-heading font-bold leading-tight mb-6 text-foreground text-center">
-              Por que o{" "}
-              <span className="text-gradient">IBRP?</span>
-            </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed text-center max-w-md">
-              Conheça os diferenciais que fazem da nossa metodologia a mais completa do mercado.
-            </p>
+        {/* Título centralizado */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-14"
+        >
+          <span className="text-sm font-semibold uppercase tracking-widest text-verde-selva mb-3 block">
+            Diferenciais
+          </span>
+          <h2 className="text-4xl md:text-5xl font-heading font-bold leading-tight mb-4 text-foreground">
+            Por que o <span className="text-gradient">IBRP?</span>
+          </h2>
+          <p className="text-muted-foreground text-lg leading-relaxed max-w-xl mx-auto">
+            Conheça os diferenciais que fazem da nossa metodologia a mais completa do mercado.
+          </p>
+        </motion.div>
 
-            {/* Símbolo do cérebro (sem o texto IBRP) */}
-            <div className="mt-10 w-40 md:w-48">
-              <img
-                src={logoBrain}
-                alt="Símbolo IBRP"
-                className="w-full"
-              />
-            </div>
-          </motion.div>
-
-          {/* Coluna direita — grid 2×2 de cards coloridos */}
-          <div className="lg:col-span-3 grid sm:grid-cols-2 gap-5">
-            {differentials.map((diff, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.12 }}
-                className={`rounded-2xl border p-7 transition-all overflow-hidden relative ${diff.bgClass} ${diff.hoverClass} hover:shadow-lg`}
-                style={{ boxShadow: "var(--shadow-card)" }}
-              >
-                {/* Barra de cor no topo */}
-                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${diff.topBorder}`} />
-
-                <div className={`w-10 h-10 rounded-xl ${diff.iconBg} flex items-center justify-center mb-4`}>
-                  <diff.icon className={`h-5 w-5 ${diff.iconText}`} strokeWidth={1.5} />
-                </div>
+        {/* Cards horizontais */}
+        <div className="flex flex-col gap-5 max-w-4xl mx-auto">
+          {differentials.map((diff, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className={`rounded-2xl border border-l-4 ${diff.accentBorder} ${diff.bgClass} ${diff.hoverClass} p-7 flex items-start gap-6 transition-all hover:shadow-lg`}
+              style={{ boxShadow: "var(--shadow-card)" }}
+            >
+              <div className={`w-14 h-14 rounded-xl ${diff.iconBg} flex items-center justify-center shrink-0`}>
+                <diff.icon className={`h-7 w-7 ${diff.iconText}`} strokeWidth={1.5} />
+              </div>
+              <div>
                 <h3 className="text-lg font-heading font-bold mb-2 text-foreground">
                   {diff.title}
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   {diff.description}
                 </p>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
+
+        {/* Símbolo do cérebro */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="flex justify-center mt-12"
+        >
+          <img
+            src={logoBrain}
+            alt="Símbolo IBRP"
+            className="w-32 md:w-40 opacity-80"
+          />
+        </motion.div>
       </div>
     </section>
   );
