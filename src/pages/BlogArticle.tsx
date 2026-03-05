@@ -192,7 +192,23 @@ const BlogArticlePage = () => {
               prose-ul:my-4 prose-ol:my-4"
           >
             {Array.isArray(article.body) ? (
-              <PortableText value={article.body} />
+              <PortableText
+                value={article.body}
+                components={{
+                  block: {
+                    normal: ({ children }) => {
+                      const isEmpty =
+                        !children ||
+                        (Array.isArray(children) &&
+                          children.every(
+                            (c) => c === "" || c === undefined || c === null
+                          ));
+                      if (isEmpty) return <br />;
+                      return <p>{children}</p>;
+                    },
+                  },
+                }}
+              />
             ) : (
               <div dangerouslySetInnerHTML={{ __html: article.body }} />
             )}
