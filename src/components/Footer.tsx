@@ -46,12 +46,12 @@ const Footer = () => {
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-6 items-stretch">
             {/* Mídias sociais — card */}
-            <div className="bg-muted rounded-2xl p-8 border border-border text-foreground flex flex-col justify-center text-center lg:text-left">
+            <div className="bg-muted rounded-2xl p-8 border border-border text-foreground flex flex-col justify-center items-center text-center">
               <p className="text-sm uppercase tracking-widest font-medium mb-3 text-muted-foreground">Siga o IBRP</p>
               <h3 className="text-2xl md:text-3xl font-heading font-bold mb-8 text-foreground">
                 Acompanhe nossos conteúdos nas mídias sociais
               </h3>
-              <div className="flex items-center justify-center lg:justify-start gap-6">
+              <div className="flex items-center justify-center gap-6">
                 {socialLinks.map((s) => (
                   <a
                     key={s.label}
