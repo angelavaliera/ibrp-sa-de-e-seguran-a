@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ShieldCheck, Zap, Users, BarChart3 } from "lucide-react";
-import logoBrain from "@/assets/logo-ibrp-brain.jpg";
+import logoBrain from "@/assets/logo-ibrp-brain.png";
 
 const differentials = [
   {
