@@ -75,6 +75,7 @@ const BlogPreviewSection = () => {
                     {new Date(article.publishedAt).toLocaleDateString("pt-BR", {
                       day: "numeric",
                       month: "short",
+                      timeZone: "UTC",
                     })}
                   </time>
                   <span>·</span>

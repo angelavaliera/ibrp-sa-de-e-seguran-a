@@ -121,6 +121,7 @@ const BlogArticlePage = () => {
                   day: "numeric",
                   month: "long",
                   year: "numeric",
+                  timeZone: "UTC",
                 })}
               </time>
               <span>·</span>
