@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ShieldCheck, Zap, Users, BarChart3 } from "lucide-react";
-import logoBrain from "@/assets/logo-ibrp-brain.png";
+
 
 const differentials = [
   {
@@ -98,19 +98,6 @@ const DiferenciaisSection = () => {
           ))}
         </div>
 
-        {/* Símbolo do cérebro */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="flex justify-center mt-12"
-        >
-          <img
-            src={logoBrain}
-            alt="Símbolo IBRP"
-            className="w-32 md:w-40 opacity-80"
-          />
-        </motion.div>
       </div>
     </section>
   );
