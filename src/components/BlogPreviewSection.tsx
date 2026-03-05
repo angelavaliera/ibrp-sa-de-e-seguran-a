@@ -4,14 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Clock } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { getArticles } from "@/lib/sanity-client";
-import type { BlogArticle, BlogCategory } from "@/lib/blog-types";
-
-const categoryColors: Record<BlogCategory, string> = {
-  "NR-1": "bg-indigo/10 text-indigo border-indigo/20",
-  "Liderança": "bg-verde-selva/10 text-verde-selva border-verde-selva/20",
-  "Saúde Mental": "bg-fucsia/10 text-fucsia border-fucsia/20",
-  "Casos Jurídicos": "bg-caqui/10 text-caqui border-caqui/20",
-};
+import type { BlogArticle } from "@/lib/blog-types";
 
 const BlogPreviewSection = () => {
   const [articles, setArticles] = useState<BlogArticle[]>([]);
@@ -65,9 +58,11 @@ const BlogPreviewSection = () => {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
-                  <Badge className={`absolute top-3 left-3 text-xs ${categoryColors[article.category]}`}>
-                    {article.category}
-                  </Badge>
+                  {article.category && (
+                    <Badge className="absolute top-3 left-3 text-xs bg-background/80 text-foreground border-border">
+                      {article.category}
+                    </Badge>
+                  )}
                 </div>
                 <h3 className="text-lg font-heading font-bold text-foreground mb-1 group-hover:text-primary transition-colors leading-snug line-clamp-2">
                   {article.title}

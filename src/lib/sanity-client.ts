@@ -79,13 +79,19 @@ const ARTICLE_FIELDS = `
   metaDescription
 `;
 
-export async function getArticles(category?: BlogCategory): Promise<BlogArticle[]> {
-  const filter = category
-    ? `*[_type == "article" && category == $category] | order(publishedAt desc)`
-    : `*[_type == "article"] | order(publishedAt desc)`;
+export async function getArticles(): Promise<BlogArticle[]> {
+  const results = await sanityClient.fetch(
+    `*[_type == "article"] | order(publishedAt desc) { ${ARTICLE_FIELDS} }`
+  );
+  return results.map(mapArticle);
+}
 
-  const params = category ? { category } : {};
-  const results = await sanityClient.fetch(`${filter} { ${ARTICLE_FIELDS} }`, params);
+export async function searchArticles(query: string): Promise<BlogArticle[]> {
+  if (!query.trim()) return getArticles();
+  const results = await sanityClient.fetch(
+    `*[_type == "article" && (title match $q || subtitle match $q || excerpt match $q || pt::text(body) match $q)] | order(publishedAt desc) { ${ARTICLE_FIELDS} }`,
+    { q: `${query.trim()}*` }
+  );
   return results.map(mapArticle);
 }
 
