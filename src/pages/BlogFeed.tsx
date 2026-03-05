@@ -45,7 +45,7 @@ const BlogFeed = () => {
             className="mb-12"
           >
             <h1 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-3">
-              Central de Inteligência
+              Central de Inteligência IBRP
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl">
               Artigos, dados e análises para quem quer transformar a saúde mental em vantagem competitiva.

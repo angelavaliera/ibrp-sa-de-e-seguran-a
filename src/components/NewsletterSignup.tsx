@@ -28,6 +28,7 @@ interface NewsletterSignupProps {
 }
 
 const NewsletterSignup = ({ variant = "footer" }: NewsletterSignupProps) => {
+  const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [perfil, setPerfil] = useState("");
   const [lgpd, setLgpd] = useState(false);
@@ -47,6 +48,7 @@ const NewsletterSignup = ({ variant = "footer" }: NewsletterSignupProps) => {
       title: "Inscrição realizada!",
       description: "Você receberá nossos conteúdos em breve.",
     });
+    setNome("");
     setEmail("");
     setPerfil("");
     setLgpd(false);
@@ -59,12 +61,20 @@ const NewsletterSignup = ({ variant = "footer" }: NewsletterSignupProps) => {
           <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
             <Mail className="h-5 w-5 text-primary" />
           </div>
-          <h3 className="text-lg font-heading font-bold">Assine nossa Central de Inteligência</h3>
+          <h3 className="text-lg font-heading font-bold">Assine a Central de Inteligência IBRP</h3>
         </div>
         <p className="text-sm text-muted-foreground mb-5">
           Receba análises, tendências e conteúdos estratégicos sobre saúde mental corporativa e NR-1.
         </p>
         <form onSubmit={handleSubmit} className="space-y-3">
+          <Input
+            required
+            type="text"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+            placeholder="Seu nome"
+            className="bg-muted border-border"
+          />
           <Input
             required
             type="email"
@@ -108,12 +118,20 @@ const NewsletterSignup = ({ variant = "footer" }: NewsletterSignupProps) => {
     <div>
       <div className="flex items-center gap-3 mb-3">
         <Mail className="h-5 w-5 text-primary" />
-        <h4 className="font-heading font-bold">Assine nossa Central de Inteligência</h4>
+        <h4 className="font-heading font-bold">Assine a Central de Inteligência IBRP</h4>
       </div>
       <p className="text-sm text-muted-foreground mb-4">
         Conteúdos estratégicos sobre saúde mental corporativa e NR-1.
       </p>
       <form onSubmit={handleSubmit} className="space-y-3">
+        <Input
+          required
+          type="text"
+          value={nome}
+          onChange={(e) => setNome(e.target.value)}
+          placeholder="Seu nome"
+          className="bg-muted border-border"
+        />
         <Input
           required
           type="email"
