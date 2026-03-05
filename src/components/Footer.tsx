@@ -39,12 +39,19 @@ const Footer = () => {
       {/* Footer nav */}
       <div className="border-t border-border bg-muted/20 py-14">
         <div className="container mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_2fr] gap-10">
             <div>
               <img src={logoHorizontal} alt="IBRP" className="h-10 mb-4" />
-              <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-xs mb-6">
                 Instituto Brasileiro de Riscos Psicossociais. Ciência, acolhimento e transformação para ambientes de trabalho mais saudáveis.
               </p>
+              <Button
+                className="bg-gradient-brand hover:opacity-90 transition-opacity text-white"
+                onClick={() => document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" })}
+              >
+                Solicitar Diagnóstico
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
             </div>
 
             <div>
@@ -87,17 +94,6 @@ const Footer = () => {
             <div>
               <NewsletterSignup variant="footer" />
             </div>
-          </div>
-
-          <div className="flex justify-center mt-10 mb-10">
-            <Button
-              size="lg"
-              className="bg-gradient-brand hover:opacity-90 transition-opacity text-lg px-8 py-6 rounded-xl glow text-white"
-              onClick={() => document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" })}
-            >
-              Solicitar Diagnóstico
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
           </div>
 
           <div className="border-t border-border pt-6 text-center text-xs text-muted-foreground">
