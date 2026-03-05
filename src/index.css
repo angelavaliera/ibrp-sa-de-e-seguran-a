@@ -42,7 +42,8 @@
     --indigo: 228 54% 31%;
     --fucsia: 329 73% 44%;
     --caqui: 18 81% 53%;
-    --brilho-sol: 46 97% 52%;
+     --brilho-sol: 46 97% 52%;
+     --laranja-alerta: 25 95% 53%;
 
     /* Gradients */
     --gradient-brand: linear-gradient(135deg, hsl(228 54% 31%), hsl(166 62% 39%), hsl(329 73% 44%), hsl(18 81% 53%), hsl(46 97% 52%));
