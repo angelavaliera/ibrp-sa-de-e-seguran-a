@@ -68,7 +68,7 @@ const DiferenciaisSection = () => {
             Por que o <span className="text-gradient">IBRP?</span>
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed max-w-xl mx-auto">
-            Conheça os diferenciais que fazem da nossa metodologia a mais completa do mercado.
+            Conheça os diferenciais que fazem da nossa Metodologia de Gestão de Riscos Psicossociais a mais completa do mercado.
           </p>
         </motion.div>
 
