@@ -41,7 +41,7 @@ const Footer = () => {
         <div className="container mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_2fr] gap-10">
             <div>
-              <img src={logoHorizontal} alt="IBRP" className="h-10 mb-4" />
+              <img src={logoHorizontal} alt="IBRP" className="h-14 mb-4" />
               <p className="text-sm text-muted-foreground leading-relaxed max-w-xs mb-6">
                 Instituto Brasileiro de Riscos Psicossociais. Ciência, acolhimento e transformação para ambientes de trabalho mais saudáveis.
               </p>
@@ -66,7 +66,7 @@ const Footer = () => {
             </div>
 
             <div>
-              <h4 className="font-heading font-bold mb-4">Links Úteis</h4>
+              <h4 className="font-heading font-bold mb-4">Plataformas</h4>
               <ul className="space-y-2.5 text-sm text-muted-foreground">
                 <li>
                   <a
