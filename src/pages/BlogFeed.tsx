@@ -127,7 +127,7 @@ const BlogFeed = () => {
                     <div className="flex items-center gap-4 text-sm text-muted-foreground">
                       <span>{featured.author}</span>
                       <span>·</span>
-                      <time>{new Date(featured.publishedAt).toLocaleDateString("pt-BR", { day: "numeric", month: "long", year: "numeric" })}</time>
+                      <time>{new Date(featured.publishedAt).toLocaleDateString("pt-BR", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })}</time>
                       <span>·</span>
                       <span className="flex items-center gap-1">
                         <Clock className="h-3.5 w-3.5" />
@@ -164,7 +164,7 @@ const BlogFeed = () => {
                           {article.excerpt}
                         </p>
                         <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                          <time>{new Date(article.publishedAt).toLocaleDateString("pt-BR", { day: "numeric", month: "short" })}</time>
+                          <time>{new Date(article.publishedAt).toLocaleDateString("pt-BR", { day: "numeric", month: "short", timeZone: "UTC" })}</time>
                           <span>·</span>
                           <span className="flex items-center gap-1">
                             <Clock className="h-3 w-3" />
