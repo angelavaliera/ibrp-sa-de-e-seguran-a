@@ -95,76 +95,82 @@ const ContatoSection = () => {
             <div className="rounded-2xl border border-border bg-card p-8" style={{ boxShadow: "var(--shadow-card)" }}>
               <h3 className="text-xl font-heading font-bold mb-6">Solicitar Diagnóstico</h3>
               <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label className="text-sm text-muted-foreground mb-1.5 block">Nome</label>
-                  <Input
-                    required
-                    value={form.nome}
-                    onChange={(e) => setForm({ ...form, nome: e.target.value })}
-                    placeholder="Seu nome completo"
-                    className="bg-muted border-border"
-                  />
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-sm text-muted-foreground mb-1.5 block">Nome</label>
+                    <Input
+                      required
+                      value={form.nome}
+                      onChange={(e) => setForm({ ...form, nome: e.target.value })}
+                      placeholder="Seu nome completo"
+                      className="bg-muted border-border"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-sm text-muted-foreground mb-1.5 block">E-mail Corporativo</label>
+                    <Input
+                      required
+                      type="email"
+                      value={form.email}
+                      onChange={(e) => setForm({ ...form, email: e.target.value })}
+                      placeholder="seu@empresa.com"
+                      className="bg-muted border-border"
+                    />
+                  </div>
                 </div>
-                <div>
-                  <label className="text-sm text-muted-foreground mb-1.5 block">E-mail Corporativo</label>
-                  <Input
-                    required
-                    type="email"
-                    value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    placeholder="seu@empresa.com"
-                    className="bg-muted border-border"
-                  />
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-sm text-muted-foreground mb-1.5 block">Empresa</label>
+                    <Input
+                      required
+                      value={form.empresa}
+                      onChange={(e) => setForm({ ...form, empresa: e.target.value })}
+                      placeholder="Nome da empresa"
+                      className="bg-muted border-border"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-sm text-muted-foreground mb-1.5 block">Cargo</label>
+                    <Input
+                      required
+                      value={form.cargo}
+                      onChange={(e) => setForm({ ...form, cargo: e.target.value })}
+                      placeholder="Seu cargo"
+                      className="bg-muted border-border"
+                    />
+                  </div>
                 </div>
-                <div>
-                  <label className="text-sm text-muted-foreground mb-1.5 block">Empresa</label>
-                  <Input
-                    required
-                    value={form.empresa}
-                    onChange={(e) => setForm({ ...form, empresa: e.target.value })}
-                    placeholder="Nome da empresa"
-                    className="bg-muted border-border"
-                  />
-                </div>
-                <div>
-                  <label className="text-sm text-muted-foreground mb-1.5 block">Cargo</label>
-                  <Input
-                    required
-                    value={form.cargo}
-                    onChange={(e) => setForm({ ...form, cargo: e.target.value })}
-                    placeholder="Seu cargo"
-                    className="bg-muted border-border"
-                  />
-                </div>
-                <div>
-                  <label className="text-sm text-muted-foreground mb-1.5 block">Tamanho da Empresa</label>
-                  <Select value={form.tamanho} onValueChange={(v) => setForm({ ...form, tamanho: v })}>
-                    <SelectTrigger className="bg-muted border-border">
-                      <SelectValue placeholder="Selecione" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {companySize.map((s) => (
-                        <SelectItem key={s} value={s}>
-                          {s} colaboradores
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div>
-                  <label className="text-sm text-muted-foreground mb-1.5 block">Interesse Principal</label>
-                  <Select value={form.interesse} onValueChange={(v) => setForm({ ...form, interesse: v })}>
-                    <SelectTrigger className="bg-muted border-border">
-                      <SelectValue placeholder="Selecione" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {interests.map((i) => (
-                        <SelectItem key={i} value={i}>
-                          {i}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-sm text-muted-foreground mb-1.5 block">Tamanho da Empresa</label>
+                    <Select value={form.tamanho} onValueChange={(v) => setForm({ ...form, tamanho: v })}>
+                      <SelectTrigger className="bg-muted border-border">
+                        <SelectValue placeholder="Selecione" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {companySize.map((s) => (
+                          <SelectItem key={s} value={s}>
+                            {s} colaboradores
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <label className="text-sm text-muted-foreground mb-1.5 block">Interesse Principal</label>
+                    <Select value={form.interesse} onValueChange={(v) => setForm({ ...form, interesse: v })}>
+                      <SelectTrigger className="bg-muted border-border">
+                        <SelectValue placeholder="Selecione" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {interests.map((i) => (
+                          <SelectItem key={i} value={i}>
+                            {i}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
                 </div>
 
                 <div className="flex items-start gap-3 pt-2">
