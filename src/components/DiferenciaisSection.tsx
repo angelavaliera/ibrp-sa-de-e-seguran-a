@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ShieldCheck, Zap, Users, BarChart3 } from "lucide-react";
-import logoSelo from "@/assets/logo-ibrp-selo.png";
+import logoBrain from "@/assets/logo-ibrp-brain.jpg";
 
 const differentials = [
   {
@@ -73,12 +73,11 @@ const DiferenciaisSection = () => {
             </p>
 
             {/* Símbolo do cérebro (sem o texto IBRP) */}
-            <div className="mt-10 w-40 md:w-48 overflow-hidden">
+            <div className="mt-10 w-40 md:w-48">
               <img
-                src={logoSelo}
+                src={logoBrain}
                 alt="Símbolo IBRP"
                 className="w-full"
-                style={{ marginBottom: "-28%" }}
               />
             </div>
           </motion.div>
