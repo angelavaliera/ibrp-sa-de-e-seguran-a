@@ -71,7 +71,7 @@ const StatsSection = () => {
         <div className="container mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
-              Panorama da saúde mental <span className="text-fucsia">relacionada ao trabalho</span> no Brasil
+              Panorama da saúde mental <span className="text-laranja-alerta">relacionada ao trabalho</span> no Brasil
             </h2>
           </motion.div>
 
@@ -80,12 +80,12 @@ const StatsSection = () => {
               <motion.div
                 key={i}
                 {...cardAnim(i)}
-                className="rounded-2xl border border-fucsia/25 bg-white/5 p-7 hover:shadow-lg transition-shadow"
+                className="rounded-2xl border border-laranja-alerta/25 bg-white/5 p-7 hover:shadow-lg transition-shadow"
               >
-                <div className="w-11 h-11 rounded-xl bg-fucsia/15 flex items-center justify-center mb-4">
-                  <stat.icon className="h-5 w-5 text-fucsia" />
+                <div className="w-11 h-11 rounded-xl bg-laranja-alerta/15 flex items-center justify-center mb-4">
+                  <stat.icon className="h-5 w-5 text-laranja-alerta" />
                 </div>
-                <div className="text-4xl md:text-5xl font-heading font-bold text-fucsia mb-1">{stat.value}</div>
+                <div className="text-4xl md:text-5xl font-heading font-bold text-laranja-alerta mb-1">{stat.value}</div>
                 <div className="text-base font-semibold text-white mb-1">{stat.title}</div>
                 <p className="text-sm text-white/60">{stat.description}</p>
               </motion.div>
