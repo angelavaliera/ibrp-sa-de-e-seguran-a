@@ -95,7 +95,7 @@ const StatsSection = () => {
       </div>
 
       {/* Seção 2 — Positiva (fundo claro para contraste) */}
-      <div className="py-20 bg-background">
+      <div className="py-20" style={{ backgroundColor: "hsl(36 30% 93%)" }}>
         <div className="container mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-4">
             <p className="text-sm font-semibold uppercase tracking-widest text-verde-selva mb-2">Com gestão de riscos psicossociais, o cenário muda</p>
