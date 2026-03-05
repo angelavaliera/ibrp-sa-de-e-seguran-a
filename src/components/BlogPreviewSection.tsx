@@ -16,7 +16,7 @@ const BlogPreviewSection = () => {
   if (articles.length === 0) return null;
 
   return (
-    <section className="py-20 bg-muted/30" id="blog">
+    <section className="py-20 bg-verde-petroleo text-white" id="blog">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -28,13 +28,13 @@ const BlogPreviewSection = () => {
             <h2 className="text-3xl md:text-4xl font-heading font-bold mb-3">
               Central de <span className="text-gradient">Inteligência</span> IBRP
             </h2>
-            <p className="text-muted-foreground max-w-lg">
+            <p className="text-white/60 max-w-lg">
               Artigos e análises para transformar a saúde mental em vantagem competitiva.
             </p>
           </div>
           <Link
             to="/blog"
-            className="hidden md:inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
+            className="hidden md:inline-flex items-center gap-1.5 text-sm font-medium text-verde-selva hover:underline"
           >
             Ver todos os artigos
             <ArrowRight className="h-4 w-4" />
@@ -64,13 +64,13 @@ const BlogPreviewSection = () => {
                     </Badge>
                   )}
                 </div>
-                <h3 className="text-lg font-heading font-bold text-foreground mb-1 group-hover:text-primary transition-colors leading-snug line-clamp-2">
+                <h3 className="text-lg font-heading font-bold text-white mb-1 group-hover:text-verde-selva transition-colors leading-snug line-clamp-2">
                   {article.title}
                 </h3>
-                <p className="text-sm text-muted-foreground line-clamp-2 mb-3">
+                <p className="text-sm text-white/50 line-clamp-2 mb-3">
                   {article.excerpt}
                 </p>
-                <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                <div className="flex items-center gap-2 text-xs text-white/40">
                   <time>
                     {new Date(article.publishedAt).toLocaleDateString("pt-BR", {
                       day: "numeric",
@@ -90,7 +90,7 @@ const BlogPreviewSection = () => {
 
         <Link
           to="/blog"
-          className="md:hidden mt-8 inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
+          className="md:hidden mt-8 inline-flex items-center gap-1.5 text-sm font-medium text-verde-selva hover:underline"
         >
           Ver todos os artigos
           <ArrowRight className="h-4 w-4" />
