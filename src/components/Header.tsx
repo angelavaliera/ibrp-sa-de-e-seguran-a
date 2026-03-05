@@ -9,7 +9,7 @@ const navItems = [
   { label: "Soluções NR-1", href: "#servicos" },
   { label: "Palestras", href: "#palestras" },
   { label: "Cursos", href: "#cursos" },
-  { label: "Blog", href: "/blog" },
+  { label: "Artigos", href: "/blog" },
 ];
 
 const clientLinks = [
