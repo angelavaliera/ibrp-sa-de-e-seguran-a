@@ -15,6 +15,21 @@ function urlFor(source: any) {
   return builder.image(source);
 }
 
+function estimateReadTime(body: any): number {
+  let text = "";
+  if (Array.isArray(body)) {
+    // Portable Text blocks
+    text = body
+      .filter((b: any) => b._type === "block")
+      .map((b: any) => b.children?.map((c: any) => c.text).join("") ?? "")
+      .join(" ");
+  } else if (typeof body === "string") {
+    text = body.replace(/<[^>]*>/g, " ");
+  }
+  const words = text.split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.round(words / 200));
+}
+
 function mapArticle(raw: any): BlogArticle {
   return {
     slug: raw.slug?.current ?? "",
@@ -36,7 +51,7 @@ function mapArticle(raw: any): BlogArticle {
         }
       : undefined,
     publishedAt: raw.publishedAt ?? "",
-    readTime: raw.readTime ?? 5,
+    readTime: raw.readTime || estimateReadTime(raw.body),
     excerpt: raw.excerpt ?? "",
     body: raw.body ?? "",
     dataHighlight: raw.dataHighlight?.value
