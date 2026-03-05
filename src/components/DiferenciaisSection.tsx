@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { ShieldCheck, Zap, Users, BarChart3 } from "lucide-react";
+import { ShieldCheck, Zap, Users, BarChart3, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 
 const differentials = [
@@ -97,6 +98,23 @@ const DiferenciaisSection = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mt-12"
+        >
+          <Button
+            size="lg"
+            className="bg-gradient-brand hover:opacity-90 transition-opacity text-lg px-8 py-6 rounded-xl glow text-white"
+            onClick={() => document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" })}
+          >
+            Solicitar Diagnóstico
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
+        </motion.div>
 
       </div>
     </section>

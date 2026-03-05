@@ -1,6 +1,7 @@
 import logoHorizontal from "@/assets/logo-horizontal-black.png";
-import { ExternalLink, Youtube, Instagram, Linkedin } from "lucide-react";
+import { ExternalLink, Youtube, Instagram, Linkedin, ArrowRight } from "lucide-react";
 import NewsletterSignup from "@/components/NewsletterSignup";
+import { Button } from "@/components/ui/button";
 
 const socialLinks = [
   { label: "YouTube", href: "https://www.youtube.com/@IBRP.riscos.psicossociais", icon: Youtube },
@@ -88,7 +89,18 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="border-t border-border mt-10 pt-6 text-center text-xs text-muted-foreground">
+          <div className="flex justify-center mt-10 mb-10">
+            <Button
+              size="lg"
+              className="bg-gradient-brand hover:opacity-90 transition-opacity text-lg px-8 py-6 rounded-xl glow text-white"
+              onClick={() => document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" })}
+            >
+              Solicitar Diagnóstico
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </div>
+
+          <div className="border-t border-border pt-6 text-center text-xs text-muted-foreground">
             © 2025 IBRP — Instituto Brasileiro de Riscos Psicossociais. Todos os direitos reservados.
           </div>
         </div>
