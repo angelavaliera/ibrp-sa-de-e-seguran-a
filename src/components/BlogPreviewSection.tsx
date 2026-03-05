@@ -22,17 +22,19 @@ const BlogPreviewSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="flex items-end justify-between mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-3">
-            Central de <span className="text-gradient">Inteligência</span> IBRP
-          </h2>
-          <p className="text-muted-foreground max-w-lg mx-auto">
-            Artigos e análises para transformar a saúde mental em vantagem competitiva.
-          </p>
+          <div>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-3">
+              Central de <span className="text-gradient">Inteligência</span> IBRP
+            </h2>
+            <p className="text-muted-foreground max-w-lg">
+              Artigos e análises para transformar a saúde mental em vantagem competitiva.
+            </p>
+          </div>
           <Link
             to="/blog"
-            className="hidden md:inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline mt-4"
+            className="hidden md:inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
           >
             Ver todos os artigos
             <ArrowRight className="h-4 w-4" />
