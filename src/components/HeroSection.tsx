@@ -21,7 +21,7 @@ const HeroSection = () => {
           className="max-w-4xl mx-auto text-center"
         >
           <div className="inline-block mb-6 px-4 py-1.5 rounded-full border border-foreground/15 bg-white/60 backdrop-blur-sm">
-            <span className="text-sm font-medium text-foreground/80">Saúde Mental Corporativa • IBRP</span>
+            <span className="text-sm font-medium text-foreground/80">Gestão de Riscos Psicossociais • IBRP</span>
           </div>
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold leading-tight mb-6 text-foreground">
