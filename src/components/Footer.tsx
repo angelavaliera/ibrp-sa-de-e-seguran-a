@@ -14,7 +14,7 @@ const Footer = () => {
       {/* Social + Newsletter band */}
       <div className="bg-primary py-14 text-primary-foreground">
         <div className="container mx-auto">
-          <div className="grid lg:grid-cols-[2fr_1fr] gap-12 items-start">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Mídias sociais */}
             <div className="text-center lg:text-left">
               <p className="text-sm uppercase tracking-widest font-medium mb-3 opacity-80">Siga o IBRP</p>
@@ -38,7 +38,7 @@ const Footer = () => {
             </div>
 
             {/* Newsletter */}
-            <div className="bg-primary-foreground/10 rounded-2xl p-6 backdrop-blur-sm border border-primary-foreground/15">
+            <div className="bg-background rounded-2xl p-6 border border-border text-foreground">
               <NewsletterSignup variant="footer" />
             </div>
           </div>
