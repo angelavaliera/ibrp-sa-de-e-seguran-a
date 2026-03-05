@@ -1,7 +1,6 @@
 import logoHorizontal from "@/assets/logo-horizontal-black.png";
-import { ExternalLink, Youtube, Instagram, Linkedin, ArrowRight } from "lucide-react";
+import { ExternalLink, Youtube, Instagram, Linkedin } from "lucide-react";
 import NewsletterSignup from "@/components/NewsletterSignup";
-import { Button } from "@/components/ui/button";
 
 const socialLinks = [
   { label: "YouTube", href: "https://www.youtube.com/@IBRP.riscos.psicossociais", icon: Youtube },
@@ -12,26 +11,36 @@ const socialLinks = [
 const Footer = () => {
   return (
     <footer>
-      {/* Social CTA band */}
+      {/* Social + Newsletter band */}
       <div className="bg-primary py-14 text-primary-foreground">
-        <div className="container mx-auto text-center">
-          <p className="text-sm uppercase tracking-widest font-medium mb-3 opacity-80">Siga o IBRP</p>
-          <h3 className="text-2xl md:text-3xl font-heading font-bold mb-8">
-            Acompanhe nossos conteúdos nas redes sociais
-          </h3>
-          <div className="flex items-center justify-center gap-6">
-            {socialLinks.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={s.label}
-                className="w-14 h-14 rounded-full border-2 border-primary-foreground/30 flex items-center justify-center hover:bg-primary-foreground hover:text-primary transition-all duration-300"
-              >
-                <s.icon size={24} />
-              </a>
-            ))}
+        <div className="container mx-auto">
+          <div className="grid lg:grid-cols-[2fr_1fr] gap-12 items-start">
+            {/* Mídias sociais */}
+            <div className="text-center lg:text-left">
+              <p className="text-sm uppercase tracking-widest font-medium mb-3 opacity-80">Siga o IBRP</p>
+              <h3 className="text-2xl md:text-3xl font-heading font-bold mb-8">
+                Acompanhe nossos conteúdos nas mídias sociais
+              </h3>
+              <div className="flex items-center justify-center lg:justify-start gap-6">
+                {socialLinks.map((s) => (
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={s.label}
+                    className="w-14 h-14 rounded-full border-2 border-primary-foreground/30 flex items-center justify-center hover:bg-primary-foreground hover:text-primary transition-all duration-300"
+                  >
+                    <s.icon size={24} />
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Newsletter */}
+            <div className="bg-primary-foreground/10 rounded-2xl p-6 backdrop-blur-sm border border-primary-foreground/15">
+              <NewsletterSignup variant="footer" />
+            </div>
           </div>
         </div>
       </div>
@@ -39,19 +48,12 @@ const Footer = () => {
       {/* Footer nav */}
       <div className="border-t border-border bg-muted/20 py-14">
         <div className="container mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_2fr] gap-10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-10">
             <div>
               <img src={logoHorizontal} alt="IBRP" className="w-full max-w-xs mb-4" />
-              <p className="text-sm text-muted-foreground leading-relaxed max-w-xs mb-6">
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
                 Ciência, acolhimento e transformação para ambientes de trabalho mais saudáveis.
               </p>
-              <Button
-                className="bg-gradient-brand hover:opacity-90 transition-opacity text-white"
-                onClick={() => document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" })}
-              >
-                Solicitar Diagnóstico
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
             </div>
 
             <div>
@@ -90,13 +92,9 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-
-            <div>
-              <NewsletterSignup variant="footer" />
-            </div>
           </div>
 
-          <div className="border-t border-border pt-6 text-center text-xs text-muted-foreground">
+          <div className="border-t border-border mt-10 pt-6 text-center text-xs text-muted-foreground">
             © 2025 IBRP — Instituto Brasileiro de Riscos Psicossociais. Todos os direitos reservados.
           </div>
         </div>
