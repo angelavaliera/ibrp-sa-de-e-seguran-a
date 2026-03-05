@@ -98,7 +98,7 @@ const StatsSection = () => {
       <div className="py-20 bg-background">
         <div className="container mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-4">
-            <p className="text-sm font-semibold uppercase tracking-widest text-verde-selva mb-2">Com o IBRP, o cenário muda</p>
+            <p className="text-sm font-semibold uppercase tracking-widest text-verde-selva mb-2">Com gestão de riscos psicossociais, o cenário muda</p>
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
               Retorno para empresas que <span className="text-verde-selva">investem em saúde mental</span>
             </h2>
