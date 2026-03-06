@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { BookOpen, Award, Clock } from "lucide-react";
+import { BookOpen, Heart, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const courses = [
