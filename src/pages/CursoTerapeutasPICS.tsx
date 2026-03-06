@@ -120,7 +120,7 @@ const professors = [
   {
     name: "Elaine Reginaldo",
     role: "Terapeuta de PICS e Enfermeira\nEspecialista em Segurança do Trabalho e NRs",
-    bio: "Enfermeira do Trabalho e Terapeuta de PICS. 30 anos de experiência com Saúde do Trabalhador. Especialista em Saúde Ocupacional, Medicina Tradicional Chinesa, Naturopatia e Neurociências. Mestranda em Ciências Quânticas. Coautora do livro 'Como Cuidar da Ansiedade'.",
+    bio: "Enfermeira do Trabalho e Terapeuta de PICS. 30 anos de experiência com Saúde do Trabalhador. Especialista em Saúde Ocupacional, Medicina Tradicional Chinesa, Naturopatia e Neurociências. Coautora do livro 'Como Cuidar da Ansiedade'.",
     photo: profElaine,
     socials: {
       instagram: "https://www.instagram.com/elainereginnaldo/",
