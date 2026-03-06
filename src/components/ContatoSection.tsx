@@ -174,8 +174,18 @@ const ContatoSection = () => {
                     </Select>
                   </div>
                 </div>
+                <div>
+                  <label className="text-sm text-muted-foreground mb-1.5 block">Mensagem</label>
+                  <Textarea
+                    value={form.mensagem}
+                    onChange={(e) => setForm({ ...form, mensagem: e.target.value })}
+                    placeholder="Descreva brevemente o que você precisa..."
+                    className="bg-muted border-border min-h-[100px] resize-none"
+                    maxLength={1000}
+                  />
+                </div>
 
-                <div className="flex items-start gap-3 pt-2">
+
                   <Checkbox
                     id="lgpd-contato"
                     checked={lgpd}
