@@ -66,7 +66,7 @@ const ContatoSection = () => {
           </h2>
 
           <div className="rounded-2xl border border-border bg-card p-8" style={{ boxShadow: "var(--shadow-card)" }}>
-            <h3 className="text-xl font-heading font-bold mb-6">Solicitar Diagnóstico</h3>
+            <h3 className="text-xl font-heading font-bold mb-6">Solicite uma proposta</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div>
