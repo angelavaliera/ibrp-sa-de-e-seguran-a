@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 
 const courses = [
   {
-    title: "Gestão de Riscos Psicossociais",
-    description: "Formação completa para profissionais de RH, SST e líderes organizacionais sobre identificação, avaliação e mitigação de riscos psicossociais.",
+    title: "Terapeutas Integrativos nas empresas: Atuação em Riscos Psicossociais alinhada à NR-1",
+    description: "Prepara Terapeutas de Práticas Integrativas e Complementares em Saúde (PICS) para atuar de forma estratégica nas empresas e oferecer soluções eficazes em saúde mental e bem-estar organizacional.",
     
     hours: "40h",
     icon: Award,
