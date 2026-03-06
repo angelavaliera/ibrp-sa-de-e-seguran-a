@@ -462,7 +462,7 @@ const CursoTerapeutasPICS = () => {
                 asChild
               >
                 <a href={CHECKOUT_URL} target="_blank" rel="noopener noreferrer">
-                  Inscrever-se agora
+                  Quero me inscrever
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
               </Button>
