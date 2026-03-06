@@ -11,6 +11,7 @@ const courses = [
     hours: "30h",
     icon: Heart,
     featured: true,
+    link: "/curso-NR1-terapeutas-PICS",
   },
   {
     title: "NR-1 para Gestores",
