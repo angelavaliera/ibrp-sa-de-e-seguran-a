@@ -42,7 +42,7 @@ const CursosSection = () => {
             Capacitação <span className="text-gradient">profissional</span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            Cursos desenvolvidos por especialistas para transformar a gestão de pessoas na sua organização.
+            Cursos desenvolvidos por nossos especialistas para quem quer se profissionalizar e atuar com Gestão de Riscos Psicossociais e NR-1 nas empresas.
           </p>
         </motion.div>
 
