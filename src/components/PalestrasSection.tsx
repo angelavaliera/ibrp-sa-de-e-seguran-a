@@ -17,12 +17,7 @@ const PalestrasSection = () => {
           viewport={{ once: true }}
           className="max-w-3xl mx-auto text-center"
         >
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="w-12 h-12 rounded-xl bg-fucsia/10 flex items-center justify-center">
-              <Mic className="h-6 w-6 text-fucsia" />
-            </div>
-            <span className="text-sm font-medium text-fucsia uppercase tracking-widest">Palestras</span>
-          </div>
+          <span className="text-sm font-medium text-fucsia uppercase tracking-widest mb-6 block">Palestras</span>
           <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6">
             Leve conhecimento transformador para sua equipe
           </h2>
