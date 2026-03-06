@@ -420,7 +420,20 @@ const CursoTerapeutasPICS = () => {
                 <h3 className="text-lg font-heading font-bold">{prof.name}</h3>
                 <p className="text-sm text-primary font-medium whitespace-pre-line">{prof.role}</p>
                 <p className="text-xs text-muted-foreground mt-2 mb-3 leading-relaxed">{prof.bio}</p>
-                <p className="text-xs text-muted-foreground leading-relaxed">{prof.bio}</p>
+                {(prof.socials.linkedin || prof.socials.instagram) && (
+                  <div className="flex items-center justify-center gap-3 mt-2">
+                    {prof.socials.linkedin && (
+                      <a href={prof.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                        <Linkedin className="h-4 w-4" />
+                      </a>
+                    )}
+                    {prof.socials.instagram && (
+                      <a href={prof.socials.instagram} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                        <Instagram className="h-4 w-4" />
+                      </a>
+                    )}
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>
