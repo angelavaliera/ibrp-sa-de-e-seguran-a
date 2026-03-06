@@ -23,7 +23,10 @@ const scrollToContato = () => {
 };
 
 const NavLink = ({ item, onClick }: { item: typeof navItems[0]; onClick?: () => void }) => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const isInternal = item.href.startsWith("/");
+  const isAnchor = item.href.startsWith("#");
   const className = "text-sm font-medium text-muted-foreground hover:text-foreground transition-colors";
 
   if (isInternal) {
@@ -33,6 +36,25 @@ const NavLink = ({ item, onClick }: { item: typeof navItems[0]; onClick?: () => 
       </Link>
     );
   }
+
+  if (isAnchor) {
+    const handleClick = (e: React.MouseEvent) => {
+      e.preventDefault();
+      if (location.pathname !== "/") {
+        navigate("/" + item.href);
+      } else {
+        const el = document.querySelector(item.href);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }
+      onClick?.();
+    };
+    return (
+      <a href={item.href} className={className} onClick={handleClick}>
+        {item.label}
+      </a>
+    );
+  }
+
   return (
     <a href={item.href} className={className} onClick={onClick}>
       {item.label}
