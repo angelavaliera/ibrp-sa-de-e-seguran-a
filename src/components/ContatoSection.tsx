@@ -167,7 +167,7 @@ const ContatoSection = () => {
               </div>
 
               <Button type="submit" className="w-full bg-gradient-brand hover:opacity-90 transition-opacity">
-                Solicitar Diagnóstico
+                Enviar mensagem
                 <Send className="ml-2 h-4 w-4" />
               </Button>
             </form>
