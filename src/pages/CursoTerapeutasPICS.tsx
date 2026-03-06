@@ -404,8 +404,8 @@ const CursoTerapeutasPICS = () => {
                   />
                 </div>
                 <h3 className="text-lg font-heading font-bold">{prof.name}</h3>
-                <p className="text-sm text-primary font-medium">{prof.role}</p>
-                <p className="text-xs text-muted-foreground mt-1 mb-3">{prof.subtitle}</p>
+                <p className="text-sm text-primary font-medium whitespace-pre-line">{prof.role}</p>
+                <p className="text-xs text-muted-foreground mt-2 mb-3 leading-relaxed">{prof.bio}</p>
                 <p className="text-xs text-muted-foreground leading-relaxed">{prof.bio}</p>
               </motion.div>
             ))}
