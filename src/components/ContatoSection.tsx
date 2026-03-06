@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
   Select,
@@ -29,6 +30,7 @@ const ContatoSection = () => {
     cargo: "",
     tamanho: "",
     interesse: "",
+    mensagem: "",
   });
   const [lgpd, setLgpd] = useState(false);
   const { toast } = useToast();
@@ -47,7 +49,7 @@ const ContatoSection = () => {
       title: "Solicitação enviada!",
       description: "Nossa equipe entrará em contato em breve.",
     });
-    setForm({ nome: "", email: "", empresa: "", cargo: "", tamanho: "", interesse: "" });
+    setForm({ nome: "", email: "", empresa: "", cargo: "", tamanho: "", interesse: "", mensagem: "" });
     setLgpd(false);
   };
 
@@ -171,6 +173,16 @@ const ContatoSection = () => {
                       </SelectContent>
                     </Select>
                   </div>
+                </div>
+                <div>
+                  <label className="text-sm text-muted-foreground mb-1.5 block">Mensagem</label>
+                  <Textarea
+                    value={form.mensagem}
+                    onChange={(e) => setForm({ ...form, mensagem: e.target.value })}
+                    placeholder="Descreva brevemente o que você precisa..."
+                    className="bg-muted border-border min-h-[100px] resize-none"
+                    maxLength={1000}
+                  />
                 </div>
 
                 <div className="flex items-start gap-3 pt-2">
