@@ -30,6 +30,7 @@ const ContatoSection = () => {
     cargo: "",
     tamanho: "",
     interesse: "",
+    mensagem: "",
   });
   const [lgpd, setLgpd] = useState(false);
   const { toast } = useToast();
