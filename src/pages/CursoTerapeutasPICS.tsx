@@ -449,8 +449,8 @@ const CursoTerapeutasPICS = () => {
               <div className="mb-2">
                 <span className="text-sm text-muted-foreground">Investimento</span>
               </div>
-              <div className="text-5xl font-heading font-bold text-foreground mb-1">
-                10x <span className="text-3xl">de R$ 219,53</span>
+              <div className="text-3xl font-heading font-bold text-foreground mb-1">
+                10x de R$ 219,53
               </div>
               <p className="text-base text-muted-foreground mb-8">
                 ou à vista <strong className="text-foreground text-lg">R$ 1.880</strong>
