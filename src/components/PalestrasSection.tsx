@@ -38,8 +38,9 @@ const PalestrasSection = () => {
             ))}
           </ul>
           <Button
+            size="lg"
             onClick={scrollToContato}
-            className="bg-gradient-brand hover:opacity-90 transition-opacity"
+            className="bg-gradient-brand hover:opacity-90 transition-opacity text-lg px-8 py-6 rounded-xl glow text-white"
           >
             Solicitar Palestra
           </Button>
