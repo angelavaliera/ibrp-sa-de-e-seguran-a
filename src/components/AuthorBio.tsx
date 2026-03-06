@@ -26,7 +26,7 @@ const AuthorBio = ({ author }: AuthorBioProps) => {
           <img
             src={author.photo}
             alt={author.name}
-            className="w-20 h-20 rounded-full object-cover flex-shrink-0"
+            className="w-[7.5rem] h-[7.5rem] rounded-full object-cover flex-shrink-0"
           />
         )}
 
