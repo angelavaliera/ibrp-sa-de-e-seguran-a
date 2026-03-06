@@ -109,8 +109,8 @@ const modules = [
 const professors = [
   {
     name: "Angela Valiera Mascarenhas",
-    role: "Diretora IBRP\nConsultora Empresarial especialista em Desenvolvimento Humano",
-    bio: "30 anos de experiência e atuação em 14 países. Coach de Executivos certificada ICC, Hipnoterapeuta e formação avançada em PNL. Certificada pelo Harvard Manage Mentor. Docente universitária em Especialização e MBA. Mestranda em Ciências Quânticas.",
+    role: "Diretora do IBRP",
+    bio: "Consultora empresarial, especialista em desenvolvimento de human skills, criatividade e liderança. Jornalista, Palestrante e Professora em MBAs. Certificada pelo Harvard Manage Mentor. Coach de Executivos e alta liderança com atuação em 14 países.",
     photo: profAngela,
     socials: {
       linkedin: "https://www.linkedin.com/in/angelavaliera/",
