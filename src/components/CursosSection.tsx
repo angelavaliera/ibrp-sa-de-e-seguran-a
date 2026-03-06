@@ -7,8 +7,8 @@ const courses = [
     title: "Terapeutas Integrativos nas empresas: Atuação em Riscos Psicossociais alinhada à NR-1",
     description: "Prepara Terapeutas de Práticas Integrativas e Complementares em Saúde (PICS) para atuar de forma estratégica nas empresas e oferecer soluções eficazes em saúde mental e bem-estar organizacional.",
     
-    hours: "40h",
-    icon: Award,
+    hours: "30h",
+    icon: Heart,
     featured: true,
   },
   {
