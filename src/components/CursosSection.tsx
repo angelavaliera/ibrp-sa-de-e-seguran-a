@@ -6,7 +6,7 @@ const courses = [
   {
     title: "Gestão de Riscos Psicossociais",
     description: "Formação completa para profissionais de RH, SST e líderes organizacionais sobre identificação, avaliação e mitigação de riscos psicossociais.",
-    badge: "Destaque",
+    
     hours: "40h",
     icon: Award,
     featured: true,
