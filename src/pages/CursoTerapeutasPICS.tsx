@@ -452,8 +452,8 @@ const CursoTerapeutasPICS = () => {
               <div className="text-5xl font-heading font-bold text-foreground mb-1">
                 10x <span className="text-3xl">de R$ 219,53</span>
               </div>
-              <p className="text-sm text-muted-foreground mb-8">
-                ou à vista <strong className="text-foreground">R$ 1.880</strong>
+              <p className="text-base text-muted-foreground mb-8">
+                ou à vista <strong className="text-foreground text-lg">R$ 1.880</strong>
               </p>
 
               <Button
@@ -467,7 +467,9 @@ const CursoTerapeutasPICS = () => {
                 </a>
               </Button>
 
-              <div className="mt-6 space-y-2 text-sm text-muted-foreground">
+              <p className="mt-4 text-sm font-medium text-foreground">Início imediato</p>
+
+              <div className="mt-4 space-y-2 text-sm text-muted-foreground">
                 {[
                   "30h de conteúdo em vídeo + PDFs",
                   "Grupo exclusivo no Telegram para dúvidas",
