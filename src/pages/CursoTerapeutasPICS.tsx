@@ -467,9 +467,8 @@ const CursoTerapeutasPICS = () => {
                 </a>
               </Button>
 
-              <p className="mt-4 text-sm font-medium text-foreground">Início imediato</p>
 
-              <div className="mt-4 space-y-2 text-sm text-muted-foreground">
+              <div className="mt-6 space-y-2 text-sm text-muted-foreground">
                 {[
                   "30h de conteúdo em vídeo + PDFs",
                   "Grupo exclusivo no Telegram para dúvidas",
