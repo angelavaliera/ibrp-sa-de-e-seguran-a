@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Mic } from "lucide-react";
+
 
 const PalestrasSection = () => {
   const scrollToContato = () => {
