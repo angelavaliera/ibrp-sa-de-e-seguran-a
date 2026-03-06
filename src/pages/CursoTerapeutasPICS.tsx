@@ -198,7 +198,7 @@ const CursoTerapeutasPICS = () => {
                 className="bg-gradient-brand hover:opacity-90 transition-opacity text-lg px-8 py-6 rounded-xl glow text-white"
                 onClick={scrollToCheckout}
               >
-                Inscrever-se agora
+                Quero me inscrever
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button
