@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { BookOpen, Heart, Clock } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const courses = [
@@ -10,6 +11,7 @@ const courses = [
     hours: "30h",
     icon: Heart,
     featured: true,
+    link: "/curso-NR1-terapeutas-PICS",
   },
   {
     title: "NR-1 para Gestores",
@@ -71,9 +73,15 @@ const CursosSection = () => {
                   <Clock className="h-4 w-4" />
                   {course.hours}
                 </div>
-                <Button variant="outline" size="sm" className="border-primary/30 text-primary hover:bg-primary/10">
-                  Saiba mais
-                </Button>
+                {course.link ? (
+                  <Button variant="outline" size="sm" className="border-primary/30 text-primary hover:bg-primary/10" asChild>
+                    <Link to={course.link}>Saiba mais</Link>
+                  </Button>
+                ) : (
+                  <Button variant="outline" size="sm" className="border-primary/30 text-primary hover:bg-primary/10">
+                    Saiba mais
+                  </Button>
+                )}
               </div>
             </motion.div>
           ))}
