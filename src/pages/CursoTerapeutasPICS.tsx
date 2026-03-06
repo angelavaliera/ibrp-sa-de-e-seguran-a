@@ -16,6 +16,8 @@ import {
   Heart,
   Scale,
   ShieldCheck,
+  Instagram,
+  Linkedin,
   Users,
 } from "lucide-react";
 import Header from "@/components/Header";
@@ -110,24 +112,36 @@ const professors = [
     role: "Diretora IBRP\nConsultora Empresarial especialista em Desenvolvimento Humano",
     bio: "30 anos de experiência e atuação em 14 países. Coach de Executivos certificada ICC, Hipnoterapeuta e formação avançada em PNL. Certificada pelo Harvard Manage Mentor. Docente universitária em Especialização e MBA. Mestranda em Ciências Quânticas.",
     photo: profAngela,
+    socials: {
+      linkedin: "https://www.linkedin.com/in/angelavaliera/",
+      instagram: "https://www.instagram.com/angelavaliera/",
+    },
   },
   {
     name: "Elaine Reginaldo",
     role: "Terapeuta de PICS e Enfermeira\nEspecialista em Segurança do Trabalho e NRs",
     bio: "Enfermeira do Trabalho e Terapeuta de PICS. 30 anos de experiência com Saúde do Trabalhador. Especialista em Saúde Ocupacional, Medicina Tradicional Chinesa, Naturopatia e Neurociências. Mestranda em Ciências Quânticas. Coautora do livro 'Como Cuidar da Ansiedade'.",
     photo: profElaine,
+    socials: {
+      instagram: "https://www.instagram.com/elainereginnaldo/",
+    },
   },
   {
     name: "Ivanize Martins Moraes Silva",
     role: "Gestora de RH e Consultora de Transformação Empresarial",
     bio: "Mais de 15 anos em posições de liderança em multinacionais de grande porte. MBA em Gestão de Pessoas e Administração de Empresas (FGV). Certificada em ESG, DISC, Coaching e PNL. Especialista em transformação cultural e governança corporativa.",
     photo: profIvanize,
+    socials: {},
   },
   {
     name: "Izabella Alonso Soares",
     role: "Advogada Trabalhista\nEspecialista em NR-1 e Consultora Empresarial",
     bio: "Sócia fundadora da Alonso Pistun Advocacia. Especialista em Direito do Trabalho com MBA em Gestão do Valor Humano nos Negócios. Vice-presidente da Comissão do Pacto Global da OAB/PR e Líder Regional do Pacto Global da ONU Brasil.",
     photo: profIzabella,
+    socials: {
+      linkedin: "https://www.linkedin.com/in/izabellaalonsosoares/",
+      instagram: "https://www.instagram.com/izabellaalonsosoares/",
+    },
   },
 ];
 
@@ -406,7 +420,20 @@ const CursoTerapeutasPICS = () => {
                 <h3 className="text-lg font-heading font-bold">{prof.name}</h3>
                 <p className="text-sm text-primary font-medium whitespace-pre-line">{prof.role}</p>
                 <p className="text-xs text-muted-foreground mt-2 mb-3 leading-relaxed">{prof.bio}</p>
-                <p className="text-xs text-muted-foreground leading-relaxed">{prof.bio}</p>
+                {(prof.socials.linkedin || prof.socials.instagram) && (
+                  <div className="flex items-center justify-center gap-3 mt-2">
+                    {prof.socials.linkedin && (
+                      <a href={prof.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                        <Linkedin className="h-4 w-4" />
+                      </a>
+                    )}
+                    {prof.socials.instagram && (
+                      <a href={prof.socials.instagram} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                        <Instagram className="h-4 w-4" />
+                      </a>
+                    )}
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>
