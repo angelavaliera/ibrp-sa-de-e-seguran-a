@@ -16,6 +16,8 @@ import {
   Heart,
   Scale,
   ShieldCheck,
+  Instagram,
+  Linkedin,
   Users,
 } from "lucide-react";
 import Header from "@/components/Header";
