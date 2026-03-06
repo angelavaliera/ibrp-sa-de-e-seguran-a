@@ -61,11 +61,6 @@ const CursosSection = () => {
               }`}
               style={{ boxShadow: course.featured ? "var(--shadow-glow)" : "var(--shadow-card)" }}
             >
-              {course.badge && (
-                <span className="inline-block self-start px-3 py-1 rounded-full bg-gradient-brand text-xs font-bold mb-4">
-                  {course.badge}
-                </span>
-              )}
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
                 <course.icon className="h-6 w-6 text-primary" />
               </div>
