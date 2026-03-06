@@ -15,10 +15,10 @@ import { useToast } from "@/hooks/use-toast";
 
 const companySize = ["1-50", "51-200", "201-500", "+500"];
 const interests = [
-  "Inventário de Riscos",
+  "Serviços de Gestão de Riscos Psicossociais",
   "Palestras e Treinamentos Corporativos",
-  "Cursos IBRP",
-  "Consultoria",
+  "Cursos de Capacitação",
+  "Coaching de Liderança",
 ];
 
 const ContatoSection = () => {
