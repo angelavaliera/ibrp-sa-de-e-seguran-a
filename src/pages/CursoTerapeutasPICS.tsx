@@ -252,8 +252,7 @@ const CursoTerapeutasPICS = () => {
                   <span className="text-gradient">gestão de riscos psicossociais</span>
                 </h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  A partir de <strong className="text-foreground">26 de maio de 2025</strong>,
-                  todas as empresas com empregados CLT precisam identificar, avaliar e controlar
+                 Em <strong className="text-foreground">maio de 2025</strong> passou a ser exigido que todas as empresas com empregados CLT precisam identificar, avaliar e controlar
                   os riscos psicossociais no Programa de Gerenciamento de Riscos (PGR).
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
