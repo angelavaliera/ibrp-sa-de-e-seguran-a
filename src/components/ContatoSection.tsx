@@ -54,7 +54,7 @@ const ContatoSection = () => {
   };
 
    return (
-    <section id="contato" className="py-20 bg-primary text-primary-foreground">
+    <section id="contato" className="py-20 bg-verde-petroleo text-white">
       <div className="container mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
