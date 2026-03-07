@@ -54,19 +54,19 @@ const ContatoSection = () => {
   };
 
    return (
-    <section id="contato" className="py-20 bg-muted/30">
+    <section id="contato" className="py-20 bg-primary text-primary-foreground">
       <div className="container mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-8 text-center text-white">
             Sua empresa está em conformidade?
           </h2>
 
-          <div className="rounded-2xl border border-border bg-card p-8" style={{ boxShadow: "var(--shadow-card)" }}>
-            <h3 className="text-xl font-heading font-bold mb-6">Solicite uma proposta</h3>
+          <div className="rounded-2xl border border-white/15 bg-white/10 backdrop-blur-sm p-8">
+            <h3 className="text-xl font-heading font-bold mb-6 text-white">Solicite uma proposta</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div>
