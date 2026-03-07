@@ -166,7 +166,7 @@ const ContatoSection = () => {
                 </label>
               </div>
 
-              <Button type="submit" className="w-full bg-white text-primary hover:bg-white/90 transition-opacity font-semibold">
+              <Button type="submit" className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-white">
                 Enviar mensagem
                 <Send className="ml-2 h-4 w-4" />
               </Button>
