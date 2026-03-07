@@ -65,8 +65,8 @@ const ContatoSection = () => {
             Sua empresa está em conformidade?
           </h2>
 
-          <div className="rounded-2xl border border-white/15 bg-white/10 backdrop-blur-sm p-8">
-            <h3 className="text-xl font-heading font-bold mb-6 text-white">Solicite uma proposta</h3>
+          <div className="rounded-2xl border border-border p-8 bg-muted">
+            <h3 className="text-xl font-heading font-bold mb-6 text-foreground">Solicite uma proposta</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div>
