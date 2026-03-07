@@ -65,57 +65,57 @@ const ContatoSection = () => {
             Sua empresa está em conformidade?
           </h2>
 
-          <div className="rounded-2xl border border-white/15 bg-white/10 backdrop-blur-sm p-8">
-            <h3 className="text-xl font-heading font-bold mb-6 text-white">Solicite uma proposta</h3>
+          <div className="rounded-2xl border border-border p-8 bg-muted">
+            <h3 className="text-xl font-heading font-bold mb-6 text-foreground">Solicite uma proposta</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div>
-                  <label className="text-sm text-white/70 mb-1.5 block">Nome</label>
+                  <label className="text-sm text-muted-foreground mb-1.5 block">Nome</label>
                   <Input
                     required
                     value={form.nome}
                     onChange={(e) => setForm({ ...form, nome: e.target.value })}
                     placeholder="Seu nome completo"
-                    className="bg-white/10 border-white/20 text-white placeholder:text-white/40"
+                    className="bg-background border-border"
                   />
                 </div>
                 <div>
-                  <label className="text-sm text-white/70 mb-1.5 block">E-mail Corporativo</label>
+                  <label className="text-sm text-muted-foreground mb-1.5 block">E-mail Corporativo</label>
                   <Input
                     required
                     type="email"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
                     placeholder="seu@empresa.com"
-                    className="bg-white/10 border-white/20 text-white placeholder:text-white/40"
+                    className="bg-background border-border"
                   />
                 </div>
                 <div>
-                  <label className="text-sm text-white/70 mb-1.5 block">Empresa</label>
+                  <label className="text-sm text-muted-foreground mb-1.5 block">Empresa</label>
                   <Input
                     required
                     value={form.empresa}
                     onChange={(e) => setForm({ ...form, empresa: e.target.value })}
                     placeholder="Nome da empresa"
-                    className="bg-white/10 border-white/20 text-white placeholder:text-white/40"
+                    className="bg-background border-border"
                   />
                 </div>
               </div>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div>
-                  <label className="text-sm text-white/70 mb-1.5 block">Cargo</label>
+                  <label className="text-sm text-muted-foreground mb-1.5 block">Cargo</label>
                   <Input
                     required
                     value={form.cargo}
                     onChange={(e) => setForm({ ...form, cargo: e.target.value })}
                     placeholder="Seu cargo"
-                    className="bg-white/10 border-white/20 text-white placeholder:text-white/40"
+                    className="bg-background border-border"
                   />
                 </div>
                 <div>
-                  <label className="text-sm text-white/70 mb-1.5 block">Tamanho da Empresa</label>
+                  <label className="text-sm text-muted-foreground mb-1.5 block">Tamanho da Empresa</label>
                   <Select value={form.tamanho} onValueChange={(v) => setForm({ ...form, tamanho: v })}>
-                    <SelectTrigger className="bg-white/10 border-white/20 text-white">
+                    <SelectTrigger className="bg-background border-border">
                       <SelectValue placeholder="Selecione" />
                     </SelectTrigger>
                     <SelectContent>
@@ -128,9 +128,9 @@ const ContatoSection = () => {
                   </Select>
                 </div>
                 <div>
-                  <label className="text-sm text-white/70 mb-1.5 block">Interesse Principal</label>
+                  <label className="text-sm text-muted-foreground mb-1.5 block">Interesse Principal</label>
                   <Select value={form.interesse} onValueChange={(v) => setForm({ ...form, interesse: v })}>
-                    <SelectTrigger className="bg-white/10 border-white/20 text-white">
+                    <SelectTrigger className="bg-background border-border">
                       <SelectValue placeholder="Selecione" />
                     </SelectTrigger>
                     <SelectContent>
@@ -144,12 +144,12 @@ const ContatoSection = () => {
                 </div>
               </div>
               <div>
-                <label className="text-sm text-white/70 mb-1.5 block">Mensagem</label>
+                <label className="text-sm text-muted-foreground mb-1.5 block">Mensagem</label>
                 <Textarea
                   value={form.mensagem}
                   onChange={(e) => setForm({ ...form, mensagem: e.target.value })}
                   placeholder="Descreva brevemente o que você precisa..."
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/40 min-h-[100px] resize-none"
+                  className="bg-background border-border min-h-[100px] resize-none"
                   maxLength={1000}
                 />
               </div>
@@ -159,9 +159,9 @@ const ContatoSection = () => {
                   id="lgpd-contato"
                   checked={lgpd}
                   onCheckedChange={(v) => setLgpd(v === true)}
-                  className="mt-0.5 border-white/40 data-[state=checked]:bg-white data-[state=checked]:text-primary"
+                  className="mt-0.5"
                 />
-                <label htmlFor="lgpd-contato" className="text-xs text-white/60 leading-relaxed cursor-pointer">
+                <label htmlFor="lgpd-contato" className="text-xs text-muted-foreground leading-relaxed cursor-pointer">
                   Concordo em receber comunicações e conteúdos estratégicos do IBRP conforme a Política de Privacidade.
                 </label>
               </div>
