@@ -54,7 +54,7 @@ const ContatoSection = () => {
   };
 
    return (
-    <section id="contato" className="py-20 bg-primary text-primary-foreground">
+    <section id="contato" className="py-20 bg-verde-petroleo text-white">
       <div className="container mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -166,7 +166,7 @@ const ContatoSection = () => {
                 </label>
               </div>
 
-              <Button type="submit" className="w-full bg-white text-primary hover:bg-white/90 transition-opacity font-semibold">
+              <Button type="submit" className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-white">
                 Enviar mensagem
                 <Send className="ml-2 h-4 w-4" />
               </Button>
