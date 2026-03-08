@@ -1,18 +1,32 @@
-import { useState, useEffect, useCallback } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Clock, ArrowRight, Search, X } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+  PaginationEllipsis,
+} from "@/components/ui/pagination";
 import { getArticles, searchArticles } from "@/lib/sanity-client";
 import type { BlogArticle } from "@/lib/blog-types";
 
+const ARTICLES_PER_PAGE = 12;
+
 const BlogFeed = () => {
-  const [articles, setArticles] = useState<BlogArticle[]>([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [allArticles, setAllArticles] = useState<BlogArticle[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const [debouncedQuery, setDebouncedQuery] = useState("");
+
+  const currentPage = Math.max(1, Number(searchParams.get("page")) || 1);
 
   // Debounce search input
   useEffect(() => {
@@ -24,13 +38,50 @@ const BlogFeed = () => {
     setLoading(true);
     const fetcher = debouncedQuery ? searchArticles(debouncedQuery) : getArticles();
     fetcher.then((data) => {
-      setArticles(data);
+      setAllArticles(data);
       setLoading(false);
     });
   }, [debouncedQuery]);
 
-  const featured = articles[0];
-  const rest = articles.slice(1);
+  // Reset to page 1 on search
+  useEffect(() => {
+    if (debouncedQuery) {
+      setSearchParams({}, { replace: true });
+    }
+  }, [debouncedQuery, setSearchParams]);
+
+  const totalPages = Math.max(1, Math.ceil(allArticles.length / ARTICLES_PER_PAGE));
+  const safePage = Math.min(currentPage, totalPages);
+  const startIndex = (safePage - 1) * ARTICLES_PER_PAGE;
+  const articles = allArticles.slice(startIndex, startIndex + ARTICLES_PER_PAGE);
+
+  const featured = startIndex === 0 ? articles[0] : undefined;
+  const rest = startIndex === 0 ? articles.slice(1) : articles;
+
+  const goToPage = (page: number) => {
+    if (page <= 1) {
+      setSearchParams({}, { replace: true });
+    } else {
+      setSearchParams({ page: String(page) }, { replace: true });
+    }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const getPageNumbers = () => {
+    const pages: (number | "ellipsis")[] = [];
+    if (totalPages <= 7) {
+      for (let i = 1; i <= totalPages; i++) pages.push(i);
+    } else {
+      pages.push(1);
+      if (safePage > 3) pages.push("ellipsis");
+      for (let i = Math.max(2, safePage - 1); i <= Math.min(totalPages - 1, safePage + 1); i++) {
+        pages.push(i);
+      }
+      if (safePage < totalPages - 2) pages.push("ellipsis");
+      pages.push(totalPages);
+    }
+    return pages;
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -82,7 +133,7 @@ const BlogFeed = () => {
                 </div>
               ))}
             </div>
-          ) : articles.length === 0 ? (
+          ) : allArticles.length === 0 ? (
             <div className="text-center py-16">
               <p className="text-muted-foreground text-lg">
                 {debouncedQuery
@@ -92,7 +143,7 @@ const BlogFeed = () => {
             </div>
           ) : (
             <>
-              {/* Featured article */}
+              {/* Featured article (only on page 1) */}
               {featured && (
                 <motion.article
                   initial={{ opacity: 0, y: 20 }}
@@ -139,7 +190,7 @@ const BlogFeed = () => {
               )}
 
               {/* Divider */}
-              {rest.length > 0 && <hr className="border-border mb-10" />}
+              {rest.length > 0 && featured && <hr className="border-border mb-10" />}
 
               {/* Article list */}
               <div className="space-y-10">
@@ -185,6 +236,51 @@ const BlogFeed = () => {
                   </motion.article>
                 ))}
               </div>
+
+              {/* Pagination */}
+              {totalPages > 1 && (
+                <div className="mt-16">
+                  <Pagination>
+                    <PaginationContent>
+                      <PaginationItem>
+                        <PaginationPrevious
+                          onClick={() => safePage > 1 && goToPage(safePage - 1)}
+                          className={safePage <= 1 ? "pointer-events-none opacity-50" : "cursor-pointer"}
+                        />
+                      </PaginationItem>
+
+                      {getPageNumbers().map((p, i) =>
+                        p === "ellipsis" ? (
+                          <PaginationItem key={`ellipsis-${i}`}>
+                            <PaginationEllipsis />
+                          </PaginationItem>
+                        ) : (
+                          <PaginationItem key={p}>
+                            <PaginationLink
+                              isActive={p === safePage}
+                              onClick={() => goToPage(p)}
+                              className="cursor-pointer"
+                            >
+                              {p}
+                            </PaginationLink>
+                          </PaginationItem>
+                        )
+                      )}
+
+                      <PaginationItem>
+                        <PaginationNext
+                          onClick={() => safePage < totalPages && goToPage(safePage + 1)}
+                          className={safePage >= totalPages ? "pointer-events-none opacity-50" : "cursor-pointer"}
+                        />
+                      </PaginationItem>
+                    </PaginationContent>
+                  </Pagination>
+
+                  <p className="text-center text-xs text-muted-foreground mt-3">
+                    Página {safePage} de {totalPages} · {allArticles.length} artigos
+                  </p>
+                </div>
+              )}
             </>
           )}
         </div>
