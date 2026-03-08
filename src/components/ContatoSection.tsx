@@ -11,8 +11,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Send } from "lucide-react";
+import { Send, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const companySize = ["1-50", "51-200", "201-500", "+500"];
 const interests = [
@@ -33,14 +34,34 @@ const ContatoSection = () => {
     mensagem: "",
   });
   const [lgpd, setLgpd] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!lgpd) {
       toast({
         title: "Consentimento necessário",
         description: "Marque a caixa de consentimento LGPD para continuar.",
+        variant: "destructive",
+      });
+      return;
+    }
+    setLoading(true);
+    const { error } = await supabase.from("contact_leads").insert({
+      nome: form.nome.trim(),
+      email: form.email.trim(),
+      empresa: form.empresa.trim(),
+      cargo: form.cargo.trim(),
+      tamanho: form.tamanho || null,
+      interesse: form.interesse || null,
+      mensagem: form.mensagem.trim() || null,
+    });
+    setLoading(false);
+    if (error) {
+      toast({
+        title: "Erro ao enviar",
+        description: "Tente novamente mais tarde.",
         variant: "destructive",
       });
       return;
@@ -166,9 +187,8 @@ const ContatoSection = () => {
                 </label>
               </div>
 
-              <Button type="submit" className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-white">
-                Enviar mensagem
-                <Send className="ml-2 h-4 w-4" />
+              <Button type="submit" disabled={loading} className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-white">
+                {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <>Enviar mensagem <Send className="ml-2 h-4 w-4" /></>}
               </Button>
             </form>
           </div>

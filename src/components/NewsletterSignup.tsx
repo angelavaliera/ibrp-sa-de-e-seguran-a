@@ -9,8 +9,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Mail } from "lucide-react";
+import { Mail, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const profiles = [
   "Empresário(a)",
@@ -32,14 +33,30 @@ const NewsletterSignup = ({ variant = "footer" }: NewsletterSignupProps) => {
   const [email, setEmail] = useState("");
   const [perfil, setPerfil] = useState("");
   const [lgpd, setLgpd] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!lgpd) {
       toast({
         title: "Consentimento necessário",
         description: "Marque a caixa de consentimento LGPD para continuar.",
+        variant: "destructive",
+      });
+      return;
+    }
+    setLoading(true);
+    const { error } = await supabase.from("newsletter_leads").insert({
+      nome: nome.trim(),
+      email: email.trim(),
+      perfil: perfil || null,
+    });
+    setLoading(false);
+    if (error) {
+      toast({
+        title: "Erro ao enviar",
+        description: "Tente novamente mais tarde.",
         variant: "destructive",
       });
       return;
@@ -104,9 +121,8 @@ const NewsletterSignup = ({ variant = "footer" }: NewsletterSignupProps) => {
               Concordo em receber comunicações e conteúdos estratégicos do IBRP conforme a Política de Privacidade.
             </label>
           </div>
-          <Button type="submit" className="w-full bg-gradient-brand hover:opacity-90 transition-opacity">
-            Assinar Newsletter
-            <Mail className="ml-2 h-4 w-4" />
+          <Button type="submit" disabled={loading} className="w-full bg-gradient-brand hover:opacity-90 transition-opacity">
+            {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <>Assinar Newsletter <Mail className="ml-2 h-4 w-4" /></>}
           </Button>
         </form>
       </div>
@@ -161,9 +177,8 @@ const NewsletterSignup = ({ variant = "footer" }: NewsletterSignupProps) => {
             Concordo em receber comunicações e conteúdos estratégicos do IBRP conforme a Política de Privacidade.
           </label>
         </div>
-        <Button type="submit" size="sm" className="w-full bg-gradient-brand hover:opacity-90 transition-opacity">
-          Assinar
-          <Mail className="ml-2 h-4 w-4" />
+        <Button type="submit" disabled={loading} size="sm" className="w-full bg-gradient-brand hover:opacity-90 transition-opacity">
+          {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <>Assinar <Mail className="ml-2 h-4 w-4" /></>}
         </Button>
       </form>
     </div>
