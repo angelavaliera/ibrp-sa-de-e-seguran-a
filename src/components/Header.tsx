@@ -119,7 +119,7 @@ const Header = () => {
           ))}
           <Button
             className="bg-gradient-brand hover:opacity-90 transition-opacity"
-            onClick={scrollToContato}
+            onClick={handleScrollToContato}
           >
             Solicitar Diagnóstico
           </Button>
