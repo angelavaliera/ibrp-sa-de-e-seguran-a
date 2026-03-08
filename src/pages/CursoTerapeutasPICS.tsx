@@ -472,23 +472,32 @@ const CursoTerapeutasPICS = () => {
       </section>
 
       {/* ── Aula Experimental ── */}
-      <section className="py-20">
-        <div className="container mx-auto">
+      <section className="relative py-20 bg-verde-petroleo overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div
+            className="w-full h-full"
+            style={{
+              background:
+                "radial-gradient(circle at 30% 50%, hsl(166 62% 39% / 0.4) 0%, transparent 60%), radial-gradient(circle at 80% 20%, hsl(329 73% 44% / 0.2) 0%, transparent 50%)",
+            }}
+          />
+        </div>
+        <div className="container mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="max-w-2xl mx-auto text-center"
           >
-            <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5">
-              <PlayCircle className="h-4 w-4 text-primary" />
-              <span className="text-sm font-medium text-primary">Aula Experimental</span>
+            <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm">
+              <PlayCircle className="h-4 w-4 text-fucsia" />
+              <span className="text-sm font-medium text-white/90">Aula Experimental</span>
             </div>
 
-            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-white">
               Conheça o curso <span className="text-gradient">por dentro</span>
             </h2>
-            <p className="text-muted-foreground mb-10 max-w-xl mx-auto">
+            <p className="text-white/70 mb-10 max-w-xl mx-auto">
               Assista gratuitamente a uma aula real do curso e veja na prática como é a experiência de aprendizado. Preencha seus dados abaixo para liberar o acesso.
             </p>
 
@@ -501,7 +510,7 @@ const CursoTerapeutasPICS = () => {
                 value={aulaForm.nome}
                 onChange={(e) => setAulaForm((f) => ({ ...f, nome: e.target.value }))}
                 required
-                className="h-12 rounded-xl"
+                className="h-12 rounded-xl bg-white/10 border-white/20 text-white placeholder:text-white/50"
               />
               <Input
                 type="email"
@@ -509,7 +518,7 @@ const CursoTerapeutasPICS = () => {
                 value={aulaForm.email}
                 onChange={(e) => setAulaForm((f) => ({ ...f, email: e.target.value }))}
                 required
-                className="h-12 rounded-xl"
+                className="h-12 rounded-xl bg-white/10 border-white/20 text-white placeholder:text-white/50"
               />
               <Button
                 type="submit"
