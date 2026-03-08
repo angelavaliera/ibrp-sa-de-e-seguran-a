@@ -90,6 +90,10 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleScrollToContato = () => scrollToElement("contato", location.pathname, navigate);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
