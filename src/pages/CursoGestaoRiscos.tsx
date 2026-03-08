@@ -274,7 +274,7 @@ const CursoGestaoRiscos = () => {
               <strong className="text-foreground">
                 entender as obrigações legais e implementar um programa eficaz
               </strong>{" "}
-              de gerenciamento de riscos psicossociais em suas organizações, em conformidade com a
+              de gerenciamento de riscos psicossociais em organizações, em conformidade com a
               NR-1.
             </p>
           </motion.div>
