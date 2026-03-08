@@ -499,7 +499,7 @@ const CursoTerapeutasPICS = () => {
             </div>
 
             <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-white">
-              Conheça o curso <span className="text-gradient">por dentro</span>
+              Conheça o curso por dentro
             </h2>
             <p className="text-white/70 mb-10 max-w-xl mx-auto">
               Assista gratuitamente a uma aula real do curso e veja na prática como é a experiência de aprendizado. Preencha seus dados abaixo para liberar o acesso.
