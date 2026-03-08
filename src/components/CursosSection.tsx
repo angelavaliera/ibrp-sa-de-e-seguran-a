@@ -5,21 +5,20 @@ import { Button } from "@/components/ui/button";
 
 const courses = [
   {
-    title: "Terapeutas Integrativos nas empresas: Atuação em Riscos Psicossociais alinhada à NR-1",
-    description: "Prepara Terapeutas de Práticas Integrativas e Complementares em Saúde (PICS) para atuar de forma estratégica nas empresas e oferecer soluções eficazes em saúde mental e bem-estar organizacional.",
-    
-    hours: "30h",
-    icon: Heart,
-    featured: true,
-    link: "/curso-NR1-terapeutas-PICS",
-  },
-  {
     title: "Gestão de Riscos Psicossociais",
-    description: "Capacitação para profissionais que desejam atuar com implementação e gerenciamento de riscos psicossociais em empresas, em conformidade com a NR-1.",
+    description: "Capacitação para profissionais de diversas áreas que desejam atuar estrategicamente nas empresas com implementação e gerenciamento de riscos psicossociais, em conformidade com a NR-1.",
     hours: "20h",
     icon: BookOpen,
     featured: false,
     link: "/curso-NR1-gestao",
+  },
+  {
+    title: "Terapeutas Integrativos nas empresas: Atuação em Riscos Psicossociais alinhada à NR-1",
+    description: "Prepara Terapeutas de Práticas Integrativas e Complementares em Saúde (PICS) para atuar de forma estratégica nas empresas e oferecer soluções eficazes em saúde mental e bem-estar.",
+    hours: "30h",
+    icon: Heart,
+    featured: true,
+    link: "/curso-NR1-terapeutas-PICS",
   },
 ];
 
