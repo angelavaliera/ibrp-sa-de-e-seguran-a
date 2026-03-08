@@ -25,8 +25,12 @@ import {
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Input } from "@/components/ui/input";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 import logoSelo from "@/assets/logo-ibrp-selo.png";
 import gestaoHeroBg from "@/assets/gestao-hero-bg.jpg";
+import aulaOnlineBg from "@/assets/aula-online-bg.jpg";
 
 import profAngela from "@/assets/prof-angela.png";
 import profIvanize from "@/assets/prof-ivanize.png";
