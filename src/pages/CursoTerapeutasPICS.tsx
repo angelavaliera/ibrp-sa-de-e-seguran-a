@@ -20,8 +20,14 @@ import {
   Linkedin,
   Users,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Input } from "@/components/ui/input";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
+import { useState } from "react";
+import { PlayCircle } from "lucide-react";
 
 import profAngela from "@/assets/prof-angela.png";
 import profElaine from "@/assets/prof-elaine.png";
