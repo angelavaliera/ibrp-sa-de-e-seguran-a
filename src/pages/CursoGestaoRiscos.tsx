@@ -343,7 +343,7 @@ const CursoGestaoRiscos = () => {
       </section>
 
       {/* ── Professoras ── */}
-      <section className="py-20 bg-verde-petroleo/5">
+      <section className="py-20" style={{ background: "hsl(228, 40%, 92%)" }}>
         <div className="container mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
