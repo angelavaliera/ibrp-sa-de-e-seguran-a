@@ -230,8 +230,8 @@ const CursoGestaoRiscos = () => {
               </div>
 
               <div
-                className="bg-card rounded-2xl border border-border p-8"
-                style={{ boxShadow: "var(--shadow-card)" }}
+                className="rounded-2xl border border-[hsl(228_30%_85%)] p-8"
+                style={{ background: "hsl(228, 30%, 94%)", boxShadow: "var(--shadow-card)" }}
               >
                 <ShieldCheck className="h-10 w-10 text-primary mb-4" />
                 <h3 className="text-xl font-heading font-bold mb-4">O que mudou?</h3>
