@@ -39,6 +39,22 @@ const ContatoSection = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!form.tamanho) {
+      toast({
+        title: "Campo obrigatório",
+        description: "Selecione o tamanho da empresa para continuar.",
+        variant: "destructive",
+      });
+      return;
+    }
+    if (!form.interesse) {
+      toast({
+        title: "Campo obrigatório",
+        description: "Selecione o interesse principal para continuar.",
+        variant: "destructive",
+      });
+      return;
+    }
     if (!lgpd) {
       toast({
         title: "Consentimento necessário",
