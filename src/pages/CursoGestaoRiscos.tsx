@@ -148,10 +148,7 @@ const CursoGestaoRiscos = () => {
             </div>
 
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight mb-6 text-white">
-              Gestão de{" "}
-              <span className="text-gradient">
-                Riscos Psicossociais
-              </span>
+              Gestão de Riscos Psicossociais
             </h1>
 
             <p className="text-lg md:text-xl max-w-2xl mx-auto mb-10 text-white/70">
