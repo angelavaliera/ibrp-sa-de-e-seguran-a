@@ -471,6 +471,60 @@ const CursoTerapeutasPICS = () => {
         </div>
       </section>
 
+      {/* ── Aula Experimental ── */}
+      <section className="py-20">
+        <div className="container mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-2xl mx-auto text-center"
+          >
+            <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5">
+              <PlayCircle className="h-4 w-4 text-primary" />
+              <span className="text-sm font-medium text-primary">Aula Experimental</span>
+            </div>
+
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+              Conheça o curso <span className="text-gradient">por dentro</span>
+            </h2>
+            <p className="text-muted-foreground mb-10 max-w-xl mx-auto">
+              Assista gratuitamente a uma aula real do curso e veja na prática como é a experiência de aprendizado. Preencha seus dados abaixo para liberar o acesso.
+            </p>
+
+            <form
+              onSubmit={handleAulaSubmit}
+              className="max-w-md mx-auto space-y-4"
+            >
+              <Input
+                placeholder="Seu nome completo"
+                value={aulaForm.nome}
+                onChange={(e) => setAulaForm((f) => ({ ...f, nome: e.target.value }))}
+                required
+                className="h-12 rounded-xl"
+              />
+              <Input
+                type="email"
+                placeholder="Seu melhor e-mail"
+                value={aulaForm.email}
+                onChange={(e) => setAulaForm((f) => ({ ...f, email: e.target.value }))}
+                required
+                className="h-12 rounded-xl"
+              />
+              <Button
+                type="submit"
+                size="lg"
+                disabled={aulaLoading}
+                className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-lg py-6 rounded-xl glow text-white"
+              >
+                {aulaLoading ? "Enviando..." : "Assistir aula experimental"}
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </form>
+          </motion.div>
+        </div>
+      </section>
+
       {/* ── Checkout ── */}
       <section id="checkout" className="py-20">
         <div className="container mx-auto">
