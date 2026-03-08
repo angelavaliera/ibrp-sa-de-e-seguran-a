@@ -187,9 +187,8 @@ const ContatoSection = () => {
                 </label>
               </div>
 
-              <Button type="submit" className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-white">
-                Enviar mensagem
-                <Send className="ml-2 h-4 w-4" />
+              <Button type="submit" disabled={loading} className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-white">
+                {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <>Enviar mensagem <Send className="ml-2 h-4 w-4" /></>}
               </Button>
             </form>
           </div>
