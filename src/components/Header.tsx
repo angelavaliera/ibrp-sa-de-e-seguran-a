@@ -19,7 +19,7 @@ const clientLinks = [
 
 const scrollToElement = (id: string, currentPath: string, navigateFn: (path: string) => void) => {
   if (currentPath !== "/") {
-    navigateFn("/");
+    navigateFn("/#" + id);
     const tryScroll = (attempts = 0) => {
       const el = document.getElementById(id);
       if (el) {
