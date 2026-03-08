@@ -23,6 +23,7 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import logoSelo from "@/assets/logo-ibrp-selo.png";
+import gestaoHeroBg from "@/assets/gestao-hero-bg.jpg";
 
 import profAngela from "@/assets/prof-angela.png";
 import profIvanize from "@/assets/prof-ivanize.png";
