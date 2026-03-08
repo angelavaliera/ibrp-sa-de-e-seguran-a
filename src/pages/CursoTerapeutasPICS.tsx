@@ -193,7 +193,7 @@ const CursoTerapeutasPICS = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen" style={{ background: "hsl(18, 40%, 95%)" }}>
       <Header />
 
       {/* ── Hero ── */}
@@ -226,9 +226,7 @@ const CursoTerapeutasPICS = () => {
 
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight mb-6 text-white">
               Terapeutas Integrativos nas Empresas:{" "}
-              <span className="text-gradient">
-                Atuação em Riscos Psicossociais alinhada à NR-1
-              </span>
+              Atuação em Riscos Psicossociais alinhada à NR-1
             </h1>
 
             <p className="text-lg md:text-xl max-w-2xl mx-auto mb-10 text-white/70">
@@ -264,7 +262,7 @@ const CursoTerapeutasPICS = () => {
       </section>
 
       {/* ── Highlights bar ── */}
-      <section className="py-6 bg-caqui/10 border-b border-caqui/20">
+      <section className="py-6 border-b" style={{ background: "hsl(18, 40%, 90%)", borderColor: "hsl(18, 30%, 85%)" }}>
         <div className="container mx-auto">
           <div className="flex flex-wrap justify-center gap-6 md:gap-10">
             {highlights.map((h, i) => (
@@ -330,7 +328,7 @@ const CursoTerapeutasPICS = () => {
       </section>
 
       {/* ── Público-alvo ── */}
-      <section className="py-16 bg-caqui/5">
+      <section className="py-16" style={{ background: "hsl(18, 40%, 92%)" }}>
         <div className="container mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -419,7 +417,7 @@ const CursoTerapeutasPICS = () => {
       </section>
 
       {/* ── Professoras ── */}
-      <section className="py-20 bg-caqui/5">
+      <section className="py-20" style={{ background: "hsl(18, 40%, 92%)" }}>
         <div className="container mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
