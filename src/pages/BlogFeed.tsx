@@ -17,7 +17,7 @@ import {
 import { getArticles, searchArticles } from "@/lib/sanity-client";
 import type { BlogArticle } from "@/lib/blog-types";
 
-const ARTICLES_PER_PAGE = 12;
+const ARTICLES_PER_PAGE = 2; // TODO: voltar para 12 após aprovação visual
 
 const BlogFeed = () => {
   const [searchParams, setSearchParams] = useSearchParams();
