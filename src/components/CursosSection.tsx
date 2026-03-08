@@ -15,7 +15,7 @@ const courses = [
   },
   {
     title: "Gestão de Riscos Psicossociais",
-    description: "Entenda as obrigações legais e como implementar um programa de gerenciamento de riscos ocupacionais eficaz.",
+    description: "Capacitação para profissionais que desejam atuar com implementação e gerenciamento de riscos psicossociais em empresas, em conformidade com a NR-1.",
     hours: "20h",
     icon: BookOpen,
     featured: false,
