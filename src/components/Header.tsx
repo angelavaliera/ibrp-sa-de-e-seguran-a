@@ -41,7 +41,12 @@ const NavLink = ({ item, onClick }: { item: typeof navItems[0]; onClick?: () => 
     const handleClick = (e: React.MouseEvent) => {
       e.preventDefault();
       if (location.pathname !== "/") {
-        navigate("/" + item.href);
+        navigate("/");
+        // Wait for home page to render, then scroll to the section
+        setTimeout(() => {
+          const el = document.querySelector(item.href);
+          if (el) el.scrollIntoView({ behavior: "smooth" });
+        }, 100);
       } else {
         const el = document.querySelector(item.href);
         if (el) el.scrollIntoView({ behavior: "smooth" });
