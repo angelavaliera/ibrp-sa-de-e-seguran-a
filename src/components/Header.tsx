@@ -17,9 +17,22 @@ const clientLinks = [
   { label: "Ambiente Virtual de Aprendizagem", href: "https://gestaoriscospsicossociais.com.br/ava" },
 ];
 
-const scrollToContato = () => {
-  const el = document.getElementById("contato");
-  if (el) el.scrollIntoView({ behavior: "smooth" });
+const scrollToElement = (id: string, currentPath: string, navigateFn: (path: string) => void) => {
+  if (currentPath !== "/") {
+    navigateFn("/");
+    const tryScroll = (attempts = 0) => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      } else if (attempts < 20) {
+        setTimeout(() => tryScroll(attempts + 1), 50);
+      }
+    };
+    setTimeout(() => tryScroll(), 50);
+  } else {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  }
 };
 
 const NavLink = ({ item, onClick }: { item: typeof navItems[0]; onClick?: () => void }) => {
@@ -41,12 +54,18 @@ const NavLink = ({ item, onClick }: { item: typeof navItems[0]; onClick?: () => 
     const handleClick = (e: React.MouseEvent) => {
       e.preventDefault();
       if (location.pathname !== "/") {
+        // Navigate to home, then poll for the element to scroll to
         navigate("/");
-        // Wait for home page to render, then scroll to the section
-        setTimeout(() => {
-          const el = document.querySelector(item.href);
-          if (el) el.scrollIntoView({ behavior: "smooth" });
-        }, 100);
+        const hash = item.href;
+        const tryScroll = (attempts = 0) => {
+          const el = document.querySelector(hash);
+          if (el) {
+            el.scrollIntoView({ behavior: "smooth" });
+          } else if (attempts < 20) {
+            setTimeout(() => tryScroll(attempts + 1), 50);
+          }
+        };
+        setTimeout(() => tryScroll(), 50);
       } else {
         const el = document.querySelector(item.href);
         if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -71,6 +90,10 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleScrollToContato = () => scrollToElement("contato", location.pathname, navigate);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -96,7 +119,7 @@ const Header = () => {
           ))}
           <Button
             className="bg-gradient-brand hover:opacity-90 transition-opacity"
-            onClick={scrollToContato}
+            onClick={handleScrollToContato}
           >
             Solicitar Diagnóstico
           </Button>
