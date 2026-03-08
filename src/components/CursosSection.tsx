@@ -37,7 +37,7 @@ const CursosSection = () => {
         <img src={cursosBg} alt="" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-verde-petroleo/90" />
       </div>
-      <div className="container mx-auto">
+      <div className="container mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -45,10 +45,10 @@ const CursosSection = () => {
           className="text-center mb-14"
         >
           <span className="text-sm font-medium text-brilho-sol uppercase tracking-widest">Cursos</span>
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mt-3 mb-4">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold mt-3 mb-4 text-white">
             Capacitação <span className="text-gradient">profissional</span>
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
+          <p className="text-white/70 max-w-xl mx-auto">
             Cursos desenvolvidos por nossos especialistas para quem quer se profissionalizar e atuar com Gestão de Riscos Psicossociais e NR-1 nas empresas.
           </p>
         </motion.div>
