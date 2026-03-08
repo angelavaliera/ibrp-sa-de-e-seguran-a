@@ -38,6 +38,14 @@ const NewsletterSignup = ({ variant = "footer" }: NewsletterSignupProps) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!perfil) {
+      toast({
+        title: "Campo obrigatório",
+        description: "Selecione seu perfil para continuar.",
+        variant: "destructive",
+      });
+      return;
+    }
     if (!lgpd) {
       toast({
         title: "Consentimento necessário",
