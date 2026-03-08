@@ -118,7 +118,7 @@ const CursoGestaoRiscos = () => {
     document.getElementById("checkout")?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen" style={{ background: "hsl(228, 40%, 95%)" }}>
       <Header />
 
       {/* ── Hero ── */}
