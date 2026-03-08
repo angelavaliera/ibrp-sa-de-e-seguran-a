@@ -193,7 +193,7 @@ const CursoTerapeutasPICS = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen" style={{ background: "hsl(18, 40%, 95%)" }}>
       <Header />
 
       {/* ── Hero ── */}
