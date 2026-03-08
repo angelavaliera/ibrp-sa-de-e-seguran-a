@@ -42,16 +42,16 @@ const Footer = () => {
   return (
     <footer>
       {/* Social + Newsletter band */}
-      <div className="bg-primary py-14 text-primary-foreground">
+      <div className="bg-primary py-8 text-primary-foreground">
         <div className="container mx-auto">
-          <div className="grid lg:grid-cols-2 gap-6 items-stretch">
-            {/* Mídias sociais — card */}
-            <div className="bg-muted rounded-2xl p-8 border border-border text-foreground flex flex-col justify-center items-center text-center">
-              <p className="text-sm uppercase tracking-widest font-medium mb-3 text-muted-foreground">Siga o IBRP</p>
-              <h3 className="text-2xl md:text-3xl font-heading font-bold mb-8 text-foreground">
-                Acompanhe nossos conteúdos nas mídias sociais
+          <div className="grid lg:grid-cols-[1fr_2fr] gap-6 items-start">
+            {/* Mídias sociais — compact */}
+            <div className="bg-muted rounded-2xl p-6 border border-border text-foreground flex flex-col justify-center items-center text-center h-full">
+              <p className="text-xs uppercase tracking-widest font-medium mb-2 text-muted-foreground">Siga o IBRP</p>
+              <h3 className="text-lg font-heading font-bold mb-4 text-foreground">
+                Acompanhe nas mídias sociais
               </h3>
-              <div className="flex items-center justify-center gap-6">
+              <div className="flex items-center justify-center gap-4">
                 {socialLinks.map((s) => (
                   <a
                     key={s.label}
@@ -59,7 +59,7 @@ const Footer = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={s.label}
-                    className={`w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 ${s.color} ${s.hoverColor} shadow-md hover:shadow-lg hover:scale-105`}
+                    className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${s.color} ${s.hoverColor} shadow-md hover:shadow-lg hover:scale-105`}
                   >
                     <s.icon />
                   </a>
@@ -67,8 +67,8 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Newsletter — card */}
-            <div className="bg-muted rounded-2xl p-8 border border-border text-foreground">
+            {/* Newsletter — compact card */}
+            <div className="bg-muted rounded-2xl p-6 border border-border text-foreground">
               <NewsletterSignup variant="footer" />
             </div>
           </div>
