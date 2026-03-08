@@ -21,13 +21,6 @@ const courses = [
     featured: false,
     link: "/curso-NR1-gestao",
   },
-  {
-    title: "Primeiros Socorros Psicológicos",
-    description: "Capacitação para acolhimento e suporte emocional no ambiente corporativo em situações de crise.",
-    hours: "16h",
-    icon: BookOpen,
-    featured: false,
-  },
 ];
 
 const CursosSection = () => {
