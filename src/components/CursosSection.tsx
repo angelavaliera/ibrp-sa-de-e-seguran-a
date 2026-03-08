@@ -32,7 +32,11 @@ const courses = [
 
 const CursosSection = () => {
   return (
-    <section id="cursos" className="py-20 bg-muted/30">
+    <section id="cursos" className="relative py-20 overflow-hidden">
+      <div className="absolute inset-0">
+        <img src={cursosBg} alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-verde-petroleo/90" />
+      </div>
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
