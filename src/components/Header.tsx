@@ -54,8 +54,8 @@ const NavLink = ({ item, onClick }: { item: typeof navItems[0]; onClick?: () => 
     const handleClick = (e: React.MouseEvent) => {
       e.preventDefault();
       if (location.pathname !== "/") {
-        // Navigate to home, then poll for the element to scroll to
-        navigate("/");
+        const hash = item.href;
+        navigate("/" + hash);
         const hash = item.href;
         const tryScroll = (attempts = 0) => {
           const el = document.querySelector(hash);
