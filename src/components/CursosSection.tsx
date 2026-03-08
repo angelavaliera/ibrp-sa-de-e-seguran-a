@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { BookOpen, Heart, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import cursosBg from "@/assets/cursos-bg.jpg";
 
 const courses = [
   {
