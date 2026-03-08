@@ -184,7 +184,7 @@ const CursoGestaoRiscos = () => {
       </section>
 
       {/* ── Highlights bar ── */}
-      <section className="py-6 bg-verde-petroleo/10 border-b border-verde-petroleo/20">
+      <section className="py-6 border-b" style={{ background: "hsl(228, 40%, 90%)", borderColor: "hsl(228, 30%, 85%)" }}>
         <div className="container mx-auto">
           <div className="flex flex-wrap justify-center gap-6 md:gap-10">
             {highlights.map((h, i) => (
