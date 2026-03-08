@@ -29,6 +29,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 import { PlayCircle } from "lucide-react";
 import aulaOnlineBg from "@/assets/aula-online-bg.jpg";
+import terapeutasHeroBg from "@/assets/terapeutas-hero-bg.jpg";
 
 import profAngela from "@/assets/prof-angela.png";
 import profElaine from "@/assets/prof-elaine.png";
@@ -196,13 +197,15 @@ const CursoTerapeutasPICS = () => {
       <Header />
 
       {/* ── Hero ── */}
-      <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden bg-verde-petroleo">
-        <div className="absolute inset-0 opacity-20">
+      <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={terapeutasHeroBg} alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-caqui/85" />
           <div
-            className="w-full h-full"
+            className="absolute inset-0 opacity-30"
             style={{
               background:
-                "radial-gradient(circle at 30% 50%, hsl(166 62% 39% / 0.4) 0%, transparent 60%), radial-gradient(circle at 80% 20%, hsl(329 73% 44% / 0.2) 0%, transparent 50%)",
+                "radial-gradient(circle at 30% 50%, hsl(18 81% 53% / 0.4) 0%, transparent 60%), radial-gradient(circle at 80% 20%, hsl(329 73% 44% / 0.2) 0%, transparent 50%)",
             }}
           />
         </div>
@@ -261,7 +264,7 @@ const CursoTerapeutasPICS = () => {
       </section>
 
       {/* ── Highlights bar ── */}
-      <section className="py-6 bg-muted/50 border-b border-border">
+      <section className="py-6 bg-caqui/10 border-b border-caqui/20">
         <div className="container mx-auto">
           <div className="flex flex-wrap justify-center gap-6 md:gap-10">
             {highlights.map((h, i) => (
@@ -327,7 +330,7 @@ const CursoTerapeutasPICS = () => {
       </section>
 
       {/* ── Público-alvo ── */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16 bg-caqui/5">
         <div className="container mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -416,7 +419,7 @@ const CursoTerapeutasPICS = () => {
       </section>
 
       {/* ── Professoras ── */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20 bg-caqui/5">
         <div className="container mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -476,7 +479,7 @@ const CursoTerapeutasPICS = () => {
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0">
           <img src={aulaOnlineBg} alt="Pessoa assistindo aula online no notebook" className="w-full h-full object-cover -scale-x-100" />
-          <div className="absolute inset-0 bg-verde-petroleo/85" />
+          <div className="absolute inset-0 bg-caqui/85" />
           <div
             className="absolute inset-0 opacity-30"
             style={{
@@ -606,7 +609,7 @@ const CursoTerapeutasPICS = () => {
       </section>
 
       {/* ── CTA final ── */}
-      <section className="py-16 bg-verde-petroleo">
+      <section className="py-16 bg-caqui">
         <div className="container mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
