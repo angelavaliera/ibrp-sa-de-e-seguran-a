@@ -40,4 +40,10 @@ export interface Source {
 
 export type BlogCategory = string;
 
-export const CATEGORIES: BlogCategory[] = [];
+export const CATEGORIES: BlogCategory[] = [
+  "Estudos de Caso",
+  "Radar IBRP",
+  "Ponto de Vista",
+  "Gestão e Estratégia",
+  "Jurídico e Normas",
+];
