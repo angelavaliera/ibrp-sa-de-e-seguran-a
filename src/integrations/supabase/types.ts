@@ -14,7 +14,7 @@ export type Database = {
   }
   public: {
     Tables: {
-      contact_leads: {
+      contato_empresas_leads: {
         Row: {
           cargo: string
           created_at: string
@@ -50,7 +50,7 @@ export type Database = {
         }
         Relationships: []
       }
-      leads_cursopics: {
+      curso_pics_leads: {
         Row: {
           created_at: string
           email: string

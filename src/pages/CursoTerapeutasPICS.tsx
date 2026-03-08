@@ -178,7 +178,7 @@ const CursoTerapeutasPICS = () => {
       return;
     }
     setAulaLoading(true);
-    const { error } = await supabase.from("leads_cursopics" as any).insert({
+    const { error } = await supabase.from("curso_pics_leads").insert({
       nome: aulaForm.nome.trim(),
       email: aulaForm.email.trim(),
     });

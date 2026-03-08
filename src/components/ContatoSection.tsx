@@ -64,7 +64,7 @@ const ContatoSection = () => {
       return;
     }
     setLoading(true);
-    const { error } = await supabase.from("contact_leads").insert({
+    const { error } = await supabase.from("contato_empresas_leads").insert({
       nome: form.nome.trim(),
       email: form.email.trim(),
       empresa: form.empresa.trim(),
