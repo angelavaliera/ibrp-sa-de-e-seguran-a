@@ -19,7 +19,7 @@ const clientLinks = [
 
 const scrollToElement = (id: string, currentPath: string, navigateFn: (path: string) => void) => {
   if (currentPath !== "/") {
-    navigateFn("/");
+    navigateFn("/#" + id);
     const tryScroll = (attempts = 0) => {
       const el = document.getElementById(id);
       if (el) {
@@ -54,11 +54,9 @@ const NavLink = ({ item, onClick }: { item: typeof navItems[0]; onClick?: () => 
     const handleClick = (e: React.MouseEvent) => {
       e.preventDefault();
       if (location.pathname !== "/") {
-        // Navigate to home, then poll for the element to scroll to
-        navigate("/");
-        const hash = item.href;
+        navigate("/" + item.href);
         const tryScroll = (attempts = 0) => {
-          const el = document.querySelector(hash);
+          const el = document.querySelector(item.href);
           if (el) {
             el.scrollIntoView({ behavior: "smooth" });
           } else if (attempts < 20) {
