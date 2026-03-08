@@ -152,9 +152,9 @@ const CursoGestaoRiscos = () => {
             </h1>
 
             <p className="text-lg md:text-xl max-w-2xl mx-auto mb-10 text-white/70">
-              Capacitação para profissionais que desejam atuar com{" "}
-              <strong className="text-white">gestão de riscos psicossociais</strong> em
-              empresas, em conformidade com a NR-1.
+              Capacitação para{" "}
+              <strong className="text-white">profissionais que desejam atuar</strong> com
+              gestão de riscos psicossociais em empresas, em conformidade com a NR-1.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
