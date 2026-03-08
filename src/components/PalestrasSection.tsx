@@ -15,7 +15,7 @@ const PalestrasSection = () => {
       style={{ backgroundImage: `url(${palestrasBg})` }}
     >
       {/* Sand-tone overlay */}
-      <div className="absolute inset-0 bg-areia/85" />
+      <div className="absolute inset-0" style={{ backgroundColor: "hsla(36, 33%, 93%, 0.88)" }} />
 
       <div className="container mx-auto relative z-10">
         <motion.div
