@@ -609,7 +609,7 @@ const CursoTerapeutasPICS = () => {
       </section>
 
       {/* ── CTA final ── */}
-      <section className="py-16 bg-verde-petroleo">
+      <section className="py-16 bg-caqui">
         <div className="container mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
