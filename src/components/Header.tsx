@@ -17,9 +17,22 @@ const clientLinks = [
   { label: "Ambiente Virtual de Aprendizagem", href: "https://gestaoriscospsicossociais.com.br/ava" },
 ];
 
-const scrollToContato = () => {
-  const el = document.getElementById("contato");
-  if (el) el.scrollIntoView({ behavior: "smooth" });
+const scrollToContato = (currentPath: string, navigateFn: (path: string) => void) => {
+  if (currentPath !== "/") {
+    navigateFn("/");
+    const tryScroll = (attempts = 0) => {
+      const el = document.getElementById("contato");
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      } else if (attempts < 20) {
+        setTimeout(() => tryScroll(attempts + 1), 50);
+      }
+    };
+    setTimeout(() => tryScroll(), 50);
+  } else {
+    const el = document.getElementById("contato");
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  }
 };
 
 const NavLink = ({ item, onClick }: { item: typeof navItems[0]; onClick?: () => void }) => {
