@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { BookOpen, Heart, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import cursosBg from "@/assets/cursos-bg.jpg";
 
 const courses = [
   {
@@ -31,8 +32,12 @@ const courses = [
 
 const CursosSection = () => {
   return (
-    <section id="cursos" className="py-20 bg-muted/30">
-      <div className="container mx-auto">
+    <section id="cursos" className="relative py-20 overflow-hidden">
+      <div className="absolute inset-0">
+        <img src={cursosBg} alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-verde-petroleo/90" />
+      </div>
+      <div className="container mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -40,10 +45,10 @@ const CursosSection = () => {
           className="text-center mb-14"
         >
           <span className="text-sm font-medium text-brilho-sol uppercase tracking-widest">Cursos</span>
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mt-3 mb-4">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold mt-3 mb-4 text-white">
             Capacitação <span className="text-gradient">profissional</span>
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
+          <p className="text-white/70 max-w-xl mx-auto">
             Cursos desenvolvidos por nossos especialistas para quem quer se profissionalizar e atuar com Gestão de Riscos Psicossociais e NR-1 nas empresas.
           </p>
         </motion.div>
@@ -56,29 +61,29 @@ const CursosSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15 }}
-              className={`rounded-2xl border p-8 h-full flex flex-col ${
+              className={`rounded-2xl border p-8 h-full flex flex-col bg-white/10 backdrop-blur-sm ${
                 course.featured
-                  ? "border-primary/40 bg-card ring-1 ring-primary/20"
-                  : "border-border bg-card"
+                  ? "border-white/30 ring-1 ring-white/20"
+                  : "border-white/15"
               }`}
-              style={{ boxShadow: course.featured ? "var(--shadow-glow)" : "var(--shadow-card)" }}
+              style={{ boxShadow: course.featured ? "0 0 30px rgba(255,255,255,0.1)" : "none" }}
             >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
-                <course.icon className="h-6 w-6 text-primary" />
+              <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-5">
+                <course.icon className="h-6 w-6 text-brilho-sol" />
               </div>
-              <h3 className="text-xl font-heading font-bold mb-3">{course.title}</h3>
-              <p className="text-muted-foreground leading-relaxed mb-6 flex-1">{course.description}</p>
+              <h3 className="text-xl font-heading font-bold mb-3 text-white">{course.title}</h3>
+              <p className="text-white/70 leading-relaxed mb-6 flex-1">{course.description}</p>
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <div className="flex items-center gap-2 text-sm text-white/60">
                   <Clock className="h-4 w-4" />
                   {course.hours}
                 </div>
                 {course.link ? (
-                  <Button variant="outline" size="sm" className="border-primary/30 text-primary hover:bg-primary/10" asChild>
+                  <Button variant="outline" size="sm" className="border-white/30 text-white hover:bg-white/10" asChild>
                     <Link to={course.link}>Saiba mais</Link>
                   </Button>
                 ) : (
-                  <Button variant="outline" size="sm" className="border-primary/30 text-primary hover:bg-primary/10">
+                  <Button variant="outline" size="sm" className="border-white/30 text-white hover:bg-white/10">
                     Saiba mais
                   </Button>
                 )}
