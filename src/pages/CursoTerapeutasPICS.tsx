@@ -226,9 +226,7 @@ const CursoTerapeutasPICS = () => {
 
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight mb-6 text-white">
               Terapeutas Integrativos nas Empresas:{" "}
-              <span className="text-gradient">
-                Atuação em Riscos Psicossociais alinhada à NR-1
-              </span>
+              Atuação em Riscos Psicossociais alinhada à NR-1
             </h1>
 
             <p className="text-lg md:text-xl max-w-2xl mx-auto mb-10 text-white/70">
