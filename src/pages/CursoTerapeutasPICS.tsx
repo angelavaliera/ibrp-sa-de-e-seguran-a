@@ -26,7 +26,7 @@ import Footer from "@/components/Footer";
 import { Input } from "@/components/ui/input";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { PlayCircle } from "lucide-react";
 import aulaOnlineBg from "@/assets/aula-online-bg.jpg";
 import terapeutasHeroBg from "@/assets/terapeutas-hero-bg.jpg";
@@ -169,6 +169,10 @@ const CursoTerapeutasPICS = () => {
   const [aulaForm, setAulaForm] = useState({ nome: "", email: "" });
   const [aulaLoading, setAulaLoading] = useState(false);
 
+  useEffect(() => {
+    document.title = "Curso Terapeutas Integrativos e NR-1 | IBRP";
+  }, []);
+
   const scrollToCheckout = () =>
     document.getElementById("checkout")?.scrollIntoView({ behavior: "smooth" });
 
@@ -199,7 +203,7 @@ const CursoTerapeutasPICS = () => {
       {/* ── Hero ── */}
       <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden">
         <div className="absolute inset-0">
-          <img src={terapeutasHeroBg} alt="" className="w-full h-full object-cover" />
+          <img src={terapeutasHeroBg} alt="Profissionais meditando em roda em ambiente corporativo" className="w-full h-full object-cover" />
           <div className="absolute inset-0" style={{ background: "hsla(18, 50%, 35%, 0.82)" }} />
           <div
             className="absolute inset-0 opacity-30"

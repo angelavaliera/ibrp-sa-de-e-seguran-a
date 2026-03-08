@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -127,6 +127,10 @@ const CursoGestaoRiscos = () => {
   const [aulaForm, setAulaForm] = useState({ nome: "", email: "" });
   const [aulaLoading, setAulaLoading] = useState(false);
 
+  useEffect(() => {
+    document.title = "Curso Gestão de Riscos Psicossociais | IBRP";
+  }, []);
+
   const scrollToCheckout = () =>
     document.getElementById("checkout")?.scrollIntoView({ behavior: "smooth" });
 
@@ -157,7 +161,7 @@ const CursoGestaoRiscos = () => {
       {/* ── Hero ── */}
       <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden">
         <div className="absolute inset-0">
-          <img src={gestaoHeroBg} alt="" className="w-full h-full object-cover" />
+          <img src={gestaoHeroBg} alt="Consultor conversando com equipe em ambiente corporativo" className="w-full h-full object-cover" />
           <div className="absolute inset-0" style={{ background: "hsla(228, 54%, 31%, 0.85)" }} />
           <div
             className="absolute inset-0 opacity-30"

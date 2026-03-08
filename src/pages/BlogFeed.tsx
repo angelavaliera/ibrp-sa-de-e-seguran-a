@@ -109,6 +109,7 @@ const BlogFeed = () => {
             <input
               type="text"
               placeholder="Buscar artigos..."
+              aria-label="Buscar artigos"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-11 pr-10 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 transition-shadow"
