@@ -140,21 +140,21 @@ const NewsletterSignup = ({ variant = "footer" }: NewsletterSignupProps) => {
   // Footer variant
   return (
     <div>
-      <div className="flex items-center gap-3 mb-3">
+      <div className="flex items-center gap-3 mb-2">
         <Mail className="h-5 w-5 text-primary" />
-        <h4 className="font-heading font-bold">Assine a Central de Inteligência IBRP</h4>
+        <h4 className="font-heading font-bold text-sm">Assine a Central de Inteligência IBRP</h4>
       </div>
-      <p className="text-sm text-muted-foreground mb-4">
+      <p className="text-xs text-muted-foreground mb-3">
         Conteúdos estratégicos sobre saúde mental corporativa e NR-1.
       </p>
-      <form onSubmit={handleSubmit} className="space-y-3">
+      <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-2">
         <Input
           required
           type="text"
           value={nome}
           onChange={(e) => setNome(e.target.value)}
           placeholder="Seu nome"
-          className="bg-muted border-border"
+          className="bg-muted border-border h-9 text-sm"
         />
         <Input
           required
@@ -162,10 +162,10 @@ const NewsletterSignup = ({ variant = "footer" }: NewsletterSignupProps) => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="seu@email.com"
-          className="bg-muted border-border"
+          className="bg-muted border-border h-9 text-sm"
         />
         <Select value={perfil} onValueChange={setPerfil}>
-          <SelectTrigger className="bg-muted border-border">
+          <SelectTrigger className="bg-muted border-border h-9 text-sm">
             <SelectValue placeholder="Seu perfil" />
           </SelectTrigger>
           <SelectContent>
@@ -174,20 +174,20 @@ const NewsletterSignup = ({ variant = "footer" }: NewsletterSignupProps) => {
             ))}
           </SelectContent>
         </Select>
-        <div className="flex items-start gap-3">
+        <Button type="submit" disabled={loading} size="sm" className="bg-gradient-brand hover:opacity-90 transition-opacity h-9 text-sm">
+          {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <>Assinar <Mail className="ml-2 h-4 w-4" /></>}
+        </Button>
+        <div className="flex items-start gap-2 sm:col-span-2">
           <Checkbox
             id="lgpd-footer"
             checked={lgpd}
             onCheckedChange={(v) => setLgpd(v === true)}
             className="mt-0.5"
           />
-          <label htmlFor="lgpd-footer" className="text-xs text-muted-foreground leading-relaxed cursor-pointer">
-            Concordo em receber comunicações e conteúdos estratégicos do IBRP conforme a Política de Privacidade.
+          <label htmlFor="lgpd-footer" className="text-[11px] text-muted-foreground leading-relaxed cursor-pointer">
+            Concordo em receber comunicações do IBRP conforme a Política de Privacidade.
           </label>
         </div>
-        <Button type="submit" disabled={loading} size="sm" className="w-full bg-gradient-brand hover:opacity-90 transition-opacity">
-          {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <>Assinar <Mail className="ml-2 h-4 w-4" /></>}
-        </Button>
       </form>
     </div>
   );
