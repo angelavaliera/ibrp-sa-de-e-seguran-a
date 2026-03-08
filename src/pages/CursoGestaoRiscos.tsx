@@ -122,8 +122,33 @@ const highlights = [
 /* ─── Component ─── */
 
 const CursoGestaoRiscos = () => {
+  const navigate = useNavigate();
+  const { toast } = useToast();
+  const [aulaForm, setAulaForm] = useState({ nome: "", email: "" });
+  const [aulaLoading, setAulaLoading] = useState(false);
+
   const scrollToCheckout = () =>
     document.getElementById("checkout")?.scrollIntoView({ behavior: "smooth" });
+
+  const handleAulaSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!aulaForm.nome.trim() || !aulaForm.email.trim()) {
+      toast({ title: "Preencha todos os campos", variant: "destructive" });
+      return;
+    }
+    setAulaLoading(true);
+    const { error } = await supabase.from("curso_gestao_leads").insert({
+      nome: aulaForm.nome.trim(),
+      email: aulaForm.email.trim(),
+    });
+    setAulaLoading(false);
+    if (error) {
+      toast({ title: "Erro ao enviar", description: "Tente novamente.", variant: "destructive" });
+      return;
+    }
+    sessionStorage.setItem("aula-experimental-pics-access", "true");
+    navigate("/aula-experimental-pics");
+  };
 
   return (
     <div className="min-h-screen" style={{ background: "hsl(228, 40%, 95%)" }}>
