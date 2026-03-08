@@ -21,6 +21,7 @@ import {
   Linkedin,
   Users,
   Briefcase,
+  PlayCircle,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
