@@ -200,12 +200,12 @@ const CursoTerapeutasPICS = () => {
       <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden">
         <div className="absolute inset-0">
           <img src={terapeutasHeroBg} alt="" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-caqui/85" />
+          <div className="absolute inset-0" style={{ background: "hsla(18, 50%, 35%, 0.82)" }} />
           <div
             className="absolute inset-0 opacity-30"
             style={{
               background:
-                "radial-gradient(circle at 30% 50%, hsl(18 81% 53% / 0.4) 0%, transparent 60%), radial-gradient(circle at 80% 20%, hsl(329 73% 44% / 0.2) 0%, transparent 50%)",
+                "radial-gradient(circle at 30% 50%, hsl(18 50% 40% / 0.3) 0%, transparent 60%), radial-gradient(circle at 80% 20%, hsl(329 73% 44% / 0.15) 0%, transparent 50%)",
             }}
           />
         </div>
@@ -479,7 +479,7 @@ const CursoTerapeutasPICS = () => {
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0">
           <img src={aulaOnlineBg} alt="Pessoa assistindo aula online no notebook" className="w-full h-full object-cover -scale-x-100" />
-          <div className="absolute inset-0 bg-caqui/85" />
+          <div className="absolute inset-0" style={{ background: "hsla(18, 50%, 35%, 0.85)" }} />
           <div
             className="absolute inset-0 opacity-30"
             style={{
@@ -609,7 +609,7 @@ const CursoTerapeutasPICS = () => {
       </section>
 
       {/* ── CTA final ── */}
-      <section className="py-16 bg-caqui">
+      <section className="py-16" style={{ background: "hsl(18, 50%, 35%)" }}>
         <div className="container mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
