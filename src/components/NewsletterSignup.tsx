@@ -121,9 +121,8 @@ const NewsletterSignup = ({ variant = "footer" }: NewsletterSignupProps) => {
               Concordo em receber comunicações e conteúdos estratégicos do IBRP conforme a Política de Privacidade.
             </label>
           </div>
-          <Button type="submit" className="w-full bg-gradient-brand hover:opacity-90 transition-opacity">
-            Assinar Newsletter
-            <Mail className="ml-2 h-4 w-4" />
+          <Button type="submit" disabled={loading} className="w-full bg-gradient-brand hover:opacity-90 transition-opacity">
+            {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <>Assinar Newsletter <Mail className="ml-2 h-4 w-4" /></>}
           </Button>
         </form>
       </div>
