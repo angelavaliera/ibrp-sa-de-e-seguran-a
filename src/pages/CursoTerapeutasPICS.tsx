@@ -197,13 +197,15 @@ const CursoTerapeutasPICS = () => {
       <Header />
 
       {/* ── Hero ── */}
-      <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden bg-verde-petroleo">
-        <div className="absolute inset-0 opacity-20">
+      <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={terapeutasHeroBg} alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-caqui/85" />
           <div
-            className="w-full h-full"
+            className="absolute inset-0 opacity-30"
             style={{
               background:
-                "radial-gradient(circle at 30% 50%, hsl(166 62% 39% / 0.4) 0%, transparent 60%), radial-gradient(circle at 80% 20%, hsl(329 73% 44% / 0.2) 0%, transparent 50%)",
+                "radial-gradient(circle at 30% 50%, hsl(18 81% 53% / 0.4) 0%, transparent 60%), radial-gradient(circle at 80% 20%, hsl(329 73% 44% / 0.2) 0%, transparent 50%)",
             }}
           />
         </div>
