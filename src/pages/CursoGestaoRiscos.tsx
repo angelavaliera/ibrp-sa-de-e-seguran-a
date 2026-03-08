@@ -1,0 +1,517 @@
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import {
+  ArrowRight,
+  BookOpen,
+  Calendar,
+  CheckCircle2,
+  Clock,
+  GraduationCap,
+  Scale,
+  ShieldCheck,
+  Instagram,
+  Linkedin,
+  Users,
+  Briefcase,
+} from "lucide-react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import logoSelo from "@/assets/logo-ibrp-selo.png";
+
+import profAngela from "@/assets/prof-angela.png";
+import profIvanize from "@/assets/prof-ivanize.png";
+import profIzabella from "@/assets/prof-izabella.png";
+
+const CHECKOUT_URL = "#"; // TODO: substituir pela URL real de checkout
+
+/* ─── Data ─── */
+
+const modules = [
+  {
+    title: "Módulo 1 — Introdução: A Atualização da NR-1 e os Riscos Psicossociais",
+    items: [
+      "Os riscos psicossociais, a saúde mental e a oportunidade para Terapeutas Integrativos",
+      "Fundamentos Jurídicos e Normativos da saúde mental no trabalho",
+      "Estrutura base para adequação à NR-1",
+    ],
+  },
+  {
+    title: "Módulo 2 — Compreendendo as Fontes e os Impactos dos Riscos Psicossociais",
+    items: [
+      "Categorias de riscos psicossociais e suas causas",
+      "Os impactos nas pessoas: saúde mental, física e social do trabalhador",
+      "Os impactos nas empresas: econômicos, produtivos e jurídicos",
+      "Os impactos na economia, na sociedade e no mundo",
+    ],
+  },
+  {
+    title: "Módulo 3 — Do Inventário ao Plano de Ação: a Atuação Estratégica",
+    items: [
+      "Como são levantados os riscos psicossociais de uma empresa, conhecendo ferramentas",
+      "Da teoria à prática: Como traduzir relatórios de riscos em ações concretas",
+      "Estudos de Casos Práticos",
+      "Documentos e Ferramentas",
+      "Limites e responsabilidades profissionais",
+    ],
+  },
+  {
+    title: "Módulo 4 — Riscos Psicossociais e Conformidade Legal na Prática",
+    items: [
+      "Riscos e Responsabilidades Legais frente a NR-1",
+      "Riscos e Responsabilidades Contratuais – Prestação do Serviço de Consultoria",
+    ],
+  },
+  {
+    title: "Módulo 5 — Apresentando o Retorno do Investimento em saúde mental à empresa",
+    items: ["Cálculo de ROI – Return of Investment"],
+  },
+];
+
+const professors = [
+  {
+    name: "Angela Valiera Mascarenhas",
+    role: "Diretora do IBRP",
+    bio: "Consultora empresarial, especialista em desenvolvimento de human skills, criatividade e liderança. Jornalista, Palestrante e Professora em MBAs. Certificada pelo Harvard Manage Mentor. Coach de Executivos e alta liderança com atuação em 14 países.",
+    photo: profAngela,
+    socials: {
+      linkedin: "https://www.linkedin.com/in/angelavaliera/",
+      instagram: "https://www.instagram.com/angelavaliera/",
+    },
+  },
+  {
+    name: "Ivanize Martins Moraes Silva",
+    role: "Gestora de RH e Consultora de Transformação Empresarial",
+    bio: "Mais de 15 anos em posições de liderança em multinacionais de grande porte. MBA em Gestão de Pessoas e Administração de Empresas (FGV). Certificada em ESG, DISC, Coaching e PNL. Especialista em transformação cultural e governança corporativa.",
+    photo: profIvanize,
+    socials: {},
+  },
+  {
+    name: "Izabella Alonso Soares",
+    role: "Advogada Trabalhista\nEspecialista em NR-1 e Consultora Empresarial",
+    bio: "Sócia fundadora da Alonso Pistun Advocacia. Especialista em Direito do Trabalho com MBA em Gestão do Valor Humano nos Negócios. Vice-presidente da Comissão do Pacto Global da OAB/PR e Líder Regional do Pacto Global da ONU Brasil.",
+    photo: profIzabella,
+    socials: {
+      linkedin: "https://www.linkedin.com/in/izabellaalonsosoares/",
+      instagram: "https://www.instagram.com/izabellaalonsosoares/",
+    },
+  },
+];
+
+const highlights = [
+  { icon: Clock, label: "20 horas de conteúdo" },
+  { icon: BookOpen, label: "Aulas em vídeo + material em PDF" },
+  { icon: Users, label: "Grupo exclusivo no Telegram" },
+  { icon: Calendar, label: "Acesso até 31/12/2026" },
+  { icon: GraduationCap, label: "Início imediato" },
+];
+
+/* ─── Component ─── */
+
+const CursoGestaoRiscos = () => {
+  const scrollToCheckout = () =>
+    document.getElementById("checkout")?.scrollIntoView({ behavior: "smooth" });
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Header />
+
+      {/* ── Hero ── */}
+      <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden bg-verde-petroleo">
+        <div className="absolute inset-0 opacity-20">
+          <div
+            className="w-full h-full"
+            style={{
+              background:
+                "radial-gradient(circle at 30% 50%, hsl(166 62% 39% / 0.4) 0%, transparent 60%), radial-gradient(circle at 80% 20%, hsl(329 73% 44% / 0.2) 0%, transparent 50%)",
+            }}
+          />
+        </div>
+
+        <div className="container mx-auto relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-3xl mx-auto text-center"
+          >
+            <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm">
+              <Briefcase className="h-4 w-4 text-fucsia" />
+              <span className="text-sm font-medium text-white/90">
+                Programa de Capacitação • IBRP
+              </span>
+            </div>
+
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight mb-6 text-white">
+              Gestão de{" "}
+              <span className="text-gradient">
+                Riscos Psicossociais
+              </span>
+            </h1>
+
+            <p className="text-lg md:text-xl max-w-2xl mx-auto mb-10 text-white/70">
+              Capacitação para gestores e profissionais que precisam implementar a{" "}
+              <strong className="text-white">gestão de riscos psicossociais</strong> em suas
+              empresas, em conformidade com a NR-1.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                size="lg"
+                className="bg-gradient-brand hover:opacity-90 transition-opacity text-lg px-8 py-6 rounded-xl glow text-white"
+                onClick={scrollToCheckout}
+              >
+                Quero me inscrever
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="text-lg px-8 py-6 rounded-xl border-white/20 text-white hover:bg-white/10 bg-white/5 backdrop-blur-sm"
+                onClick={() =>
+                  document
+                    .getElementById("programa")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+              >
+                Ver Grade Curricular
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── Highlights bar ── */}
+      <section className="py-6 bg-muted/50 border-b border-border">
+        <div className="container mx-auto">
+          <div className="flex flex-wrap justify-center gap-6 md:gap-10">
+            {highlights.map((h, i) => (
+              <div key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
+                <h.icon className="h-4 w-4 text-primary" />
+                <span>{h.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Contexto Legal ── */}
+      <section className="py-20">
+        <div className="container mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="grid md:grid-cols-2 gap-10 items-center">
+              <div>
+                <span className="text-sm font-medium text-laranja-alerta uppercase tracking-widest flex items-center gap-2">
+                  <Scale className="h-4 w-4" />
+                  Contexto Legal
+                </span>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold mt-3 mb-5">
+                  A NR-1 agora exige{" "}
+                  <span className="text-gradient">gestão de riscos psicossociais</span>
+                </h2>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  Em maio de 2025 passou a ser exigido que{" "}
+                  <strong className="text-foreground">todas as empresas</strong> com empregados CLT
+                  precisam identificar, avaliar e controlar os riscos psicossociais no Programa de
+                  Gerenciamento de Riscos (PGR).
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Gestores e líderes precisam entender suas{" "}
+                  <strong className="text-foreground">responsabilidades legais</strong> e saber como
+                  implementar um programa eficaz de gerenciamento de riscos psicossociais.
+                </p>
+              </div>
+
+              <div
+                className="bg-card rounded-2xl border border-border p-8"
+                style={{ boxShadow: "var(--shadow-card)" }}
+              >
+                <ShieldCheck className="h-10 w-10 text-primary mb-4" />
+                <h3 className="text-xl font-heading font-bold mb-4">O que mudou?</h3>
+                <ul className="space-y-3 text-sm text-muted-foreground">
+                  {[
+                    "Riscos psicossociais devem constar no PGR",
+                    "Empresas precisam identificar, avaliar e controlar esses riscos",
+                    "Gestores são corresponsáveis pela saúde mental dos colaboradores",
+                    "Demanda crescente por profissionais qualificados",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── Público-alvo ── */}
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mx-auto text-center"
+          >
+            <span className="text-sm font-medium text-primary uppercase tracking-widest">
+              Para quem é esse curso?
+            </span>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mt-3 mb-5">
+              Público-alvo
+            </h2>
+            <p className="text-muted-foreground leading-relaxed">
+              Destinado a gestores, líderes, profissionais de RH, SESMT e consultores que precisam{" "}
+              <strong className="text-foreground">
+                entender as obrigações legais e implementar um programa eficaz
+              </strong>{" "}
+              de gerenciamento de riscos psicossociais em suas organizações, em conformidade com a
+              NR-1.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── Grade Curricular ── */}
+      <section id="programa" className="py-20">
+        <div className="container mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-14"
+          >
+            <span className="text-sm font-medium text-indigo uppercase tracking-widest">
+              Grade Curricular
+            </span>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mt-3 mb-4">
+              5 módulos para sua{" "}
+              <span className="text-gradient">atuação estratégica</span>
+            </h2>
+            <p className="text-muted-foreground max-w-xl mx-auto">
+              Do entendimento legal à prática corporativa: tudo o que você precisa para gerir riscos
+              psicossociais com segurança e competência.
+            </p>
+          </motion.div>
+
+          <div className="max-w-3xl mx-auto">
+            <Accordion type="single" collapsible className="space-y-3">
+              {modules.map((mod, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.05 }}
+                >
+                  <AccordionItem
+                    value={`mod-${i}`}
+                    className="rounded-xl border border-border bg-card px-6"
+                    style={{ boxShadow: "var(--shadow-card)" }}
+                  >
+                    <AccordionTrigger className="text-left font-heading font-semibold text-base hover:no-underline">
+                      {mod.title}
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <ul className="space-y-2 pb-2">
+                        {mod.items.map((item, j) => (
+                          <li
+                            key={j}
+                            className="flex items-start gap-2 text-muted-foreground"
+                          >
+                            <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 shrink-0" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </AccordionContent>
+                  </AccordionItem>
+                </motion.div>
+              ))}
+            </Accordion>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Professoras ── */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-14"
+          >
+            <span className="text-sm font-medium text-fucsia uppercase tracking-widest">
+              Corpo Docente
+            </span>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mt-3 mb-4">
+              Aprenda com quem <span className="text-gradient">faz na prática</span>
+            </h2>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            {professors.map((prof, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="text-center"
+              >
+                <div className="w-36 h-36 mx-auto mb-5 rounded-full overflow-hidden ring-4 ring-primary/20">
+                  <img
+                    src={prof.photo}
+                    alt={`Professora ${prof.name}`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-lg font-heading font-bold">{prof.name}</h3>
+                <p className="text-sm text-primary font-medium whitespace-pre-line">
+                  {prof.role}
+                </p>
+                <p className="text-xs text-muted-foreground mt-2 mb-3 leading-relaxed">
+                  {prof.bio}
+                </p>
+                {(prof.socials.linkedin || prof.socials.instagram) && (
+                  <div className="flex items-center justify-center gap-3 mt-2">
+                    {prof.socials.linkedin && (
+                      <a
+                        href={prof.socials.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        <Linkedin className="h-4 w-4" />
+                      </a>
+                    )}
+                    {prof.socials.instagram && (
+                      <a
+                        href={prof.socials.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        <Instagram className="h-4 w-4" />
+                      </a>
+                    )}
+                  </div>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Checkout ── */}
+      <section id="checkout" className="py-20">
+        <div className="container mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-lg mx-auto"
+          >
+            <div
+              className="rounded-3xl border-2 border-primary/30 bg-card p-10 text-center relative overflow-hidden"
+              style={{ boxShadow: "var(--shadow-glow)" }}
+            >
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-brand" />
+
+              <img
+                src={logoSelo}
+                alt="Selo IBRP"
+                className="w-16 h-16 mx-auto mb-6 object-contain"
+              />
+
+              <h2 className="text-2xl font-heading font-bold mb-2">Garanta sua vaga</h2>
+              <p className="text-muted-foreground mb-8">
+                Início imediato • Acesso até 31/12/2026
+              </p>
+
+              <div className="mb-2">
+                <span className="text-sm text-muted-foreground">Investimento</span>
+              </div>
+              <div className="text-3xl font-heading font-bold text-foreground mb-1">
+                Em breve
+              </div>
+              <p className="text-base text-muted-foreground mb-8">
+                Preço a ser anunciado
+              </p>
+
+              <Button
+                size="lg"
+                className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-lg py-6 rounded-xl glow text-white"
+                asChild
+              >
+                <a href={CHECKOUT_URL} target="_blank" rel="noopener noreferrer">
+                  Quero me inscrever
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </a>
+              </Button>
+
+              <div className="mt-6 space-y-2 text-sm text-muted-foreground">
+                {[
+                  "20h de conteúdo em vídeo + PDFs",
+                  "Grupo exclusivo no Telegram para dúvidas",
+                  "Certificado de conclusão",
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center justify-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-primary" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── CTA final ── */}
+      <section className="py-16 bg-verde-petroleo">
+        <div className="container mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-white mb-4">
+              Proteja sua empresa e seus colaboradores
+            </h2>
+            <p className="text-white/70 max-w-xl mx-auto mb-8">
+              Esteja em conformidade com a NR-1 e promova um ambiente de trabalho mais saudável e
+              produtivo.
+            </p>
+            <Button
+              size="lg"
+              className="bg-gradient-brand hover:opacity-90 transition-opacity text-lg px-8 py-6 rounded-xl glow text-white"
+              asChild
+            >
+              <a href={CHECKOUT_URL} target="_blank" rel="noopener noreferrer">
+                Quero me inscrever
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </a>
+            </Button>
+          </motion.div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default CursoGestaoRiscos;
