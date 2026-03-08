@@ -328,7 +328,7 @@ const CursoTerapeutasPICS = () => {
       </section>
 
       {/* ── Público-alvo ── */}
-      <section className="py-16 bg-caqui/5">
+      <section className="py-16" style={{ background: "hsl(18, 40%, 92%)" }}>
         <div className="container mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
