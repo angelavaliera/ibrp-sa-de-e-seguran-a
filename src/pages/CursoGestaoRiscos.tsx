@@ -223,9 +223,9 @@ const CursoGestaoRiscos = () => {
                   Gerenciamento de Riscos (PGR).
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  Gestores e líderes precisam entender suas{" "}
-                  <strong className="text-foreground">responsabilidades legais</strong> e saber como
-                  implementar um programa eficaz de gerenciamento de riscos psicossociais.
+                  Isso abre uma <strong className="text-foreground">oportunidade para profissionais de diversas áreas</strong>{" "}
+                  atuarem estrategicamente nas empresas com implementação e gerenciamento de riscos
+                  psicossociais corporativos.
                 </p>
               </div>
 
