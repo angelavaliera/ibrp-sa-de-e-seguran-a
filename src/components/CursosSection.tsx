@@ -61,10 +61,10 @@ const CursosSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15 }}
-              className={`rounded-2xl border p-8 h-full flex flex-col ${
+              className={`rounded-2xl border p-8 h-full flex flex-col bg-white/10 backdrop-blur-sm ${
                 course.featured
-                  ? "border-primary/40 bg-card ring-1 ring-primary/20"
-                  : "border-border bg-card"
+                  ? "border-white/30 ring-1 ring-white/20"
+                  : "border-white/15"
               }`}
               style={{ boxShadow: course.featured ? "var(--shadow-glow)" : "var(--shadow-card)" }}
             >
