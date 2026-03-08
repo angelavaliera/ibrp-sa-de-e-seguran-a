@@ -29,6 +29,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 import { PlayCircle } from "lucide-react";
 import aulaOnlineBg from "@/assets/aula-online-bg.jpg";
+import terapeutasHeroBg from "@/assets/terapeutas-hero-bg.jpg";
 
 import profAngela from "@/assets/prof-angela.png";
 import profElaine from "@/assets/prof-elaine.png";
