@@ -14,7 +14,7 @@ const courses = [
     link: "/curso-NR1-terapeutas-PICS",
   },
   {
-    title: "NR-1 para Gestores",
+    title: "Gestão de Riscos Psicossociais",
     description: "Entenda as obrigações legais e como implementar um programa de gerenciamento de riscos ocupacionais eficaz.",
     hours: "20h",
     icon: BookOpen,
