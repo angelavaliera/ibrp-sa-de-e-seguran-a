@@ -230,8 +230,8 @@ const CursoGestaoRiscos = () => {
               </div>
 
               <div
-                className="bg-card rounded-2xl border border-border p-8"
-                style={{ boxShadow: "var(--shadow-card)" }}
+                className="rounded-2xl border border-[hsl(228_30%_85%)] p-8"
+                style={{ background: "hsl(228, 30%, 94%)", boxShadow: "var(--shadow-card)" }}
               >
                 <ShieldCheck className="h-10 w-10 text-primary mb-4" />
                 <h3 className="text-xl font-heading font-bold mb-4">O que mudou?</h3>
@@ -315,8 +315,8 @@ const CursoGestaoRiscos = () => {
                 >
                   <AccordionItem
                     value={`mod-${i}`}
-                    className="rounded-xl border border-border bg-card px-6"
-                    style={{ boxShadow: "var(--shadow-card)" }}
+                    className="rounded-xl border border-[hsl(228_30%_85%)] px-6"
+                    style={{ background: "hsl(228, 30%, 94%)", boxShadow: "var(--shadow-card)" }}
                   >
                     <AccordionTrigger className="text-left font-heading font-semibold text-base hover:no-underline">
                       {mod.title}
@@ -423,8 +423,8 @@ const CursoGestaoRiscos = () => {
             className="max-w-lg mx-auto"
           >
             <div
-              className="rounded-3xl border-2 border-primary/30 bg-card p-10 text-center relative overflow-hidden"
-              style={{ boxShadow: "var(--shadow-glow)" }}
+              className="rounded-3xl border-2 border-[hsl(228_30%_75%)] p-10 text-center relative overflow-hidden"
+              style={{ background: "hsl(228, 30%, 94%)", boxShadow: "var(--shadow-glow)" }}
             >
               <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-brand" />
 
