@@ -389,8 +389,8 @@ const CursoTerapeutasPICS = () => {
                 >
                   <AccordionItem
                     value={`mod-${i}`}
-                    className="rounded-xl border border-border bg-card px-6"
-                    style={{ boxShadow: "var(--shadow-card)" }}
+                    className="rounded-xl border border-[hsl(18_30%_85%)] px-6"
+                    style={{ background: "hsl(18, 30%, 94%)", boxShadow: "var(--shadow-card)" }}
                   >
                     <AccordionTrigger className="text-left font-heading font-semibold text-base hover:no-underline">
                       {mod.title}
