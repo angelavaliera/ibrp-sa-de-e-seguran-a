@@ -66,24 +66,24 @@ const CursosSection = () => {
                   ? "border-white/30 ring-1 ring-white/20"
                   : "border-white/15"
               }`}
-              style={{ boxShadow: course.featured ? "var(--shadow-glow)" : "var(--shadow-card)" }}
+              style={{ boxShadow: course.featured ? "0 0 30px rgba(255,255,255,0.1)" : "none" }}
             >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
-                <course.icon className="h-6 w-6 text-primary" />
+              <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-5">
+                <course.icon className="h-6 w-6 text-brilho-sol" />
               </div>
-              <h3 className="text-xl font-heading font-bold mb-3">{course.title}</h3>
-              <p className="text-muted-foreground leading-relaxed mb-6 flex-1">{course.description}</p>
+              <h3 className="text-xl font-heading font-bold mb-3 text-white">{course.title}</h3>
+              <p className="text-white/70 leading-relaxed mb-6 flex-1">{course.description}</p>
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <div className="flex items-center gap-2 text-sm text-white/60">
                   <Clock className="h-4 w-4" />
                   {course.hours}
                 </div>
                 {course.link ? (
-                  <Button variant="outline" size="sm" className="border-primary/30 text-primary hover:bg-primary/10" asChild>
+                  <Button variant="outline" size="sm" className="border-white/30 text-white hover:bg-white/10" asChild>
                     <Link to={course.link}>Saiba mais</Link>
                   </Button>
                 ) : (
-                  <Button variant="outline" size="sm" className="border-primary/30 text-primary hover:bg-primary/10">
+                  <Button variant="outline" size="sm" className="border-white/30 text-white hover:bg-white/10">
                     Saiba mais
                   </Button>
                 )}
