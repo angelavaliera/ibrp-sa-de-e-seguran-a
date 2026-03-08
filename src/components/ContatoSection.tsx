@@ -91,68 +91,68 @@ const ContatoSection = () => {
   };
 
    return (
-    <section id="contato" className="py-20 bg-verde-petroleo text-white">
+    <section id="contato" className="py-12 bg-verde-petroleo text-white">
       <div className="container mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-8 text-center text-white">
+          <h2 className="text-2xl md:text-3xl font-heading font-bold mb-5 text-center text-white">
             Sua empresa está em conformidade?
           </h2>
 
-          <div className="rounded-2xl border border-border p-8 bg-muted">
-            <h3 className="text-xl font-heading font-bold mb-6 text-foreground">Solicite uma proposta</h3>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="rounded-2xl border border-border p-6 bg-muted">
+            <h3 className="text-lg font-heading font-bold mb-4 text-foreground">Solicite uma proposta</h3>
+            <form onSubmit={handleSubmit} className="space-y-3">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 <div>
-                  <label className="text-sm text-muted-foreground mb-1.5 block">Nome</label>
+                  <label className="text-xs text-muted-foreground mb-1 block">Nome</label>
                   <Input
                     required
                     value={form.nome}
                     onChange={(e) => setForm({ ...form, nome: e.target.value })}
                     placeholder="Seu nome completo"
-                    className="bg-background border-border"
+                    className="bg-background border-border h-9 text-sm"
                   />
                 </div>
                 <div>
-                  <label className="text-sm text-muted-foreground mb-1.5 block">E-mail Corporativo</label>
+                  <label className="text-xs text-muted-foreground mb-1 block">E-mail Corporativo</label>
                   <Input
                     required
                     type="email"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
                     placeholder="seu@empresa.com"
-                    className="bg-background border-border"
+                    className="bg-background border-border h-9 text-sm"
                   />
                 </div>
                 <div>
-                  <label className="text-sm text-muted-foreground mb-1.5 block">Empresa</label>
+                  <label className="text-xs text-muted-foreground mb-1 block">Empresa</label>
                   <Input
                     required
                     value={form.empresa}
                     onChange={(e) => setForm({ ...form, empresa: e.target.value })}
                     placeholder="Nome da empresa"
-                    className="bg-background border-border"
+                    className="bg-background border-border h-9 text-sm"
                   />
                 </div>
               </div>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 <div>
-                  <label className="text-sm text-muted-foreground mb-1.5 block">Cargo</label>
+                  <label className="text-xs text-muted-foreground mb-1 block">Cargo</label>
                   <Input
                     required
                     value={form.cargo}
                     onChange={(e) => setForm({ ...form, cargo: e.target.value })}
                     placeholder="Seu cargo"
-                    className="bg-background border-border"
+                    className="bg-background border-border h-9 text-sm"
                   />
                 </div>
                 <div>
-                  <label className="text-sm text-muted-foreground mb-1.5 block">Tamanho da Empresa</label>
+                  <label className="text-xs text-muted-foreground mb-1 block">Tamanho da Empresa</label>
                   <Select value={form.tamanho} onValueChange={(v) => setForm({ ...form, tamanho: v })}>
-                    <SelectTrigger className="bg-background border-border">
+                    <SelectTrigger className="bg-background border-border h-9 text-sm">
                       <SelectValue placeholder="Selecione" />
                     </SelectTrigger>
                     <SelectContent>
@@ -165,9 +165,9 @@ const ContatoSection = () => {
                   </Select>
                 </div>
                 <div>
-                  <label className="text-sm text-muted-foreground mb-1.5 block">Interesse Principal</label>
+                  <label className="text-xs text-muted-foreground mb-1 block">Interesse Principal</label>
                   <Select value={form.interesse} onValueChange={(v) => setForm({ ...form, interesse: v })}>
-                    <SelectTrigger className="bg-background border-border">
+                    <SelectTrigger className="bg-background border-border h-9 text-sm">
                       <SelectValue placeholder="Selecione" />
                     </SelectTrigger>
                     <SelectContent>
@@ -181,29 +181,29 @@ const ContatoSection = () => {
                 </div>
               </div>
               <div>
-                <label className="text-sm text-muted-foreground mb-1.5 block">Mensagem</label>
+                <label className="text-xs text-muted-foreground mb-1 block">Mensagem</label>
                 <Textarea
                   value={form.mensagem}
                   onChange={(e) => setForm({ ...form, mensagem: e.target.value })}
                   placeholder="Descreva brevemente o que você precisa..."
-                  className="bg-background border-border min-h-[100px] resize-none"
+                  className="bg-background border-border min-h-[80px] resize-none text-sm"
                   maxLength={1000}
                 />
               </div>
 
-              <div className="flex items-start gap-3 pt-2">
+              <div className="flex items-start gap-2">
                 <Checkbox
                   id="lgpd-contato"
                   checked={lgpd}
                   onCheckedChange={(v) => setLgpd(v === true)}
                   className="mt-0.5"
                 />
-                <label htmlFor="lgpd-contato" className="text-xs text-muted-foreground leading-relaxed cursor-pointer">
-                  Concordo em receber comunicações e conteúdos estratégicos do IBRP conforme a Política de Privacidade.
+                <label htmlFor="lgpd-contato" className="text-[11px] text-muted-foreground leading-relaxed cursor-pointer">
+                  Concordo em receber comunicações do IBRP conforme a Política de Privacidade.
                 </label>
               </div>
 
-              <Button type="submit" disabled={loading} className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-white">
+              <Button type="submit" disabled={loading} className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-white h-9 text-sm">
                 {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <>Enviar mensagem <Send className="ml-2 h-4 w-4" /></>}
               </Button>
             </form>
