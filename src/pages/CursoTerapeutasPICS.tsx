@@ -28,6 +28,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 import { PlayCircle } from "lucide-react";
+import aulaOnlineBg from "@/assets/aula-online-bg.jpg";
 
 import profAngela from "@/assets/prof-angela.png";
 import profElaine from "@/assets/prof-elaine.png";
@@ -472,10 +473,12 @@ const CursoTerapeutasPICS = () => {
       </section>
 
       {/* ── Aula Experimental ── */}
-      <section className="relative py-20 bg-verde-petroleo overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={aulaOnlineBg} alt="Pessoa assistindo aula online no notebook" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-verde-petroleo/85" />
           <div
-            className="w-full h-full"
+            className="absolute inset-0 opacity-30"
             style={{
               background:
                 "radial-gradient(circle at 30% 50%, hsl(166 62% 39% / 0.4) 0%, transparent 60%), radial-gradient(circle at 80% 20%, hsl(329 73% 44% / 0.2) 0%, transparent 50%)",
