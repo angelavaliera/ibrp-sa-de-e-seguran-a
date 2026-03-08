@@ -33,14 +33,30 @@ const NewsletterSignup = ({ variant = "footer" }: NewsletterSignupProps) => {
   const [email, setEmail] = useState("");
   const [perfil, setPerfil] = useState("");
   const [lgpd, setLgpd] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!lgpd) {
       toast({
         title: "Consentimento necessário",
         description: "Marque a caixa de consentimento LGPD para continuar.",
+        variant: "destructive",
+      });
+      return;
+    }
+    setLoading(true);
+    const { error } = await supabase.from("newsletter_leads").insert({
+      nome: nome.trim(),
+      email: email.trim(),
+      perfil: perfil || null,
+    });
+    setLoading(false);
+    if (error) {
+      toast({
+        title: "Erro ao enviar",
+        description: "Tente novamente mais tarde.",
         variant: "destructive",
       });
       return;

@@ -34,14 +34,34 @@ const ContatoSection = () => {
     mensagem: "",
   });
   const [lgpd, setLgpd] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!lgpd) {
       toast({
         title: "Consentimento necessário",
         description: "Marque a caixa de consentimento LGPD para continuar.",
+        variant: "destructive",
+      });
+      return;
+    }
+    setLoading(true);
+    const { error } = await supabase.from("contact_leads").insert({
+      nome: form.nome.trim(),
+      email: form.email.trim(),
+      empresa: form.empresa.trim(),
+      cargo: form.cargo.trim(),
+      tamanho: form.tamanho || null,
+      interesse: form.interesse || null,
+      mensagem: form.mensagem.trim() || null,
+    });
+    setLoading(false);
+    if (error) {
+      toast({
+        title: "Erro ao enviar",
+        description: "Tente novamente mais tarde.",
         variant: "destructive",
       });
       return;
