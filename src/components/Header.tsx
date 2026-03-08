@@ -41,12 +41,18 @@ const NavLink = ({ item, onClick }: { item: typeof navItems[0]; onClick?: () => 
     const handleClick = (e: React.MouseEvent) => {
       e.preventDefault();
       if (location.pathname !== "/") {
+        // Navigate to home, then poll for the element to scroll to
         navigate("/");
-        // Wait for home page to render, then scroll to the section
-        setTimeout(() => {
-          const el = document.querySelector(item.href);
-          if (el) el.scrollIntoView({ behavior: "smooth" });
-        }, 100);
+        const hash = item.href;
+        const tryScroll = (attempts = 0) => {
+          const el = document.querySelector(hash);
+          if (el) {
+            el.scrollIntoView({ behavior: "smooth" });
+          } else if (attempts < 20) {
+            setTimeout(() => tryScroll(attempts + 1), 50);
+          }
+        };
+        setTimeout(() => tryScroll(), 50);
       } else {
         const el = document.querySelector(item.href);
         if (el) el.scrollIntoView({ behavior: "smooth" });
