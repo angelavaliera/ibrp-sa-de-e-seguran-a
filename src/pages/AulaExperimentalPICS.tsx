@@ -44,8 +44,8 @@ const AulaExperimentalPICS = () => {
               <span className="text-gradient">pronta!</span>
             </h1>
             <p className="text-muted-foreground max-w-2xl mx-auto mb-10 text-lg">
-              Assista a uma aula real do curso e descubra como Terapeutas
-              Integrativos podem atuar estrategicamente nas empresas.
+              Assista a uma aula real do curso e veja na prática como é a
+              experiência de aprendizado.
             </p>
 
             {/* YouTube Player */}

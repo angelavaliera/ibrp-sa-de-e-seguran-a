@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {
@@ -19,11 +21,16 @@ import {
   Linkedin,
   Users,
   Briefcase,
+  PlayCircle,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Input } from "@/components/ui/input";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 import logoSelo from "@/assets/logo-ibrp-selo.png";
 import gestaoHeroBg from "@/assets/gestao-hero-bg.jpg";
+import aulaOnlineBg from "@/assets/aula-online-bg.jpg";
 
 import profAngela from "@/assets/prof-angela.png";
 import profIvanize from "@/assets/prof-ivanize.png";
@@ -115,8 +122,33 @@ const highlights = [
 /* ─── Component ─── */
 
 const CursoGestaoRiscos = () => {
+  const navigate = useNavigate();
+  const { toast } = useToast();
+  const [aulaForm, setAulaForm] = useState({ nome: "", email: "" });
+  const [aulaLoading, setAulaLoading] = useState(false);
+
   const scrollToCheckout = () =>
     document.getElementById("checkout")?.scrollIntoView({ behavior: "smooth" });
+
+  const handleAulaSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!aulaForm.nome.trim() || !aulaForm.email.trim()) {
+      toast({ title: "Preencha todos os campos", variant: "destructive" });
+      return;
+    }
+    setAulaLoading(true);
+    const { error } = await supabase.from("curso_gestao_leads").insert({
+      nome: aulaForm.nome.trim(),
+      email: aulaForm.email.trim(),
+    });
+    setAulaLoading(false);
+    if (error) {
+      toast({ title: "Erro ao enviar", description: "Tente novamente.", variant: "destructive" });
+      return;
+    }
+    sessionStorage.setItem("aula-experimental-pics-access", "true");
+    navigate("/aula-experimental-pics");
+  };
 
   return (
     <div className="min-h-screen" style={{ background: "hsl(228, 40%, 95%)" }}>
@@ -416,7 +448,71 @@ const CursoGestaoRiscos = () => {
         </div>
       </section>
 
-      {/* ── Checkout ── */}
+      {/* ── Aula Experimental ── */}
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={aulaOnlineBg} alt="Pessoa assistindo aula online no notebook" className="w-full h-full object-cover -scale-x-100" />
+          <div className="absolute inset-0" style={{ background: "hsla(228, 54%, 31%, 0.88)" }} />
+          <div
+            className="absolute inset-0 opacity-30"
+            style={{
+              background:
+                "radial-gradient(circle at 30% 50%, hsl(166 62% 39% / 0.3) 0%, transparent 60%), radial-gradient(circle at 80% 20%, hsl(329 73% 44% / 0.15) 0%, transparent 50%)",
+            }}
+          />
+        </div>
+        <div className="container mx-auto relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-2xl mx-auto text-center"
+          >
+            <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm">
+              <PlayCircle className="h-4 w-4 text-fucsia" />
+              <span className="text-sm font-medium text-white/90">Aula Experimental</span>
+            </div>
+
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-white">
+              Conheça o curso por dentro
+            </h2>
+            <p className="text-white/70 mb-10 max-w-xl mx-auto">
+              Assista gratuitamente a uma aula real do curso e veja na prática como é a experiência de aprendizado. Preencha seus dados abaixo para liberar o acesso.
+            </p>
+
+            <form
+              onSubmit={handleAulaSubmit}
+              className="max-w-md mx-auto space-y-4"
+            >
+              <Input
+                placeholder="Seu nome completo"
+                value={aulaForm.nome}
+                onChange={(e) => setAulaForm((f) => ({ ...f, nome: e.target.value }))}
+                required
+                className="h-12 rounded-xl bg-white/10 border-white/20 text-white placeholder:text-white/50"
+              />
+              <Input
+                type="email"
+                placeholder="Seu melhor e-mail"
+                value={aulaForm.email}
+                onChange={(e) => setAulaForm((f) => ({ ...f, email: e.target.value }))}
+                required
+                className="h-12 rounded-xl bg-white/10 border-white/20 text-white placeholder:text-white/50"
+              />
+              <Button
+                type="submit"
+                size="lg"
+                disabled={aulaLoading}
+                className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-lg py-6 rounded-xl glow text-white"
+              >
+                {aulaLoading ? "Enviando..." : "Assistir aula experimental"}
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </form>
+          </motion.div>
+        </div>
+      </section>
+
       <section id="checkout" className="py-20">
         <div className="container mx-auto">
           <motion.div

@@ -21,13 +21,6 @@ const courses = [
     featured: false,
     link: "/curso-NR1-gestao",
   },
-  {
-    title: "Primeiros Socorros Psicológicos",
-    description: "Capacitação para acolhimento e suporte emocional no ambiente corporativo em situações de crise.",
-    hours: "16h",
-    icon: BookOpen,
-    featured: false,
-  },
 ];
 
 const CursosSection = () => {
@@ -49,7 +42,7 @@ const CursosSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {courses.map((course, i) => (
             <motion.div
               key={i}
