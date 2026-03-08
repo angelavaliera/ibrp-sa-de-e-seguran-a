@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-
+import palestrasBg from "@/assets/palestras-bg.jpg";
 
 const PalestrasSection = () => {
   const scrollToContato = () => {
@@ -9,8 +9,15 @@ const PalestrasSection = () => {
   };
 
   return (
-    <section id="palestras" className="py-20">
-      <div className="container mx-auto">
+    <section
+      id="palestras"
+      className="py-20 relative bg-cover bg-center"
+      style={{ backgroundImage: `url(${palestrasBg})` }}
+    >
+      {/* Sand-tone overlay */}
+      <div className="absolute inset-0 bg-areia/85" />
+
+      <div className="container mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -18,7 +25,7 @@ const PalestrasSection = () => {
           className="max-w-3xl mx-auto text-center"
         >
           <span className="text-sm font-medium text-fucsia uppercase tracking-widest mb-6 block">Palestras</span>
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6 text-foreground">
             Leve conhecimento transformador para sua equipe
           </h2>
           <p className="text-muted-foreground leading-relaxed mb-6">
