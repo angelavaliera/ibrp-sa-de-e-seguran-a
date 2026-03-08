@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import BlogFeed from "./pages/BlogFeed";
 import BlogArticle from "./pages/BlogArticle";
 import CursoTerapeutasPICS from "./pages/CursoTerapeutasPICS";
+import CursoGestaoRiscos from "./pages/CursoGestaoRiscos";
 import AulaExperimentalPICS from "./pages/AulaExperimentalPICS";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
