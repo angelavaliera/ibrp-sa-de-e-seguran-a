@@ -118,11 +118,11 @@ const CursoGestaoRiscos = () => {
     document.getElementById("checkout")?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen" style={{ background: "hsl(228, 40%, 95%)" }}>
       <Header />
 
       {/* ── Hero ── */}
-      <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden bg-verde-petroleo">
+      <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden" style={{ background: "hsl(228, 54%, 31%)" }}>
         <div className="absolute inset-0 opacity-20">
           <div
             className="w-full h-full"
@@ -148,10 +148,7 @@ const CursoGestaoRiscos = () => {
             </div>
 
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight mb-6 text-white">
-              Gestão de{" "}
-              <span className="text-gradient">
-                Riscos Psicossociais
-              </span>
+              Gestão de Riscos Psicossociais
             </h1>
 
             <p className="text-lg md:text-xl max-w-2xl mx-auto mb-10 text-white/70">
@@ -187,7 +184,7 @@ const CursoGestaoRiscos = () => {
       </section>
 
       {/* ── Highlights bar ── */}
-      <section className="py-6 bg-verde-petroleo/10 border-b border-verde-petroleo/20">
+      <section className="py-6 border-b" style={{ background: "hsl(228, 40%, 90%)", borderColor: "hsl(228, 30%, 85%)" }}>
         <div className="container mx-auto">
           <div className="flex flex-wrap justify-center gap-6 md:gap-10">
             {highlights.map((h, i) => (
@@ -258,7 +255,7 @@ const CursoGestaoRiscos = () => {
       </section>
 
       {/* ── Público-alvo ── */}
-      <section className="py-16 bg-verde-petroleo/5">
+      <section className="py-16" style={{ background: "hsl(228, 40%, 92%)" }}>
         <div className="container mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -346,7 +343,7 @@ const CursoGestaoRiscos = () => {
       </section>
 
       {/* ── Professoras ── */}
-      <section className="py-20 bg-verde-petroleo/5">
+      <section className="py-20" style={{ background: "hsl(228, 40%, 92%)" }}>
         <div className="container mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -481,7 +478,7 @@ const CursoGestaoRiscos = () => {
       </section>
 
       {/* ── CTA final ── */}
-      <section className="py-16 bg-verde-petroleo">
+      <section className="py-16" style={{ background: "hsl(228, 54%, 31%)" }}>
         <div className="container mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
