@@ -262,7 +262,7 @@ const CursoTerapeutasPICS = () => {
       </section>
 
       {/* ── Highlights bar ── */}
-      <section className="py-6 bg-caqui/10 border-b border-caqui/20">
+      <section className="py-6 border-b" style={{ background: "hsl(18, 40%, 90%)", borderColor: "hsl(18, 30%, 85%)" }}>
         <div className="container mx-auto">
           <div className="flex flex-wrap justify-center gap-6 md:gap-10">
             {highlights.map((h, i) => (
