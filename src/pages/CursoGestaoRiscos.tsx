@@ -122,7 +122,7 @@ const CursoGestaoRiscos = () => {
       <Header />
 
       {/* ── Hero ── */}
-      <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden bg-verde-petroleo">
+      <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden" style={{ background: "hsl(228, 54%, 31%)" }}>
         <div className="absolute inset-0 opacity-20">
           <div
             className="w-full h-full"
