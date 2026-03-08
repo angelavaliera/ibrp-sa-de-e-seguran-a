@@ -19,6 +19,7 @@ const courses = [
     hours: "20h",
     icon: BookOpen,
     featured: false,
+    link: "/curso-NR1-gestao",
   },
   {
     title: "Primeiros Socorros Psicológicos",
