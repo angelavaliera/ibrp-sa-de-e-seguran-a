@@ -127,6 +127,10 @@ const CursoGestaoRiscos = () => {
   const [aulaForm, setAulaForm] = useState({ nome: "", email: "" });
   const [aulaLoading, setAulaLoading] = useState(false);
 
+  useEffect(() => {
+    document.title = "Curso Gestão de Riscos Psicossociais | IBRP";
+  }, []);
+
   const scrollToCheckout = () =>
     document.getElementById("checkout")?.scrollIntoView({ behavior: "smooth" });
 
