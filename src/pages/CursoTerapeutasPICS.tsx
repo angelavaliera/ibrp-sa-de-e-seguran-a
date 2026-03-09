@@ -527,6 +527,7 @@ const CursoTerapeutasPICS = () => {
                 value={aulaForm.nome}
                 onChange={(e) => setAulaForm((f) => ({ ...f, nome: e.target.value }))}
                 required
+                maxLength={100}
                 className="h-12 rounded-xl bg-white/10 border-white/20 text-white placeholder:text-white/50"
               />
               <Input
@@ -535,6 +536,7 @@ const CursoTerapeutasPICS = () => {
                 value={aulaForm.email}
                 onChange={(e) => setAulaForm((f) => ({ ...f, email: e.target.value }))}
                 required
+                maxLength={255}
                 className="h-12 rounded-xl bg-white/10 border-white/20 text-white placeholder:text-white/50"
               />
               <Button

@@ -161,6 +161,7 @@ const ContatoSection = () => {
                     value={form.cargo}
                     onChange={(e) => setForm({ ...form, cargo: e.target.value })}
                     placeholder="Seu cargo"
+                    maxLength={100}
                     className="bg-background border-border h-9 text-sm"
                   />
                 </div>

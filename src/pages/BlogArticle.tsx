@@ -221,7 +221,7 @@ const BlogArticlePage = () => {
                 }}
               />
             ) : (
-              <div dangerouslySetInnerHTML={{ __html: article.body }} />
+              <div dangerouslySetInnerHTML={{ __html: sanitizedBody }} />
             )}
           </motion.div>
 

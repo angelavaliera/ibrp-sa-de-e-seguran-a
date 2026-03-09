@@ -172,6 +172,7 @@ const NewsletterSignup = ({ variant = "footer" }: NewsletterSignupProps) => {
           value={nome}
           onChange={(e) => setNome(e.target.value)}
           placeholder="Seu nome"
+          maxLength={100}
           className="bg-muted border-border h-9 text-sm"
         />
         <Input
@@ -180,6 +181,7 @@ const NewsletterSignup = ({ variant = "footer" }: NewsletterSignupProps) => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="seu@email.com"
+          maxLength={255}
           className="bg-muted border-border h-9 text-sm"
         />
         <Select value={perfil} onValueChange={setPerfil}>
