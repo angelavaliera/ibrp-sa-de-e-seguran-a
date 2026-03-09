@@ -112,7 +112,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="https://gestaoriscospsicossociais.com.br/ava"
+                    href="https://www.gestaoriscospsicossociais.com.br/ava"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-foreground transition-colors inline-flex items-center gap-1.5"
