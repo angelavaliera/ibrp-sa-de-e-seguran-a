@@ -18,6 +18,15 @@ const BlogArticlePage = () => {
   const [article, setArticle] = useState<BlogArticle | null>(null);
   const [loading, setLoading] = useState(true);
 
+  // Sanitize HTML content for XSS protection
+  const sanitizedBody = useMemo(() => {
+    if (!article?.body || Array.isArray(article.body)) return "";
+    return DOMPurify.sanitize(article.body, {
+      ALLOWED_TAGS: ["p", "br", "strong", "em", "a", "ul", "ol", "li", "h2", "h3", "h4", "blockquote"],
+      ALLOWED_ATTR: ["href", "target", "rel"],
+    });
+  }, [article?.body]);
+
   useEffect(() => {
     if (!slug) return;
     setLoading(true);
