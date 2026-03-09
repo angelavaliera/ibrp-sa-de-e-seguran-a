@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, Clock, ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { PortableText } from "@portabletext/react";
+import DOMPurify from "dompurify";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import NewsletterSignup from "@/components/NewsletterSignup";
@@ -16,6 +17,15 @@ const BlogArticlePage = () => {
   const { slug } = useParams<{ slug: string }>();
   const [article, setArticle] = useState<BlogArticle | null>(null);
   const [loading, setLoading] = useState(true);
+
+  // Sanitize HTML content for XSS protection
+  const sanitizedBody = useMemo(() => {
+    if (!article?.body || Array.isArray(article.body)) return "";
+    return DOMPurify.sanitize(article.body, {
+      ALLOWED_TAGS: ["p", "br", "strong", "em", "a", "ul", "ol", "li", "h2", "h3", "h4", "blockquote"],
+      ALLOWED_ATTR: ["href", "target", "rel"],
+    });
+  }, [article?.body]);
 
   useEffect(() => {
     if (!slug) return;
@@ -211,7 +221,7 @@ const BlogArticlePage = () => {
                 }}
               />
             ) : (
-              <div dangerouslySetInnerHTML={{ __html: article.body }} />
+              <div dangerouslySetInnerHTML={{ __html: sanitizedBody }} />
             )}
           </motion.div>
 

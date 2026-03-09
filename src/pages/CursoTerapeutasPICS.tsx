@@ -178,14 +178,23 @@ const CursoTerapeutasPICS = () => {
 
   const handleAulaSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!aulaForm.nome.trim() || !aulaForm.email.trim()) {
-      toast({ title: "Preencha todos os campos", variant: "destructive" });
+    const nome = aulaForm.nome.trim();
+    const email = aulaForm.email.trim();
+    
+    // Validate inputs
+    if (!nome || nome.length > 100) {
+      toast({ title: "Nome inválido", description: "Preencha um nome válido (máx. 100 caracteres).", variant: "destructive" });
       return;
     }
+    if (!email || email.length > 255 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      toast({ title: "E-mail inválido", description: "Preencha um e-mail válido.", variant: "destructive" });
+      return;
+    }
+    
     setAulaLoading(true);
     const { error } = await supabase.from("curso_pics_leads").insert({
-      nome: aulaForm.nome.trim(),
-      email: aulaForm.email.trim(),
+      nome,
+      email,
     });
     setAulaLoading(false);
     if (error) {
@@ -518,6 +527,7 @@ const CursoTerapeutasPICS = () => {
                 value={aulaForm.nome}
                 onChange={(e) => setAulaForm((f) => ({ ...f, nome: e.target.value }))}
                 required
+                maxLength={100}
                 className="h-12 rounded-xl bg-white/10 border-white/20 text-white placeholder:text-white/50"
               />
               <Input
@@ -526,6 +536,7 @@ const CursoTerapeutasPICS = () => {
                 value={aulaForm.email}
                 onChange={(e) => setAulaForm((f) => ({ ...f, email: e.target.value }))}
                 required
+                maxLength={255}
                 className="h-12 rounded-xl bg-white/10 border-white/20 text-white placeholder:text-white/50"
               />
               <Button

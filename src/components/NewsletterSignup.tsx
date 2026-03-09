@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -24,6 +25,13 @@ const profiles = [
   "Outros",
 ];
 
+// Zod validation schema
+const newsletterSchema = z.object({
+  nome: z.string().trim().min(1, "Nome é obrigatório").max(100, "Nome muito longo"),
+  email: z.string().trim().email("E-mail inválido").max(255, "E-mail muito longo"),
+  perfil: z.string().min(1, "Perfil é obrigatório"),
+});
+
 interface NewsletterSignupProps {
   variant?: "footer" | "article";
 }
@@ -38,14 +46,19 @@ const NewsletterSignup = ({ variant = "footer" }: NewsletterSignupProps) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!perfil) {
+    
+    // Validate with Zod
+    const result = newsletterSchema.safeParse({ nome, email, perfil });
+    if (!result.success) {
+      const firstError = result.error.errors[0];
       toast({
-        title: "Campo obrigatório",
-        description: "Selecione seu perfil para continuar.",
+        title: "Dados inválidos",
+        description: firstError.message,
         variant: "destructive",
       });
       return;
     }
+    
     if (!lgpd) {
       toast({
         title: "Consentimento necessário",
@@ -54,13 +67,15 @@ const NewsletterSignup = ({ variant = "footer" }: NewsletterSignupProps) => {
       });
       return;
     }
+    
     setLoading(true);
     const { error } = await supabase.from("newsletter_leads").insert({
-      nome: nome.trim(),
-      email: email.trim(),
-      perfil: perfil || null,
+      nome: result.data.nome,
+      email: result.data.email,
+      perfil: result.data.perfil,
     });
     setLoading(false);
+    
     if (error) {
       toast({
         title: "Erro ao enviar",
@@ -69,6 +84,7 @@ const NewsletterSignup = ({ variant = "footer" }: NewsletterSignupProps) => {
       });
       return;
     }
+    
     toast({
       title: "Inscrição realizada!",
       description: "Você receberá nossos conteúdos em breve.",
@@ -98,6 +114,7 @@ const NewsletterSignup = ({ variant = "footer" }: NewsletterSignupProps) => {
             value={nome}
             onChange={(e) => setNome(e.target.value)}
             placeholder="Seu nome"
+            maxLength={100}
             className="bg-muted border-border"
           />
           <Input
@@ -106,6 +123,7 @@ const NewsletterSignup = ({ variant = "footer" }: NewsletterSignupProps) => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="seu@email.com"
+            maxLength={255}
             className="bg-muted border-border"
           />
           <Select value={perfil} onValueChange={setPerfil}>
@@ -154,6 +172,7 @@ const NewsletterSignup = ({ variant = "footer" }: NewsletterSignupProps) => {
           value={nome}
           onChange={(e) => setNome(e.target.value)}
           placeholder="Seu nome"
+          maxLength={100}
           className="bg-muted border-border h-9 text-sm"
         />
         <Input
@@ -162,6 +181,7 @@ const NewsletterSignup = ({ variant = "footer" }: NewsletterSignupProps) => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="seu@email.com"
+          maxLength={255}
           className="bg-muted border-border h-9 text-sm"
         />
         <Select value={perfil} onValueChange={setPerfil}>
