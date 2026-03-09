@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -23,6 +24,17 @@ const interests = [
   "Coaching de Liderança",
 ];
 
+// Zod validation schema
+const contatoSchema = z.object({
+  nome: z.string().trim().min(1, "Nome é obrigatório").max(100, "Nome muito longo"),
+  email: z.string().trim().email("E-mail inválido").max(255, "E-mail muito longo"),
+  empresa: z.string().trim().min(1, "Empresa é obrigatória").max(200, "Nome da empresa muito longo"),
+  cargo: z.string().trim().min(1, "Cargo é obrigatório").max(100, "Cargo muito longo"),
+  tamanho: z.string().min(1, "Tamanho da empresa é obrigatório"),
+  interesse: z.string().min(1, "Interesse é obrigatório"),
+  mensagem: z.string().max(1000, "Mensagem muito longa").optional(),
+});
+
 const ContatoSection = () => {
   const [form, setForm] = useState({
     nome: "",
@@ -39,22 +51,19 @@ const ContatoSection = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.tamanho) {
+    
+    // Validate with Zod
+    const result = contatoSchema.safeParse(form);
+    if (!result.success) {
+      const firstError = result.error.errors[0];
       toast({
-        title: "Campo obrigatório",
-        description: "Selecione o tamanho da empresa para continuar.",
+        title: "Dados inválidos",
+        description: firstError.message,
         variant: "destructive",
       });
       return;
     }
-    if (!form.interesse) {
-      toast({
-        title: "Campo obrigatório",
-        description: "Selecione o interesse principal para continuar.",
-        variant: "destructive",
-      });
-      return;
-    }
+    
     if (!lgpd) {
       toast({
         title: "Consentimento necessário",
@@ -63,17 +72,19 @@ const ContatoSection = () => {
       });
       return;
     }
+    
     setLoading(true);
     const { error } = await supabase.from("contato_empresas_leads").insert({
-      nome: form.nome.trim(),
-      email: form.email.trim(),
-      empresa: form.empresa.trim(),
-      cargo: form.cargo.trim(),
-      tamanho: form.tamanho || null,
-      interesse: form.interesse || null,
-      mensagem: form.mensagem.trim() || null,
+      nome: result.data.nome,
+      email: result.data.email,
+      empresa: result.data.empresa,
+      cargo: result.data.cargo,
+      tamanho: result.data.tamanho,
+      interesse: result.data.interesse,
+      mensagem: result.data.mensagem?.trim() || null,
     });
     setLoading(false);
+    
     if (error) {
       toast({
         title: "Erro ao enviar",
@@ -82,6 +93,7 @@ const ContatoSection = () => {
       });
       return;
     }
+    
     toast({
       title: "Solicitação enviada!",
       description: "Nossa equipe entrará em contato em breve.",
