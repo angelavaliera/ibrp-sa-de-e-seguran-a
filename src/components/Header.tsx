@@ -13,8 +13,8 @@ const navItems = [
 ];
 
 const clientLinks = [
-  { label: "Questionário", href: "https://gestaoriscospsicossociais.com.br/questionario" },
-  { label: "Ambiente Virtual de Aprendizagem", href: "https://gestaoriscospsicossociais.com.br/ava" },
+  { label: "Questionário", href: "https://www.gestaoriscospsicossociais.com.br/questionario" },
+  { label: "Ambiente Virtual de Aprendizagem", href: "https://www.gestaoriscospsicossociais.com.br/ava" },
 ];
 
 const scrollToElement = (id: string, currentPath: string, navigateFn: (path: string) => void) => {
