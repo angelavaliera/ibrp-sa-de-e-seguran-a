@@ -136,14 +136,23 @@ const CursoGestaoRiscos = () => {
 
   const handleAulaSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!aulaForm.nome.trim() || !aulaForm.email.trim()) {
-      toast({ title: "Preencha todos os campos", variant: "destructive" });
+    const nome = aulaForm.nome.trim();
+    const email = aulaForm.email.trim();
+    
+    // Validate inputs
+    if (!nome || nome.length > 100) {
+      toast({ title: "Nome inválido", description: "Preencha um nome válido (máx. 100 caracteres).", variant: "destructive" });
       return;
     }
+    if (!email || email.length > 255 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      toast({ title: "E-mail inválido", description: "Preencha um e-mail válido.", variant: "destructive" });
+      return;
+    }
+    
     setAulaLoading(true);
     const { error } = await supabase.from("curso_gestao_leads").insert({
-      nome: aulaForm.nome.trim(),
-      email: aulaForm.email.trim(),
+      nome,
+      email,
     });
     setAulaLoading(false);
     if (error) {
