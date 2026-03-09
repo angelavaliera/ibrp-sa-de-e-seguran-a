@@ -125,6 +125,7 @@ const ContatoSection = () => {
                     value={form.nome}
                     onChange={(e) => setForm({ ...form, nome: e.target.value })}
                     placeholder="Seu nome completo"
+                    maxLength={100}
                     className="bg-background border-border h-9 text-sm"
                   />
                 </div>
@@ -136,6 +137,7 @@ const ContatoSection = () => {
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
                     placeholder="seu@empresa.com"
+                    maxLength={255}
                     className="bg-background border-border h-9 text-sm"
                   />
                 </div>
@@ -146,6 +148,7 @@ const ContatoSection = () => {
                     value={form.empresa}
                     onChange={(e) => setForm({ ...form, empresa: e.target.value })}
                     placeholder="Nome da empresa"
+                    maxLength={200}
                     className="bg-background border-border h-9 text-sm"
                   />
                 </div>
