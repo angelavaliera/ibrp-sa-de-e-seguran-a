@@ -102,7 +102,7 @@ const Footer = () => {
               <ul className="space-y-2.5 text-sm text-muted-foreground">
                 <li>
                   <a
-                    href="https://gestaoriscospsicossociais.com.br/questionario"
+                    href="https://www.gestaoriscospsicossociais.com.br/questionario"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-foreground transition-colors inline-flex items-center gap-1.5"
