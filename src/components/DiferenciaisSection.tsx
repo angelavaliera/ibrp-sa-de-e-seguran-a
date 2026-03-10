@@ -30,7 +30,7 @@ const differentials = [
     icon: Users,
     title: "Abrangência de Modelos de Contratação",
     description:
-      "Análise de riscos específicos de remotos e híbridos, além de presenciais. Única metodologia que atende regimes CLT e PJ, com questionário exclusivo profissionais terceirizados, como a lei prevê.",
+      "Análise de riscos específicos de remotos e híbridos, além de presenciais. Única metodologia que atende regimes CLT e PJ, com questionário exclusivo para profissionais terceirizados, como a lei prevê.",
     bgClass: "bg-fucsia/10 border-fucsia/20",
     hoverClass: "hover:bg-fucsia/15",
     iconBg: "bg-fucsia/15",
