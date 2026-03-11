@@ -14,9 +14,9 @@ const AulaExperimentalPICS = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const allowed = sessionStorage.getItem("aula-experimental-pics-access");
+    const allowed = sessionStorage.getItem("aula-experimental-access");
     if (!allowed) {
-      navigate("/curso-NR1-terapeutas-PICS", { replace: true });
+      navigate("/", { replace: true });
     }
   }, [navigate]);
 
