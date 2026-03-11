@@ -201,8 +201,8 @@ const CursoTerapeutasPICS = () => {
       toast({ title: "Erro ao enviar", description: "Tente novamente.", variant: "destructive" });
       return;
     }
-    sessionStorage.setItem("aula-experimental-pics-access", "true");
-    navigate("/aula-experimental-pics");
+    sessionStorage.setItem("aula-experimental-access", "true");
+    navigate("/aula-experimental");
   };
 
   return (
