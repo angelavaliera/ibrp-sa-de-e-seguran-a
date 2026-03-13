@@ -102,17 +102,17 @@ const Footer = () => {
               <ul className="space-y-2.5 text-sm text-muted-foreground">
                 <li>
                   <a
-                    href="https://www.gestaoriscospsicossociais.com.br/questionario"
+                    href="https://inventario.gestaoriscospsicossociais.com.br"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-foreground transition-colors inline-flex items-center gap-1.5"
                   >
-                    Questionário <ExternalLink className="h-3 w-3" />
+                    Inventário <ExternalLink className="h-3 w-3" />
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://www.gestaoriscospsicossociais.com.br/ava"
+                    href="https://ava.gestaoriscospsicossociais.com.br"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-foreground transition-colors inline-flex items-center gap-1.5"
