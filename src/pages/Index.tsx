@@ -21,7 +21,7 @@ const Index = () => {
         <BlogPreviewSection />
         <PalestrasSection />
         <ContatoSection />
-        <CursosSection />
+        {/* <CursosSection /> — oculto até termos 3 cursos */}
       </main>
       <Footer />
     </div>
