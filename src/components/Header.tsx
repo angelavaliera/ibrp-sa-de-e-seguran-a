@@ -13,7 +13,7 @@ const navItems = [
 ];
 
 const clientLinks = [
-  { label: "Inventário", href: "https://inventario.gestaoriscospsicossociais.com.br" },
+  { label: "Inventário de Riscos", href: "https://inventario.gestaoriscospsicossociais.com.br" },
   { label: "Ambiente Virtual de Aprendizagem", href: "https://ava.gestaoriscospsicossociais.com.br" },
 ];
 
