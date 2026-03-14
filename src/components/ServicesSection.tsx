@@ -16,7 +16,7 @@ const steps = [
     image: stepTraining,
     imageAlt: "Líderes em sessão de treinamento e desenvolvimento",
     title: "Plano de Ação e Intervenção Direta",
-    description: "Desenvolvimento de estratégias baseadas no resultado de cada inventário. Realização de treinamentos e palestras (online ou presenciais) com total rigor documental: registros de presença, avaliações e certificação. O processo inclui orientação para revisão de processos internos e elaboração de códigos de conduta e políticas.",
+    description: "Desenvolvimento de estratégias baseadas no resultado de cada inventário. Realização de treinamentos e palestras (online ou presenciais) com total rigor documental: registros de presença, avaliações e certificação. O processo pode incluir orientação para revisão de processos internos e elaboração de códigos de conduta e políticas.",
   },
   {
     step: "03",

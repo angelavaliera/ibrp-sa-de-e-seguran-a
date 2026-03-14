@@ -91,7 +91,7 @@ const Footer = () => {
               <ul className="space-y-2.5 text-sm text-muted-foreground">
                 <li><a href="#inicio" className="hover:text-foreground transition-colors">Início</a></li>
                 <li><a href="#servicos" className="hover:text-foreground transition-colors">NR-1</a></li>
-                <li><a href="#palestras" className="hover:text-foreground transition-colors">Palestras</a></li>
+                <li><a href="#palestras" className="hover:text-foreground transition-colors">Palestras e Treinamentos</a></li>
                 {/* <li><a href="#cursos" className="hover:text-foreground transition-colors">Cursos</a></li> — oculto até termos 3 cursos */}
                 <li><a href="#contato" className="hover:text-foreground transition-colors">Contato</a></li>
               </ul>
@@ -107,7 +107,7 @@ const Footer = () => {
                     rel="noopener noreferrer"
                     className="hover:text-foreground transition-colors inline-flex items-center gap-1.5"
                   >
-                    Inventário <ExternalLink className="h-3 w-3" />
+                    Inventário de Riscos <ExternalLink className="h-3 w-3" />
                   </a>
                 </li>
                 <li>
@@ -125,7 +125,7 @@ const Footer = () => {
           </div>
 
           <div className="border-t border-border mt-10 pt-6 text-center text-xs text-muted-foreground">
-            © 2025 IBRP — Instituto Brasileiro de Riscos Psicossociais. Todos os direitos reservados.
+            © 2026 IBRP — Instituto Brasileiro de Riscos Psicossociais. Todos os direitos reservados.
           </div>
         </div>
       </div>

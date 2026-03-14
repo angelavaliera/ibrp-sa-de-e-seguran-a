@@ -7,13 +7,13 @@ import logoHorizontal from "@/assets/logo-horizontal-black.png";
 const navItems = [
   { label: "Início", href: "#inicio" },
   { label: "NR-1", href: "#servicos" },
-  { label: "Palestras", href: "#palestras" },
+  { label: "Palestras e Treinamentos", href: "#palestras" },
   // { label: "Cursos", href: "#cursos" }, — oculto até termos 3 cursos
   { label: "Artigos", href: "/blog" },
 ];
 
 const clientLinks = [
-  { label: "Inventário", href: "https://inventario.gestaoriscospsicossociais.com.br" },
+  { label: "Inventário de Riscos", href: "https://inventario.gestaoriscospsicossociais.com.br" },
   { label: "Ambiente Virtual de Aprendizagem", href: "https://ava.gestaoriscospsicossociais.com.br" },
 ];
 

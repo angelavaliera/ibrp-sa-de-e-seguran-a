@@ -24,12 +24,12 @@ const PalestrasSection = () => {
           viewport={{ once: true }}
           className="max-w-3xl mx-auto text-center"
         >
-          <span className="text-sm font-medium text-fucsia uppercase tracking-widest mb-6 block">Palestras</span>
+          <span className="text-sm font-medium text-fucsia uppercase tracking-widest mb-6 block">Palestras e Treinamentos</span>
           <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6 text-foreground">
             Leve conhecimento transformador para sua equipe
           </h2>
           <p className="text-muted-foreground leading-relaxed mb-6">
-            Nosso cardápio de temas aborda desde a prevenção de burnout até a construção de ambientes psicologicamente seguros. Palestras conduzidas por especialistas com experiência prática e respaldo científico.
+            Cardápio completo com temas orientados a cada tipo de risco. Palestras e treinamentos conduzidos por especialistas com experiência prática e respaldo científico. Abordagem empática e acessível com foco no desenvolvimento humano.
           </p>
           <ul className="space-y-3 text-muted-foreground text-left max-w-md mx-auto mb-8">
             {["Saúde mental no trabalho pós-pandemia", "Liderança empática e produtiva", "NR-1 na prática: o que muda para sua empresa", "Prevenção ao assédio moral e sexual"].map((topic, i) => (
@@ -44,7 +44,7 @@ const PalestrasSection = () => {
             onClick={scrollToContato}
             className="bg-gradient-brand hover:opacity-90 transition-opacity text-lg px-8 py-6 rounded-xl glow text-white"
           >
-            Solicitar Palestra
+            Solicitar Cardápio de Temas
           </Button>
         </motion.div>
       </div>
