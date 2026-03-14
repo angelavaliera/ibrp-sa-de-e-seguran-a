@@ -64,7 +64,7 @@ const DiferenciaisSection = () => {
           <span className="text-sm font-semibold uppercase tracking-widest text-verde-selva mb-3 block">
             Diferenciais
           </span>
-          <h2 className="text-4xl md:text-5xl font-heading font-bold leading-tight mb-4 text-foreground">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold leading-tight mb-4 text-foreground">
             Por que o <span className="text-gradient">IBRP?</span>
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed max-w-xl mx-auto">
