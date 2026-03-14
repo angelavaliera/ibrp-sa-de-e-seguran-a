@@ -79,7 +79,7 @@ const BlogPreviewSection = () => {
             <h2 className="text-3xl md:text-4xl font-heading font-bold mb-3">
               Central de <span className="text-gradient">Inteligência</span> IBRP
             </h2>
-            <p className="text-muted-foreground max-w-2xl">
+            <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl">
               Artigos e análises para transformar a saúde mental em vantagem competitiva.
             </p>
           </div>
