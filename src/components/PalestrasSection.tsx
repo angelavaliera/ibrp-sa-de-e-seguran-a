@@ -28,7 +28,7 @@ const PalestrasSection = () => {
           <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6 text-foreground">
             Leve conhecimento transformador para sua equipe
           </h2>
-          <p className="text-muted-foreground leading-relaxed mb-6">
+          <p className="text-muted-foreground text-lg leading-relaxed mb-6">
             Cardápio completo com temas orientados a cada tipo de risco. Palestras e treinamentos conduzidos por especialistas com experiência prática e respaldo científico. Abordagem empática e acessível com foco no desenvolvimento humano.
           </p>
           <ul className="space-y-3 text-muted-foreground text-left max-w-md mx-auto mb-8">

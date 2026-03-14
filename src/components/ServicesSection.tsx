@@ -41,7 +41,7 @@ const ServicesSection = () => {
           <h2 className="text-3xl md:text-4xl font-heading font-bold mt-3 mb-4">
             Gestão inteligente e <span className="text-gradient">humanizada</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl mx-auto">
             Processo estruturado, em total conformidade com as normas e legislação brasileira para proteger profissionais e empresas.
           </p>
         </motion.div>
