@@ -29,7 +29,7 @@ const PalestrasSection = () => {
             Leve conhecimento transformador para sua equipe
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-            Cardápio completo com temas orientados a cada tipo de risco. Palestras e treinamentos conduzidos por especialistas com experiência prática e respaldo científico. Abordagem empática e acessível com foco no desenvolvimento humano.
+            Cardápio completo com temas orientados a cada tipo de risco. Palestras e treinamentos conduzidos por especialistas com experiência prática e respaldo científico. Abordagem empática e acessível voltada para o desenvolvimento humano.
           </p>
           <ul className="space-y-3 text-muted-foreground text-left max-w-md mx-auto mb-8">
             {["Saúde mental no trabalho pós-pandemia", "Liderança empática e produtiva", "NR-1 na prática: o que muda para sua empresa", "Prevenção ao assédio moral e sexual"].map((topic, i) => (
