@@ -125,7 +125,7 @@ const Footer = () => {
           </div>
 
           <div className="border-t border-border mt-10 pt-6 text-center text-xs text-muted-foreground">
-            © 2025 IBRP — Instituto Brasileiro de Riscos Psicossociais. Todos os direitos reservados.
+            © 2026 IBRP — Instituto Brasileiro de Riscos Psicossociais. Todos os direitos reservados.
           </div>
         </div>
       </div>
