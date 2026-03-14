@@ -107,7 +107,7 @@ const Footer = () => {
                     rel="noopener noreferrer"
                     className="hover:text-foreground transition-colors inline-flex items-center gap-1.5"
                   >
-                    Inventário <ExternalLink className="h-3 w-3" />
+                    Inventário de Riscos <ExternalLink className="h-3 w-3" />
                   </a>
                 </li>
                 <li>
