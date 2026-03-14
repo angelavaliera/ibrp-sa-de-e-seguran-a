@@ -44,7 +44,7 @@ const PalestrasSection = () => {
             onClick={scrollToContato}
             className="bg-gradient-brand hover:opacity-90 transition-opacity text-lg px-8 py-6 rounded-xl glow text-white"
           >
-            Solicitar Palestra
+            Solicitar Cardápio de Temas
           </Button>
         </motion.div>
       </div>

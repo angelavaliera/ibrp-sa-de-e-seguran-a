@@ -7,7 +7,7 @@ import logoHorizontal from "@/assets/logo-horizontal-black.png";
 const navItems = [
   { label: "Início", href: "#inicio" },
   { label: "NR-1", href: "#servicos" },
-  { label: "Palestras", href: "#palestras" },
+  { label: "Palestras e Treinamentos", href: "#palestras" },
   // { label: "Cursos", href: "#cursos" }, — oculto até termos 3 cursos
   { label: "Artigos", href: "/blog" },
 ];
