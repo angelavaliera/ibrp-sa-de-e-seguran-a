@@ -157,7 +157,7 @@ const NewsletterSignup = ({ variant = "footer" }: NewsletterSignupProps) => {
 
   // Footer variant
   return (
-    <div>
+    <div className="newsletter-signup">
       <div className="flex items-center gap-3 mb-2">
         <Mail className="h-5 w-5 text-primary" />
         <h4 className="font-heading font-bold text-sm">Assine a Central de Inteligência IBRP</h4>

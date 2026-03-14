@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, Clock, Star } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { getFeaturedArticles, getRecentArticles } from "@/lib/sanity-client";
 import type { BlogArticle } from "@/lib/blog-types";
@@ -132,13 +133,22 @@ const BlogPreviewSection = () => {
           </div>
         )}
 
-        <Link
-          to="/blog"
-          className="md:hidden mt-8 inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
-        >
-          Ver todos os artigos
-          <ArrowRight className="h-4 w-4" />
-        </Link>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
+          <Button
+            size="lg"
+            className="bg-gradient-brand hover:opacity-90 transition-opacity text-lg px-8 py-6 rounded-xl glow text-white"
+            onClick={() => document.querySelector(".newsletter-signup")?.scrollIntoView({ behavior: "smooth" })}
+          >
+            Assine a Central de Inteligência
+          </Button>
+          <Link
+            to="/blog"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
+          >
+            Ver todos os artigos
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
       </div>
     </section>
   );
