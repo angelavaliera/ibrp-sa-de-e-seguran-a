@@ -90,6 +90,7 @@ const Footer = () => {
               <h4 className="font-heading font-bold mb-4">Navegação</h4>
               <ul className="space-y-2.5 text-sm text-muted-foreground">
                 <li><a href="#inicio" className="hover:text-foreground transition-colors">Início</a></li>
+                <li><a href="#sobre" className="hover:text-foreground transition-colors">Sobre o IBRP</a></li>
                 <li><a href="#servicos" className="hover:text-foreground transition-colors">NR-1</a></li>
                 <li><a href="#palestras" className="hover:text-foreground transition-colors">Palestras e Treinamentos</a></li>
                 {/* <li><a href="#cursos" className="hover:text-foreground transition-colors">Cursos</a></li> — oculto até termos 3 cursos */}
