@@ -9,24 +9,26 @@ const SobreSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-14"
+          className="max-w-3xl mx-auto text-center"
         >
           <span className="text-sm font-semibold uppercase tracking-widest text-verde-selva mb-3 block">
             Quem somos
           </span>
-          <h2 className="text-3xl md:text-4xl font-heading font-bold leading-tight text-foreground">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold leading-tight text-foreground mb-6">
             Sobre o <span className="text-gradient">IBRP</span>
           </h2>
-        </motion.div>
 
-        <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
-          {/* Text column */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="space-y-5"
-          >
+          {/* Brain symbol */}
+          <div className="relative inline-block mb-10">
+            <div className="absolute inset-0 rounded-full bg-gradient-brand opacity-10 blur-3xl scale-125" />
+            <img
+              src={brainSymbol}
+              alt="Símbolo do IBRP — cérebro representando saúde mental e riscos psicossociais"
+              className="relative w-40 md:w-52 mx-auto drop-shadow-xl"
+            />
+          </div>
+
+          <div className="space-y-5 text-left">
             <p className="text-lg leading-relaxed text-foreground font-medium">
               O Instituto Brasileiro de Riscos Psicossociais — IBRP — nasceu porque acreditamos que{" "}
               <span className="text-verde-selva font-semibold">pessoas em equilíbrio</span> tornam as suas vidas e as vidas dos outros melhores, e porque{" "}
@@ -44,25 +46,8 @@ const SobreSection = () => {
             <p className="text-base leading-relaxed text-muted-foreground">
               Realizamos inventários de riscos precisos em plataforma própria, que os funcionários podem acessar via QR Code de maneira simplificada e garantindo o anonimato conforme a norma. Utilizamos Inteligência Artificial para processar dados, gerar relatórios e elaborar planos de ação estratégicos específicos para cada caso. Os treinamentos e palestras ocorrem em ambiente virtual de aprendizagem (AVA), gerando toda a documentação necessária para a norma e reduzindo passivos trabalhistas.
             </p>
-          </motion.div>
-
-          {/* Brain symbol column */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="flex items-center justify-center"
-          >
-            <div className="relative">
-              <div className="absolute inset-0 rounded-full bg-gradient-brand opacity-10 blur-3xl scale-110" />
-              <img
-                src={brainSymbol}
-                alt="Símbolo do IBRP — cérebro representando saúde mental e riscos psicossociais"
-                className="relative w-64 md:w-80 lg:w-96 drop-shadow-xl"
-              />
-            </div>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
