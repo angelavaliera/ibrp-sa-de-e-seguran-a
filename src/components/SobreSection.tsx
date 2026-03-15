@@ -19,7 +19,7 @@ const SobreSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid md:grid-cols-[3fr_1fr] gap-12 lg:gap-16 items-center">
           {/* Text column */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
