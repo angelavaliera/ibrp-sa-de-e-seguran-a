@@ -3,7 +3,7 @@ import brainSymbol from "@/assets/ibrp-brain-symbol.png";
 
 const SobreSection = () => {
   return (
-    <section id="sobre" className="py-24" style={{ backgroundColor: "hsl(36 30% 93%)" }}>
+    <section id="sobre" className="py-14" style={{ backgroundColor: "hsl(36 30% 93%)" }}>
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
