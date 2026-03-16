@@ -24,7 +24,7 @@ const ArticleCard = ({ article, i }: { article: BlogArticle; i: number }) => (
           loading="lazy"
         />
         {article.category && (
-          <Badge className="absolute top-3 right-3 text-xs bg-background/80 text-foreground border-border">
+          <Badge className="absolute top-3 left-3 text-xs bg-background/80 text-foreground border-border">
             {article.category}
           </Badge>
         )}
