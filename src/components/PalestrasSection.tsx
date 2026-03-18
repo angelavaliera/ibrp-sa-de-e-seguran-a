@@ -29,7 +29,7 @@ const PalestrasSection = () => {
             Leve conhecimento transformador para sua equipe
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-            Cardápio completo com temas orientados a cada tipo de risco. Palestras e treinamentos conduzidos por especialistas com experiência prática e respaldo científico. Abordagem empática e acessível voltada para o desenvolvimento humano.
+            Cardápio completo com temas orientados a cada tipo de risco. Palestras e treinamentos conduzidos por especialistas com experiência prática e respaldo científico. Abordagem empática e acessível voltada para o desenvolvimento humano. Alguns de nossos temas:
           </p>
           <ul className="space-y-3 text-muted-foreground text-left max-w-md mx-auto mb-8">
             {["NR-1: Os riscos psicossociais e a saúde mental", "O Papel do Líder na Prevenção e Mitigação de Riscos Psicossociais", "Autocuidado e Gestão do Estresse", "Protocolo de Primeiros Socorros Psicológicos e Manejo de Crises", "Prevenção ao Assédio Moral e Sexual", "Comunicação Assertiva e Solução de Conflitos", "Inteligência Emocional", "Gestão de Equipes Remotas"].map((topic, i) => (
