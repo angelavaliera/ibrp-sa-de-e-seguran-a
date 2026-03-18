@@ -32,7 +32,7 @@ const PalestrasSection = () => {
             Cardápio completo com temas orientados a cada tipo de risco. Palestras e treinamentos conduzidos por especialistas com experiência prática e respaldo científico. Abordagem empática e acessível voltada para o desenvolvimento humano.
           </p>
           <ul className="space-y-3 text-muted-foreground text-left max-w-md mx-auto mb-8">
-            {["Saúde mental no trabalho pós-pandemia", "Liderança empática e produtiva", "NR-1 na prática: o que muda para sua empresa", "Prevenção ao assédio moral e sexual"].map((topic, i) => (
+            {["O papel do líder na prevenção e mitigação de riscos psicossociais", "Autocuidado e Gestão do Estresse", "Protocolo de Primeiros Socorros Psicológicos e Manejo de Crises", "Prevenção ao assédio moral e sexual"].map((topic, i) => (
               <li key={i} className="flex items-center gap-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-gradient-brand shrink-0" />
                 {topic}
