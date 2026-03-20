@@ -26,6 +26,7 @@ import Footer from "@/components/Footer";
 import { Input } from "@/components/ui/input";
 import { supabase } from "@/integrations/supabase/client";
 import { syncToMailerLite } from "@/lib/sync-mailerlite";
+import { formatPhone, isValidPhone, phoneDigits } from "@/lib/phone-utils";
 import { useToast } from "@/hooks/use-toast";
 import { useState, useEffect } from "react";
 import { PlayCircle } from "lucide-react";
@@ -167,7 +168,7 @@ const highlights = [
 const CursoTerapeutasPICS = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
-  const [aulaForm, setAulaForm] = useState({ nome: "", email: "" });
+  const [aulaForm, setAulaForm] = useState({ nome: "", email: "", telefone: "" });
   const [aulaLoading, setAulaLoading] = useState(false);
 
   useEffect(() => {
@@ -181,8 +182,8 @@ const CursoTerapeutasPICS = () => {
     e.preventDefault();
     const nome = aulaForm.nome.trim();
     const email = aulaForm.email.trim();
+    const tel = phoneDigits(aulaForm.telefone);
     
-    // Validate inputs
     if (!nome || nome.length > 100) {
       toast({ title: "Nome inválido", description: "Preencha um nome válido (máx. 100 caracteres).", variant: "destructive" });
       return;
@@ -191,18 +192,23 @@ const CursoTerapeutasPICS = () => {
       toast({ title: "E-mail inválido", description: "Preencha um e-mail válido.", variant: "destructive" });
       return;
     }
+    if (!isValidPhone(aulaForm.telefone)) {
+      toast({ title: "Celular inválido", description: "Preencha o celular com DDD. Ex: (11) 99999-9999", variant: "destructive" });
+      return;
+    }
     
     setAulaLoading(true);
     const { error } = await supabase.from("curso_pics_leads").insert({
       nome,
       email,
+      telefone: tel,
     });
     setAulaLoading(false);
     if (error) {
       toast({ title: "Erro ao enviar", description: "Tente novamente.", variant: "destructive" });
       return;
     }
-    syncToMailerLite({ email, nome, source: "curso_pics", group_id: "82467381865481229" });
+    syncToMailerLite({ email, nome, source: "curso_pics", group_id: "82467381865481229", fields: { phone: tel } });
     sessionStorage.setItem("aula-experimental-access", "true");
     navigate("/aula-experimental");
   };
@@ -539,6 +545,15 @@ const CursoTerapeutasPICS = () => {
                 onChange={(e) => setAulaForm((f) => ({ ...f, email: e.target.value }))}
                 required
                 maxLength={255}
+                className="h-12 rounded-xl bg-white/10 border-white/20 text-white placeholder:text-white/50"
+              />
+              <Input
+                type="tel"
+                placeholder="Celular com DDD"
+                value={aulaForm.telefone}
+                onChange={(e) => setAulaForm((f) => ({ ...f, telefone: formatPhone(e.target.value) }))}
+                required
+                maxLength={15}
                 className="h-12 rounded-xl bg-white/10 border-white/20 text-white placeholder:text-white/50"
               />
               <Button
