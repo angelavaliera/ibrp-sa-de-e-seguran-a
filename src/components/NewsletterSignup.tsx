@@ -215,7 +215,8 @@ const NewsletterSignup = ({ variant = "footer" }: NewsletterSignupProps) => {
             className="mt-0.5"
           />
           <label htmlFor="lgpd-footer" className="text-[11px] text-muted-foreground leading-relaxed cursor-pointer">
-            Concordo em receber comunicações do IBRP conforme a Política de Privacidade.
+            Concordo em receber comunicações do IBRP conforme a{" "}
+            <a href="/politica-de-privacidade" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground">Política de Privacidade</a>.
           </label>
         </div>
       </form>
