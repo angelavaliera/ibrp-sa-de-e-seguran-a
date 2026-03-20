@@ -95,6 +95,19 @@ const ContatoSection = () => {
       return;
     }
     
+    // Sync to MailerLite (fire-and-forget)
+    syncToMailerLite({
+      email: result.data.email,
+      nome: result.data.nome,
+      source: "contato",
+      fields: {
+        empresa: result.data.empresa,
+        cargo: result.data.cargo,
+        tamanho: result.data.tamanho,
+        interesse: result.data.interesse,
+      },
+    });
+
     toast({
       title: "Solicitação enviada!",
       description: "Nossa equipe entrará em contato em breve.",

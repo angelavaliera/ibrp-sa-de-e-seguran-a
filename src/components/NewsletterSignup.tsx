@@ -86,6 +86,14 @@ const NewsletterSignup = ({ variant = "footer" }: NewsletterSignupProps) => {
       return;
     }
     
+    // Sync to MailerLite (fire-and-forget)
+    syncToMailerLite({
+      email: result.data.email,
+      nome: result.data.nome,
+      source: "newsletter",
+      fields: { perfil: result.data.perfil },
+    });
+
     toast({
       title: "Inscrição realizada!",
       description: "Você receberá nossos conteúdos em breve.",
