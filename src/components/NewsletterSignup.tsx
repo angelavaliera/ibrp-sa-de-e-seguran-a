@@ -153,7 +153,8 @@ const NewsletterSignup = ({ variant = "footer" }: NewsletterSignupProps) => {
               className="mt-0.5"
             />
             <label htmlFor="lgpd-article" className="text-xs text-muted-foreground leading-relaxed cursor-pointer">
-              Concordo em receber comunicações e conteúdos estratégicos do IBRP conforme a Política de Privacidade.
+              Concordo em receber comunicações e conteúdos estratégicos do IBRP conforme a{" "}
+              <a href="/politica-de-privacidade" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground">Política de Privacidade</a>.
             </label>
           </div>
           <Button type="submit" disabled={loading} className="w-full bg-gradient-brand hover:opacity-90 transition-opacity">
