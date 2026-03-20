@@ -16,6 +16,7 @@ import { Send, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { syncToMailerLite } from "@/lib/sync-mailerlite";
+import { formatPhone, isValidPhone, phoneDigits } from "@/lib/phone-utils";
 
 const companySize = ["1-50", "51-200", "201-500", "+500"];
 const interests = [
