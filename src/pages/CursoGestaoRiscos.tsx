@@ -27,6 +27,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Input } from "@/components/ui/input";
 import { supabase } from "@/integrations/supabase/client";
+import { syncToMailerLite } from "@/lib/sync-mailerlite";
 import { useToast } from "@/hooks/use-toast";
 import logoSelo from "@/assets/logo-ibrp-selo.png";
 import gestaoHeroBg from "@/assets/gestao-hero-bg.jpg";
