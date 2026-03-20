@@ -77,10 +77,12 @@ const ContatoSection = () => {
       return;
     }
     
+    const tel = phoneDigits(result.data.telefone);
     setLoading(true);
     const { error } = await supabase.from("contato_empresas_leads").insert({
       nome: result.data.nome,
       email: result.data.email,
+      telefone: tel,
       empresa: result.data.empresa,
       cargo: result.data.cargo,
       tamanho: result.data.tamanho,
