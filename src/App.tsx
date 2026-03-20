@@ -9,6 +9,7 @@ import BlogArticle from "./pages/BlogArticle";
 import CursoTerapeutasPICS from "./pages/CursoTerapeutasPICS";
 import CursoGestaoRiscos from "./pages/CursoGestaoRiscos";
 import AulaExperimentalPICS from "./pages/AulaExperimentalPICS";
+import PoliticaPrivacidade from "./pages/PoliticaPrivacidade";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
