@@ -10,9 +10,9 @@ interface SyncParams {
   group_id?: string;
 }
 
-export async function syncToMailerLite({ email, nome, source, fields }: SyncParams) {
+export async function syncToMailerLite({ email, nome, source, fields, group_id }: SyncParams) {
   try {
-    const group_id = source === "newsletter" ? NEWSLETTER_GROUP_ID : undefined;
+    const resolvedGroupId = group_id || (source === "newsletter" ? NEWSLETTER_GROUP_ID : undefined);
 
     await supabase.functions.invoke("sync-mailerlite", {
       body: { email, nome, source, fields, group_id },
