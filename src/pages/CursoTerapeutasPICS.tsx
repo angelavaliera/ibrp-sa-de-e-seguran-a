@@ -25,6 +25,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Input } from "@/components/ui/input";
 import { supabase } from "@/integrations/supabase/client";
+import { syncToMailerLite } from "@/lib/sync-mailerlite";
 import { useToast } from "@/hooks/use-toast";
 import { useState, useEffect } from "react";
 import { PlayCircle } from "lucide-react";
