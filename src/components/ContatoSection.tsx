@@ -42,6 +42,7 @@ const ContatoSection = () => {
   const [form, setForm] = useState({
     nome: "",
     email: "",
+    telefone: "",
     empresa: "",
     cargo: "",
     tamanho: "",
