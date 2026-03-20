@@ -40,6 +40,20 @@ const socialLinks = [
 ];
 
 const Footer = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHome = location.pathname === "/";
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
+    e.preventDefault();
+    if (isHome) {
+      const el = document.getElementById(hash);
+      el?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate(`/#${hash}`);
+    }
+  };
+
   return (
     <footer>
       {/* Social + Newsletter band */}
