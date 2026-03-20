@@ -7,14 +7,15 @@ interface SyncParams {
   nome: string;
   source: "newsletter" | "contato" | "curso_gestao" | "curso_pics";
   fields?: Record<string, string>;
+  group_id?: string;
 }
 
-export async function syncToMailerLite({ email, nome, source, fields }: SyncParams) {
+export async function syncToMailerLite({ email, nome, source, fields, group_id }: SyncParams) {
   try {
-    const group_id = source === "newsletter" ? NEWSLETTER_GROUP_ID : undefined;
+    const resolvedGroupId = group_id || (source === "newsletter" ? NEWSLETTER_GROUP_ID : undefined);
 
     await supabase.functions.invoke("sync-mailerlite", {
-      body: { email, nome, source, fields, group_id },
+      body: { email, nome, source, fields, group_id: resolvedGroupId },
     });
   } catch (err) {
     // Fire-and-forget: don't block the main form flow
