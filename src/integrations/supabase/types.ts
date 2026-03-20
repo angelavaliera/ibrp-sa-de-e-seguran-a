@@ -25,6 +25,7 @@ export type Database = {
           mensagem: string | null
           nome: string
           tamanho: string | null
+          telefone: string | null
         }
         Insert: {
           cargo: string
@@ -36,6 +37,7 @@ export type Database = {
           mensagem?: string | null
           nome: string
           tamanho?: string | null
+          telefone?: string | null
         }
         Update: {
           cargo?: string
@@ -47,6 +49,7 @@ export type Database = {
           mensagem?: string | null
           nome?: string
           tamanho?: string | null
+          telefone?: string | null
         }
         Relationships: []
       }
@@ -56,18 +59,21 @@ export type Database = {
           email: string
           id: string
           nome: string
+          telefone: string | null
         }
         Insert: {
           created_at?: string
           email: string
           id?: string
           nome: string
+          telefone?: string | null
         }
         Update: {
           created_at?: string
           email?: string
           id?: string
           nome?: string
+          telefone?: string | null
         }
         Relationships: []
       }
@@ -77,18 +83,21 @@ export type Database = {
           email: string
           id: string
           nome: string
+          telefone: string | null
         }
         Insert: {
           created_at?: string
           email: string
           id?: string
           nome: string
+          telefone?: string | null
         }
         Update: {
           created_at?: string
           email?: string
           id?: string
           nome?: string
+          telefone?: string | null
         }
         Relationships: []
       }
