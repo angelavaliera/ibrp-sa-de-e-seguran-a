@@ -173,6 +173,8 @@ const ContatoSection = () => {
                     className="bg-background border-border h-9 text-sm"
                   />
                 </div>
+              </div>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 <div>
                   <label className="text-xs text-muted-foreground mb-1 block">Empresa</label>
                   <Input
@@ -184,8 +186,6 @@ const ContatoSection = () => {
                     className="bg-background border-border h-9 text-sm"
                   />
                 </div>
-              </div>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 <div>
                   <label className="text-xs text-muted-foreground mb-1 block">Cargo</label>
                   <Input
@@ -212,21 +212,21 @@ const ContatoSection = () => {
                     </SelectContent>
                   </Select>
                 </div>
-                <div>
-                  <label className="text-xs text-muted-foreground mb-1 block">Interesse Principal</label>
-                  <Select value={form.interesse} onValueChange={(v) => setForm({ ...form, interesse: v })}>
-                    <SelectTrigger className="bg-background border-border h-9 text-sm">
-                      <SelectValue placeholder="Selecione" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {interests.map((i) => (
-                        <SelectItem key={i} value={i}>
-                          {i}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
+              </div>
+              <div>
+                <label className="text-xs text-muted-foreground mb-1 block">Interesse Principal</label>
+                <Select value={form.interesse} onValueChange={(v) => setForm({ ...form, interesse: v })}>
+                  <SelectTrigger className="bg-background border-border h-9 text-sm">
+                    <SelectValue placeholder="Selecione" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {interests.map((i) => (
+                      <SelectItem key={i} value={i}>
+                        {i}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
               <div>
                 <label className="text-xs text-muted-foreground mb-1 block">Mensagem</label>
