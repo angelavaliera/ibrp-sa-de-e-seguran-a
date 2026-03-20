@@ -1,3 +1,4 @@
+import { useLocation, useNavigate } from "react-router-dom";
 import logoHorizontal from "@/assets/logo-horizontal-black.png";
 import { ExternalLink } from "lucide-react";
 import NewsletterSignup from "@/components/NewsletterSignup";
