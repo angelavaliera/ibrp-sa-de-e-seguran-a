@@ -160,6 +160,7 @@ const CursoGestaoRiscos = () => {
       toast({ title: "Erro ao enviar", description: "Tente novamente.", variant: "destructive" });
       return;
     }
+    syncToMailerLite({ email, nome, source: "curso_gestao" });
     sessionStorage.setItem("aula-experimental-access", "true");
     navigate("/aula-experimental");
   };
