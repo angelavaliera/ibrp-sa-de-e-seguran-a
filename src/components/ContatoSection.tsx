@@ -117,7 +117,7 @@ const ContatoSection = () => {
       title: "Solicitação enviada!",
       description: "Nossa equipe entrará em contato em breve.",
     });
-    setForm({ nome: "", email: "", empresa: "", cargo: "", tamanho: "", interesse: "", mensagem: "" });
+    setForm({ nome: "", email: "", telefone: "", empresa: "", cargo: "", tamanho: "", interesse: "", mensagem: "" });
     setLgpd(false);
   };
 
