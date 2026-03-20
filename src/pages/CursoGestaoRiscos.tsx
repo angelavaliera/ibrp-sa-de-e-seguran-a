@@ -125,7 +125,7 @@ const highlights = [
 const CursoGestaoRiscos = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
-  const [aulaForm, setAulaForm] = useState({ nome: "", email: "" });
+  const [aulaForm, setAulaForm] = useState({ nome: "", email: "", telefone: "" });
   const [aulaLoading, setAulaLoading] = useState(false);
 
   useEffect(() => {
