@@ -7,6 +7,7 @@ interface SyncParams {
   nome: string;
   source: "newsletter" | "contato" | "curso_gestao" | "curso_pics";
   fields?: Record<string, string>;
+  group_id?: string;
 }
 
 export async function syncToMailerLite({ email, nome, source, fields }: SyncParams) {
