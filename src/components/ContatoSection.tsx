@@ -106,6 +106,7 @@ const ContatoSection = () => {
       source: "contato",
       group_id: "182467519351620811",
       fields: {
+        phone: phoneDigits(result.data.telefone),
         empresa: result.data.empresa,
         cargo: result.data.cargo,
         tamanho: result.data.tamanho,
