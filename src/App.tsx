@@ -9,6 +9,7 @@ import BlogArticle from "./pages/BlogArticle";
 import CursoTerapeutasPICS from "./pages/CursoTerapeutasPICS";
 import CursoGestaoRiscos from "./pages/CursoGestaoRiscos";
 import AulaExperimentalPICS from "./pages/AulaExperimentalPICS";
+import PoliticaPrivacidade from "./pages/PoliticaPrivacidade";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/curso-NR1-terapeutas-PICS" element={<CursoTerapeutasPICS />} />
           <Route path="/curso-NR1-gestao" element={<CursoGestaoRiscos />} />
           <Route path="/aula-experimental" element={<AulaExperimentalPICS />} />
+          <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
