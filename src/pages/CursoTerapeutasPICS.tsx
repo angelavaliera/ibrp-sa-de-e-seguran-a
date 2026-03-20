@@ -202,7 +202,7 @@ const CursoTerapeutasPICS = () => {
       toast({ title: "Erro ao enviar", description: "Tente novamente.", variant: "destructive" });
       return;
     }
-    
+    syncToMailerLite({ email, nome, source: "curso_pics", group_id: "82467381865481229" });
     sessionStorage.setItem("aula-experimental-access", "true");
     navigate("/aula-experimental");
   };
