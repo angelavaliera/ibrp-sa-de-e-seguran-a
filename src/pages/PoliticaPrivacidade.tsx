@@ -139,10 +139,10 @@ const PoliticaPrivacidade = () => {
               Para exercer seus direitos ou esclarecer dúvidas sobre esta
               Política de Privacidade, entre em contato conosco pelo e-mail:{" "}
               <a
-                href="mailto:contato@ibrp.org.br"
+                href="mailto:newsletter@gestaoriscospsicossociais.com.br"
                 className="text-primary hover:underline"
               >
-                contato@ibrp.org.br
+                newsletter@gestaoriscospsicossociais.com.br
               </a>
             </p>
           </section>
