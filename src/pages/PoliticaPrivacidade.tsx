@@ -81,10 +81,12 @@ const PoliticaPrivacidade = () => {
             </h2>
             <p>
               Seus dados podem ser compartilhados com ferramentas de e-mail
-              marketing (como MailerLite) exclusivamente para o envio de
-              comunicações autorizadas por você. Não vendemos, alugamos ou
-              compartilhamos seus dados com terceiros para fins comerciais não
-              relacionados aos nossos serviços.
+              marketing (como MailerLite) e plataformas de armazenamento seguro
+              de dados (como Supabase) exclusivamente para o envio de
+              comunicações autorizadas por você e para a gestão segura das
+              suas informações. Não vendemos, alugamos ou compartilhamos seus
+              dados com terceiros para fins comerciais não relacionados aos
+              nossos serviços.
             </p>
           </section>
 
