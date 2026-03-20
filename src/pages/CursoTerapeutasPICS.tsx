@@ -25,7 +25,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Input } from "@/components/ui/input";
 import { supabase } from "@/integrations/supabase/client";
-import { syncToMailerLite } from "@/lib/sync-mailerlite";
 import { useToast } from "@/hooks/use-toast";
 import { useState, useEffect } from "react";
 import { PlayCircle } from "lucide-react";
@@ -202,7 +201,7 @@ const CursoTerapeutasPICS = () => {
       toast({ title: "Erro ao enviar", description: "Tente novamente.", variant: "destructive" });
       return;
     }
-    syncToMailerLite({ email, nome, source: "curso_pics" });
+    
     sessionStorage.setItem("aula-experimental-access", "true");
     navigate("/aula-experimental");
   };
