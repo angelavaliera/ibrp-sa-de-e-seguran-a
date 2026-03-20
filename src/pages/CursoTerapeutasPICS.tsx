@@ -547,6 +547,15 @@ const CursoTerapeutasPICS = () => {
                 maxLength={255}
                 className="h-12 rounded-xl bg-white/10 border-white/20 text-white placeholder:text-white/50"
               />
+              <Input
+                type="tel"
+                placeholder="Celular com DDD"
+                value={aulaForm.telefone}
+                onChange={(e) => setAulaForm((f) => ({ ...f, telefone: formatPhone(e.target.value) }))}
+                required
+                maxLength={15}
+                className="h-12 rounded-xl bg-white/10 border-white/20 text-white placeholder:text-white/50"
+              />
               <Button
                 type="submit"
                 size="lg"
