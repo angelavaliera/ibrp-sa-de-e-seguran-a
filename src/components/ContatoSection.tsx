@@ -95,6 +95,19 @@ const ContatoSection = () => {
       return;
     }
     
+    syncToMailerLite({
+      email: result.data.email,
+      nome: result.data.nome,
+      source: "contato",
+      group_id: "182467519351620811",
+      fields: {
+        empresa: result.data.empresa,
+        cargo: result.data.cargo,
+        tamanho: result.data.tamanho,
+        interesse: result.data.interesse,
+      },
+    });
+
     toast({
       title: "Solicitação enviada!",
       description: "Nossa equipe entrará em contato em breve.",
