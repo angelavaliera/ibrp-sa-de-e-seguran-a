@@ -162,6 +162,18 @@ const ContatoSection = () => {
                   />
                 </div>
                 <div>
+                  <label className="text-xs text-muted-foreground mb-1 block">Celular com DDD</label>
+                  <Input
+                    required
+                    type="tel"
+                    value={form.telefone}
+                    onChange={(e) => setForm({ ...form, telefone: formatPhone(e.target.value) })}
+                    placeholder="(11) 99999-9999"
+                    maxLength={15}
+                    className="bg-background border-border h-9 text-sm"
+                  />
+                </div>
+                <div>
                   <label className="text-xs text-muted-foreground mb-1 block">Empresa</label>
                   <Input
                     required
