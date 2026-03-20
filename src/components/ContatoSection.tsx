@@ -30,6 +30,7 @@ const interests = [
 const contatoSchema = z.object({
   nome: z.string().trim().min(1, "Nome é obrigatório").max(100, "Nome muito longo"),
   email: z.string().trim().email("E-mail inválido").max(255, "E-mail muito longo"),
+  telefone: z.string().refine((v) => isValidPhone(v), "Celular inválido. Use o formato (XX) XXXXX-XXXX"),
   empresa: z.string().trim().min(1, "Empresa é obrigatória").max(200, "Nome da empresa muito longo"),
   cargo: z.string().trim().min(1, "Cargo é obrigatório").max(100, "Cargo muito longo"),
   tamanho: z.string().min(1, "Tamanho da empresa é obrigatório"),
