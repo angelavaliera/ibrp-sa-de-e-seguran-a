@@ -15,7 +15,7 @@ export async function syncToMailerLite({ email, nome, source, fields, group_id }
     const resolvedGroupId = group_id || (source === "newsletter" ? NEWSLETTER_GROUP_ID : undefined);
 
     await supabase.functions.invoke("sync-mailerlite", {
-      body: { email, nome, source, fields, group_id },
+      body: { email, nome, source, fields, group_id: resolvedGroupId },
     });
   } catch (err) {
     // Fire-and-forget: don't block the main form flow
