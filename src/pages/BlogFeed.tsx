@@ -222,64 +222,9 @@ const BlogFeed = () => {
             </div>
           ) : (
             <>
-              {/* Featured article (only on page 1) */}
-              {featured && (
-                <motion.article
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 }}
-                  className="mb-16"
-                >
-                  <Link to={`/blog/${featured.slug}`} className="group block">
-                    <div className="relative overflow-hidden rounded-2xl mb-6 aspect-[16/9]">
-                      <img
-                        src={featured.coverImage}
-                        alt={featured.coverCaption || featured.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                      {featured.contentType === "video" && (
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                            <Play className="h-7 w-7 text-primary fill-primary ml-0.5" />
-                          </div>
-                        </div>
-                      )}
-                      {featured.category && (
-                        <Badge className="absolute top-4 left-4 bg-background/80 text-foreground border-border">
-                          {featured.category}
-                        </Badge>
-                      )}
-                    </div>
-
-                    <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-2 group-hover:text-primary transition-colors leading-tight">
-                      {featured.title}
-                    </h2>
-                    {featured.subtitle && (
-                      <p className="text-lg text-muted-foreground mb-3 leading-relaxed">
-                        {featured.subtitle}
-                      </p>
-                    )}
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                      <span>{featured.author}</span>
-                      <span>·</span>
-                      <time>{new Date(featured.publishedAt).toLocaleDateString("pt-BR", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })}</time>
-                      <span>·</span>
-                      <span className="flex items-center gap-1">
-                        <Clock className="h-3.5 w-3.5" />
-                        {featured.readTime} min
-                      </span>
-                    </div>
-                  </Link>
-                </motion.article>
-              )}
-
-              {rest.length > 0 && featured && <hr className="border-border mb-10" />}
-
               {/* Article list */}
               <div className="space-y-10">
-                {rest.map((article, i) => (
+                {articles.map((article, i) => (
                   <motion.article
                     key={article.slug}
                     initial={{ opacity: 0, y: 20 }}
