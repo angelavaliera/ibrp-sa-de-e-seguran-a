@@ -14,7 +14,7 @@ const steps = [
   {
     step: "02",
     image: stepTraining,
-    imageAlt: "Líderes em sessão de treinamento e desenvolvimento",
+    imageAlt: "Gestores elaborando Plano de Ação para PGR (Programa de Gerenciamento de Riscos) - Instituto Brasileiro de Riscos Psicossociais - IBRP",
     title: "Plano de Ação e Intervenção Direta",
     description: "Desenvolvimento de estratégias baseadas no resultado de cada inventário. Realização de treinamentos e palestras (online ou presenciais) com total rigor documental: registros de presença, avaliações e certificação. O processo pode incluir orientação para revisão de processos internos e elaboração de códigos de conduta e políticas.",
   },
