@@ -136,7 +136,7 @@ const BlogFeed = () => {
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <input
               type="text"
-              placeholder="Buscar conteúdo..."
+              placeholder="Buscar por tema, autor ou palavra-chave..."
               aria-label="Buscar conteúdo"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
