@@ -77,6 +77,8 @@ const ARTICLE_FIELDS = `
   "slug": slug,
   coverImage { ..., caption, credit },
   category,
+  contentType,
+  videoUrl,
   author,
   guestAuthor-> {
     name,
@@ -93,7 +95,8 @@ const ARTICLE_FIELDS = `
   dataHighlight,
   sources,
   metaTitle,
-  metaDescription
+  metaDescription,
+  isFeatured
 `;
 
 export async function getArticles(): Promise<BlogArticle[]> {
