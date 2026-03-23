@@ -497,7 +497,7 @@ const CursoTerapeutasPICS = () => {
       {/* ── Aula Experimental ── */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0">
-          <img src={aulaOnlineBg} alt="Pessoa assistindo aula online no notebook" className="w-full h-full object-cover -scale-x-100" />
+          <img src={aulaOnlineBg} <img src={aulaOnlineBg} alt="Aluna assistindo aula online do Instituto Brasileiro de Riscos Psicossociais - IBRP" className="w-full h-full object-cover -scale-x-100" /> className="w-full h-full object-cover -scale-x-100" />
           <div className="absolute inset-0" style={{ background: "hsla(18, 50%, 35%, 0.85)" }} />
           <div
             className="absolute inset-0 opacity-30"
