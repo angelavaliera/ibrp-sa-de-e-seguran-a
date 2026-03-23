@@ -220,7 +220,7 @@ const CursoTerapeutasPICS = () => {
       {/* ── Hero ── */}
       <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden">
         <div className="absolute inset-0">
-          <img src={terapeutasHeroBg} alt="Profissionais meditando em roda em ambiente corporativo" className="w-full h-full object-cover" />
+          <img src={terapeutasHeroBg} alt="Profissionais meditando em ambiente corporativo no curso Terapeutas Integrativos riscos psicossociais NR-1 do Instituto Brasileiro de Riscos Psicossociais - IBRP" className="w-full h-full object-cover" />
           <div className="absolute inset-0" style={{ background: "hsla(18, 50%, 35%, 0.82)" }} />
           <div
             className="absolute inset-0 opacity-30"
@@ -497,7 +497,7 @@ const CursoTerapeutasPICS = () => {
       {/* ── Aula Experimental ── */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0">
-          <img src={aulaOnlineBg} alt="Pessoa assistindo aula online no notebook" className="w-full h-full object-cover -scale-x-100" />
+          <img src={aulaOnlineBg} alt="Aluna assistindo aula online do Instituto Brasileiro de Riscos Psicossociais - IBRP" className="w-full h-full object-cover -scale-x-100" />
           <div className="absolute inset-0" style={{ background: "hsla(18, 50%, 35%, 0.85)" }} />
           <div
             className="absolute inset-0 opacity-30"
@@ -588,7 +588,7 @@ const CursoTerapeutasPICS = () => {
 
               <img
                 src={logoSelo}
-                alt="Selo IBRP"
+                alt="Selo Instituto Brasileiro de Riscos Psicossociais - IBRP"
                 className="w-16 h-16 mx-auto mb-6 object-contain"
               />
 
