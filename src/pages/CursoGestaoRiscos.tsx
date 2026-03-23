@@ -472,7 +472,7 @@ const CursoGestaoRiscos = () => {
       {/* ── Aula Experimental ── */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0">
-          <img src={aulaOnlineBg} <img src={aulaOnlineBg} alt="Aluna assistindo aula online do Instituto Brasileiro de Riscos Psicossociais - IBRP" className="w-full h-full object-cover -scale-x-100" /> className="w-full h-full object-cover -scale-x-100" />
+          <img src={aulaOnlineBg} alt="Aluna assistindo aula online do Instituto Brasileiro de Riscos Psicossociais - IBRP" className="w-full h-full object-cover -scale-x-100" /> alt="Aluna assistindo aula online do Instituto Brasileiro de Riscos Psicossociais - IBRP" className="w-full h-full object-cover -scale-x-100" /> className="w-full h-full object-cover -scale-x-100" />
           <div className="absolute inset-0" style={{ background: "hsla(228, 54%, 31%, 0.88)" }} />
           <div
             className="absolute inset-0 opacity-30"
