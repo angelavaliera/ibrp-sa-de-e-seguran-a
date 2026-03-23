@@ -144,6 +144,7 @@ const Header = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
   const navigate = useNavigate();
+  const activeSection = useActiveSection();
 
   const handleScrollToContato = () => scrollToElement("contato", location.pathname, navigate);
 
@@ -167,7 +168,7 @@ const Header = () => {
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
-            <NavLink key={item.href} item={item} />
+            <NavLink key={item.href} item={item} activeSection={activeSection} />
           ))}
           <Button
             className="bg-gradient-brand hover:opacity-90 transition-opacity"
