@@ -39,6 +39,8 @@ function mapArticle(raw: any): BlogArticle {
     coverCaption: raw.coverImage?.caption ?? undefined,
     coverCredit: raw.coverImage?.credit ?? undefined,
     category: raw.category ?? undefined,
+    contentType: raw.contentType ?? "artigo",
+    videoUrl: raw.videoUrl ?? undefined,
     author: raw.author ?? "",
     guestAuthor: raw.guestAuthor?.name
       ? {
