@@ -143,27 +143,38 @@ const BlogArticlePage = () => {
             </div>
           </motion.header>
 
-          {/* Cover image */}
-          <motion.figure
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="mb-10"
-          >
-            <div className="rounded-2xl overflow-hidden aspect-[16/9]">
-              <img
-                src={article.coverImage}
-                alt={article.coverCaption || article.title}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            {(article.coverCaption || article.coverCredit) && (
-              <figcaption className="text-xs text-muted-foreground mt-2 text-center">
-                {article.coverCaption}
-                {article.coverCredit && ` — ${article.coverCredit}`}
-              </figcaption>
-            )}
-          </motion.figure>
+          {/* Cover: Video embed or image */}
+          {article.contentType === "video" && article.videoUrl ? (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="mb-10"
+            >
+              <YouTubeEmbed url={article.videoUrl} title={article.title} />
+            </motion.div>
+          ) : (
+            <motion.figure
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="mb-10"
+            >
+              <div className="rounded-2xl overflow-hidden aspect-[16/9]">
+                <img
+                  src={article.coverImage}
+                  alt={article.coverCaption || article.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {(article.coverCaption || article.coverCredit) && (
+                <figcaption className="text-xs text-muted-foreground mt-2 text-center">
+                  {article.coverCaption}
+                  {article.coverCredit && ` — ${article.coverCredit}`}
+                </figcaption>
+              )}
+            </motion.figure>
+          )}
 
           {/* Data Highlight (optional - dynamic) */}
           {article.dataHighlight && (
