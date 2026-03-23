@@ -15,7 +15,7 @@ const navItems = [
 
 const clientLinks = [
   { label: "Inventário de Riscos", description: "Ferramenta de mapeamento de riscos psicossociais", href: "https://inventario.gestaoriscospsicossociais.com.br" },
-  { label: "Ambiente Virtual de Aprendizagem", description: "Acesse cursos e materiais do IBRP", href: "https://ava.gestaoriscospsicossociais.com.br" },
+  { label: "Ambiente Virtual de Aprendizagem", description: "Acesse seus treinamentos corporativos", href: "https://ava.gestaoriscospsicossociais.com.br" },
 ];
 
 const scrollToElement = (id: string, currentPath: string, navigateFn: (path: string) => void) => {
