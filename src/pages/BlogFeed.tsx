@@ -261,12 +261,15 @@ const BlogFeed = () => {
                           <ArrowRight className="h-3.5 w-3.5 ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-primary" />
                         </div>
                       </div>
-                      <div className="hidden sm:block w-32 h-24 rounded-xl overflow-hidden flex-shrink-0 relative">
+                      <div className="hidden sm:block w-32 h-24 rounded-xl overflow-hidden flex-shrink-0 relative bg-muted">
                         <img
                           src={article.coverImage}
                           alt={article.title}
                           className="w-full h-full object-cover"
                           loading="lazy"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).style.display = "none";
+                          }}
                         />
                         {article.contentType === "video" && (
                           <div className="absolute inset-0 flex items-center justify-center bg-black/20">

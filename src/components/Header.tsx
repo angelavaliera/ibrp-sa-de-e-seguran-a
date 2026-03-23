@@ -14,8 +14,8 @@ const navItems = [
 ];
 
 const clientLinks = [
-  { label: "Inventário de Riscos", href: "https://inventario.gestaoriscospsicossociais.com.br" },
-  { label: "Ambiente Virtual de Aprendizagem", href: "https://ava.gestaoriscospsicossociais.com.br" },
+  { label: "Inventário de Riscos", description: "Ferramenta de mapeamento de riscos psicossociais", href: "https://inventario.gestaoriscospsicossociais.com.br" },
+  { label: "Ambiente Virtual de Aprendizagem", description: "Acesse cursos e materiais do IBRP", href: "https://ava.gestaoriscospsicossociais.com.br" },
 ];
 
 const scrollToElement = (id: string, currentPath: string, navigateFn: (path: string) => void) => {
@@ -138,10 +138,13 @@ const Header = () => {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+                    className="flex flex-col gap-0.5 px-4 py-2.5 hover:bg-muted/50 transition-colors"
                     onClick={() => setDropdownOpen(false)}
                   >
-                    {link.label} <ExternalLink className="h-3 w-3 ml-auto" />
+                    <span className="flex items-center gap-2 text-sm font-medium text-foreground">
+                      {link.label} <ExternalLink className="h-3 w-3 ml-auto text-muted-foreground" />
+                    </span>
+                    <span className="text-xs text-muted-foreground">{link.description}</span>
                   </a>
                 ))}
               </div>
@@ -149,10 +152,22 @@ const Header = () => {
           </div>
         </nav>
 
-        {/* Mobile toggle */}
-        <button className="md:hidden text-foreground" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile: CTA + toggle */}
+        <div className="md:hidden flex items-center gap-2">
+          <Button
+            size="sm"
+            className="bg-gradient-brand hover:opacity-90 transition-opacity text-xs px-3"
+            onClick={() => {
+              setIsOpen(false);
+              handleScrollToContato();
+            }}
+          >
+            Solicitar Diagnóstico
+          </Button>
+          <button className="text-foreground" onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
