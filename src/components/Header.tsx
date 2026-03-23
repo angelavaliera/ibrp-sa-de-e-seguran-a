@@ -149,10 +149,22 @@ const Header = () => {
           </div>
         </nav>
 
-        {/* Mobile toggle */}
-        <button className="md:hidden text-foreground" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile: CTA + toggle */}
+        <div className="md:hidden flex items-center gap-2">
+          <Button
+            size="sm"
+            className="bg-gradient-brand hover:opacity-90 transition-opacity text-xs px-3"
+            onClick={() => {
+              setIsOpen(false);
+              handleScrollToContato();
+            }}
+          >
+            Solicitar Diagnóstico
+          </Button>
+          <button className="text-foreground" onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
