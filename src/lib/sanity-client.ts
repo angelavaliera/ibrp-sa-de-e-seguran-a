@@ -115,7 +115,7 @@ export async function getArticles(): Promise<BlogArticle[]> {
 export async function getFeaturedArticles(): Promise<BlogArticle[]> {
   try {
     const results = await sanityClient.fetch(
-      `*[_type == "article" && publishedAt <= now() && isFeatured == true] | order(publishedAt desc)[0...3] { ${ARTICLE_FIELDS} }`
+      `*[_type == "article" && publishedAt <= now() && isFeatured == true] | order(publishedAt desc)[0...6] { ${ARTICLE_FIELDS} }`
     );
     if (results && results.length > 0) return results.map(mapArticle);
   } catch (e) {

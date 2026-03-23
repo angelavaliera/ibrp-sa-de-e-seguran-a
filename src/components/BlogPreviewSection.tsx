@@ -1,11 +1,11 @@
 import { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Clock, Play } from "lucide-react";
+import { ArrowRight, Clock, Play, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { getFeaturedArticles } from "@/lib/sanity-client";
+import { getFeaturedArticles, getRecentArticles } from "@/lib/sanity-client";
 import type { BlogArticle } from "@/lib/blog-types";
 
 const ArticleCard = ({ article, i }: { article: BlogArticle; i: number }) => (
@@ -63,21 +63,35 @@ const ArticleCard = ({ article, i }: { article: BlogArticle; i: number }) => (
 
 const BlogPreviewSection = () => {
   const [featured, setFeatured] = useState<BlogArticle[]>([]);
+  const [recent, setRecent] = useState<BlogArticle[]>([]);
 
   useEffect(() => {
-    getFeaturedArticles().then(setFeatured);
+    getFeaturedArticles().then((featuredData) => {
+      setFeatured(featuredData);
+      const excludeSlugs = featuredData.map((a) => a.slug);
+      getRecentArticles(excludeSlugs).then(setRecent);
+    });
   }, []);
 
+  // "Recentes" = 3 most recent posts (mixed types)
+  const recentAll = useMemo(() => recent.slice(0, 3), [recent]);
+
+  // "Destaques" = isFeatured posts (mixed types)
+  const highlights = useMemo(() => featured.slice(0, 6), [featured]);
+
+  // "Artigos" = isFeatured filtered to artigo only
   const articlesOnly = useMemo(
     () => featured.filter((a) => a.contentType !== "video"),
     [featured]
   );
+
+  // "Vídeos & Podcasts" = isFeatured filtered to video only
   const videosOnly = useMemo(
     () => featured.filter((a) => a.contentType === "video"),
     [featured]
   );
 
-  if (featured.length === 0) return null;
+  if (featured.length === 0 && recent.length === 0) return null;
 
   return (
     <section className="py-20" id="blog" style={{ backgroundColor: "hsl(36 30% 93%)" }}>
@@ -108,16 +122,35 @@ const BlogPreviewSection = () => {
         <Tabs defaultValue="recentes" className="w-full">
           <TabsList className="mb-8 bg-muted/60">
             <TabsTrigger value="recentes">Recentes</TabsTrigger>
+            <TabsTrigger value="destaques" className="gap-1.5">
+              <Star className="h-3.5 w-3.5" /> Destaques
+            </TabsTrigger>
             <TabsTrigger value="artigos">Artigos</TabsTrigger>
             <TabsTrigger value="videos">Vídeos & Podcasts</TabsTrigger>
           </TabsList>
 
           <TabsContent value="recentes">
-            <div className="grid md:grid-cols-3 gap-6">
-              {featured.map((article, i) => (
-                <ArticleCard key={article.slug} article={article} i={i} />
-              ))}
-            </div>
+            {recentAll.length > 0 ? (
+              <div className="grid md:grid-cols-3 gap-6">
+                {recentAll.map((article, i) => (
+                  <ArticleCard key={article.slug} article={article} i={i} />
+                ))}
+              </div>
+            ) : (
+              <p className="text-muted-foreground text-center py-8">Nenhum conteúdo recente no momento.</p>
+            )}
+          </TabsContent>
+
+          <TabsContent value="destaques">
+            {highlights.length > 0 ? (
+              <div className="grid md:grid-cols-3 gap-6">
+                {highlights.map((article, i) => (
+                  <ArticleCard key={article.slug} article={article} i={i} />
+                ))}
+              </div>
+            ) : (
+              <p className="text-muted-foreground text-center py-8">Nenhum destaque no momento.</p>
+            )}
           </TabsContent>
 
           <TabsContent value="artigos">
