@@ -20,6 +20,15 @@ import type { BlogArticle } from "@/lib/blog-types";
 const ARTICLES_PER_PAGE = 12;
 
 type TypeFilter = "todos" | "artigo" | "video";
+type CategoryFilter = "todas" | string;
+
+const CATEGORIES = [
+  "Estudos de Caso",
+  "Radar IBRP",
+  "Ponto de Vista",
+  "Gestão e Estratégia",
+  "Jurídico e Normas",
+];
 
 const BlogFeed = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -28,6 +37,7 @@ const BlogFeed = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [debouncedQuery, setDebouncedQuery] = useState("");
   const [typeFilter, setTypeFilter] = useState<TypeFilter>("todos");
+  const [categoryFilter, setCategoryFilter] = useState<CategoryFilter>("todas");
 
   const currentPage = Math.max(1, Number(searchParams.get("page")) || 1);
 
