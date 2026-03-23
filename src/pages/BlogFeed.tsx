@@ -62,9 +62,15 @@ const BlogFeed = () => {
   }, [debouncedQuery, setSearchParams]);
 
   const filteredArticles = useMemo(() => {
-    if (typeFilter === "todos") return allArticles;
-    return allArticles.filter((a) => a.contentType === typeFilter);
-  }, [allArticles, typeFilter]);
+    let result = allArticles;
+    if (typeFilter !== "todos") {
+      result = result.filter((a) => a.contentType === typeFilter);
+    }
+    if (categoryFilter !== "todas") {
+      result = result.filter((a) => a.category === categoryFilter);
+    }
+    return result;
+  }, [allArticles, typeFilter, categoryFilter]);
 
   const totalPages = Math.max(1, Math.ceil(filteredArticles.length / ARTICLES_PER_PAGE));
   const safePage = Math.min(currentPage, totalPages);
