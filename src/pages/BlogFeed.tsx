@@ -20,6 +20,15 @@ import type { BlogArticle } from "@/lib/blog-types";
 const ARTICLES_PER_PAGE = 12;
 
 type TypeFilter = "todos" | "artigo" | "video";
+type CategoryFilter = "todas" | string;
+
+const CATEGORIES = [
+  "Estudos de Caso",
+  "Radar IBRP",
+  "Ponto de Vista",
+  "Gestão e Estratégia",
+  "Jurídico e Normas",
+];
 
 const BlogFeed = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -28,6 +37,7 @@ const BlogFeed = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [debouncedQuery, setDebouncedQuery] = useState("");
   const [typeFilter, setTypeFilter] = useState<TypeFilter>("todos");
+  const [categoryFilter, setCategoryFilter] = useState<CategoryFilter>("todas");
 
   const currentPage = Math.max(1, Number(searchParams.get("page")) || 1);
 
@@ -52,9 +62,15 @@ const BlogFeed = () => {
   }, [debouncedQuery, setSearchParams]);
 
   const filteredArticles = useMemo(() => {
-    if (typeFilter === "todos") return allArticles;
-    return allArticles.filter((a) => a.contentType === typeFilter);
-  }, [allArticles, typeFilter]);
+    let result = allArticles;
+    if (typeFilter !== "todos") {
+      result = result.filter((a) => a.contentType === typeFilter);
+    }
+    if (categoryFilter !== "todas") {
+      result = result.filter((a) => a.category === categoryFilter);
+    }
+    return result;
+  }, [allArticles, typeFilter, categoryFilter]);
 
   const totalPages = Math.max(1, Math.ceil(filteredArticles.length / ARTICLES_PER_PAGE));
   const safePage = Math.min(currentPage, totalPages);
@@ -137,7 +153,7 @@ const BlogFeed = () => {
           </div>
 
           {/* Type filters */}
-          <div className="flex items-center gap-2 mb-10">
+          <div className="flex items-center gap-2 mb-3">
             {typeFilters.map((f) => (
               <button
                 key={f.value}
@@ -152,6 +168,39 @@ const BlogFeed = () => {
                 }`}
               >
                 {f.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Category filters */}
+          <div className="flex items-center gap-2 mb-10 flex-wrap">
+            <button
+              onClick={() => {
+                setCategoryFilter("todas");
+                setSearchParams({}, { replace: true });
+              }}
+              className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors border ${
+                categoryFilter === "todas"
+                  ? "border-primary bg-primary/10 text-primary"
+                  : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"
+              }`}
+            >
+              Todas as categorias
+            </button>
+            {CATEGORIES.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => {
+                  setCategoryFilter(cat);
+                  setSearchParams({}, { replace: true });
+                }}
+                className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors border ${
+                  categoryFilter === cat
+                    ? "border-primary bg-primary/10 text-primary"
+                    : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"
+                }`}
+              >
+                {cat}
               </button>
             ))}
           </div>
