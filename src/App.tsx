@@ -13,6 +13,7 @@ import PoliticaPrivacidade from "./pages/PoliticaPrivacidade";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 import ScrollToTopButton from "./components/ScrollToTopButton";
+import NewsletterBanner from "./components/NewsletterBanner";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
       <BrowserRouter>
         <ScrollToTop />
         <ScrollToTopButton />
+        <NewsletterBanner />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/blog" element={<BlogFeed />} />
