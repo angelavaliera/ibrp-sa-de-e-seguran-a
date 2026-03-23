@@ -137,7 +137,7 @@ export async function getRecentArticles(excludeSlugs: string[] = []): Promise<Bl
   const { mockArticles } = await import("./blog-mock-data");
   return mockArticles
     .filter((a) => !excludeSlugs.includes(a.slug))
-    .slice(0, 12);
+    .slice(0, 50);
 }
 
 export async function searchArticles(query: string): Promise<BlogArticle[]> {
