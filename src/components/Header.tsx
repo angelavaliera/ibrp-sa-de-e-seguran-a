@@ -13,6 +13,10 @@ const navItems = [
   { label: "Central de Inteligência", href: "/blog" },
 ];
 
+const sectionIds = navItems
+  .filter((item) => item.href.startsWith("#"))
+  .map((item) => item.href.slice(1));
+
 const clientLinks = [
   { label: "Inventário de Riscos", description: "Ferramenta de mapeamento de riscos psicossociais", href: "https://inventario.gestaoriscospsicossociais.com.br" },
   { label: "Ambiente Virtual de Aprendizagem", description: "Acesse seus treinamentos corporativos", href: "https://ava.gestaoriscospsicossociais.com.br" },
@@ -36,12 +40,61 @@ const scrollToElement = (id: string, currentPath: string, navigateFn: (path: str
   }
 };
 
-const NavLink = ({ item, onClick }: { item: typeof navItems[0]; onClick?: () => void }) => {
+function useActiveSection() {
+  const [active, setActive] = useState<string>("");
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname !== "/") {
+      setActive("");
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible.length > 0) {
+          setActive(visible[0].target.id);
+        }
+      },
+      { rootMargin: "-40% 0px -50% 0px", threshold: 0 }
+    );
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, [location.pathname]);
+
+  return active;
+}
+
+const NavLink = ({
+  item,
+  onClick,
+  activeSection,
+}: {
+  item: (typeof navItems)[0];
+  onClick?: () => void;
+  activeSection?: string;
+}) => {
   const location = useLocation();
   const navigate = useNavigate();
   const isInternal = item.href.startsWith("/");
   const isAnchor = item.href.startsWith("#");
-  const className = "text-sm font-medium text-muted-foreground hover:text-foreground transition-colors";
+  const isActive =
+    (isAnchor && activeSection === item.href.slice(1)) ||
+    (isInternal && location.pathname === item.href);
+
+  const className = `text-sm font-medium transition-colors ${
+    isActive
+      ? "text-primary"
+      : "text-muted-foreground hover:text-foreground"
+  }`;
 
   if (isInternal) {
     return (
@@ -91,6 +144,7 @@ const Header = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
   const navigate = useNavigate();
+  const activeSection = useActiveSection();
 
   const handleScrollToContato = () => scrollToElement("contato", location.pathname, navigate);
 
@@ -114,7 +168,7 @@ const Header = () => {
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
-            <NavLink key={item.href} item={item} />
+            <NavLink key={item.href} item={item} activeSection={activeSection} />
           ))}
           <Button
             className="bg-gradient-brand hover:opacity-90 transition-opacity"
@@ -174,7 +228,7 @@ const Header = () => {
       {isOpen && (
         <nav className="md:hidden bg-background border-t border-border px-6 py-4 flex flex-col gap-4">
           {navItems.map((item) => (
-            <NavLink key={item.href} item={item} onClick={() => setIsOpen(false)} />
+            <NavLink key={item.href} item={item} onClick={() => setIsOpen(false)} activeSection={activeSection} />
           ))}
           <div className="flex flex-col gap-2">
             <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Área do Cliente</span>
