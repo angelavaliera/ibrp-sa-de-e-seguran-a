@@ -76,22 +76,22 @@ const BlogPreviewSection = () => {
     });
   }, []);
 
-  // "Recentes" = 3 most recent posts (mixed types)
+  // "Recentes" = 3 most recent posts (mixed types, excluding featured)
   const recentAll = useMemo(() => recent.slice(0, 3), [recent]);
 
   // "Destaques" = isFeatured posts (mixed types)
   const highlights = useMemo(() => featured.slice(0, 6), [featured]);
 
-  // "Artigos" = isFeatured filtered to artigo only
+  // "Artigos" = most recent articles (non-video), from recent list
   const articlesOnly = useMemo(
-    () => featured.filter((a) => a.contentType !== "video"),
-    [featured]
+    () => recent.filter((a) => a.contentType !== "video").slice(0, 3),
+    [recent]
   );
 
-  // "Vídeos & Podcasts" = isFeatured filtered to video only
+  // "Vídeos & Podcasts" = most recent videos, from recent list
   const videosOnly = useMemo(
-    () => featured.filter((a) => a.contentType === "video"),
-    [featured]
+    () => recent.filter((a) => a.contentType === "video").slice(0, 3),
+    [recent]
   );
 
   if (featured.length === 0 && recent.length === 0) return null;
