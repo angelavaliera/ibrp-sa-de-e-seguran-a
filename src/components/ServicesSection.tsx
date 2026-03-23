@@ -7,7 +7,7 @@ const steps = [
   {
     step: "01",
     image: stepQrcode,
-    imageAlt: "Colaborador usando celular para responder pesquisa via QR Code",
+    imageAlt: "Aplicação de inventário de riscos psicossociais via QR Code em ambiente de trabalho - Instituto Brasileiro de Riscos Psicossociais - IBRP",
     title: "Inventário de Riscos Psicossociais",
     description: "Coleta de percepção dos colaboradores via QR Code com questionário validado, anônimo e acessível, precedida por palestra de sensibilização para garantir engajamento. As respostas são cruzadas com dados técnicos da organização, obtidos por checklist orientado. O resultado é um inventário detalhado, em total conformidade com a NR-1.",
   },
