@@ -17,12 +17,15 @@ const ArticleCard = ({ article, i }: { article: BlogArticle; i: number }) => (
     transition={{ delay: i * 0.1 }}
   >
     <Link to={`/blog/${article.slug}`} className="group block">
-      <div className="relative overflow-hidden rounded-2xl mb-4 aspect-[16/10]">
+      <div className="relative overflow-hidden rounded-2xl mb-4 aspect-[16/10] bg-muted">
         <img
           src={article.coverImage}
           alt={article.title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
+          onError={(e) => {
+            (e.target as HTMLImageElement).style.display = "none";
+          }}
         />
         {article.contentType === "video" && (
           <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors">
