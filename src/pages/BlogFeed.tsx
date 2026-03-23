@@ -77,9 +77,6 @@ const BlogFeed = () => {
   const startIndex = (safePage - 1) * ARTICLES_PER_PAGE;
   const articles = filteredArticles.slice(startIndex, startIndex + ARTICLES_PER_PAGE);
 
-  const featured = startIndex === 0 ? articles[0] : undefined;
-  const rest = startIndex === 0 ? articles.slice(1) : articles;
-
   const goToPage = (page: number) => {
     if (page <= 1) {
       setSearchParams({}, { replace: true });
