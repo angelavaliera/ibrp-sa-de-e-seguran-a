@@ -7,6 +7,8 @@ export interface GuestAuthor {
   email?: string;
 }
 
+export type ContentType = "artigo" | "video";
+
 export interface BlogArticle {
   slug: string;
   title: string;
@@ -15,6 +17,8 @@ export interface BlogArticle {
   coverCaption?: string;
   coverCredit?: string;
   category?: BlogCategory;
+  contentType: ContentType;
+  videoUrl?: string;
   author: string;
   guestAuthor?: GuestAuthor;
   publishedAt: string;

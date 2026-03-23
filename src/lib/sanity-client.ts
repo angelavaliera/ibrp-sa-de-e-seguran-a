@@ -39,6 +39,8 @@ function mapArticle(raw: any): BlogArticle {
     coverCaption: raw.coverImage?.caption ?? undefined,
     coverCredit: raw.coverImage?.credit ?? undefined,
     category: raw.category ?? undefined,
+    contentType: raw.contentType ?? "artigo",
+    videoUrl: raw.videoUrl ?? undefined,
     author: raw.author ?? "",
     guestAuthor: raw.guestAuthor?.name
       ? {
@@ -75,6 +77,8 @@ const ARTICLE_FIELDS = `
   "slug": slug,
   coverImage { ..., caption, credit },
   category,
+  contentType,
+  videoUrl,
   author,
   guestAuthor-> {
     name,
@@ -91,7 +95,8 @@ const ARTICLE_FIELDS = `
   dataHighlight,
   sources,
   metaTitle,
-  metaDescription
+  metaDescription,
+  isFeatured
 `;
 
 export async function getArticles(): Promise<BlogArticle[]> {
