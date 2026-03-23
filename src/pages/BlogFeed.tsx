@@ -154,7 +154,6 @@ const BlogFeed = () => {
 
           {/* Type filters */}
           <div className="flex items-center gap-2 mb-3">
-            <span className="text-xs text-muted-foreground font-medium mr-1">Formato:</span>
             {typeFilters.map((f) => (
               <button
                 key={f.value}
@@ -175,7 +174,6 @@ const BlogFeed = () => {
 
           {/* Category filters */}
           <div className="flex items-center gap-2 mb-10 flex-wrap">
-            <span className="text-xs text-muted-foreground font-medium mr-1">Categoria:</span>
             <button
               onClick={() => {
                 setCategoryFilter("todas");
