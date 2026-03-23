@@ -55,7 +55,7 @@ const SobreSection = () => {
               <div className="absolute inset-0 rounded-full bg-gradient-brand opacity-10 blur-3xl scale-125" />
               <img
                 src={brainSymbol}
-                alt="Símbolo do IBRP — cérebro representando saúde mental e riscos psicossociais"
+                alt="Logomarca Instituto Brasileiro de Riscos Psicossociais - IBRP"
                 className="relative w-56 md:w-72 lg:w-80 mx-auto drop-shadow-xl"
               />
             </div>

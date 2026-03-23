@@ -21,7 +21,7 @@ const steps = [
   {
     step: "03",
     image: stepMonitoring,
-    imageAlt: "Profissional analisando dashboard de indicadores de saúde mental",
+    imageAlt: "Monitoramento de indicadores de saúde mental e riscos psicossociais via plataforma digital - Instituto Brasileiro de Riscos Psicossociais - IBRP",
     title: "Monitoramento Contínuo",
     description: "Disponibilização de indicadores estratégicos para a análise da eficácia das intervenções e mensuração do retorno sobre o investimento (ROI). Suporte para a reavaliação periódica do inventário e a atualização sistemática do plano de ação, com foco na mitigação contínua de riscos e a plena conformidade com a legislação.",
   },

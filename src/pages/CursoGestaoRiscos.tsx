@@ -561,7 +561,7 @@ const CursoGestaoRiscos = () => {
 
               <img
                 src={logoSelo}
-                alt="Selo IBRP"
+                alt="Selo Instituto Brasileiro de Riscos Psicossociais - IBRP"
                 className="w-16 h-16 mx-auto mb-6 object-contain"
               />
 

@@ -8,7 +8,7 @@ const HeroSection = () => {
     <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
-        <img src={heroBg} alt="Equipe colaborando em ambiente de trabalho moderno" className="w-full h-full object-cover" />
+        <img src={heroBg} <img src={heroBg} alt="Equipe corporativa em reunião estratégica sobre gestão de riscos psicossociais - Instituto Brasileiro de Riscos Psicossociais – IBRP" className="w-full h-full object-cover" /> className="w-full h-full object-cover" />
         {/* Warm semi-transparent overlay — keeps people visible */}
         <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, hsla(30, 30%, 96%, 0.55) 0%, hsla(30, 25%, 95%, 0.7) 50%, hsla(30, 20%, 97%, 0.9) 100%)" }} />
       </div>
