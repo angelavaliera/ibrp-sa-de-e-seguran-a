@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Clock, Star } from "lucide-react";
+import { ArrowRight, Clock, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { getFeaturedArticles, getRecentArticles } from "@/lib/sanity-client";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { getFeaturedArticles } from "@/lib/sanity-client";
 import type { BlogArticle } from "@/lib/blog-types";
 
 const ArticleCard = ({ article, i }: { article: BlogArticle; i: number }) => (
@@ -23,6 +24,13 @@ const ArticleCard = ({ article, i }: { article: BlogArticle; i: number }) => (
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />
+        {article.contentType === "video" && (
+          <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors">
+            <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+              <Play className="h-6 w-6 text-primary fill-primary ml-0.5" />
+            </div>
+          </div>
+        )}
         {article.category && (
           <Badge className="absolute top-3 left-3 text-xs bg-background/80 text-foreground border-border">
             {article.category}
@@ -55,17 +63,21 @@ const ArticleCard = ({ article, i }: { article: BlogArticle; i: number }) => (
 
 const BlogPreviewSection = () => {
   const [featured, setFeatured] = useState<BlogArticle[]>([]);
-  const [recent, setRecent] = useState<BlogArticle[]>([]);
 
   useEffect(() => {
-    getFeaturedArticles().then((featuredData) => {
-      setFeatured(featuredData);
-      const excludeSlugs = featuredData.map((a) => a.slug);
-      getRecentArticles(excludeSlugs).then(setRecent);
-    });
+    getFeaturedArticles().then(setFeatured);
   }, []);
 
-  if (featured.length === 0 && recent.length === 0) return null;
+  const articlesOnly = useMemo(
+    () => featured.filter((a) => a.contentType !== "video"),
+    [featured]
+  );
+  const videosOnly = useMemo(
+    () => featured.filter((a) => a.contentType === "video"),
+    [featured]
+  );
+
+  if (featured.length === 0) return null;
 
   return (
     <section className="py-20" id="blog" style={{ backgroundColor: "hsl(36 30% 93%)" }}>
@@ -81,57 +93,57 @@ const BlogPreviewSection = () => {
               Central de <span className="text-gradient">Inteligência</span> IBRP
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl">
-              Artigos e análises para transformar a saúde mental em vantagem competitiva.
+              Artigos, vídeos e análises para transformar a saúde mental em vantagem competitiva.
             </p>
           </div>
           <Link
             to="/blog"
             className="hidden md:inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
           >
-            Ver todos os artigos
+            Ver todos
             <ArrowRight className="h-4 w-4" />
           </Link>
         </motion.div>
 
-        {/* Featured articles */}
-        {featured.length > 0 && (
-          <div className="mb-12">
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="flex items-center gap-2 mb-6"
-            >
-              <Star className="h-4 w-4 text-primary fill-primary" />
-              <span className="text-sm font-semibold text-primary uppercase tracking-wider">Destaques</span>
-            </motion.div>
+        <Tabs defaultValue="recentes" className="w-full">
+          <TabsList className="mb-8 bg-muted/60">
+            <TabsTrigger value="recentes">Recentes</TabsTrigger>
+            <TabsTrigger value="artigos">Artigos</TabsTrigger>
+            <TabsTrigger value="videos">Vídeos & Podcasts</TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="recentes">
             <div className="grid md:grid-cols-3 gap-6">
               {featured.map((article, i) => (
                 <ArticleCard key={article.slug} article={article} i={i} />
               ))}
             </div>
-          </div>
-        )}
+          </TabsContent>
 
-        {/* Recent articles */}
-        {recent.length > 0 && (
-          <div>
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="flex items-center gap-2 mb-6"
-            >
-              <Clock className="h-4 w-4 text-muted-foreground" />
-              <span className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Mais recentes</span>
-            </motion.div>
-            <div className="grid md:grid-cols-3 gap-6">
-              {recent.map((article, i) => (
-                <ArticleCard key={article.slug} article={article} i={i} />
-              ))}
-            </div>
-          </div>
-        )}
+          <TabsContent value="artigos">
+            {articlesOnly.length > 0 ? (
+              <div className="grid md:grid-cols-3 gap-6">
+                {articlesOnly.map((article, i) => (
+                  <ArticleCard key={article.slug} article={article} i={i} />
+                ))}
+              </div>
+            ) : (
+              <p className="text-muted-foreground text-center py-8">Nenhum artigo em destaque no momento.</p>
+            )}
+          </TabsContent>
+
+          <TabsContent value="videos">
+            {videosOnly.length > 0 ? (
+              <div className="grid md:grid-cols-3 gap-6">
+                {videosOnly.map((article, i) => (
+                  <ArticleCard key={article.slug} article={article} i={i} />
+                ))}
+              </div>
+            ) : (
+              <p className="text-muted-foreground text-center py-8">Nenhum vídeo em destaque no momento.</p>
+            )}
+          </TabsContent>
+        </Tabs>
 
         <div className="flex items-center justify-center mt-12">
           <Button

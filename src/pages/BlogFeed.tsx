@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Clock, ArrowRight, Search, X } from "lucide-react";
+import { Clock, ArrowRight, Search, X, Play } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -19,16 +19,18 @@ import type { BlogArticle } from "@/lib/blog-types";
 
 const ARTICLES_PER_PAGE = 12;
 
+type TypeFilter = "todos" | "artigo" | "video";
+
 const BlogFeed = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [allArticles, setAllArticles] = useState<BlogArticle[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const [debouncedQuery, setDebouncedQuery] = useState("");
+  const [typeFilter, setTypeFilter] = useState<TypeFilter>("todos");
 
   const currentPage = Math.max(1, Number(searchParams.get("page")) || 1);
 
-  // Debounce search input
   useEffect(() => {
     const timer = setTimeout(() => setDebouncedQuery(searchQuery), 400);
     return () => clearTimeout(timer);
@@ -43,17 +45,21 @@ const BlogFeed = () => {
     });
   }, [debouncedQuery]);
 
-  // Reset to page 1 on search
   useEffect(() => {
     if (debouncedQuery) {
       setSearchParams({}, { replace: true });
     }
   }, [debouncedQuery, setSearchParams]);
 
-  const totalPages = Math.max(1, Math.ceil(allArticles.length / ARTICLES_PER_PAGE));
+  const filteredArticles = useMemo(() => {
+    if (typeFilter === "todos") return allArticles;
+    return allArticles.filter((a) => a.contentType === typeFilter);
+  }, [allArticles, typeFilter]);
+
+  const totalPages = Math.max(1, Math.ceil(filteredArticles.length / ARTICLES_PER_PAGE));
   const safePage = Math.min(currentPage, totalPages);
   const startIndex = (safePage - 1) * ARTICLES_PER_PAGE;
-  const articles = allArticles.slice(startIndex, startIndex + ARTICLES_PER_PAGE);
+  const articles = filteredArticles.slice(startIndex, startIndex + ARTICLES_PER_PAGE);
 
   const featured = startIndex === 0 ? articles[0] : undefined;
   const rest = startIndex === 0 ? articles.slice(1) : articles;
@@ -83,6 +89,12 @@ const BlogFeed = () => {
     return pages;
   };
 
+  const typeFilters: { label: string; value: TypeFilter }[] = [
+    { label: "Todos", value: "todos" },
+    { label: "Artigos", value: "artigo" },
+    { label: "Vídeos", value: "video" },
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -99,17 +111,17 @@ const BlogFeed = () => {
               Central de Inteligência IBRP
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl">
-              Artigos, dados e análises para quem quer transformar a saúde mental em vantagem competitiva.
+              Artigos, vídeos e análises para quem quer transformar a saúde mental em vantagem competitiva.
             </p>
           </motion.div>
 
           {/* Search bar */}
-          <div className="relative mb-10">
+          <div className="relative mb-6">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <input
               type="text"
-              placeholder="Buscar artigos..."
-              aria-label="Buscar artigos"
+              placeholder="Buscar conteúdo..."
+              aria-label="Buscar conteúdo"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-11 pr-10 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 transition-shadow"
@@ -124,6 +136,26 @@ const BlogFeed = () => {
             )}
           </div>
 
+          {/* Type filters */}
+          <div className="flex items-center gap-2 mb-10">
+            {typeFilters.map((f) => (
+              <button
+                key={f.value}
+                onClick={() => {
+                  setTypeFilter(f.value);
+                  setSearchParams({}, { replace: true });
+                }}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  typeFilter === f.value
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-muted text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
+
           {loading ? (
             <div className="space-y-8">
               {[1, 2, 3].map((i) => (
@@ -134,12 +166,12 @@ const BlogFeed = () => {
                 </div>
               ))}
             </div>
-          ) : allArticles.length === 0 ? (
+          ) : filteredArticles.length === 0 ? (
             <div className="text-center py-16">
               <p className="text-muted-foreground text-lg">
                 {debouncedQuery
-                  ? `Nenhum artigo encontrado para "${debouncedQuery}".`
-                  : "Nenhum artigo publicado ainda."}
+                  ? `Nenhum conteúdo encontrado para "${debouncedQuery}".`
+                  : "Nenhum conteúdo publicado ainda."}
               </p>
             </div>
           ) : (
@@ -161,6 +193,13 @@ const BlogFeed = () => {
                         loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                      {featured.contentType === "video" && (
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                            <Play className="h-7 w-7 text-primary fill-primary ml-0.5" />
+                          </div>
+                        </div>
+                      )}
                       {featured.category && (
                         <Badge className="absolute top-4 left-4 bg-background/80 text-foreground border-border">
                           {featured.category}
@@ -190,7 +229,6 @@ const BlogFeed = () => {
                 </motion.article>
               )}
 
-              {/* Divider */}
               {rest.length > 0 && featured && <hr className="border-border mb-10" />}
 
               {/* Article list */}
@@ -204,11 +242,18 @@ const BlogFeed = () => {
                   >
                     <Link to={`/blog/${article.slug}`} className="group flex gap-6 items-start">
                       <div className="flex-1 min-w-0">
-                        {article.category && (
-                          <Badge className="mb-2 text-xs bg-muted text-muted-foreground border-border">
-                            {article.category}
-                          </Badge>
-                        )}
+                        <div className="flex items-center gap-2 mb-2">
+                          {article.contentType === "video" && (
+                            <Badge variant="outline" className="text-xs gap-1">
+                              <Play className="h-3 w-3 fill-current" /> Vídeo
+                            </Badge>
+                          )}
+                          {article.category && (
+                            <Badge className="text-xs bg-muted text-muted-foreground border-border">
+                              {article.category}
+                            </Badge>
+                          )}
+                        </div>
                         <h3 className="text-xl font-heading font-bold text-foreground mb-1 group-hover:text-primary transition-colors leading-snug">
                           {article.title}
                         </h3>
@@ -225,13 +270,18 @@ const BlogFeed = () => {
                           <ArrowRight className="h-3.5 w-3.5 ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-primary" />
                         </div>
                       </div>
-                      <div className="hidden sm:block w-32 h-24 rounded-xl overflow-hidden flex-shrink-0">
+                      <div className="hidden sm:block w-32 h-24 rounded-xl overflow-hidden flex-shrink-0 relative">
                         <img
                           src={article.coverImage}
                           alt={article.title}
                           className="w-full h-full object-cover"
                           loading="lazy"
                         />
+                        {article.contentType === "video" && (
+                          <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+                            <Play className="h-5 w-5 text-white fill-white" />
+                          </div>
+                        )}
                       </div>
                     </Link>
                   </motion.article>
@@ -278,7 +328,7 @@ const BlogFeed = () => {
                   </Pagination>
 
                   <p className="text-center text-xs text-muted-foreground mt-3">
-                    Página {safePage} de {totalPages} · {allArticles.length} artigos
+                    Página {safePage} de {totalPages} · {filteredArticles.length} conteúdos
                   </p>
                 </div>
               )}
