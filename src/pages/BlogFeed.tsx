@@ -106,7 +106,7 @@ const BlogFeed = () => {
   };
 
   const typeFilters: { label: string; value: TypeFilter }[] = [
-    { label: "Todos", value: "todos" },
+    { label: "Todos os formatos", value: "todos" },
     { label: "Artigos", value: "artigo" },
     { label: "Vídeos", value: "video" },
   ];
