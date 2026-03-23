@@ -153,7 +153,7 @@ const BlogFeed = () => {
           </div>
 
           {/* Type filters */}
-          <div className="flex items-center gap-2 mb-10">
+          <div className="flex items-center gap-2 mb-3">
             {typeFilters.map((f) => (
               <button
                 key={f.value}
@@ -168,6 +168,39 @@ const BlogFeed = () => {
                 }`}
               >
                 {f.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Category filters */}
+          <div className="flex items-center gap-2 mb-10 flex-wrap">
+            <button
+              onClick={() => {
+                setCategoryFilter("todas");
+                setSearchParams({}, { replace: true });
+              }}
+              className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors border ${
+                categoryFilter === "todas"
+                  ? "border-primary bg-primary/10 text-primary"
+                  : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"
+              }`}
+            >
+              Todas as categorias
+            </button>
+            {CATEGORIES.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => {
+                  setCategoryFilter(cat);
+                  setSearchParams({}, { replace: true });
+                }}
+                className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors border ${
+                  categoryFilter === cat
+                    ? "border-primary bg-primary/10 text-primary"
+                    : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"
+                }`}
+              >
+                {cat}
               </button>
             ))}
           </div>
