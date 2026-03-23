@@ -12,7 +12,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Send, Loader2 } from "lucide-react";
+import { Send, Loader2, ChevronDown } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { syncToMailerLite } from "@/lib/sync-mailerlite";
@@ -51,6 +51,7 @@ const ContatoSection = () => {
   });
   const [lgpd, setLgpd] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [showOptional, setShowOptional] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -120,6 +121,7 @@ const ContatoSection = () => {
     });
     setForm({ nome: "", email: "", telefone: "", empresa: "", cargo: "", tamanho: "", interesse: "", mensagem: "" });
     setLgpd(false);
+    setShowOptional(false);
   };
 
    return (
@@ -137,9 +139,10 @@ const ContatoSection = () => {
           <div className="rounded-2xl border border-border p-6 bg-muted">
             <h3 className="text-lg font-heading font-bold mb-4 text-foreground">Solicite uma proposta</h3>
             <form onSubmit={handleSubmit} className="space-y-3">
+              {/* Campos essenciais — sempre visíveis */}
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 <div>
-                  <label className="text-xs text-muted-foreground mb-1 block">Nome</label>
+                  <label className="text-xs text-muted-foreground mb-1 block">Nome *</label>
                   <Input
                     required
                     value={form.nome}
@@ -150,7 +153,7 @@ const ContatoSection = () => {
                   />
                 </div>
                 <div>
-                  <label className="text-xs text-muted-foreground mb-1 block">E-mail Corporativo</label>
+                  <label className="text-xs text-muted-foreground mb-1 block">E-mail Corporativo *</label>
                   <Input
                     required
                     type="email"
@@ -162,7 +165,7 @@ const ContatoSection = () => {
                   />
                 </div>
                 <div>
-                  <label className="text-xs text-muted-foreground mb-1 block">Celular com DDD</label>
+                  <label className="text-xs text-muted-foreground mb-1 block">Celular com DDD *</label>
                   <Input
                     required
                     type="tel"
@@ -174,9 +177,10 @@ const ContatoSection = () => {
                   />
                 </div>
               </div>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+
+              <div className="grid sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="text-xs text-muted-foreground mb-1 block">Empresa</label>
+                  <label className="text-xs text-muted-foreground mb-1 block">Empresa *</label>
                   <Input
                     required
                     value={form.empresa}
@@ -187,57 +191,78 @@ const ContatoSection = () => {
                   />
                 </div>
                 <div>
-                  <label className="text-xs text-muted-foreground mb-1 block">Cargo</label>
-                  <Input
-                    required
-                    value={form.cargo}
-                    onChange={(e) => setForm({ ...form, cargo: e.target.value })}
-                    placeholder="Seu cargo"
-                    maxLength={100}
-                    className="bg-background border-border h-9 text-sm"
-                  />
-                </div>
-                <div>
-                  <label className="text-xs text-muted-foreground mb-1 block">Tamanho da Empresa</label>
-                  <Select value={form.tamanho} onValueChange={(v) => setForm({ ...form, tamanho: v })}>
+                  <label className="text-xs text-muted-foreground mb-1 block">Interesse Principal *</label>
+                  <Select value={form.interesse} onValueChange={(v) => setForm({ ...form, interesse: v })}>
                     <SelectTrigger className="bg-background border-border h-9 text-sm">
                       <SelectValue placeholder="Selecione" />
                     </SelectTrigger>
                     <SelectContent>
-                      {companySize.map((s) => (
-                        <SelectItem key={s} value={s}>
-                          {s} colaboradores
+                      {interests.map((i) => (
+                        <SelectItem key={i} value={i}>
+                          {i}
                         </SelectItem>
                       ))}
                     </SelectContent>
                   </Select>
                 </div>
               </div>
-              <div>
-                <label className="text-xs text-muted-foreground mb-1 block">Interesse Principal</label>
-                <Select value={form.interesse} onValueChange={(v) => setForm({ ...form, interesse: v })}>
-                  <SelectTrigger className="bg-background border-border h-9 text-sm">
-                    <SelectValue placeholder="Selecione" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {interests.map((i) => (
-                      <SelectItem key={i} value={i}>
-                        {i}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-              <div>
-                <label className="text-xs text-muted-foreground mb-1 block">Mensagem</label>
-                <Textarea
-                  value={form.mensagem}
-                  onChange={(e) => setForm({ ...form, mensagem: e.target.value })}
-                  placeholder="Descreva brevemente o que você precisa..."
-                  className="bg-background border-border min-h-[80px] resize-none text-sm"
-                  maxLength={1000}
-                />
-              </div>
+
+              {/* Campos opcionais — colapsáveis */}
+              {!showOptional ? (
+                <button
+                  type="button"
+                  onClick={() => setShowOptional(true)}
+                  className="flex items-center gap-1.5 text-xs text-primary hover:text-primary/80 transition-colors font-medium"
+                >
+                  <ChevronDown className="h-3.5 w-3.5" />
+                  Adicionar mais detalhes (cargo, tamanho, mensagem)
+                </button>
+              ) : (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  className="space-y-3 overflow-hidden"
+                >
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="text-xs text-muted-foreground mb-1 block">Cargo *</label>
+                      <Input
+                        required
+                        value={form.cargo}
+                        onChange={(e) => setForm({ ...form, cargo: e.target.value })}
+                        placeholder="Seu cargo"
+                        maxLength={100}
+                        className="bg-background border-border h-9 text-sm"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-xs text-muted-foreground mb-1 block">Tamanho da Empresa *</label>
+                      <Select value={form.tamanho} onValueChange={(v) => setForm({ ...form, tamanho: v })}>
+                        <SelectTrigger className="bg-background border-border h-9 text-sm">
+                          <SelectValue placeholder="Selecione" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {companySize.map((s) => (
+                            <SelectItem key={s} value={s}>
+                              {s} colaboradores
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+                  <div>
+                    <label className="text-xs text-muted-foreground mb-1 block">Mensagem (opcional)</label>
+                    <Textarea
+                      value={form.mensagem}
+                      onChange={(e) => setForm({ ...form, mensagem: e.target.value })}
+                      placeholder="Descreva brevemente o que você precisa..."
+                      className="bg-background border-border min-h-[80px] resize-none text-sm"
+                      maxLength={1000}
+                    />
+                  </div>
+                </motion.div>
+              )}
 
               <div className="flex items-start gap-2">
                 <Checkbox

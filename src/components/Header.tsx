@@ -228,7 +228,7 @@ const Header = () => {
       {isOpen && (
         <nav className="md:hidden bg-background border-t border-border px-6 py-4 flex flex-col gap-4">
           {navItems.map((item) => (
-            <NavLink key={item.href} item={item} onClick={() => setIsOpen(false)} />
+            <NavLink key={item.href} item={item} onClick={() => setIsOpen(false)} activeSection={activeSection} />
           ))}
           <div className="flex flex-col gap-2">
             <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Área do Cliente</span>
