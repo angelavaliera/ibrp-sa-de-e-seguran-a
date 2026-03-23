@@ -127,7 +127,7 @@ export async function getFeaturedArticles(): Promise<BlogArticle[]> {
 export async function getRecentArticles(excludeSlugs: string[] = []): Promise<BlogArticle[]> {
   try {
     const results = await sanityClient.fetch(
-      `*[_type == "article" && publishedAt <= now() && !(slug.current in $excludeSlugs)] | order(publishedAt desc)[0...3] { ${ARTICLE_FIELDS} }`,
+      `*[_type == "article" && publishedAt <= now() && !(slug.current in $excludeSlugs)] | order(publishedAt desc)[0...12] { ${ARTICLE_FIELDS} }`,
       { excludeSlugs }
     );
     if (results && results.length > 0) return results.map(mapArticle);
@@ -137,7 +137,7 @@ export async function getRecentArticles(excludeSlugs: string[] = []): Promise<Bl
   const { mockArticles } = await import("./blog-mock-data");
   return mockArticles
     .filter((a) => !excludeSlugs.includes(a.slug))
-    .slice(0, 3);
+    .slice(0, 12);
 }
 
 export async function searchArticles(query: string): Promise<BlogArticle[]> {
