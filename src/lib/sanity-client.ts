@@ -175,25 +175,42 @@ export async function getArticleBySlug(slug: string): Promise<BlogArticle | unde
   return mockArticles.find((a) => a.slug === slug);
 }
 
-export async function getRelatedArticles(currentSlug: string, category?: string): Promise<BlogArticle[]> {
+export async function getRelatedArticles(currentSlug: string, category?: string, contentType?: string): Promise<BlogArticle[]> {
   try {
-    // First try same category
     let results: BlogArticle[] = [];
+    const contentTypeFilter = contentType === "video" ? ' && contentType == "video"' : "";
+
+    // First try same category (and same content type for videos)
     if (category) {
       const sameCat = await sanityClient.fetch(
-        `*[_type == "article" && publishedAt <= now() && slug.current != $slug && category == $category] | order(publishedAt desc)[0...3] { ${ARTICLE_FIELDS} }`,
+        `*[_type == "article" && publishedAt <= now() && slug.current != $slug && category == $category${contentTypeFilter}] | order(publishedAt desc)[0...3] { ${ARTICLE_FIELDS} }`,
         { slug: currentSlug, category }
       );
       if (sameCat) results = sameCat.map(mapArticle);
     }
-    // Fill remaining slots with recent articles
+
+    // Fill remaining slots (same content type for videos, then any)
     if (results.length < 3) {
       const excludeSlugs = [currentSlug, ...results.map((a) => a.slug)];
-      const recent = await sanityClient.fetch(
-        `*[_type == "article" && publishedAt <= now() && !(slug.current in $excludeSlugs)] | order(publishedAt desc)[0...${3 - results.length}] { ${ARTICLE_FIELDS} }`,
-        { excludeSlugs }
-      );
-      if (recent) results = [...results, ...recent.map(mapArticle)];
+      const remaining = 3 - results.length;
+
+      if (contentType === "video") {
+        const moreVideos = await sanityClient.fetch(
+          `*[_type == "article" && publishedAt <= now() && contentType == "video" && !(slug.current in $excludeSlugs)] | order(publishedAt desc)[0...${remaining}] { ${ARTICLE_FIELDS} }`,
+          { excludeSlugs }
+        );
+        if (moreVideos) results = [...results, ...moreVideos.map(mapArticle)];
+      }
+
+      // If still not enough, fill with any recent
+      if (results.length < 3) {
+        const finalExclude = [currentSlug, ...results.map((a) => a.slug)];
+        const recent = await sanityClient.fetch(
+          `*[_type == "article" && publishedAt <= now() && !(slug.current in $excludeSlugs)] | order(publishedAt desc)[0...${3 - results.length}] { ${ARTICLE_FIELDS} }`,
+          { excludeSlugs: finalExclude }
+        );
+        if (recent) results = [...results, ...recent.map(mapArticle)];
+      }
     }
     if (results.length > 0) return results.slice(0, 3);
   } catch (e) {

@@ -18,11 +18,11 @@ const RelatedArticles = ({ currentSlug, currentCategory, currentContentType }: R
 
   useEffect(() => {
     setLoading(true);
-    getRelatedArticles(currentSlug, currentCategory).then((data) => {
+    getRelatedArticles(currentSlug, currentCategory, currentContentType).then((data) => {
       setArticles(data);
       setLoading(false);
     });
-  }, [currentSlug, currentCategory]);
+  }, [currentSlug, currentCategory, currentContentType]);
 
   if (loading) {
     return (
