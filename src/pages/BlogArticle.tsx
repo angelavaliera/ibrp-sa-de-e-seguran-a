@@ -9,6 +9,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import AuthorBio from "@/components/AuthorBio";
+import RelatedArticles from "@/components/RelatedArticles";
 import YouTubeEmbed from "@/components/YouTubeEmbed";
 import { getArticleBySlug } from "@/lib/sanity-client";
 import type { BlogArticle, BlogCategory } from "@/lib/blog-types";
