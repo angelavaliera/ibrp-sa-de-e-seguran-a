@@ -9,6 +9,7 @@ import type { BlogArticle } from "@/lib/blog-types";
 interface RelatedArticlesProps {
   currentSlug: string;
   currentCategory?: string;
+  currentContentType?: string;
 }
 
 const RelatedArticles = ({ currentSlug, currentCategory }: RelatedArticlesProps) => {
