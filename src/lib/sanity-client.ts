@@ -174,3 +174,31 @@ export async function getArticleBySlug(slug: string): Promise<BlogArticle | unde
   const { mockArticles } = await import("./blog-mock-data");
   return mockArticles.find((a) => a.slug === slug);
 }
+
+export async function getRelatedArticles(currentSlug: string, category?: string): Promise<BlogArticle[]> {
+  try {
+    // First try same category
+    let results: BlogArticle[] = [];
+    if (category) {
+      const sameCat = await sanityClient.fetch(
+        `*[_type == "article" && publishedAt <= now() && slug.current != $slug && category == $category] | order(publishedAt desc)[0...3] { ${ARTICLE_FIELDS} }`,
+        { slug: currentSlug, category }
+      );
+      if (sameCat) results = sameCat.map(mapArticle);
+    }
+    // Fill remaining slots with recent articles
+    if (results.length < 3) {
+      const excludeSlugs = [currentSlug, ...results.map((a) => a.slug)];
+      const recent = await sanityClient.fetch(
+        `*[_type == "article" && publishedAt <= now() && !(slug.current in $excludeSlugs)] | order(publishedAt desc)[0...${3 - results.length}] { ${ARTICLE_FIELDS} }`,
+        { excludeSlugs }
+      );
+      if (recent) results = [...results, ...recent.map(mapArticle)];
+    }
+    if (results.length > 0) return results.slice(0, 3);
+  } catch (e) {
+    console.warn("Sanity fetch failed for related articles", e);
+  }
+  const { mockArticles } = await import("./blog-mock-data");
+  return mockArticles.filter((a) => a.slug !== currentSlug).slice(0, 3);
+}
