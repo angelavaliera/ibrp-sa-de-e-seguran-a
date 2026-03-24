@@ -21,7 +21,7 @@ const profiles = [
   "RH",
   "Jurídico / Compliance",
   "Saúde e Segurança (SST)",
-  "Psicologia / Saúde Mental",
+  "Terapeuta / Medicina do Trabalho",
   "Acadêmico",
   "Outros",
 ];
