@@ -278,7 +278,7 @@ const BlogArticlePage = () => {
           )}
 
           {/* Related Articles */}
-          <RelatedArticles currentSlug={article.slug} currentCategory={article.category} />
+          <RelatedArticles currentSlug={article.slug} currentCategory={article.category} currentContentType={article.contentType} />
 
           {/* Newsletter */}
           <NewsletterSignup variant="article" />

@@ -9,19 +9,20 @@ import type { BlogArticle } from "@/lib/blog-types";
 interface RelatedArticlesProps {
   currentSlug: string;
   currentCategory?: string;
+  currentContentType?: string;
 }
 
-const RelatedArticles = ({ currentSlug, currentCategory }: RelatedArticlesProps) => {
+const RelatedArticles = ({ currentSlug, currentCategory, currentContentType }: RelatedArticlesProps) => {
   const [articles, setArticles] = useState<BlogArticle[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true);
-    getRelatedArticles(currentSlug, currentCategory).then((data) => {
+    getRelatedArticles(currentSlug, currentCategory, currentContentType).then((data) => {
       setArticles(data);
       setLoading(false);
     });
-  }, [currentSlug, currentCategory]);
+  }, [currentSlug, currentCategory, currentContentType]);
 
   if (loading) {
     return (
