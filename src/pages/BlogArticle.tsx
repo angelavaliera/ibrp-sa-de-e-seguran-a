@@ -277,6 +277,9 @@ const BlogArticlePage = () => {
             <AuthorBio author={article.guestAuthor} />
           )}
 
+          {/* Related Articles */}
+          <RelatedArticles currentSlug={article.slug} currentCategory={article.category} />
+
           {/* Newsletter */}
           <NewsletterSignup variant="article" />
 
