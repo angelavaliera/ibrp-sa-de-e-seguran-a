@@ -51,7 +51,9 @@ const RelatedArticles = ({ currentSlug, currentCategory, currentContentType }: R
       className="mt-16 pt-10 border-t border-border"
     >
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl font-heading font-bold text-foreground">Continue lendo</h2>
+        <h2 className="text-xl font-heading font-bold text-foreground">
+          {currentContentType === "video" ? "Continue assistindo" : "Continue lendo"}
+        </h2>
         <Link
           to="/blog"
           className="text-sm text-primary hover:underline inline-flex items-center gap-1"
