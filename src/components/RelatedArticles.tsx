@@ -12,7 +12,7 @@ interface RelatedArticlesProps {
   currentContentType?: string;
 }
 
-const RelatedArticles = ({ currentSlug, currentCategory }: RelatedArticlesProps) => {
+const RelatedArticles = ({ currentSlug, currentCategory, currentContentType }: RelatedArticlesProps) => {
   const [articles, setArticles] = useState<BlogArticle[]>([]);
   const [loading, setLoading] = useState(true);
 
