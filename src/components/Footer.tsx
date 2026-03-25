@@ -114,31 +114,7 @@ const Footer = () => {
               </ul>
             </div>
 
-            <div>
-              <h4 className="font-heading font-bold mb-4">Plataformas</h4>
-              <ul className="space-y-2.5 text-sm text-muted-foreground">
-                <li>
-                  <a
-                    href="https://inventario.gestaoriscospsicossociais.com.br"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-foreground transition-colors inline-flex items-center gap-1.5"
-                  >
-                    Inventário de Riscos <ExternalLink className="h-3 w-3" />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://ava.gestaoriscospsicossociais.com.br"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-foreground transition-colors inline-flex items-center gap-1.5"
-                  >
-                    Ambiente Virtual de Aprendizagem <ExternalLink className="h-3 w-3" />
-                  </a>
-                </li>
-              </ul>
-            </div>
+            {/* Plataformas — temporariamente oculto */}
           </div>
 
           <div className="border-t border-border mt-10 pt-6 text-center text-xs text-muted-foreground">
