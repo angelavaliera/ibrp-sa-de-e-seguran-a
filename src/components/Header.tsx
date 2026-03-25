@@ -176,6 +176,7 @@ const Header = () => {
           >
             Solicitar Diagnóstico
           </Button>
+          {/* Área do Cliente — temporariamente oculto
           <div className="relative" ref={dropdownRef}>
             <Button
               variant="outline"
@@ -184,26 +185,8 @@ const Header = () => {
             >
               Área do Cliente <ChevronDown className="h-4 w-4" />
             </Button>
-            {dropdownOpen && (
-              <div className="absolute right-0 mt-2 w-56 rounded-xl border border-border bg-card shadow-lg py-2 z-50">
-                {clientLinks.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex flex-col gap-0.5 px-4 py-2.5 hover:bg-muted/50 transition-colors"
-                    onClick={() => setDropdownOpen(false)}
-                  >
-                    <span className="flex items-center gap-2 text-sm font-medium text-foreground">
-                      {link.label} <ExternalLink className="h-3 w-3 ml-auto text-muted-foreground" />
-                    </span>
-                    <span className="text-xs text-muted-foreground">{link.description}</span>
-                  </a>
-                ))}
-              </div>
-            )}
           </div>
+          */}
         </nav>
 
         {/* Mobile: CTA + toggle */}
@@ -230,21 +213,7 @@ const Header = () => {
           {navItems.map((item) => (
             <NavLink key={item.href} item={item} onClick={() => setIsOpen(false)} activeSection={activeSection} />
           ))}
-          <div className="flex flex-col gap-2">
-            <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Área do Cliente</span>
-            {clientLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.label} <ExternalLink className="h-3 w-3" />
-              </a>
-            ))}
-          </div>
+          {/* Área do Cliente mobile — temporariamente oculto */}
         </nav>
       )}
     </header>
