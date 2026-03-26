@@ -106,7 +106,7 @@ const NewsletterSignup = ({ variant = "footer" }: NewsletterSignupProps) => {
 
   if (variant === "article") {
     return (
-      <div className="rounded-2xl border border-border bg-card p-6 md:p-8 mt-12" style={{ boxShadow: "var(--shadow-card)" }}>
+      <div id="newsletter-article" className="rounded-2xl border border-border bg-card p-6 md:p-8 mt-12 scroll-mt-28" style={{ boxShadow: "var(--shadow-card)" }}>
         <div className="flex items-center gap-3 mb-3">
           <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
             <Mail className="h-5 w-5 text-primary" />
@@ -167,7 +167,7 @@ const NewsletterSignup = ({ variant = "footer" }: NewsletterSignupProps) => {
 
   // Footer variant
   return (
-    <div className="newsletter-signup">
+    <div id="newsletter-signup" className="newsletter-signup scroll-mt-28">
       <div className="flex items-center gap-3 mb-2">
         <Mail className="h-5 w-5 text-primary" />
         <h4 className="font-heading font-bold text-sm">Assine a Central de Inteligência IBRP</h4>
