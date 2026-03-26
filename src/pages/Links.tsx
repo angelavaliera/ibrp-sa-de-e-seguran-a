@@ -69,7 +69,7 @@ const Links = () => {
           custom={0}
         >
           <img
-            src={logoSelo}
+            src="/favicon.ico"
             alt="IBRP Logo"
             className="w-28 h-28 rounded-full object-cover border-4 border-primary/20 shadow-lg"
           />
