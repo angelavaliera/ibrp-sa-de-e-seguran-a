@@ -89,12 +89,12 @@ const Links = () => {
           variants={fadeUp}
           custom={1}
         >
-          <Link to="/">
+          <a href="/#inicio">
             <Button className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-base px-6 py-5 rounded-xl glow text-white">
               Visite o site do IBRP
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-          </Link>
+          </a>
           <a href="/#palestras">
             <Button className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-base px-6 py-5 rounded-xl glow text-white">
               Palestras e Treinamentos Corporativos
@@ -144,12 +144,12 @@ const Links = () => {
             </div>
           )}
 
-          <Link to="/blog" className="w-full">
+          <a href="/blog#newsletter-signup" className="w-full">
             <Button className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-base px-6 py-5 rounded-xl glow text-white">
               Assine a Newsletter da Central de Inteligência
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-          </Link>
+          </a>
         </motion.div>
 
         {/* Capacitação */}
