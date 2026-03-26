@@ -10,6 +10,7 @@ import CursoTerapeutasPICS from "./pages/CursoTerapeutasPICS";
 import CursoGestaoRiscos from "./pages/CursoGestaoRiscos";
 import AulaExperimentalPICS from "./pages/AulaExperimentalPICS";
 import PoliticaPrivacidade from "./pages/PoliticaPrivacidade";
+import Links from "./pages/Links";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 import ScrollToTopButton from "./components/ScrollToTopButton";
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/curso-NR1-gestao" element={<CursoGestaoRiscos />} />
           <Route path="/aula-experimental" element={<AulaExperimentalPICS />} />
           <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />
+          <Route path="/links" element={<Links />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
