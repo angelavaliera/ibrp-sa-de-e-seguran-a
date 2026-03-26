@@ -95,18 +95,18 @@ const Links = () => {
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </Link>
-          <Link to="/#palestras">
+          <a href="/#palestras">
             <Button className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-base px-6 py-5 rounded-xl glow text-white">
               Palestras e Treinamentos Corporativos
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-          </Link>
-          <Link to="/#contato">
+          </a>
+          <a href="/#contato">
             <Button className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-base px-6 py-5 rounded-xl glow text-white">
               Solicite um Diagnóstico para sua Empresa
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-          </Link>
+          </a>
         </motion.div>
 
         {/* Central de Inteligência */}
@@ -144,14 +144,12 @@ const Links = () => {
             </div>
           )}
 
-          <a href="/#contato" className="w-full">
-            <Button
-              variant="outline"
-              className="w-full text-sm py-4 rounded-xl border-primary/30 hover:bg-primary/5"
-            >
+          <Link to="/blog" className="w-full">
+            <Button className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-base px-6 py-5 rounded-xl glow text-white">
               Assine a Newsletter da Central de Inteligência
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-          </a>
+          </Link>
         </motion.div>
 
         {/* Capacitação */}
