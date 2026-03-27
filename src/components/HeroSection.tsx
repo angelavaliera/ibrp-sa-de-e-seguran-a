@@ -41,7 +41,7 @@ const HeroSection = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Button size="lg" className="bg-gradient-brand hover:opacity-90 transition-opacity text-lg px-8 py-6 rounded-xl glow text-white" onClick={() => document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" })}>
-              Solicitar Diagnóstico
+              Solicite Diagnóstico
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button size="lg" variant="outline" className="text-lg px-8 py-6 rounded-xl border-foreground/20 text-foreground hover:bg-foreground/5 bg-white/50 backdrop-blur-sm" onClick={() => document.getElementById('diferenciais')?.scrollIntoView({ behavior: 'smooth' })}>

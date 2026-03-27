@@ -111,7 +111,7 @@ const DiferenciaisSection = () => {
             className="bg-gradient-brand hover:opacity-90 transition-opacity text-lg px-8 py-6 rounded-xl glow text-white"
             onClick={() => document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" })}
           >
-            Solicitar Diagnóstico
+            Solicite Diagnóstico
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </motion.div>

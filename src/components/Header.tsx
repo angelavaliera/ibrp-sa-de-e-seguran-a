@@ -175,7 +175,7 @@ const Header = () => {
             className="bg-gradient-brand hover:opacity-90 transition-opacity"
             onClick={handleScrollToContato}
           >
-            Solicitar Diagnóstico
+            Solicite Orçamento
           </Button>
           {/* Área do Cliente — temporariamente oculto
           <div className="relative" ref={dropdownRef}>
@@ -200,7 +200,7 @@ const Header = () => {
               handleScrollToContato();
             }}
           >
-            Solicitar Diagnóstico
+            Solicite Orçamento
           </Button>
           <button className="text-foreground" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X size={24} /> : <Menu size={24} />}
