@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import logoSelo from "@/assets/logo-ibrp-selo.png";
 import type { BlogArticle } from "@/lib/blog-types";
+
 import { getRecentArticles } from "@/lib/sanity-client";
 
 const socialLinks = [
