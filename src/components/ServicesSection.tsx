@@ -29,7 +29,7 @@ const steps = [
 
 const ServicesSection = () => {
   return (
-    <section id="servicos" className="py-24 bg-muted/30">
+    <section id="nr-1" className="py-24 bg-muted/30">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

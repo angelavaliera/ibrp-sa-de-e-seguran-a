@@ -7,10 +7,12 @@ import logoHorizontal from "@/assets/logo-horizontal-black.png";
 const navItems = [
   { label: "Início", href: "#inicio" },
   { label: "Sobre o IBRP", href: "#sobre" },
-  { label: "NR-1", href: "#servicos" },
+  { label: "Diferenciais", href: "#diferenciais" },
+  { label: "NR-1", href: "#nr-1" },
   { label: "Palestras e Treinamentos", href: "#palestras" },
   // { label: "Cursos", href: "#cursos" }, — oculto até termos 3 cursos
   { label: "Central de Inteligência", href: "/blog" },
+  { label: "Contato", href: "#contato" },
 ];
 
 const sectionIds = navItems
