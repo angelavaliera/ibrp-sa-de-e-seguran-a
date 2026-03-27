@@ -70,9 +70,9 @@ const Links = () => {
           custom={0}
         >
           <img
-            src="/favicon.ico"
+            src={logoSelo}
             alt="IBRP Logo"
-            className="w-28 h-28 rounded-full object-cover border-4 border-primary/20 shadow-lg"
+            className="w-28 h-28 rounded-full object-cover border-4 border-primary/20 shadow-lg bg-white"
           />
           <h1 className="font-heading font-bold text-xl text-foreground leading-tight">
             Instituto Brasileiro de Riscos Psicossociais
@@ -96,15 +96,15 @@ const Links = () => {
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </a>
-          <a href="/#palestras">
+          <a href="/#contato">
             <Button className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-base px-6 py-5 rounded-xl glow text-white">
-              Palestras e Treinamentos Corporativos
+              Solicite diagnóstico para sua empresa
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </a>
-          <a href="/#contato">
+          <a href="/#palestras">
             <Button className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-base px-6 py-5 rounded-xl glow text-white">
-              Solicite um Diagnóstico para sua Empresa
+              Palestras e Treinamentos Corporativos
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </a>
