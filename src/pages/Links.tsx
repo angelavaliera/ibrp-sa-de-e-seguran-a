@@ -110,13 +110,37 @@ const Links = () => {
           </a>
         </motion.div>
 
+        {/* Capacitação */}
+        <motion.div
+          className="w-full flex flex-col gap-3"
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}
+          custom={2}
+        >
+          <h2 className="font-heading font-bold text-lg text-foreground text-center">
+            Capacitação
+          </h2>
+          <Link to="/curso-NR1-gestao">
+            <Button className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-base px-6 py-5 rounded-xl glow text-white text-left leading-tight">
+              Curso: Gestão de Riscos Psicossociais
+            </Button>
+          </Link>
+          <Link to="/curso-NR1-terapeutas-PICS">
+            <Button className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-sm px-6 py-5 rounded-xl glow text-white text-left leading-tight whitespace-normal h-auto">
+              Curso: Terapeutas Integrativos nas Empresas — Atuação em Riscos
+              Psicossociais alinhada à NR-1
+            </Button>
+          </Link>
+        </motion.div>
+
         {/* Central de Inteligência */}
         <motion.div
           className="w-full flex flex-col gap-4"
           initial="hidden"
           animate="visible"
           variants={fadeUp}
-          custom={2}
+          custom={3}
         >
           <h2 className="font-heading font-bold text-lg text-foreground text-center">
             Central de Inteligência
@@ -151,30 +175,6 @@ const Links = () => {
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </a>
-        </motion.div>
-
-        {/* Capacitação */}
-        <motion.div
-          className="w-full flex flex-col gap-3"
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-          custom={3}
-        >
-          <h2 className="font-heading font-bold text-lg text-foreground text-center">
-            Capacitação
-          </h2>
-          <Link to="/curso-NR1-gestao">
-            <Button className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-base px-6 py-5 rounded-xl glow text-white text-left leading-tight">
-              Curso: Gestão de Riscos Psicossociais
-            </Button>
-          </Link>
-          <Link to="/curso-NR1-terapeutas-PICS">
-            <Button className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-sm px-6 py-5 rounded-xl glow text-white text-left leading-tight whitespace-normal h-auto">
-              Curso: Terapeutas Integrativos nas Empresas — Atuação em Riscos
-              Psicossociais alinhada à NR-1
-            </Button>
-          </Link>
         </motion.div>
 
         {/* Mídias */}
