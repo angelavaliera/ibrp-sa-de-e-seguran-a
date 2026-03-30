@@ -614,7 +614,6 @@ const CursoGestaoRiscos = () => {
               <div className="mt-6 space-y-2 text-sm text-muted-foreground">
                 {[
                   "20h de conteúdo em vídeo + PDFs",
-                  "Grupo exclusivo no Telegram para dúvidas",
                   "Certificado de conclusão",
                 ].map((item, i) => (
                   <div key={i} className="flex items-center justify-center gap-2">
