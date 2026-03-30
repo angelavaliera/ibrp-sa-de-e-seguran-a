@@ -326,12 +326,7 @@ const CursoGestaoRiscos = () => {
               Público-alvo
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              Destinado a gestores, líderes, profissionais de RH, SESMT e consultores que precisam{" "}
-              <strong className="text-foreground">
-                entender as obrigações legais e implementar um programa eficaz
-              </strong>{" "}
-              de gerenciamento de riscos psicossociais em organizações, em conformidade com a
-              NR-1.
+              Destinado a gestores, líderes, profissionais de RH, de SESMT, advogados e consultores que precisam entender as obrigações legais e implementar um programa eficaz de gerenciamento de riscos psicossociais em organizações, em conformidade com a NR-1.
             </p>
           </motion.div>
         </div>
