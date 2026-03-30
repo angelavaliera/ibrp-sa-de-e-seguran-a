@@ -46,7 +46,7 @@ const modules = [
   {
     title: "Módulo 1 — Introdução: A Atualização da NR-1 e os Riscos Psicossociais",
     items: [
-      "Os riscos psicossociais, a saúde mental e a oportunidade para Terapeutas Integrativos",
+      "Os riscos psicossociais e a saúde mental",
       "Fundamentos Jurídicos e Normativos da saúde mental no trabalho",
       "Estrutura base para adequação à NR-1",
     ],
@@ -116,7 +116,7 @@ const professors = [
 const highlights = [
   { icon: Clock, label: "20 horas de conteúdo" },
   { icon: BookOpen, label: "Aulas em vídeo + material em PDF" },
-  { icon: Users, label: "Grupo exclusivo no Telegram" },
+  
   { icon: Calendar, label: "Acesso até 31/12/2026" },
   { icon: GraduationCap, label: "Início imediato" },
 ];
@@ -332,6 +332,31 @@ const CursoGestaoRiscos = () => {
               </strong>{" "}
               de gerenciamento de riscos psicossociais em organizações, em conformidade com a
               NR-1.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── Objetivo do Curso ── */}
+      <section className="py-16">
+        <div className="container mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mx-auto text-center"
+          >
+            <span className="text-sm font-medium text-primary uppercase tracking-widest">
+              Propósito
+            </span>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mt-3 mb-5">
+              Objetivo do curso
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Capacitar profissionais para uma atuação estratégica no contexto empresarial, com foco na identificação, no desenvolvimento e na execução de ações voltadas à mitigação dos riscos psicossociais da NR-1.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              Qualificar profissionais tornando-os aptos a propor, implementar e monitorar intervenções efetivas em saúde mental no ambiente corporativo, promovendo a redução do estresse, prevenção do adoecimento ocupacional e o fortalecimento do bem-estar coletivo nas empresas, em conformidade com a legislação trabalhista e com a NR-1.
             </p>
           </motion.div>
         </div>
