@@ -586,11 +586,6 @@ const CursoTerapeutasPICS = () => {
               {/* Decorative top gradient bar */}
               <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-brand" />
 
-              <img
-                src={logoSelo}
-                alt="Selo Instituto Brasileiro de Riscos Psicossociais - IBRP"
-                className="w-16 h-16 mx-auto mb-6 object-contain"
-              />
 
               <h2 className="text-2xl font-heading font-bold mb-2">
                 Garanta sua vaga
