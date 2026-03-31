@@ -61,7 +61,23 @@ const modules = [
     ],
   },
   {
-    title: "Módulo 3 — Do Inventário ao Plano de Ação: a Atuação Estratégica",
+    title: "Módulo 3 — Riscos Psicossociais e Conformidade Legal na Prática",
+    items: [
+      "Riscos e Responsabilidades Legais frente a NR-1",
+      "Riscos e Responsabilidades Contratuais – Prestação do Serviço de Consultoria",
+    ],
+  },
+  {
+    title: "Módulo 4 — Inventário de Riscos Psicossociais",
+    items: [
+      "O que muda no inventário de riscos da NR-1 com os psicossociais",
+      "Levantamento de indicadores de saúde mental da empresa",
+      "Ferramentas de identificação e avaliação de riscos psicossociais - Questionários Internacionais e Nacionais",
+      "Questionário Riscos Psicossociais IBRP",
+    ],
+  },
+  {
+    title: "Módulo 5 — Do Inventário ao Plano de Ação: a Atuação Estratégica",
     items: [
       "Como são levantados os riscos psicossociais de uma empresa, conhecendo ferramentas",
       "Da teoria à prática: Como traduzir relatórios de riscos em ações concretas",
@@ -71,14 +87,7 @@ const modules = [
     ],
   },
   {
-    title: "Módulo 4 — Riscos Psicossociais e Conformidade Legal na Prática",
-    items: [
-      "Riscos e Responsabilidades Legais frente a NR-1",
-      "Riscos e Responsabilidades Contratuais – Prestação do Serviço de Consultoria",
-    ],
-  },
-  {
-    title: "Módulo 5 — Apresentando o Retorno do Investimento em saúde mental à empresa",
+    title: "Módulo 6 — Apresentando o Retorno do Investimento em saúde mental à empresa",
     items: ["Cálculo de ROI – Return of Investment"],
   },
 ];
