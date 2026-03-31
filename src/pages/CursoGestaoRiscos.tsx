@@ -123,7 +123,7 @@ const professors = [
 ];
 
 const highlights = [
-  { icon: Clock, label: "20 horas de conteúdo" },
+  { icon: Clock, label: "10 horas de conteúdo" },
   { icon: BookOpen, label: "Aulas em vídeo + material em PDF" },
   
   { icon: Calendar, label: "Acesso até 31/12/2026" },

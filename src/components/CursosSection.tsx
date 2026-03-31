@@ -7,7 +7,7 @@ const courses = [
   {
     title: "Gestão de Riscos Psicossociais",
     description: "Capacitação para profissionais de diversas áreas que desejam atuar estrategicamente nas empresas com implementação e gerenciamento de riscos psicossociais, em conformidade com a NR-1.",
-    hours: "20h",
+    hours: "10h",
     icon: BookOpen,
     featured: false,
     link: "/curso-NR1-gestao",
