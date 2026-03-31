@@ -10,7 +10,7 @@ const navItems = [
   { label: "Diferenciais", href: "#diferenciais" },
   { label: "NR-1", href: "#nr-1" },
   { label: "Palestras e Treinamentos", href: "#palestras" },
-  // { label: "Cursos", href: "#cursos" }, — oculto até termos 3 cursos
+  { label: "Cursos", href: "#cursos" },
   { label: "Central de Inteligência", href: "/blog" },
 ];
 

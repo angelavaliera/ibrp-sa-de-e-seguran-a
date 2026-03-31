@@ -109,7 +109,7 @@ const Footer = () => {
                 <li><a href="/#diferenciais" onClick={(e) => handleNavClick(e, "diferenciais")} className="hover:text-foreground transition-colors">Diferenciais</a></li>
                 <li><a href="/#nr-1" onClick={(e) => handleNavClick(e, "nr-1")} className="hover:text-foreground transition-colors">NR-1</a></li>
                 <li><a href="/#palestras" onClick={(e) => handleNavClick(e, "palestras")} className="hover:text-foreground transition-colors">Palestras e Treinamentos</a></li>
-                {/* <li><a href="/#cursos" onClick={(e) => handleNavClick(e, "cursos")} className="hover:text-foreground transition-colors">Cursos</a></li> — oculto até termos 3 cursos */}
+                <li><a href="/#cursos" onClick={(e) => handleNavClick(e, "cursos")} className="hover:text-foreground transition-colors">Cursos</a></li>
                 <li><Link to="/blog" className="hover:text-foreground transition-colors">Central de Inteligência</Link></li>
                 <li><a href="/#contato" onClick={(e) => handleNavClick(e, "contato")} className="hover:text-foreground transition-colors">Contato</a></li>
               </ul>
