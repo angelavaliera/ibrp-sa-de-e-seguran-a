@@ -38,7 +38,7 @@ import profAngela from "@/assets/prof-angela.png";
 
 import profIzabella from "@/assets/prof-izabella.png";
 
-const CHECKOUT_URL = "#"; // TODO: substituir pela URL real de checkout
+const CHECKOUT_URL = "https://pay.voompcreators.com.br/14076";
 
 /* ─── Data ─── */
 
