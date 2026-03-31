@@ -79,11 +79,11 @@ const modules = [
   {
     title: "Módulo 5 — Do Inventário ao Plano de Ação: a Atuação Estratégica",
     items: [
-      "Como são levantados os riscos psicossociais de uma empresa, conhecendo ferramentas",
-      "Da teoria à prática: Como traduzir relatórios de riscos em ações concretas",
-      "Estudos de Casos Práticos",
-      "Documentos e Ferramentas",
-      "Limites e responsabilidades profissionais",
+      "Da teoria à prática: Como traduzir inventários de riscos em ações concretas",
+      "Ações fundamentais para gestão de riscos psicossociais",
+      "Ações de acordo com os riscos levantados",
+      "Definindo ações internas e ações com fornecedores",
+      "Documentação exigida para comprovar a realização das ações",
     ],
   },
   {
