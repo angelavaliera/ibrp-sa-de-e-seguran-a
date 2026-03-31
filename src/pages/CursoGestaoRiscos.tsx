@@ -591,10 +591,10 @@ const CursoGestaoRiscos = () => {
                 <span className="text-sm text-muted-foreground">Investimento</span>
               </div>
               <div className="text-3xl font-heading font-bold text-foreground mb-1">
-                Em breve
+                6x de R$ 163,87
               </div>
               <p className="text-base text-muted-foreground mb-8">
-                Preço a ser anunciado
+                ou à vista <strong className="text-foreground text-lg">R$ 890,00</strong>
               </p>
 
               <Button
