@@ -35,7 +35,7 @@ import gestaoHeroBg from "@/assets/gestao-hero-bg.jpg";
 import aulaOnlineBg from "@/assets/aula-online-bg.jpg";
 
 import profAngela from "@/assets/prof-angela.png";
-import profIvanize from "@/assets/prof-ivanize.png";
+
 import profIzabella from "@/assets/prof-izabella.png";
 
 const CHECKOUT_URL = "#"; // TODO: substituir pela URL real de checkout
