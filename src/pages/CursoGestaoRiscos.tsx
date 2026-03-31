@@ -35,7 +35,7 @@ import gestaoHeroBg from "@/assets/gestao-hero-bg.jpg";
 import aulaOnlineBg from "@/assets/aula-online-bg.jpg";
 
 import profAngela from "@/assets/prof-angela.png";
-import profIvanize from "@/assets/prof-ivanize.png";
+
 import profIzabella from "@/assets/prof-izabella.png";
 
 const CHECKOUT_URL = "#"; // TODO: substituir pela URL real de checkout
@@ -102,13 +102,6 @@ const professors = [
       linkedin: "https://www.linkedin.com/in/angelavaliera/",
       instagram: "https://www.instagram.com/angelavaliera/",
     },
-  },
-  {
-    name: "Ivanize Martins Moraes Silva",
-    role: "Gestora de RH e Consultora de Transformação Empresarial",
-    bio: "Mais de 15 anos em posições de liderança em multinacionais de grande porte. MBA em Gestão de Pessoas e Administração de Empresas (FGV). Certificada em ESG, DISC, Coaching e PNL. Especialista em transformação cultural e governança corporativa.",
-    photo: profIvanize,
-    socials: {},
   },
   {
     name: "Izabella Alonso Soares",
