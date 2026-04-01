@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Play, ExternalLink } from "lucide-react";
 import { trackEvent } from "@/lib/gtag";
+import { appendUtmToUrl } from "@/lib/utm";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import logoSelo from "@/assets/logo-ibrp-selo.png";
@@ -91,19 +92,19 @@ const Links = () => {
           variants={fadeUp}
           custom={1}
         >
-          <a href="/#nr-1">
+          <a href={appendUtmToUrl("/#nr-1")}>
             <Button className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-base px-6 py-5 rounded-xl glow text-white">
               Soluções NR-1
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </a>
-          <a href="/#palestras">
+          <a href={appendUtmToUrl("/#palestras")}>
             <Button className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-base px-6 py-5 rounded-xl glow text-white">
               Palestras e Treinamentos Corporativos
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </a>
-          <a href="/#contato" onClick={() => trackEvent("geracao_lead_b2b", { origem: "links" })}>
+          <a href={appendUtmToUrl("/#contato")} onClick={() => trackEvent("geracao_lead_b2b", { origem: "links" })}>
             <Button className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-base px-6 py-5 rounded-xl glow text-white">
               Solicite orçamento para sua empresa
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -122,12 +123,12 @@ const Links = () => {
           <h2 className="font-heading font-bold text-lg text-foreground text-center">
             Capacitação
           </h2>
-          <Link to="/curso-NR1-gestao">
+          <Link to={appendUtmToUrl("/curso-NR1-gestao")}>
             <Button className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-base px-6 py-5 rounded-xl glow text-white text-left leading-tight">
               Curso: Gestão de Riscos Psicossociais
             </Button>
           </Link>
-          <Link to="/curso-NR1-terapeutas-PICS">
+          <Link to={appendUtmToUrl("/curso-NR1-terapeutas-PICS")}>
             <Button className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-sm px-6 py-5 rounded-xl glow text-white text-left leading-tight whitespace-normal h-auto">
               Curso: Terapeutas Integrativos nas Empresas — Atuação em Riscos
               Psicossociais alinhada à NR-1
@@ -171,7 +172,7 @@ const Links = () => {
             </div>
           )}
 
-          <a href="/blog#newsletter-signup" className="w-full">
+          <a href={appendUtmToUrl("/blog#newsletter-signup")} className="w-full">
             <Button className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-base px-6 py-5 rounded-xl glow text-white">
               Assine a Newsletter da Central de Inteligência
               <ArrowRight className="ml-2 h-4 w-4" />

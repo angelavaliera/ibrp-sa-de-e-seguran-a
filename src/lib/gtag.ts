@@ -1,6 +1,8 @@
 // Thin wrapper around gtag for custom conversion events
 // Google Tag is loaded globally via index.html (G-75RMWMHVMR)
 
+import { getUtmParams } from "@/lib/utm";
+
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
@@ -18,6 +20,7 @@ export function trackEvent(
   params?: Record<string, string>,
 ) {
   if (typeof window.gtag === "function") {
-    window.gtag("event", event, params);
+    const utms = getUtmParams();
+    window.gtag("event", event, { ...utms, ...params });
   }
 }
