@@ -103,7 +103,7 @@ const Links = () => {
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </a>
-          <a href="/#contato">
+          <a href="/#contato" onClick={() => trackEvent("geracao_lead_b2b", { origem: "links" })}>
             <Button className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-base px-6 py-5 rounded-xl glow text-white">
               Solicite orçamento para sua empresa
               <ArrowRight className="ml-2 h-4 w-4" />
