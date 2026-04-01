@@ -40,7 +40,7 @@ import profIzabella from "@/assets/prof-izabella.png";
 import logoSelo from "@/assets/logo-ibrp-selo.png";
 
 const CHECKOUT_URL =
-  "https://pay.voompcreators.com.br/11613/offer/o4EZpp/?ch_id=2399";
+  "https://pay.voompcreators.com.br/11613/offer/SttIGT";
 
 /* ─── Data ─── */
 
