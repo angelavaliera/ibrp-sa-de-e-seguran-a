@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ShieldCheck, Zap, Users, BarChart3, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { trackEvent } from "@/lib/gtag";
 
 
 const differentials = [
