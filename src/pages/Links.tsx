@@ -172,7 +172,7 @@ const Links = () => {
             </div>
           )}
 
-          <a href="/blog#newsletter-signup" className="w-full">
+          <a href={appendUtmToUrl("/blog#newsletter-signup")} className="w-full">
             <Button className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-base px-6 py-5 rounded-xl glow text-white">
               Assine a Newsletter da Central de Inteligência
               <ArrowRight className="ml-2 h-4 w-4" />
