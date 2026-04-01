@@ -92,19 +92,19 @@ const Links = () => {
           variants={fadeUp}
           custom={1}
         >
-          <a href="/#nr-1">
+          <a href={appendUtmToUrl("/#nr-1")}>
             <Button className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-base px-6 py-5 rounded-xl glow text-white">
               Soluções NR-1
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </a>
-          <a href="/#palestras">
+          <a href={appendUtmToUrl("/#palestras")}>
             <Button className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-base px-6 py-5 rounded-xl glow text-white">
               Palestras e Treinamentos Corporativos
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </a>
-          <a href="/#contato" onClick={() => trackEvent("geracao_lead_b2b", { origem: "links" })}>
+          <a href={appendUtmToUrl("/#contato")} onClick={() => trackEvent("geracao_lead_b2b", { origem: "links" })}>
             <Button className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-base px-6 py-5 rounded-xl glow text-white">
               Solicite orçamento para sua empresa
               <ArrowRight className="ml-2 h-4 w-4" />
