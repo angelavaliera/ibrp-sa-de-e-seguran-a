@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Play, ExternalLink } from "lucide-react";
 import { trackEvent } from "@/lib/gtag";
+import { appendUtmToUrl } from "@/lib/utm";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import logoSelo from "@/assets/logo-ibrp-selo.png";
