@@ -110,7 +110,7 @@ const DiferenciaisSection = () => {
           <Button
             size="lg"
             className="bg-gradient-brand hover:opacity-90 transition-opacity text-lg px-8 py-6 rounded-xl glow text-white"
-            onClick={() => document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={() => { trackEvent("geracao_lead_b2b", { origem: "diferenciais" }); document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" }); }}
           >
             Solicite Diagnóstico
             <ArrowRight className="ml-2 h-5 w-5" />

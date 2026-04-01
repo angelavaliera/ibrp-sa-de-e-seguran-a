@@ -153,6 +153,7 @@ const Links = () => {
                 <Link
                   key={article.slug}
                   to={`/blog/${article.slug}`}
+                  onClick={() => trackEvent("clique_central_inteligencia", { artigo: article.slug })}
                   className="group flex gap-3 items-start rounded-xl border border-border bg-card p-3 hover:shadow-md transition-shadow"
                 >
                   {article.coverImage && (

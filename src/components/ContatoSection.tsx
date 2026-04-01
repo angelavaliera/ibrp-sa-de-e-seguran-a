@@ -116,6 +116,7 @@ const ContatoSection = () => {
       },
     });
 
+    trackEvent("geracao_lead_b2b", { origem: "formulario_contato" });
     toast({
       title: "Solicitação enviada!",
       description: "Nossa equipe entrará em contato em breve.",
