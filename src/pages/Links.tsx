@@ -123,12 +123,12 @@ const Links = () => {
           <h2 className="font-heading font-bold text-lg text-foreground text-center">
             Capacitação
           </h2>
-          <Link to="/curso-NR1-gestao">
+          <Link to={appendUtmToUrl("/curso-NR1-gestao")}>
             <Button className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-base px-6 py-5 rounded-xl glow text-white text-left leading-tight">
               Curso: Gestão de Riscos Psicossociais
             </Button>
           </Link>
-          <Link to="/curso-NR1-terapeutas-PICS">
+          <Link to={appendUtmToUrl("/curso-NR1-terapeutas-PICS")}>
             <Button className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-sm px-6 py-5 rounded-xl glow text-white text-left leading-tight whitespace-normal h-auto">
               Curso: Terapeutas Integrativos nas Empresas — Atuação em Riscos
               Psicossociais alinhada à NR-1
