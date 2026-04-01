@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Play, ExternalLink } from "lucide-react";
+import { trackEvent } from "@/lib/gtag";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import logoSelo from "@/assets/logo-ibrp-selo.png";
@@ -102,7 +103,7 @@ const Links = () => {
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </a>
-          <a href="/#contato">
+          <a href="/#contato" onClick={() => trackEvent("geracao_lead_b2b", { origem: "links" })}>
             <Button className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-base px-6 py-5 rounded-xl glow text-white">
               Solicite orçamento para sua empresa
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -152,6 +153,7 @@ const Links = () => {
                 <Link
                   key={article.slug}
                   to={`/blog/${article.slug}`}
+                  onClick={() => trackEvent("clique_central_inteligencia", { artigo: article.slug })}
                   className="group flex gap-3 items-start rounded-xl border border-border bg-card p-3 hover:shadow-md transition-shadow"
                 >
                   {article.coverImage && (

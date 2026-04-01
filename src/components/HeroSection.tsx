@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
+import { trackEvent } from "@/lib/gtag";
 
 const HeroSection = () => {
   return (
@@ -40,7 +41,7 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button size="lg" className="bg-gradient-brand hover:opacity-90 transition-opacity text-lg px-8 py-6 rounded-xl glow text-white" onClick={() => document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" })}>
+            <Button size="lg" className="bg-gradient-brand hover:opacity-90 transition-opacity text-lg px-8 py-6 rounded-xl glow text-white" onClick={() => { trackEvent("geracao_lead_b2b", { origem: "hero" }); document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" }); }}>
               Solicite Diagnóstico
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>

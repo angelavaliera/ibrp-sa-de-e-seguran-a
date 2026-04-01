@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { trackEvent } from "@/lib/gtag";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -115,6 +116,7 @@ const ContatoSection = () => {
       },
     });
 
+    trackEvent("geracao_lead_b2b", { origem: "formulario_contato" });
     toast({
       title: "Solicitação enviada!",
       description: "Nossa equipe entrará em contato em breve.",

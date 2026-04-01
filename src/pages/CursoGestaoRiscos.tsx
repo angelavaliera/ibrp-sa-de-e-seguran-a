@@ -28,6 +28,7 @@ import Footer from "@/components/Footer";
 import { Input } from "@/components/ui/input";
 import { supabase } from "@/integrations/supabase/client";
 import { syncToMailerLite } from "@/lib/sync-mailerlite";
+import { trackEvent } from "@/lib/gtag";
 import { formatPhone, isValidPhone, phoneDigits } from "@/lib/phone-utils";
 import { useToast } from "@/hooks/use-toast";
 import logoSelo from "@/assets/logo-ibrp-selo.png";
@@ -602,7 +603,7 @@ const CursoGestaoRiscos = () => {
                 className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-lg py-6 rounded-xl glow text-white"
                 asChild
               >
-                <a href={CHECKOUT_URL} target="_blank" rel="noopener noreferrer">
+                <a href={CHECKOUT_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("clique_matricula_curso", { curso: "gestao_riscos" })}>
                   Quero me inscrever
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
@@ -644,7 +645,7 @@ const CursoGestaoRiscos = () => {
               className="bg-gradient-brand hover:opacity-90 transition-opacity text-lg px-8 py-6 rounded-xl glow text-white"
               asChild
             >
-              <a href={CHECKOUT_URL} target="_blank" rel="noopener noreferrer">
+              <a href={CHECKOUT_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("clique_matricula_curso", { curso: "gestao_riscos" })}>
                 Quero me inscrever
                 <ArrowRight className="ml-2 h-5 w-5" />
               </a>

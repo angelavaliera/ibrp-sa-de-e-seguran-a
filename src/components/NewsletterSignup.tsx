@@ -14,6 +14,7 @@ import { Mail, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { syncToMailerLite } from "@/lib/sync-mailerlite";
+import { trackEvent } from "@/lib/gtag";
 
 const profiles = [
   "Empresário(a)",
@@ -94,6 +95,7 @@ const NewsletterSignup = ({ variant = "footer" }: NewsletterSignupProps) => {
       fields: { perfil: result.data.perfil },
     });
 
+    trackEvent("assinatura_newsletter", { perfil: result.data.perfil });
     toast({
       title: "Inscrição realizada!",
       description: "Você receberá nossos conteúdos em breve.",
