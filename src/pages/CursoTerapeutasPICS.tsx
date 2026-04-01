@@ -40,7 +40,7 @@ import profIzabella from "@/assets/prof-izabella.png";
 import logoSelo from "@/assets/logo-ibrp-selo.png";
 
 const CHECKOUT_URL =
-  "https://pay.voompcreators.com.br/11613/offer/o4EZpp/?ch_id=2399";
+  "https://pay.voompcreators.com.br/11613/offer/SttIGT";
 
 /* ─── Data ─── */
 
@@ -598,10 +598,10 @@ const CursoTerapeutasPICS = () => {
                 <span className="text-sm text-muted-foreground">Investimento</span>
               </div>
               <div className="text-3xl font-heading font-bold text-foreground mb-1">
-                10x de R$ 219,53
+                10x de R$ 188,00
               </div>
               <p className="text-base text-muted-foreground mb-8">
-                ou à vista <strong className="text-foreground text-lg">R$ 1.880</strong>
+                ou à vista <strong className="text-foreground text-lg">R$ 1.610,00</strong>
               </p>
 
               <Button
