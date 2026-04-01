@@ -95,6 +95,7 @@ const NewsletterSignup = ({ variant = "footer" }: NewsletterSignupProps) => {
       fields: { perfil: result.data.perfil },
     });
 
+    trackEvent("assinatura_newsletter", { perfil: result.data.perfil });
     toast({
       title: "Inscrição realizada!",
       description: "Você receberá nossos conteúdos em breve.",
