@@ -652,6 +652,28 @@ const CursoGestaoRiscos = () => {
               </div>
             </div>
           </motion.div>
+
+          {showInscForm && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="max-w-md mx-auto mt-10"
+            >
+              <div className="rounded-2xl border border-[hsl(228_30%_85%)] p-8" style={{ background: "hsl(228, 30%, 94%)", boxShadow: "var(--shadow-card)" }}>
+                <h3 className="text-xl font-heading font-bold mb-2 text-center">Preencha seus dados</h3>
+                <p className="text-sm text-muted-foreground mb-6 text-center">Após o envio, você será direcionado(a) para a página de pagamento.</p>
+                <form onSubmit={handleInscSubmit} className="space-y-4">
+                  <Input placeholder="Seu nome completo" value={inscForm.nome} onChange={(e) => setInscForm(f => ({ ...f, nome: e.target.value }))} required maxLength={100} className="h-12 rounded-xl" />
+                  <Input type="email" placeholder="Seu melhor e-mail" value={inscForm.email} onChange={(e) => setInscForm(f => ({ ...f, email: e.target.value }))} required maxLength={255} className="h-12 rounded-xl" />
+                  <Input type="tel" placeholder="Celular com DDD" value={inscForm.telefone} onChange={(e) => setInscForm(f => ({ ...f, telefone: formatPhone(e.target.value) }))} required maxLength={15} className="h-12 rounded-xl" />
+                  <Button type="submit" size="lg" disabled={inscLoading} className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-lg py-6 rounded-xl glow text-white">
+                    {inscLoading ? "Enviando..." : "Continuar para pagamento"}
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </form>
+              </div>
+            </motion.div>
+          )}
         </div>
       </section>
 
