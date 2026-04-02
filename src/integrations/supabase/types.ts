@@ -59,6 +59,7 @@ export type Database = {
           email: string
           id: string
           nome: string
+          status_funil: string | null
           telefone: string | null
         }
         Insert: {
@@ -66,6 +67,7 @@ export type Database = {
           email: string
           id?: string
           nome: string
+          status_funil?: string | null
           telefone?: string | null
         }
         Update: {
@@ -73,6 +75,7 @@ export type Database = {
           email?: string
           id?: string
           nome?: string
+          status_funil?: string | null
           telefone?: string | null
         }
         Relationships: []
@@ -83,6 +86,7 @@ export type Database = {
           email: string
           id: string
           nome: string
+          status_funil: string | null
           telefone: string | null
         }
         Insert: {
@@ -90,6 +94,7 @@ export type Database = {
           email: string
           id?: string
           nome: string
+          status_funil?: string | null
           telefone?: string | null
         }
         Update: {
@@ -97,6 +102,7 @@ export type Database = {
           email?: string
           id?: string
           nome?: string
+          status_funil?: string | null
           telefone?: string | null
         }
         Relationships: []

@@ -41,7 +41,8 @@ serve(async (req) => {
       fields: {
         name: nome,
         last_name: "",
-        ...fields,
+        ...(fields?.status_funil ? { status_funil: fields.status_funil } : {}),
+        ...Object.fromEntries(Object.entries(fields || {}).filter(([k]) => k !== "status_funil")),
       },
       groups: group_id ? [group_id] : [],
     };

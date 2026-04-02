@@ -131,6 +131,9 @@ const CursoGestaoRiscos = () => {
   const { toast } = useToast();
   const [aulaForm, setAulaForm] = useState({ nome: "", email: "", telefone: "" });
   const [aulaLoading, setAulaLoading] = useState(false);
+  const [inscForm, setInscForm] = useState({ nome: "", email: "", telefone: "" });
+  const [inscLoading, setInscLoading] = useState(false);
+  const [showInscForm, setShowInscForm] = useState(false);
 
   useEffect(() => {
     document.title = "Curso Gestão de Riscos Psicossociais | IBRP";
@@ -139,39 +142,68 @@ const CursoGestaoRiscos = () => {
   const scrollToCheckout = () =>
     document.getElementById("checkout")?.scrollIntoView({ behavior: "smooth" });
 
-  const handleAulaSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const nome = aulaForm.nome.trim();
-    const email = aulaForm.email.trim();
-    const tel = phoneDigits(aulaForm.telefone);
-    
+  const validateForm = (form: { nome: string; email: string; telefone: string }) => {
+    const nome = form.nome.trim();
+    const email = form.email.trim();
     if (!nome || nome.length > 100) {
       toast({ title: "Nome inválido", description: "Preencha um nome válido (máx. 100 caracteres).", variant: "destructive" });
-      return;
+      return null;
     }
     if (!email || email.length > 255 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       toast({ title: "E-mail inválido", description: "Preencha um e-mail válido.", variant: "destructive" });
-      return;
+      return null;
     }
-    if (!isValidPhone(aulaForm.telefone)) {
+    if (!isValidPhone(form.telefone)) {
       toast({ title: "Celular inválido", description: "Preencha o celular com DDD. Ex: (11) 99999-9999", variant: "destructive" });
-      return;
+      return null;
     }
+    return { nome, email, tel: phoneDigits(form.telefone) };
+  };
+
+  const handleAulaSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const data = validateForm(aulaForm);
+    if (!data) return;
     
     setAulaLoading(true);
     const { error } = await supabase.from("curso_gestao_leads").insert({
-      nome,
-      email,
-      telefone: tel,
-    });
+      nome: data.nome,
+      email: data.email,
+      telefone: data.tel,
+      status_funil: "aula_demo",
+    } as any);
     setAulaLoading(false);
     if (error) {
       toast({ title: "Erro ao enviar", description: "Tente novamente.", variant: "destructive" });
       return;
     }
-    syncToMailerLite({ email, nome, source: "curso_gestao", group_id: "182467397207197054", fields: { phone: tel } });
+    syncToMailerLite({ email: data.email, nome: data.nome, source: "curso_gestao", group_id: "182467397207197054", fields: { phone: data.tel, status_funil: "aula_demo" } });
     sessionStorage.setItem("aula-experimental-access", "true");
     navigate("/aula-experimental");
+  };
+
+  const handleInscSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const data = validateForm(inscForm);
+    if (!data) return;
+
+    setInscLoading(true);
+    const { error } = await supabase.from("curso_gestao_leads").insert({
+      nome: data.nome,
+      email: data.email,
+      telefone: data.tel,
+      status_funil: "clicou_inscricao",
+    } as any);
+    setInscLoading(false);
+    if (error) {
+      toast({ title: "Erro ao enviar", description: "Tente novamente.", variant: "destructive" });
+      return;
+    }
+    syncToMailerLite({ email: data.email, nome: data.nome, source: "curso_gestao", group_id: "182467397207197054", fields: { phone: data.tel, status_funil: "clicou_inscricao" } });
+    trackEvent("clique_matricula_curso", { curso: "gestao_riscos" });
+    window.open(CHECKOUT_URL, "_blank");
+    setShowInscForm(false);
+    setInscForm({ nome: "", email: "", telefone: "" });
   };
 
   return (
@@ -601,12 +633,10 @@ const CursoGestaoRiscos = () => {
               <Button
                 size="lg"
                 className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-lg py-6 rounded-xl glow text-white"
-                asChild
+                onClick={() => { setShowInscForm(true); document.getElementById("checkout")?.scrollIntoView({ behavior: "smooth" }); }}
               >
-                <a href={CHECKOUT_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("clique_matricula_curso", { curso: "gestao_riscos" })}>
-                  Quero me inscrever
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </a>
+                Quero me inscrever
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
 
               <div className="mt-6 space-y-2 text-sm text-muted-foreground">
@@ -622,6 +652,28 @@ const CursoGestaoRiscos = () => {
               </div>
             </div>
           </motion.div>
+
+          {showInscForm && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="max-w-md mx-auto mt-10"
+            >
+              <div className="rounded-2xl border border-[hsl(228_30%_85%)] p-8" style={{ background: "hsl(228, 30%, 94%)", boxShadow: "var(--shadow-card)" }}>
+                <h3 className="text-xl font-heading font-bold mb-2 text-center">Preencha seus dados</h3>
+                <p className="text-sm text-muted-foreground mb-6 text-center">Após o envio, você será direcionado(a) para a página de pagamento.</p>
+                <form onSubmit={handleInscSubmit} className="space-y-4">
+                  <Input placeholder="Seu nome completo" value={inscForm.nome} onChange={(e) => setInscForm(f => ({ ...f, nome: e.target.value }))} required maxLength={100} className="h-12 rounded-xl" />
+                  <Input type="email" placeholder="Seu melhor e-mail" value={inscForm.email} onChange={(e) => setInscForm(f => ({ ...f, email: e.target.value }))} required maxLength={255} className="h-12 rounded-xl" />
+                  <Input type="tel" placeholder="Celular com DDD" value={inscForm.telefone} onChange={(e) => setInscForm(f => ({ ...f, telefone: formatPhone(e.target.value) }))} required maxLength={15} className="h-12 rounded-xl" />
+                  <Button type="submit" size="lg" disabled={inscLoading} className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-lg py-6 rounded-xl glow text-white">
+                    {inscLoading ? "Enviando..." : "Continuar para pagamento"}
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </form>
+              </div>
+            </motion.div>
+          )}
         </div>
       </section>
 
@@ -643,12 +695,10 @@ const CursoGestaoRiscos = () => {
             <Button
               size="lg"
               className="bg-gradient-brand hover:opacity-90 transition-opacity text-lg px-8 py-6 rounded-xl glow text-white"
-              asChild
+              onClick={() => { setShowInscForm(true); document.getElementById("checkout")?.scrollIntoView({ behavior: "smooth" }); }}
             >
-              <a href={CHECKOUT_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("clique_matricula_curso", { curso: "gestao_riscos" })}>
-                Quero me inscrever
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </a>
+              Quero me inscrever
+              <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </motion.div>
         </div>
