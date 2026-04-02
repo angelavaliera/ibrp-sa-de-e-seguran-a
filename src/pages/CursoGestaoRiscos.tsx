@@ -438,7 +438,7 @@ const CursoGestaoRiscos = () => {
             </h2>
           </motion.div>
 
-          <div className="grid sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="grid sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
             {professors.map((prof, i) => (
               <motion.div
                 key={i}
