@@ -11,6 +11,7 @@ import CursoGestaoRiscos from "./pages/CursoGestaoRiscos";
 import AulaExperimentalPICS from "./pages/AulaExperimentalPICS";
 import PoliticaPrivacidade from "./pages/PoliticaPrivacidade";
 import Links from "./pages/Links";
+import FAQ from "./pages/FAQ";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 import ScrollToTopButton from "./components/ScrollToTopButton";
@@ -36,6 +37,7 @@ const App = () => (
           <Route path="/aula-experimental" element={<AulaExperimentalPICS />} />
           <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />
           <Route path="/links" element={<Links />} />
+          <Route path="/faq" element={<FAQ />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
