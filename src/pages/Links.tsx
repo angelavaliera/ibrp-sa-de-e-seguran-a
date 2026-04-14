@@ -100,16 +100,22 @@ const Links = () => {
           </a>
           <a href={appendUtmToUrl("/#palestras")}>
             <Button className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-base px-6 py-5 rounded-xl glow text-white">
-              Palestras e Treinamentos Corporativos
+              Palestras e Treinamentos
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </a>
           <a href={appendUtmToUrl("/#contato")} onClick={() => trackEvent("geracao_lead_b2b", { origem: "links" })}>
             <Button className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-base px-6 py-5 rounded-xl glow text-white">
-              Solicite orçamento para sua empresa
+              Solicite Orçamento
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </a>
+          <Link to="/faq">
+            <Button className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-base px-6 py-5 rounded-xl glow text-white">
+              FAQ
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
         </motion.div>
 
         {/* Capacitação */}
@@ -121,16 +127,16 @@ const Links = () => {
           custom={2}
         >
           <h2 className="font-heading font-bold text-lg text-foreground text-center">
-            Capacitação
+            Cursos
           </h2>
           <Link to={appendUtmToUrl("/curso-NR1-gestao")}>
             <Button className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-base px-6 py-5 rounded-xl glow text-white text-left leading-tight">
-              Curso: Gestão de Riscos Psicossociais
+              Gestão de Riscos Psicossociais
             </Button>
           </Link>
           <Link to={appendUtmToUrl("/curso-NR1-terapeutas-PICS")}>
             <Button className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-sm px-6 py-5 rounded-xl glow text-white text-left leading-tight whitespace-normal h-auto">
-              Curso: Terapeutas Integrativos nas Empresas — Atuação em Riscos
+              Terapeutas Integrativos nas Empresas — Atuação em Riscos
               Psicossociais alinhada à NR-1
             </Button>
           </Link>
@@ -174,7 +180,7 @@ const Links = () => {
 
           <a href={appendUtmToUrl("/blog#newsletter-signup")} className="w-full">
             <Button className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-base px-6 py-5 rounded-xl glow text-white">
-              Assine a Newsletter da Central de Inteligência
+              Assine a Newsletter
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </a>
@@ -198,7 +204,7 @@ const Links = () => {
           >
             <Button className="w-full bg-gradient-brand hover:opacity-90 transition-opacity text-base px-6 py-5 rounded-xl glow text-white">
               <Play className="mr-2 h-4 w-4" />
-              Série de Videocasts Janeiro Branco
+              Videocasts
               <ExternalLink className="ml-2 h-4 w-4" />
             </Button>
           </a>
