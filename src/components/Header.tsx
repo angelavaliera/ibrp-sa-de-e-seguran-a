@@ -12,6 +12,7 @@ const navItems = [
   { label: "Palestras e Treinamentos", href: "#palestras" },
   { label: "Cursos", href: "#cursos" },
   { label: "Central de Inteligência", href: "/blog" },
+  { label: "FAQ", href: "/faq" },
 ];
 
 const sectionIds = navItems
