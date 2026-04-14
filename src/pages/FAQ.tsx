@@ -17,6 +17,56 @@ import { Badge } from "@/components/ui/badge";
 import { getFaqByCategory } from "@/lib/sanity-faq";
 import type { FaqItem } from "@/lib/faq-types";
 
+// Color mapping per category — mirrors DiferenciaisSection palette
+const categoryStyles: Record<string, { bg: string; border: string; accentBorder: string; iconText: string; pillActive: string }> = {
+  "Entenda as mudanças": {
+    bg: "bg-verde-selva/10",
+    border: "border-verde-selva/20",
+    accentBorder: "border-l-verde-selva",
+    iconText: "text-verde-selva",
+    pillActive: "bg-verde-selva text-white",
+  },
+  "Conceitos e riscos psicossociais": {
+    bg: "bg-indigo-brand/10",
+    border: "border-indigo-brand/20",
+    accentBorder: "border-l-indigo-brand",
+    iconText: "text-indigo-brand",
+    pillActive: "bg-indigo-brand text-white",
+  },
+  "Implementação na prática": {
+    bg: "bg-fucsia/10",
+    border: "border-fucsia/20",
+    accentBorder: "border-l-fucsia",
+    iconText: "text-fucsia",
+    pillActive: "bg-fucsia text-white",
+  },
+  "Valor e diferenciais do IBRP": {
+    bg: "bg-caqui/10",
+    border: "border-caqui/20",
+    accentBorder: "border-l-caqui",
+    iconText: "text-caqui",
+    pillActive: "bg-caqui text-white",
+  },
+};
+
+const defaultStyle = {
+  bg: "bg-muted/50",
+  border: "border-border",
+  accentBorder: "border-l-primary",
+  iconText: "text-primary",
+  pillActive: "bg-primary text-primary-foreground",
+};
+
+function getCategoryStyle(cat: string) {
+  if (categoryStyles[cat]) return categoryStyles[cat];
+  const lower = cat.toLowerCase();
+  if (lower.includes("mudança")) return categoryStyles["Entenda as mudanças"];
+  if (lower.includes("conceito") || lower.includes("risco")) return categoryStyles["Conceitos e riscos psicossociais"];
+  if (lower.includes("implementa") || lower.includes("prática")) return categoryStyles["Implementação na prática"];
+  if (lower.includes("valor") || lower.includes("diferencia")) return categoryStyles["Valor e diferenciais do IBRP"];
+  return defaultStyle;
+}
+
 function stripHtml(text: string) {
   return text.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
 }
