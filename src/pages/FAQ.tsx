@@ -221,19 +221,22 @@ const FAQ = () => {
               >
                 Todas
               </button>
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setActiveCategory(activeCategory === cat ? null : cat)}
-                  className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
-                    activeCategory === cat
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-muted text-muted-foreground hover:bg-muted/80"
-                  }`}
-                >
-                  {cat}
-                </button>
-              ))}
+              {categories.map((cat) => {
+                const style = getCategoryStyle(cat);
+                return (
+                  <button
+                    key={cat}
+                    onClick={() => setActiveCategory(activeCategory === cat ? null : cat)}
+                    className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
+                      activeCategory === cat
+                        ? style.pillActive
+                        : "bg-muted text-muted-foreground hover:bg-muted/80"
+                    }`}
+                  >
+                    {cat}
+                  </button>
+                );
+              })}
             </div>
           </div>
         )}
@@ -255,7 +258,9 @@ const FAQ = () => {
               </p>
             </div>
           ) : (
-            Object.entries(filtered).map(([category, items]) => (
+            Object.entries(filtered).map(([category, items]) => {
+              const style = getCategoryStyle(category);
+              return (
               <motion.div
                 key={category}
                 initial={{ opacity: 0, y: 12 }}
@@ -264,8 +269,8 @@ const FAQ = () => {
                 className="mb-10 last:mb-0"
               >
                 {categories.length > 1 && (
-                  <h2 className="text-lg font-heading font-semibold text-foreground mb-4 flex items-center gap-2">
-                    <ChevronRight className="w-4 h-4 text-primary" />
+                  <h2 className={`text-lg font-heading font-semibold text-foreground mb-4 flex items-center gap-2`}>
+                    <ChevronRight className={`w-4 h-4 ${style.iconText}`} />
                     {category}
                   </h2>
                 )}
@@ -275,7 +280,7 @@ const FAQ = () => {
                     <AccordionItem
                       key={item._id}
                       value={item._id}
-                      className="border border-border rounded-xl px-5 data-[state=open]:shadow-sm transition-shadow"
+                      className={`border border-l-4 ${style.accentBorder} ${style.border} ${style.bg} rounded-xl px-5 data-[state=open]:shadow-sm transition-shadow hover:shadow-md`}
                     >
                       <AccordionTrigger className="hover:no-underline py-4 text-left">
                         <h3 className="text-base font-medium text-foreground pr-4">
