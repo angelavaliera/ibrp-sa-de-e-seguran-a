@@ -57,6 +57,7 @@ const defaultStyle = {
   bg: "bg-muted/50",
   border: "border-border",
   accentBorder: "border-l-primary",
+  hoverBg: "hover:bg-muted/70",
   iconText: "text-primary",
   pillActive: "bg-primary text-primary-foreground",
 };
