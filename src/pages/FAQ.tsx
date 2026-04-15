@@ -285,7 +285,8 @@ const FAQ = () => {
                     <AccordionItem
                       key={item._id}
                       value={item._id}
-                      className={`border border-l-4 ${style.accentBorder} ${style.border} ${style.bg} rounded-xl px-5 data-[state=open]:shadow-sm transition-shadow hover:shadow-md`}
+                      className={`border border-l-4 ${style.accentBorder} ${style.border} ${style.bg} ${style.hoverBg} rounded-2xl px-5 data-[state=open]:shadow-sm transition-all hover:shadow-lg`}
+                      style={{ boxShadow: "var(--shadow-card)" }}
                     >
                       <AccordionTrigger className="hover:no-underline py-4 text-left">
                         <h3 className="text-base font-medium text-foreground pr-4">
