@@ -180,7 +180,7 @@ const FAQ = () => {
 
       <main className="pt-24 pb-16 min-h-screen">
         {/* Hero */}
-        <section className="bg-gradient-to-b from-muted/60 to-background border-b border-border pb-12 pt-8">
+        <section className="border-b border-border pb-12 pt-8" style={{ background: "linear-gradient(180deg, hsl(36 30% 93%) 0%, hsl(36 30% 93% / 0.5) 80%, hsl(0 0% 100%) 100%)" }}>
           <div className="container mx-auto px-4 max-w-3xl text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -190,8 +190,8 @@ const FAQ = () => {
               <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary/10 mb-5">
                 <HelpCircle className="w-7 h-7 text-primary" />
               </div>
-              <h1 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-3">
-                Perguntas Frequentes
+              <h1 className="text-3xl md:text-4xl font-heading font-bold mb-3">
+                <span className="text-gradient">Perguntas Frequentes</span>
               </h1>
               <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
                 Encontre respostas sobre riscos psicossociais, NR-1, nossos cursos e serviços.
