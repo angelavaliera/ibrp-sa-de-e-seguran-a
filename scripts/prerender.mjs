@@ -87,16 +87,16 @@ async function setupRequestInterception(page) {
       try {
         const response = await fetch(url, {
           method: interceptedRequest.method(),
-          headers: {
-            ...interceptedRequest.headers(),
-            // Remove origin header to avoid CORS issues
-            origin: undefined,
-          },
         });
         const body = await response.text();
         await interceptedRequest.respond({
           status: response.status,
-          contentType: response.headers.get("content-type") || "application/json",
+          headers: {
+            "Content-Type": response.headers.get("content-type") || "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+            "Access-Control-Allow-Headers": "*",
+          },
           body,
         });
       } catch (err) {
