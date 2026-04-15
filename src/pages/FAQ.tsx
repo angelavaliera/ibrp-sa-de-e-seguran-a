@@ -18,11 +18,12 @@ import { getFaqByCategory } from "@/lib/sanity-faq";
 import type { FaqItem } from "@/lib/faq-types";
 
 // Color mapping per category — mirrors DiferenciaisSection palette
-const categoryStyles: Record<string, { bg: string; border: string; accentBorder: string; iconText: string; pillActive: string }> = {
+const categoryStyles: Record<string, { bg: string; border: string; accentBorder: string; hoverBg: string; iconText: string; pillActive: string }> = {
   "Entenda as mudanças": {
     bg: "bg-verde-selva/10",
     border: "border-verde-selva/20",
     accentBorder: "border-l-verde-selva",
+    hoverBg: "hover:bg-verde-selva/15",
     iconText: "text-verde-selva",
     pillActive: "bg-verde-selva text-white",
   },
@@ -30,6 +31,7 @@ const categoryStyles: Record<string, { bg: string; border: string; accentBorder:
     bg: "bg-indigo-brand/10",
     border: "border-indigo-brand/20",
     accentBorder: "border-l-indigo-brand",
+    hoverBg: "hover:bg-indigo-brand/15",
     iconText: "text-indigo-brand",
     pillActive: "bg-indigo-brand text-white",
   },
@@ -37,6 +39,7 @@ const categoryStyles: Record<string, { bg: string; border: string; accentBorder:
     bg: "bg-fucsia/10",
     border: "border-fucsia/20",
     accentBorder: "border-l-fucsia",
+    hoverBg: "hover:bg-fucsia/15",
     iconText: "text-fucsia",
     pillActive: "bg-fucsia text-white",
   },
@@ -44,6 +47,7 @@ const categoryStyles: Record<string, { bg: string; border: string; accentBorder:
     bg: "bg-caqui/10",
     border: "border-caqui/20",
     accentBorder: "border-l-caqui",
+    hoverBg: "hover:bg-caqui/15",
     iconText: "text-caqui",
     pillActive: "bg-caqui text-white",
   },
@@ -53,6 +57,7 @@ const defaultStyle = {
   bg: "bg-muted/50",
   border: "border-border",
   accentBorder: "border-l-primary",
+  hoverBg: "hover:bg-muted/70",
   iconText: "text-primary",
   pillActive: "bg-primary text-primary-foreground",
 };
@@ -280,7 +285,8 @@ const FAQ = () => {
                     <AccordionItem
                       key={item._id}
                       value={item._id}
-                      className={`border border-l-4 ${style.accentBorder} ${style.border} ${style.bg} rounded-xl px-5 data-[state=open]:shadow-sm transition-shadow hover:shadow-md`}
+                      className={`border border-l-4 ${style.accentBorder} ${style.border} ${style.bg} ${style.hoverBg} rounded-2xl px-5 data-[state=open]:shadow-sm transition-all hover:shadow-lg`}
+                      style={{ boxShadow: "var(--shadow-card)" }}
                     >
                       <AccordionTrigger className="hover:no-underline py-4 text-left">
                         <h3 className="text-base font-medium text-foreground pr-4">
