@@ -151,7 +151,7 @@ const ContatoSection = () => {
                     onChange={(e) => setForm({ ...form, nome: e.target.value })}
                     placeholder="Seu nome completo"
                     maxLength={100}
-                    className="bg-background border-border h-9 text-sm"
+                    className="bg-background border-border h-9 text-sm text-foreground"
                   />
                 </div>
                 <div>
@@ -163,7 +163,7 @@ const ContatoSection = () => {
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
                     placeholder="seu@empresa.com"
                     maxLength={255}
-                    className="bg-background border-border h-9 text-sm"
+                    className="bg-background border-border h-9 text-sm text-foreground"
                   />
                 </div>
                 <div>
@@ -175,7 +175,7 @@ const ContatoSection = () => {
                     onChange={(e) => setForm({ ...form, telefone: formatPhone(e.target.value) })}
                     placeholder="(11) 99999-9999"
                     maxLength={15}
-                    className="bg-background border-border h-9 text-sm"
+                    className="bg-background border-border h-9 text-sm text-foreground"
                   />
                 </div>
               </div>
@@ -189,13 +189,13 @@ const ContatoSection = () => {
                     onChange={(e) => setForm({ ...form, empresa: e.target.value })}
                     placeholder="Nome da empresa"
                     maxLength={200}
-                    className="bg-background border-border h-9 text-sm"
+                    className="bg-background border-border h-9 text-sm text-foreground"
                   />
                 </div>
                 <div>
                   <label className="text-xs text-muted-foreground mb-1 block">Interesse Principal *</label>
                   <Select value={form.interesse} onValueChange={(v) => setForm({ ...form, interesse: v })}>
-                    <SelectTrigger className="bg-background border-border h-9 text-sm">
+                    <SelectTrigger className="bg-background border-border h-9 text-sm text-foreground">
                       <SelectValue placeholder="Selecione" />
                     </SelectTrigger>
                     <SelectContent>
@@ -234,13 +234,13 @@ const ContatoSection = () => {
                         onChange={(e) => setForm({ ...form, cargo: e.target.value })}
                         placeholder="Seu cargo"
                         maxLength={100}
-                        className="bg-background border-border h-9 text-sm"
+                        className="bg-background border-border h-9 text-sm text-foreground"
                       />
                     </div>
                     <div>
                       <label className="text-xs text-muted-foreground mb-1 block">Tamanho da Empresa *</label>
                       <Select value={form.tamanho} onValueChange={(v) => setForm({ ...form, tamanho: v })}>
-                        <SelectTrigger className="bg-background border-border h-9 text-sm">
+                        <SelectTrigger className="bg-background border-border h-9 text-sm text-foreground">
                           <SelectValue placeholder="Selecione" />
                         </SelectTrigger>
                         <SelectContent>
@@ -259,7 +259,7 @@ const ContatoSection = () => {
                       value={form.mensagem}
                       onChange={(e) => setForm({ ...form, mensagem: e.target.value })}
                       placeholder="Descreva brevemente o que você precisa..."
-                      className="bg-background border-border min-h-[80px] resize-none text-sm"
+                      className="bg-background border-border min-h-[80px] resize-none text-sm text-foreground"
                       maxLength={1000}
                     />
                   </div>
