@@ -151,7 +151,7 @@ const ContatoSection = () => {
                     onChange={(e) => setForm({ ...form, nome: e.target.value })}
                     placeholder="Seu nome completo"
                     maxLength={100}
-                    className="bg-background border-border h-9 text-sm"
+                    className="bg-background border-border h-9 text-sm text-foreground"
                   />
                 </div>
                 <div>
