@@ -31,7 +31,7 @@ const HeroSection = () => {
           </h1>
 
           <p className="text-lg md:text-xl max-w-2xl mx-auto mb-10 text-foreground/70">
-            Vá além da NR-1. Transforme a saúde mental em{" "}
+            Tenha a NR-1 como aliada do seu negócio. Transformando a saúde mental em{" "}
             <strong className="text-foreground">vantagem competitiva e lucro sustentável</strong>.
           </p>
 
